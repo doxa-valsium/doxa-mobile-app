@@ -1,0 +1,7 @@
+{
+    "editor.wordWrapColumn": 120,
+    "dart.lineLength": 160,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+}
