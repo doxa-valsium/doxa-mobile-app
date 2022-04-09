@@ -1,6 +1,6 @@
 {
     "editor.wordWrapColumn": 180,
-    "dart.lineLength": 160,
+    "dart.lineLength": 180,
     "editor.formatOnType": true,
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
