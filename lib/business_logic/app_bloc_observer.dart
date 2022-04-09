@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:bloc/bloc.dart';
-import 'package:doxa_mobile_app/services/logger.dart';
+import 'package:doxa_mobile_app/logger.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override

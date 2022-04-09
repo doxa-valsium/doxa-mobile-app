@@ -3,11 +3,12 @@ import 'package:doxa_mobile_app/presentation/screens/counter_screen/local_widget
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../environment_config.dart';
+import '../../../services/environment_config_service.dart';
 
 
-class CounterPage extends StatelessWidget {
-  const CounterPage({Key? key}) : super(key: key);
+class CounterScreen extends StatelessWidget {
+  static String route = '/counter-screen';
+  const CounterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +26,12 @@ class CounterView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Counter')),
-      body: const Center(child: CounterText()),
+      body: const SafeArea(child: Center(child: CounterText())),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text('Current Enviroment: ${EnvironmentConfig.currentEnivironment.toString()}'),
+          Text('Current Enviroment: ${EnvironmentConfigService.currentEnivironment.toString()}'),
 
           FloatingActionButton(
             onPressed: () => context.read<CounterCubit>().increment(),

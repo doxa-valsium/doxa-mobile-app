@@ -1,8 +1,8 @@
 enum Environment { mock, production }
 
-class EnvironmentConfig {
+class EnvironmentConfigService {
   static late Environment currentEnivironment;
-  EnvironmentConfig.init(Environment environment) {
+  EnvironmentConfigService.init(Environment environment) {
     currentEnivironment = environment;
   }
 }

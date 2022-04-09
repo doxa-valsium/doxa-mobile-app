@@ -1,16 +1,15 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:doxa_mobile_app/business_logic/app_bloc_observer.dart';
-import 'package:doxa_mobile_app/environment_config.dart';
-import 'package:doxa_mobile_app/services/logger.dart';
+import 'package:doxa_mobile_app/services/app_config_service.dart';
+import 'package:doxa_mobile_app/services/environment_config_service.dart';
+import 'package:doxa_mobile_app/logger.dart';
 import 'package:flutter/widgets.dart';
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder, {Environment environment = Environment.production}) async {
-  FlutterError.onError = (details) {
-    log(details.exceptionAsString(), stackTrace: details.stack);
-  };
+
+  //TODO:Remove this after architecture demo
 
   logger.v("Verbose log");
 
@@ -28,17 +27,22 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder, {Environment environ
 
   logger.wtf("What a terrible failure log");
 
-  EnvironmentConfig.init(environment);
+
+  FlutterError.onError = (details) {
+    logger.e(details.summary, details.exceptionAsString(), details.stack);
+  };
   await runZonedGuarded(
     () async {
       await BlocOverrides.runZoned(
         () async {
           WidgetsFlutterBinding.ensureInitialized();
+          EnvironmentConfigService.init(environment);
+          await AppConfigService.instance.init();
           runApp(await builder());
         },
         blocObserver: AppBlocObserver(),
       );
     },
-    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
+    (error, stackTrace) => logger.e('Exception', error ,stackTrace),
   );
 }

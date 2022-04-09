@@ -1,5 +1,5 @@
 import 'package:doxa_mobile_app/bootstrap.dart';
-import 'package:doxa_mobile_app/environment_config.dart';
+import 'package:doxa_mobile_app/services/environment_config_service.dart';
 
 import 'presentation/app.dart';
 
