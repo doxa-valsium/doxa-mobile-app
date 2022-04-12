@@ -22,6 +22,14 @@ class Playground extends StatelessWidget {
                   Get.toNamed(CounterScreen.route);
                 },
                 child: const Text("Main App")),
+            MaterialButton(
+              onPressed: () {
+                // go to themeTesting.dart
+                Get.toNamed('themeTesting');
+              },
+              child: const Text("Go to Theme Testing"),
+            ),
+            
           ],
         ),
       ),
