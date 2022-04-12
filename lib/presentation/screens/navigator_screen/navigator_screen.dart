@@ -3,11 +3,12 @@ import 'dart:developer';
 import 'package:doxa_mobile_app/business_logic/cubit/bottom_nav_bar_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 import '../../../services/environment_config_service.dart';
 
 class NavigatorScreen extends StatefulWidget {
-  static const String route = '/';
+  static const String route = '/navigator-screen';
   const NavigatorScreen({Key? key}) : super(key: key);
 
   @override
@@ -85,7 +86,7 @@ class _NavigatorScreenState extends State<NavigatorScreen> {
             index: state.currentTab,
             children: state.navigatorPages!
                 .map((page) => Navigator(
-                      key: page.navKey,
+                      key: Get.nestedKey(page.navKey), //page.navKey,
                       onGenerateRoute: page.routes.getRoute,
                     ))
                 .toList(),
