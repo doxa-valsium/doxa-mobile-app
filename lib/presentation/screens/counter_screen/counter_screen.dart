@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../services/environment_config_service.dart';
 
-
 class CounterScreen extends StatelessWidget {
   static String route = '/counter-screen';
   const CounterScreen({Key? key}) : super(key: key);
@@ -32,7 +31,6 @@ class CounterView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Text('Current Enviroment: ${EnvironmentConfigService.currentEnivironment.toString()}'),
-
           FloatingActionButton(
             onPressed: () => context.read<CounterCubit>().increment(),
             child: const Icon(Icons.add),
@@ -47,4 +45,3 @@ class CounterView extends StatelessWidget {
     );
   }
 }
-
