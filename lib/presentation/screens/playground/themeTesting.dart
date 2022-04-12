@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../counter_screen/counter_screen.dart';
-
-class themetest extends StatelessWidget {
+class ThemeTest extends StatelessWidget {
   static String route = '/playground';
-  const themetest({Key? key}) : super(key: key);
+  const ThemeTest({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

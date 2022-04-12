@@ -11,6 +11,8 @@ class Routes {
     GetPage(name: LoginScreen.route, page: () => const LoginScreen()),
     GetPage(name: SignupScreen.route, page: () => const LoginScreen()),
     GetPage(name: SignupScreen.route, page: () => const Playground()),
-    GetPage(name: '/themeTesting', page: () => themetest()),
+
+    // Add Playground Routes Below
+    GetPage(name: '/themeTesting', page: () => ThemeTest()),
   ];
 }
