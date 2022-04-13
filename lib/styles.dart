@@ -95,10 +95,10 @@ const BoxShadow elevation1 = BoxShadow(
 );
 
 const BoxShadow elevation2 = BoxShadow(
-  color: Colors.black12,
-  blurRadius: 0.0,
+  color: Color.fromRGBO(178, 176, 176, 0.25),
+  blurRadius: 53.01,
   spreadRadius: 0.0,
-  offset: Offset(0, 0),
+  offset: Offset(3.25, 14.06),
 );
 
 const BoxShadow elevation3 = BoxShadow(
