@@ -3,7 +3,7 @@ import 'package:doxa_mobile_app/presentation/screens/login_screen/login_screen.d
 import 'package:doxa_mobile_app/presentation/screens/playground/playground.dart';
 import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen.dart';
 import 'package:get/get.dart';
-import 'package:doxa_mobile_app/presentation/screens/playground/themeTesting.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/theme_test.dart';
 
 class Routes {
   static List<GetPage> getRoutes = [
@@ -13,6 +13,6 @@ class Routes {
     GetPage(name: SignupScreen.route, page: () => const Playground()),
 
     // Add Playground Routes Below
-    GetPage(name: '/themeTesting', page: () => ThemeTest()),
+    GetPage(name: ThemeTest.route, page: () => const ThemeTest()),
   ];
 }

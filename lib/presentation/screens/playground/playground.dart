@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/presentation/screens/playground/theme_test.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,8 +25,7 @@ class Playground extends StatelessWidget {
                 child: const Text("Main App")),
             MaterialButton(
               onPressed: () {
-                // go to themeTesting.dart
-                Get.toNamed('themeTesting');
+                Get.toNamed(ThemeTest.route);
               },
               child: const Text("Go to Theme Testing"),
             ),
