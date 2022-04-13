@@ -187,19 +187,19 @@ class ThemeTest extends StatelessWidget {
                 // test all the boxshadows
                 Container(
                   child: Text('elevation1', style: Theme.of(context).textTheme.headline4?.copyWith(color: const Color.fromARGB(255, 0, 0, 0))),
-                  decoration: BoxDecoration(boxShadow: const [elevation1], color: Colors.white, borderRadius: BorderRadius.circular(5)),
+                  decoration: BoxDecoration(boxShadow: Elevation.elevation1, color: Colors.white, borderRadius: BorderRadius.circular(5)),
                   padding: const EdgeInsets.only(left: 10, right: 60, top: 10, bottom: 10),
                   margin: const EdgeInsets.all(10),
                 ),
                 Container(
                   child: Text('elevation2', style: Theme.of(context).textTheme.headline4?.copyWith(color: const Color.fromARGB(255, 0, 0, 0))),
-                  decoration: BoxDecoration(boxShadow: const [elevation2], color: Colors.white, borderRadius: BorderRadius.circular(5)),
+                  decoration: BoxDecoration(boxShadow: Elevation.elevation2, color: Colors.white, borderRadius: BorderRadius.circular(5)),
                   padding: const EdgeInsets.only(left: 10, right: 60, top: 10, bottom: 10),
                   margin: const EdgeInsets.all(10),
                 ),
                 Container(
                   child: Text('elevation3', style: Theme.of(context).textTheme.headline4?.copyWith(color: const Color.fromARGB(255, 0, 0, 0))),
-                  decoration: BoxDecoration(boxShadow: const [elevation3], color: Colors.white, borderRadius: BorderRadius.circular(5)),
+                  decoration: BoxDecoration(boxShadow: Elevation.elevation3, color: Colors.white, borderRadius: BorderRadius.circular(5)),
                   padding: const EdgeInsets.only(left: 10, right: 60, top: 10, bottom: 10),
                   margin: const EdgeInsets.all(10),
                 ),
