@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 
 class ThemeTest extends StatelessWidget {
@@ -169,6 +170,38 @@ class ThemeTest extends StatelessWidget {
                   width: double.infinity,
                   child: Text('onTertiary', style: Theme.of(context).textTheme.headline5?.copyWith(color: const Color.fromARGB(255, 10, 10, 10))),
                   decoration: BoxDecoration(color: Theme.of(context).colorScheme.onTertiary),
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                Center(
+                  child: Text(
+                    'Elevations',
+                    style: Theme.of(context).textTheme.headline5,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                // test all the boxshadows
+                Container(
+                  child: Text('elevation1', style: Theme.of(context).textTheme.headline4?.copyWith(color: const Color.fromARGB(255, 0, 0, 0))),
+                  decoration: BoxDecoration(boxShadow: const [elevation1], color: Colors.white, borderRadius: BorderRadius.circular(5)),
+                  padding: const EdgeInsets.only(left: 10, right: 60, top: 10, bottom: 10),
+                  margin: const EdgeInsets.all(10),
+                ),
+                Container(
+                  child: Text('elevation2', style: Theme.of(context).textTheme.headline4?.copyWith(color: const Color.fromARGB(255, 0, 0, 0))),
+                  decoration: BoxDecoration(boxShadow: const [elevation2], color: Colors.white, borderRadius: BorderRadius.circular(5)),
+                  padding: const EdgeInsets.only(left: 10, right: 60, top: 10, bottom: 10),
+                  margin: const EdgeInsets.all(10),
+                ),
+                Container(
+                  child: Text('elevation3', style: Theme.of(context).textTheme.headline4?.copyWith(color: const Color.fromARGB(255, 0, 0, 0))),
+                  decoration: BoxDecoration(boxShadow: const [elevation3], color: Colors.white, borderRadius: BorderRadius.circular(5)),
+                  padding: const EdgeInsets.only(left: 10, right: 60, top: 10, bottom: 10),
+                  margin: const EdgeInsets.all(10),
                 ),
               ],
             ),

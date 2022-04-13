@@ -85,3 +85,25 @@ ThemeData mainTheme = ThemeData(
         letterSpacing: 0.3,
       ),
     ));
+
+// make a const variable for the BoxShadow
+const BoxShadow elevation1 = BoxShadow(
+  color: Color.fromRGBO(34, 32, 32, 0.25),
+  blurRadius: 54,
+  spreadRadius: 0.0,
+  offset: Offset(3.02, 1.01),
+);
+
+const BoxShadow elevation2 = BoxShadow(
+  color: Color.fromRGBO(178, 176, 176, 0.25),
+  blurRadius: 53.01,
+  spreadRadius: 0.0,
+  offset: Offset(3.25, 14.06),
+);
+
+const BoxShadow elevation3 = BoxShadow(
+  color: Color.fromRGBO(0, 0, 0, 0.25),
+  blurRadius: 4.0,
+  spreadRadius: 0.0,
+  offset: Offset(0.0, 4.0),
+);
