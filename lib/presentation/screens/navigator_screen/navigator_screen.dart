@@ -16,82 +16,88 @@ class NavigatorScreen extends StatefulWidget {
 }
 
 class _NavigatorScreenState extends State<NavigatorScreen> {
+    final BottomNavBarCubit _bloc = BottomNavBarCubit();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BlocConsumer<BottomNavBarCubit, BottomNavBarState>(
-        listener: (context, state) {
-          // TODO: implement listener
-        },
-        builder: (context, state) {
-          return Container(
-            decoration: const BoxDecoration(
-              boxShadow: [
-                BoxShadow(color: Color.fromRGBO(34, 32, 32, 0.25), spreadRadius: 2, blurRadius: 10),
-              ],
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(39),
-                topLeft: Radius.circular(39),
-              ),
-            ),
-            child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(39),
-                topLeft: Radius.circular(39),
-              ),
-              child: SizedBox(
-                height: 80,
-                child: BottomNavigationBar(
-                  currentIndex: state.currentTab,
-                  onTap: (index) {
-                    context.read<BottomNavBarCubit>().changeTab(index);
-                  },
-                  type: BottomNavigationBarType.fixed,
-                  items: state.navigatorPages!.map((page) => BottomNavigationBarItem(icon: Icon(page.navIcon), label: page.navLabel)).toList(),
-
-                  /* const <BottomNavigationBarItem>[
-                          BottomNavigationBarItem(
-                            icon: Icon(Icons.home),
-                            label: 'Home',
-                            backgroundColor: Colors.blue,
-                          ),
-                          BottomNavigationBarItem(
-                            icon: Icon(Icons.work),
-                            backgroundColor: Colors.blue,
-                            label: 'Jobs',
-                          ),
-                          BottomNavigationBarItem(
-                            icon: Icon(Icons.chat),
-                            label: 'Messages',
-                            backgroundColor: Colors.blue,
-                          ),
-                          BottomNavigationBarItem(
-                            icon: Icon(Icons.person),
-                            label: 'Profile',
-                            backgroundColor: Colors.blue,
-                          ),
-                        ],*/
+    return BlocProvider(
+      create: (context) => _bloc,
+      child: Scaffold(
+        bottomNavigationBar: BlocConsumer<BottomNavBarCubit, BottomNavBarState>(
+          listener: (context, state) {
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            return Container(
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(color: Color.fromRGBO(34, 32, 32, 0.25), spreadRadius: 2, blurRadius: 10),
+                ],
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(39),
+                  topLeft: Radius.circular(39),
                 ),
               ),
-            ),
-          );
-        },
-      ),
-      body: BlocConsumer<BottomNavBarCubit, BottomNavBarState>(
-        listener: (context, state) {
-          // TODO: implement listener
-        },
-        builder: (context, state) {
-          return IndexedStack(
-            index: state.currentTab,
-            children: state.navigatorPages!
-                .map((page) => Navigator(
-                      key: Get.nestedKey(page.navKey), //page.navKey,
-                      onGenerateRoute: page.routes.getRoute,
-                    ))
-                .toList(),
-          );
-        },
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(39),
+                  topLeft: Radius.circular(39),
+                ),
+                child: SizedBox(
+                  height: 80,
+                  child: BottomNavigationBar(
+                    currentIndex: state.currentTab,
+                    onTap: (index) {
+                      context.read<BottomNavBarCubit>().changeTab(index);
+                    },
+                    type: BottomNavigationBarType.fixed,
+                    items: state.navigatorPages!.map((page) => BottomNavigationBarItem(icon: Icon(page.navIcon), label: page.navLabel)).toList(),
+
+                    /* const <BottomNavigationBarItem>[
+                              BottomNavigationBarItem(
+                                icon: Icon(Icons.home),
+                                label: 'Home',
+                                backgroundColor: Colors.blue,
+                              ),
+                              BottomNavigationBarItem(
+                                icon: Icon(Icons.work),
+                                backgroundColor: Colors.blue,
+                                label: 'Jobs',
+                              ),
+                              BottomNavigationBarItem(
+                                icon: Icon(Icons.chat),
+                                label: 'Messages',
+                                backgroundColor: Colors.blue,
+                              ),
+                              BottomNavigationBarItem(
+                                icon: Icon(Icons.person),
+                                label: 'Profile',
+                                backgroundColor: Colors.blue,
+                              ),
+                            ],*/
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+        body: BlocConsumer<BottomNavBarCubit, BottomNavBarState>(
+          bloc: _bloc,
+          listener: (context, state) {
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            return IndexedStack(
+              index: state.currentTab,
+              children: state.navigatorPages!
+                  .map((page) => Navigator(
+                        key: page.navKey, //page.navKey,
+                        onGenerateRoute: page.routes.getRoute,
+                      ))
+                  .toList(),
+            );
+          },
+        ),
       ),
     );
   }

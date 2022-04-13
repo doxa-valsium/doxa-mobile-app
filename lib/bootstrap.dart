@@ -9,23 +9,22 @@ import 'package:doxa_mobile_app/logger.dart';
 import 'package:flutter/widgets.dart';
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder, {Environment environment = Environment.production}) async {
-  //TODO:Remove this after architecture demo
 
-  logger.v("Verbose log");
+  // logger.v("Verbose log");
 
-  logger.d("Debug log");
+  // logger.d("Debug log");
 
-  logger.i("Info log");
+  // logger.i("Info log");
 
-  logger.w("Warning log");
+  // logger.w("Warning log");
 
-  try {
-    throw UnimplementedError("Not implemented");
-  } catch (e) {
-    logger.e("Error log", e, StackTrace.current);
-  }
+  // try {
+  //   throw UnimplementedError("Not implemented");
+  // } catch (e) {
+  //   logger.e("Error log", e, StackTrace.current);
+  // }
 
-  logger.wtf("What a terrible failure log");
+  // logger.wtf("What a terrible failure log");
 
   FlutterError.onError = (details) {
     logger.e(details.summary, details.exceptionAsString(), details.stack);
