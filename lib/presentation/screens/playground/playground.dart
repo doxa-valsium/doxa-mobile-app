@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,6 +29,12 @@ class Playground extends StatelessWidget {
                 Get.toNamed(ThemeTest.route);
               },
               child: const Text("Go to Theme Testing"),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Get.toNamed(PulsingButton.route);
+              },
+              child: const Text("Go to Pusling Button"),
             ),
             
           ],
