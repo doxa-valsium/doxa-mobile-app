@@ -4,7 +4,7 @@ import 'package:doxa_mobile_app/presentation/screens/playground/playground.dart'
 import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen.dart';
 import 'package:get/get.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test.dart';
-import 'package:doxa_mobile_app/presentation/screens/playground/pulsingButton.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button.dart';
 
 
 class Routes {

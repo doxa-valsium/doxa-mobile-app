@@ -1,4 +1,4 @@
-import 'package:doxa_mobile_app/presentation/screens/playground/pulsingButton.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
