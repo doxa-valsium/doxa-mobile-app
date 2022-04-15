@@ -17,21 +17,19 @@ class PulsingButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: Expanded(
-                child: AvatarGlow(
-                  glowColor: Theme.of(context).colorScheme.primary,
-                  endRadius: 90.0,
-                  duration: const Duration(milliseconds: 2000),
-                  repeat: true,
-                  showTwoGlows: true,
-                  repeatPauseDuration: const Duration(milliseconds: 100),
-                  child: Container(
-                    width: 100.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      gradient: LinearGradient(
-                          begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Theme.of(context).colorScheme.primary, Theme.of(context).colorScheme.secondary]),
-                    ),
+              child: AvatarGlow(
+                glowColor: Theme.of(context).colorScheme.primary,
+                endRadius: 90.0,
+                duration: const Duration(milliseconds: 2000),
+                repeat: true,
+                showTwoGlows: true,
+                repeatPauseDuration: const Duration(milliseconds: 100),
+                child: Container(
+                  width: 100.0,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient: LinearGradient(
+                        begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Theme.of(context).colorScheme.primary, Theme.of(context).colorScheme.secondary]),
                   ),
                 ),
               ),
