@@ -1,11 +1,11 @@
 import 'package:doxa_mobile_app/presentation/screens/counter_screen/counter_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/login_screen/login_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/components.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground.dart';
 import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen.dart';
 import 'package:get/get.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button.dart';
-
 
 class Routes {
   static List<GetPage> getRoutes = [
@@ -13,10 +13,10 @@ class Routes {
     GetPage(name: LoginScreen.route, page: () => const LoginScreen()),
     GetPage(name: SignupScreen.route, page: () => const LoginScreen()),
     GetPage(name: SignupScreen.route, page: () => const Playground()),
-    GetPage(name: PulsingButton.route, page: () => const PulsingButton()),
-
 
     // Add Playground Routes Below
     GetPage(name: ThemeTest.route, page: () => const ThemeTest()),
+    GetPage(name: PulsingButton.route, page: () => const PulsingButton()),
+    GetPage(name: CustomWidgets.route, page: () => const CustomWidgets()),
   ];
 }

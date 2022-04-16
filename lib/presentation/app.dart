@@ -15,7 +15,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: mainTheme,
+      theme: Styles.mainTheme,
       home: EnvironmentConfigService.currentEnivironment == Environment.mock ? const Playground() : const CounterScreen(),
       getPages: Routes.getRoutes,
       logWriterCallback: (String message, {bool isError = false}) {

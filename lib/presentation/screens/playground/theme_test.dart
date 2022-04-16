@@ -1,5 +1,10 @@
+import 'package:doxa_mobile_app/presentation/widgets/custom_dotted_border.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/bi.dart';
+import 'package:iconify_flutter/icons/ep.dart';
+import 'package:iconify_flutter/icons/teenyicons.dart';
 
 class ThemeTest extends StatelessWidget {
   static String route = '/theme-test';
@@ -187,22 +192,78 @@ class ThemeTest extends StatelessWidget {
                 // test all the boxshadows
                 Container(
                   child: Text('elevation1', style: Theme.of(context).textTheme.headline4?.copyWith(color: const Color.fromARGB(255, 0, 0, 0))),
-                  decoration: BoxDecoration(boxShadow: Elevation.elevation1, color: Colors.white, borderRadius: BorderRadius.circular(5)),
+                  decoration: BoxDecoration(boxShadow: Styles.elevation1, color: Colors.white, borderRadius: BorderRadius.circular(5)),
                   padding: const EdgeInsets.only(left: 10, right: 60, top: 10, bottom: 10),
                   margin: const EdgeInsets.all(10),
                 ),
                 Container(
                   child: Text('elevation2', style: Theme.of(context).textTheme.headline4?.copyWith(color: const Color.fromARGB(255, 0, 0, 0))),
-                  decoration: BoxDecoration(boxShadow: Elevation.elevation2, color: Colors.white, borderRadius: BorderRadius.circular(5)),
+                  decoration: BoxDecoration(boxShadow: Styles.elevation2, color: Colors.white, borderRadius: BorderRadius.circular(5)),
                   padding: const EdgeInsets.only(left: 10, right: 60, top: 10, bottom: 10),
                   margin: const EdgeInsets.all(10),
                 ),
                 Container(
                   child: Text('elevation3', style: Theme.of(context).textTheme.headline4?.copyWith(color: const Color.fromARGB(255, 0, 0, 0))),
-                  decoration: BoxDecoration(boxShadow: Elevation.elevation3, color: Colors.white, borderRadius: BorderRadius.circular(5)),
+                  decoration: BoxDecoration(boxShadow: Styles.elevation3, color: Colors.white, borderRadius: BorderRadius.circular(5)),
                   padding: const EdgeInsets.only(left: 10, right: 60, top: 10, bottom: 10),
                   margin: const EdgeInsets.all(10),
                 ),
+                Center(
+                  child: Text(
+                    'Icons',
+                    style: Theme.of(context).textTheme.headline5,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Wrap(
+                    runSpacing: 10,
+                    spacing: 10,
+                    children: [
+                      const Iconify(Teenyicons.home_alt_outline),
+                      Iconify(
+                        Ep.suitcase,
+                        color: Theme.of(context).colorScheme.primary,
+                        size: 30,
+                      ),
+                      const Iconify(Bi.chat_dots) // widget
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: Text(
+                    'Border',
+                    style: Theme.of(context).textTheme.headline5,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: CustomDottedBorder(
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      color: Theme.of(context).colorScheme.secondary,
+                      child: Center(
+                        child: Text(
+                          'Border',
+                          style: Theme.of(context).textTheme.bodyText1,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                // te
               ],
             ),
           ),
