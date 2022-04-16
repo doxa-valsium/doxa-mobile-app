@@ -1,4 +1,4 @@
-import 'package:doxa_mobile_app/presentation/routes.dart';
+import 'package:doxa_mobile_app/presentation/get_routing.dart';
 import 'package:doxa_mobile_app/presentation/screens/counter_screen/counter_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground.dart';
 import 'package:doxa_mobile_app/styles.dart';
@@ -13,18 +13,10 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: Styles.mainTheme,
       home: EnvironmentConfigService.currentEnivironment == Environment.mock ? const Playground() : const CounterScreen(),
-      getPages: Routes.getRoutes,
-      logWriterCallback: (String message, {bool isError = false}) {
-        if (isError) {
-          logger.e('[GETX] $message', 'GetX Error', StackTrace.current);
-        } else {
-          logger.i('[GETX] $message');
-        }
-      },
     );
   }
 }
