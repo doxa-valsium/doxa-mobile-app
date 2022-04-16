@@ -5,6 +5,8 @@ import 'package:doxa_mobile_app/presentation/screens/home_screen/home_screen.dar
 import 'package:doxa_mobile_app/presentation/screens/jobs_screen/jobs_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/login_screen/login_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/messages_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/navigator_screen/navigator_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen.dart';
 
 @MaterialAutoRouter(
@@ -12,7 +14,7 @@ import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen
   routes: [
     AutoRoute(
       path: '/',
-      // page: NavigatorScreen,
+      page: NavigatorScreen,
       children: [
         AutoRoute(
           path: 'home-screen',
@@ -48,6 +50,11 @@ import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen
           path: 'messages-screen',
           name: 'MessagesRouter',
           page: MessagesScreen,
+        ),
+        AutoRoute(
+          path: 'profile-screen',
+          name: 'ProfileRouter',
+          page: ProfileScreen,
         ),
       ],
     ),

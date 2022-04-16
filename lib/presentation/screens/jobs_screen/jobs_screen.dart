@@ -1,16 +1,19 @@
+import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
 
 class JobsScreen extends StatelessWidget {
-  
   const JobsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: const [
-          Text('Jobs Screen'),
-        ],
+      child: InkWell(
+        onTap: () => context.router.push(const LoginRoute()),
+        child: const Text(
+          'Jobs Screen',
+          style: TextStyle(color: Colors.black),
+        ),
       ),
     );
   }

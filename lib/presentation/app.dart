@@ -1,9 +1,8 @@
-import 'package:doxa_mobile_app/presentation/get_routing.dart';
 import 'package:doxa_mobile_app/presentation/screens/counter_screen/counter_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground.dart';
+import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../logger.dart';
 import '../services/environment_config_service.dart';
@@ -13,10 +12,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final _appRouter = AppRouter();
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: Styles.mainTheme,
-      home: EnvironmentConfigService.currentEnivironment == Environment.mock ? const Playground() : const CounterScreen(),
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
+      // home: EnvironmentConfigService.currentEnivironment == Environment.mock ? const Playground() : const CounterScreen(),
     );
   }
 }
