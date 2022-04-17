@@ -6,6 +6,10 @@ import 'package:doxa_mobile_app/presentation/screens/jobs_screen/jobs_screen.dar
 import 'package:doxa_mobile_app/presentation/screens/login_screen/login_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/messages_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/navigator_screen/navigator_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/custom_widgets_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/playground_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/theme_test_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen.dart';
 
@@ -14,10 +18,26 @@ import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen
   routes: [
     AutoRoute(
       path: '/',
+      page: PlaygroundScreen,
+    ),
+    AutoRoute(
+      path: ThemeTestScreen.route,
+      page: ThemeTestScreen,
+    ),
+    AutoRoute(
+      path: PulsingButtonScreen.route,
+      page: PulsingButtonScreen,
+    ),
+    AutoRoute(
+      path: CustomWidgetsScreen.route,
+      page: CustomWidgetsScreen,
+    ),
+    AutoRoute(
+      path: NavigatorScreen.route,
       page: NavigatorScreen,
       children: [
         AutoRoute(
-          path: 'home-screen',
+          path: HomeScreen.route,
           name: 'HomeRouter',
           page: EmptyRouterPage,
           children: [
@@ -26,13 +46,13 @@ import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen
               page: HomeScreen,
             ),
             AutoRoute(
-              path: 'counter-screen',
+              path: CounterScreen.route,
               page: CounterScreen,
             ),
           ],
         ),
         AutoRoute(
-          path: 'jobs-screen',
+          path: JobsScreen.route,
           name: 'JobsRouter',
           page: EmptyRouterPage,
           children: [
@@ -41,26 +61,22 @@ import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen
               page: JobsScreen,
             ),
             AutoRoute(
-              path: 'login-screen',
+              path: LoginScreen.route,
               page: LoginScreen,
             ),
           ],
         ),
         AutoRoute(
-          path: 'messages-screen',
+          path: MessagesScreen.route,
           name: 'MessagesRouter',
           page: MessagesScreen,
         ),
         AutoRoute(
-          path: 'profile-screen',
+          path: ProfileScreen.route,
           name: 'ProfileRouter',
           page: ProfileScreen,
         ),
       ],
-    ),
-    AutoRoute(
-      path: 'signup-screen',
-      page: SignupScreen,
     ),
   ],
 )

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
 class JobsScreen extends StatelessWidget {
+  static const String route = 'jobs-screen';
+
   const JobsScreen({Key? key}) : super(key: key);
 
   @override

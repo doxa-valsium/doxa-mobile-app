@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const String route = 'home-screen';
+
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -10,6 +12,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: InkWell(
+          //
           onTap: () => context.router.push(
             const CounterRoute(),
           ),

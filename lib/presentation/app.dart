@@ -1,5 +1,5 @@
 import 'package:doxa_mobile_app/presentation/screens/counter_screen/counter_screen.dart';
-import 'package:doxa_mobile_app/presentation/screens/playground/playground.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/playground_screen.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +14,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     final _appRouter = AppRouter();
     return MaterialApp.router(
+      // MaterialApp( )  => Navigator  .push
       debugShowCheckedModeBanner: false,
       theme: Styles.mainTheme,
       routerDelegate: _appRouter.delegate(),
