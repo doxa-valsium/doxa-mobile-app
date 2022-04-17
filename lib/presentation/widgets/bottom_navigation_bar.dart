@@ -2,6 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:doxa_mobile_app/styles.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/bi.dart';
+import 'package:iconify_flutter/icons/ep.dart';
+import 'package:iconify_flutter/icons/gg.dart';
+import 'package:iconify_flutter/icons/ph.dart';
+import 'package:iconify_flutter/icons/teenyicons.dart';
 
 class BottomNavBar extends StatelessWidget {
   final TabsRouter tabsRouter;
@@ -13,10 +20,8 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        boxShadow: [
-          BoxShadow(color: Color.fromRGBO(34, 32, 32, 0.25), spreadRadius: 2, blurRadius: 10),
-        ],
+      decoration: BoxDecoration(
+        boxShadow: Styles.elevation1,
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(39),
           topLeft: Radius.circular(39),
@@ -30,29 +35,38 @@ class BottomNavBar extends StatelessWidget {
         child: SizedBox(
           height: 80,
           child: BottomNavigationBar(
+            //TODO: The Iconfiy Icons are not reacting to the theme defined in the style.dart.
             type: BottomNavigationBarType.fixed,
             currentIndex: tabsRouter.activeIndex,
             onTap: tabsRouter.setActiveIndex,
-            items: const [
+            items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
+                icon: Iconify(
+                  Teenyicons.home_alt_outline,
+                  color: Theme.of(context).colorScheme.primary,
+                  size: 25.0,
+                ),
                 backgroundColor: Colors.blue,
+                label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.work),
-                backgroundColor: Colors.blue,
+                icon: Iconify(
+                  Ep.suitcase,
+                  size: 25.0,
+                ),
                 label: 'Jobs',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.chat),
+                icon: Iconify(
+                  Teenyicons.chat_typing_outline,
+                  size: 25.0,
+                ),
                 label: 'Messages',
-                backgroundColor: Colors.blue,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
+                icon: Iconify(Teenyicons.user_circle_outline, size: 25.0),
                 label: 'Profile',
-                backgroundColor: Colors.blue,
+                //backgroundColor: Colors.blue,
               ),
             ],
           ),
