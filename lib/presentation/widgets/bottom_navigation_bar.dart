@@ -64,7 +64,10 @@ class BottomNavBar extends StatelessWidget {
                 label: 'Messages',
               ),
               BottomNavigationBarItem(
-                icon: Iconify(Teenyicons.user_circle_outline, size: 25.0),
+                icon: Iconify(
+                  Teenyicons.user_circle_outline,
+                  size: 25.0,
+                ),
                 label: 'Profile',
                 //backgroundColor: Colors.blue,
               ),
