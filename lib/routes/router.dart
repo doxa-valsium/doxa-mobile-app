@@ -40,7 +40,7 @@ import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_scre
           page: EmptyRouterPage,
           children: [
             AutoRoute(
-              path: HomeScreen.route,
+              initial: true,
               page: HomeScreen,
             ),
             AutoRoute(
@@ -55,7 +55,7 @@ import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_scre
           page: EmptyRouterPage,
           children: [
             AutoRoute(
-              path: JobsScreen.route,
+              initial:true,
               page: JobsScreen,
             ),
             AutoRoute(

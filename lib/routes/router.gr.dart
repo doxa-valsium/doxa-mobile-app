@@ -99,7 +99,7 @@ class AppRouter extends _i6.RootStackRouter {
                   parent: NavigatorRoute.name,
                   children: [
                     _i6.RouteConfig(HomeRoute.name,
-                        path: 'home-screen', parent: HomeRouter.name),
+                        path: '', parent: HomeRouter.name),
                     _i6.RouteConfig(CounterRoute.name,
                         path: 'counter-screen', parent: HomeRouter.name)
                   ]),
@@ -108,7 +108,7 @@ class AppRouter extends _i6.RootStackRouter {
                   parent: NavigatorRoute.name,
                   children: [
                     _i6.RouteConfig(JobsRoute.name,
-                        path: 'jobs-screen', parent: JobsRouter.name),
+                        path: '', parent: JobsRouter.name),
                     _i6.RouteConfig(LoginRoute.name,
                         path: 'login-screen', parent: JobsRouter.name)
                   ]),
@@ -202,7 +202,7 @@ class ProfileRouter extends _i6.PageRouteInfo<void> {
 /// generated route for
 /// [_i9.HomeScreen]
 class HomeRoute extends _i6.PageRouteInfo<void> {
-  const HomeRoute() : super(HomeRoute.name, path: 'home-screen');
+  const HomeRoute() : super(HomeRoute.name, path: '');
 
   static const String name = 'HomeRoute';
 }
@@ -218,7 +218,7 @@ class CounterRoute extends _i6.PageRouteInfo<void> {
 /// generated route for
 /// [_i11.JobsScreen]
 class JobsRoute extends _i6.PageRouteInfo<void> {
-  const JobsRoute() : super(JobsRoute.name, path: 'jobs-screen');
+  const JobsRoute() : super(JobsRoute.name, path: '');
 
   static const String name = 'JobsRoute';
 }
