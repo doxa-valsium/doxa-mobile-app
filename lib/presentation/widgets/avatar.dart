@@ -9,11 +9,10 @@ class Avatar extends StatelessWidget {
   final double radius;
   final double? minRadius;
   final double? maxRadius;
-  final double? glowRadius;
 
   /// A widget that displays a circle avatar.
   /// If the [avatarUrl] is null, it will display a default avatar.
-  const Avatar({Key? key, this.avatarUrl, this.radius = 24, this.minRadius, this.maxRadius, this.glowRadius}) : super(key: key);
+  const Avatar({Key? key, this.avatarUrl, this.radius = 24, this.minRadius, this.maxRadius}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
