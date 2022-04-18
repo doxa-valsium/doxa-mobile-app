@@ -1,4 +1,3 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/screens/counter_screen/counter_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/home_screen/home_screen.dart';
@@ -11,13 +10,12 @@ import 'package:doxa_mobile_app/presentation/screens/playground/playground_scree
 import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_screen.dart';
-import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Screen,Route',
   routes: [
     AutoRoute(
-      path: '/',
+      path: PlaygroundScreen.route,
       page: PlaygroundScreen,
     ),
     AutoRoute(
@@ -42,7 +40,7 @@ import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen
           page: EmptyRouterPage,
           children: [
             AutoRoute(
-              path: '',
+              path: HomeScreen.route,
               page: HomeScreen,
             ),
             AutoRoute(
@@ -57,7 +55,7 @@ import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen
           page: EmptyRouterPage,
           children: [
             AutoRoute(
-              path: '',
+              path: JobsScreen.route,
               page: JobsScreen,
             ),
             AutoRoute(
