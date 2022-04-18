@@ -13,6 +13,24 @@ class Styles {
     bottomAppBarColor: _colorScheme.background,
     colorScheme: _colorScheme,
     textTheme: _textTheme,
+    bottomNavigationBarTheme: _bottomNavigationBarThemeData,
+  );
+
+  static final BottomNavigationBarThemeData _bottomNavigationBarThemeData = BottomNavigationBarThemeData(
+    backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+    selectedIconTheme: const IconThemeData(
+      color: Color(0xFF0061FE),
+      size: 25,
+    ),
+    selectedLabelStyle: _textTheme.caption,
+    selectedItemColor: _colorScheme.primary,
+    unselectedIconTheme: const IconThemeData(
+      color: Color(0xFFA6A6A6),
+      size: 25,
+    ),
+    unselectedItemColor: _colorScheme.onSurface,
+    unselectedLabelStyle: _textTheme.caption,
+    //showUnselectedLabels: true,
   );
 
   static final TextTheme _textTheme = TextTheme(

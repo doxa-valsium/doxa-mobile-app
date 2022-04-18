@@ -6,9 +6,9 @@ import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/ep.dart';
 import 'package:iconify_flutter/icons/teenyicons.dart';
 
-class ThemeTest extends StatelessWidget {
-  static String route = '/theme-test';
-  const ThemeTest({Key? key}) : super(key: key);
+class ThemeTestScreen extends StatelessWidget {
+  static const String route = 'theme-test-screen';
+  const ThemeTestScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
