@@ -14,6 +14,22 @@ class Styles {
     colorScheme: _colorScheme,
     textTheme: _textTheme,
     bottomNavigationBarTheme: _bottomNavigationBarThemeData,
+    elevatedButtonTheme: _elevatedButtonThemeData,
+    outlinedButtonTheme: _outlinedButtonThemeData,
+  );
+
+  static final OutlinedButtonThemeData _outlinedButtonThemeData = OutlinedButtonThemeData(
+    style: ButtonStyle(
+      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))),
+      side: MaterialStateProperty.all(BorderSide(color: _colorScheme.primary, width: 1)),
+    ),
+  );
+
+  static final ElevatedButtonThemeData _elevatedButtonThemeData = ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(_colorScheme.primary),
+      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))),
+    ),
   );
 
   static final BottomNavigationBarThemeData _bottomNavigationBarThemeData = BottomNavigationBarThemeData(
@@ -115,6 +131,7 @@ class Styles {
     tertiary: Color(0xFFD9FFE1),
     onTertiary: Color(0xFF00CB2D),
   );
+
   static List<BoxShadow> elevation1 = [
     const BoxShadow(
       color: Color.fromRGBO(34, 32, 32, 0.25),
