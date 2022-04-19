@@ -6,6 +6,8 @@ import 'package:doxa_mobile_app/presentation/screens/signup_screen/signup_screen
 import 'package:get/get.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/jobs.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/single_job_opened.dart';
 
 class Routes {
   static List<GetPage> getRoutes = [
@@ -18,5 +20,7 @@ class Routes {
     GetPage(name: ThemeTest.route, page: () => const ThemeTest()),
     GetPage(name: PulsingButton.route, page: () => const PulsingButton()),
     GetPage(name: CustomWidgets.route, page: () => const CustomWidgets()),
+    GetPage(name: JobsPage.route, page: () => const JobsPage()),
+    GetPage(name: SingleJobOpened.route, page: () => const SingleJobOpened()),
   ];
 }

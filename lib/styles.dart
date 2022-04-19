@@ -34,7 +34,7 @@ class Styles {
     headline4: GoogleFonts.poppins(
       fontSize: 34,
       fontWeight: FontWeight.w400,
-      letterSpacing: 0.25,
+      letterSpacing: 0,
     ),
     headline5: GoogleFonts.poppins(
       fontSize: 28,
@@ -48,7 +48,7 @@ class Styles {
     ),
     subtitle1: GoogleFonts.poppins(
       fontSize: 16,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w500,
       letterSpacing: 0.15,
     ),
     subtitle2: GoogleFonts.poppins(
@@ -73,8 +73,13 @@ class Styles {
     ),
     overline: GoogleFonts.poppins(
       fontSize: 10,
-      fontWeight: FontWeight.w300,
-      letterSpacing: 0.3,
+      fontWeight: FontWeight.w400,
+      letterSpacing: -0.2,
+    ),
+    button: GoogleFonts.poppins(
+      fontSize: 15,
+      fontWeight: FontWeight.w600,
+      letterSpacing: 1.25,
     ),
   );
 

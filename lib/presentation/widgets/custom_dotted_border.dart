@@ -11,6 +11,7 @@ class CustomDottedBorder extends StatelessWidget {
     return DottedBorder(
       color: Theme.of(context).colorScheme.onSecondary,
       strokeWidth: 2,
+      radius: const Radius.circular(20),
       dashPattern: const [5, 4],
       borderType: borderType,
       child: child,

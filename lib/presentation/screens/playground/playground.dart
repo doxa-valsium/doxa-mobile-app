@@ -1,6 +1,8 @@
 import 'package:doxa_mobile_app/presentation/screens/playground/components.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/jobs.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/single_job_opened.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -42,6 +44,18 @@ class Playground extends StatelessWidget {
                 Get.toNamed(CustomWidgets.route);
               },
               child: const Text("Custom Widgets"),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Get.toNamed(JobsPage.route);
+              },
+              child: const Text("Go to Jobs"),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Get.toNamed(SingleJobOpened.route);
+              },
+              child: const Text("Go to Single Job Opened"),
             ),
           ],
         ),
