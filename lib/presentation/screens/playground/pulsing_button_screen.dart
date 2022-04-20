@@ -1,9 +1,10 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 
-class PulsingButton extends StatelessWidget {
-  static String route = '/pusling-button';
-  const PulsingButton({Key? key}) : super(key: key);
+class PulsingButtonScreen extends StatelessWidget {
+  static const String route = 'pulsing-button-screen';
+
+  const PulsingButtonScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

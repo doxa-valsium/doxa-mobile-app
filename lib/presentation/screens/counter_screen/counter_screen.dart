@@ -5,7 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../services/environment_config_service.dart';
 
 class CounterScreen extends StatelessWidget {
-  static String route = '/counter-screen';
+  static const String route = 'counter-screen';
+
   const CounterScreen({Key? key}) : super(key: key);
 
   @override

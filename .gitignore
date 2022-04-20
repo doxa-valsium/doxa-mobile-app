@@ -44,3 +44,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+#router generated file
+lib/routes/router.gr.dart
+lib/routes/router.gr.dart

@@ -1,4 +1,4 @@
-# doxa_mobile_app
+# Doxa [![CodeFactor](https://www.codefactor.io/repository/github/doxa-valsium/doxa-mobile-app/badge?s=7c1ab85e2d8168ff0eff2e018882bacb64dc9514)](https://www.codefactor.io/repository/github/doxa-valsium/doxa-mobile-app)
 
 A new Flutter project.
 
