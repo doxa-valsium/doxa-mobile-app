@@ -263,7 +263,60 @@ class ThemeTestScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                // te
+                const SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: Text(
+                    'Elevated Button',
+                    style: Theme.of(context).textTheme.headline5,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: double.maxFinite,
+                    height: 50.0,
+                    child: ElevatedButton(
+                      child: Text(
+                        'BUTTON',
+                        style: Theme.of(context).textTheme.button?.copyWith(color: Colors.white),
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: Text(
+                    'Outlined Buttons',
+                    style: Theme.of(context).textTheme.headline5,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: double.maxFinite,
+                    height: 50.0,
+                    child: OutlinedButton(
+                      onPressed: () {},
+                      child: Text(
+                        'BUTTON',
+                        style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.primary),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
