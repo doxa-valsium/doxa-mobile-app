@@ -9,8 +9,18 @@ import 'package:percent_indicator/percent_indicator.dart';
 class ConversationCard extends StatelessWidget {
   final String candidateName;
   final bool msgTag;
+  final String imageSource;
+  final String jobAppliedFor;
+  final String latestMessage;
 
-  const ConversationCard({Key? key, this.candidateName = "Candidate Name", required this.msgTag}) : super(key: key);
+  const ConversationCard(
+      {Key? key,
+      required this.msgTag,
+      this.candidateName = "Candidate Name",
+      this.imageSource = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQicA4b4KLMCWYETPLWMNk7REyoOOQMMB37wrpcg2Iux4QuqM-j",
+      this.jobAppliedFor = 'Job Name Candidate Matched For',
+      this.latestMessage = 'Hey! Is this job available?'})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +41,11 @@ class ConversationCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Expanded(
+            Expanded(
                 flex: 1,
                 child: Avatar(
                   radius: 28,
-                  avatarUrl: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQicA4b4KLMCWYETPLWMNk7REyoOOQMMB37wrpcg2Iux4QuqM-j",
+                  avatarUrl: imageSource,
                 )),
             Expanded(
               flex: 4,
@@ -52,13 +62,14 @@ class ConversationCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                     Text(
-                      'Job Name Candidate Matched For',
+                      jobAppliedFor,
                       style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.onSurface),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
+                    const Spacer(),
                     Text(
-                      'Hey! Is this job available?',
+                      latestMessage,
                       style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onSurface),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -105,10 +116,16 @@ class ConversationCard extends StatelessWidget {
 }
 
 class MatchChatHead extends StatelessWidget {
-  const MatchChatHead({Key? key, required this.timeleft, this.nameData = "Syed Hasan Faaz Abidi"}) : super(key: key);
+  const MatchChatHead({
+    Key? key,
+    required this.timeleft,
+    this.candidateName = "Ahmed Raza",
+    this.imageSource = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQicA4b4KLMCWYETPLWMNk7REyoOOQMMB37wrpcg2Iux4QuqM-j",
+  }) : super(key: key);
 
   final double timeleft;
-  final String nameData;
+  final String candidateName;
+  final String imageSource;
 
   @override
   Widget build(BuildContext context) {
@@ -123,8 +140,8 @@ class MatchChatHead extends StatelessWidget {
       } else if (timeleft < 0.5) {
         return [
           Theme.of(context).colorScheme.secondary,
-          Theme.of(context).colorScheme.onTertiary,
-          Theme.of(context).colorScheme.onTertiary,
+          const Color.fromARGB(255, 246, 153, 12),
+          const Color.fromARGB(255, 246, 153, 12),
           Theme.of(context).colorScheme.secondary,
         ];
       } else {
@@ -157,12 +174,12 @@ class MatchChatHead extends StatelessWidget {
                 startAngle: 355.0,
                 reverse: true,
                 backgroundColor: Theme.of(context).colorScheme.secondary,
-                center: const Avatar(radius: 24, avatarUrl: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQicA4b4KLMCWYETPLWMNk7REyoOOQMMB37wrpcg2Iux4QuqM-j"),
+                center: Avatar(radius: 24, avatarUrl: imageSource),
                 linearGradient: LinearGradient(colors: colorRing()),
               ),
               const SizedBox(height: 4),
               Text(
-                nameData,
+                candidateName,
                 style: Theme.of(context).textTheme.bodyText2,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
