@@ -3,6 +3,7 @@ import 'package:doxa_mobile_app/presentation/screens/counter_screen/counter_scre
 import 'package:doxa_mobile_app/presentation/screens/home_screen/home_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/jobs_screen/jobs_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/login_screen/login_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/messages_screen/chat_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/messages_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/navigator_screen/navigator_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/custom_widgets_screen.dart';
@@ -31,6 +32,10 @@ import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_scre
       page: CustomWidgetsScreen,
     ),
     AutoRoute(
+      path: ChatScreen.route,
+      page: ChatScreen,
+    ),
+    AutoRoute(
       path: NavigatorScreen.route,
       page: NavigatorScreen,
       children: [
@@ -55,7 +60,7 @@ import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_scre
           page: EmptyRouterPage,
           children: [
             AutoRoute(
-              initial:true,
+              initial: true,
               page: JobsScreen,
             ),
             AutoRoute(
@@ -67,7 +72,13 @@ import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_scre
         AutoRoute(
           path: MessagesScreen.route,
           name: 'MessagesRouter',
-          page: MessagesScreen,
+          page: EmptyRouterPage,
+          children: [
+            AutoRoute(
+              initial: true,
+              page: MessagesScreen,
+            ),
+          ],
         ),
         AutoRoute(
           path: ProfileScreen.route,

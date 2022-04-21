@@ -80,7 +80,7 @@ class MessagesScreen extends StatelessWidget {
                       itemCount: 7,
                       itemBuilder: (context, index) => const Padding(
                         padding: EdgeInsets.symmetric(vertical: 8.0),
-                        child: ConversationCard(),
+                        child: ConversationCard(msgTag: true),
                       ),
                     ),
                   ],

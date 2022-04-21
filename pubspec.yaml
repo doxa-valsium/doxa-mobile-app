@@ -27,6 +27,10 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  file_picker: ^4.5.1
+  open_file: ^3.2.1
+  image_picker: ^0.8.5
+  flutter_chat_ui: ^1.5.8
   percent_indicator: ^4.0.0
   avatar_glow: ^2.0.2
   bloc: ^8.0.3
