@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button_screen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_dotted_border.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
@@ -315,6 +316,41 @@ class ThemeTestScreen extends StatelessWidget {
                         style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.primary),
                       ),
                     ),
+                  ),
+                ),
+                Center(
+                  child: Text(
+                    'Pulsating Buttons',
+                    style: Theme.of(context).textTheme.headline5,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      const PulsatingButton(),
+                      Column(
+                        children: [
+                          const PulsatingButton(
+                            primaryColor: Colors.yellow,
+                            secondaryColor: Colors.red,
+                            glowColor: Colors.green,
+                            discRadius: 45,
+                            animationRadius: 50,
+                          ),
+                          PulsatingButton(
+                            primaryColor: Colors.grey.shade300,
+                            discRadius: 45,
+                            animationRadius: 50,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ],
