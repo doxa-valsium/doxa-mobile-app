@@ -1,5 +1,5 @@
-import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button_screen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_dotted_border.dart';
+import 'package:doxa_mobile_app/presentation/widgets/pulsating_button.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
