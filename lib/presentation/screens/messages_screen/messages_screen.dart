@@ -1,5 +1,7 @@
 import 'dart:math';
-import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets.dart';
+import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/conversation_card.dart';
+import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/match_chat_head.dart';
+import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class MessagesScreen extends StatelessWidget {
