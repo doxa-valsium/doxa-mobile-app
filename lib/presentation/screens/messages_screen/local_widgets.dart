@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:doxa_mobile_app/styles.dart';
@@ -127,36 +126,38 @@ class MatchChatHead extends StatelessWidget {
   final String candidateName;
   final String imageSource;
 
+  List<Color> colorRing() {
+    if (timeleft < 0.45) {
+      return const [
+        Color(0xffFFEAEA),
+        Color(0xffD53030),
+        Color(0xe2D53030),
+        Color(0xffFFEAEA),
+      ];
+    } else if (timeleft < 0.75) {
+      return const [
+        Color(0xffFFEED4),
+        Color(0xffF6990C),
+        Color(0xe2F7B249),
+        Color(0xffFFEED4),
+      ];
+    } else {
+      return const [
+        Color(0xffCCE8F4),
+        Color(0xff30a2d5),
+        Color(0xe230a2d5),
+        Color(0xffCCE8F4),
+      ];
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<Color> colorRing() {
-      if (timeleft < 0.45) {
-        return const [
-          Color(0xffFFEAEA),
-          Color(0xffD53030),
-          Color(0xe2D53030),
-          Color(0xffFFEAEA),
-        ];
-      } else if (timeleft < 0.75) {
-        return const [
-          Color(0xffFFEED4),
-          Color(0xffF6990C),
-          Color(0xe2F7B249),
-          Color(0xffFFEED4),
-        ];
-      } else {
-        return const [
-          Color(0xffCCE8F4),
-          Color(0xff30a2d5),
-          Color(0xe230a2d5),
-          Color(0xffCCE8F4),
-        ];
-      }
-    }
-
     return GestureDetector(
       onTap: () {
-        logger.i("MatchChatHead: onTap");
+        context.router.push(
+          const ChatRoute(),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.only(top: 8.0),
@@ -204,19 +205,18 @@ class SearchBar extends StatelessWidget {
         border: Border.all(color: Theme.of(context).colorScheme.surface),
         borderRadius: BorderRadius.circular(16),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(children: [
-        Flexible(
-          child: TextField(
-            decoration: InputDecoration(
-              hintText: "Search",
-              hintStyle: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.surface),
-              border: InputBorder.none,
-            ),
+      padding: const EdgeInsets.only(left: 16),
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: "Search",
+          hintStyle: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.surface),
+          border: InputBorder.none,
+          suffixIcon: Icon(
+            Icons.search,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
-        Icon(Icons.search, color: Theme.of(context).colorScheme.surface),
-      ]),
+      ),
     );
   }
 }
