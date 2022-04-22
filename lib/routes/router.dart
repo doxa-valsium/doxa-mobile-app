@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/screens/counter_screen/counter_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/home_screen/home_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/jobs_screen/jobs_screen.dart';
-import 'package:doxa_mobile_app/presentation/screens/login_screen/login_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/messages_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/navigator_screen/navigator_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/custom_widgets_screen.dart';
@@ -10,6 +9,7 @@ import 'package:doxa_mobile_app/presentation/screens/playground/playground_scree
 import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_job_screen.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Screen,Route',
@@ -55,12 +55,12 @@ import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_scre
           page: EmptyRouterPage,
           children: [
             AutoRoute(
-              initial:true,
+              initial: true,
               page: JobsScreen,
             ),
             AutoRoute(
-              path: LoginScreen.route,
-              page: LoginScreen,
+              path: SingleJobScreen.route,
+              page: SingleJobScreen,
             ),
           ],
         ),

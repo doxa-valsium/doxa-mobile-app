@@ -142,7 +142,6 @@ class Styles {
       color: Color.fromRGBO(34, 32, 32, 0.25),
       blurRadius: 54,
       spreadRadius: 0.0,
-      offset: Offset(3.02, 1.01),
     )
   ];
 

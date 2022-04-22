@@ -16,7 +16,6 @@ import 'package:flutter/material.dart' as _i13;
 import '../presentation/screens/counter_screen/counter_screen.dart' as _i10;
 import '../presentation/screens/home_screen/home_screen.dart' as _i9;
 import '../presentation/screens/jobs_screen/jobs_screen.dart' as _i11;
-import '../presentation/screens/login_screen/login_screen.dart' as _i12;
 import '../presentation/screens/messages_screen/messages_screen.dart' as _i7;
 import '../presentation/screens/navigator_screen/navigator_screen.dart' as _i5;
 import '../presentation/screens/playground/custom_widgets_screen.dart' as _i4;
@@ -24,6 +23,8 @@ import '../presentation/screens/playground/playground_screen.dart' as _i1;
 import '../presentation/screens/playground/pulsing_button_screen.dart' as _i3;
 import '../presentation/screens/playground/theme_test_screen.dart' as _i2;
 import '../presentation/screens/profile_screen/profile_screen.dart' as _i8;
+import '../presentation/screens/single_job_screen/single_job_screen.dart'
+    as _i12;
 
 class AppRouter extends _i6.RootStackRouter {
   AppRouter([_i13.GlobalKey<_i13.NavigatorState>? navigatorKey])
@@ -79,9 +80,9 @@ class AppRouter extends _i6.RootStackRouter {
       return _i6.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i11.JobsScreen());
     },
-    LoginRoute.name: (routeData) {
+    SingleJobRoute.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i12.LoginScreen());
+          routeData: routeData, child: const _i12.SingleJobScreen());
     }
   };
 
@@ -109,8 +110,8 @@ class AppRouter extends _i6.RootStackRouter {
                   children: [
                     _i6.RouteConfig(JobsRoute.name,
                         path: '', parent: JobsRouter.name),
-                    _i6.RouteConfig(LoginRoute.name,
-                        path: 'login-screen', parent: JobsRouter.name)
+                    _i6.RouteConfig(SingleJobRoute.name,
+                        path: 'single-job-screen', parent: JobsRouter.name)
                   ]),
               _i6.RouteConfig(MessagesRouter.name,
                   path: 'messages-screen', parent: NavigatorRoute.name),
@@ -224,9 +225,10 @@ class JobsRoute extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i12.LoginScreen]
-class LoginRoute extends _i6.PageRouteInfo<void> {
-  const LoginRoute() : super(LoginRoute.name, path: 'login-screen');
+/// [_i12.SingleJobScreen]
+class SingleJobRoute extends _i6.PageRouteInfo<void> {
+  const SingleJobRoute()
+      : super(SingleJobRoute.name, path: 'single-job-screen');
 
-  static const String name = 'LoginRoute';
+  static const String name = 'SingleJobRoute';
 }
