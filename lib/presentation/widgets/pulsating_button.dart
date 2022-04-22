@@ -13,8 +13,8 @@ class PulsatingButton extends StatelessWidget {
   const PulsatingButton({
     this.animationRadius = 100,
     this.discRadius = 90,
-    this.primaryColor = const Color(0xFF0061FE),
-    this.secondaryColor = const Color(0xFFDFEBFF),
+    required this.primaryColor,
+    required this.secondaryColor,
     this.glowColor = Colors.blue,
     this.animationDuration = const Duration(milliseconds: 2000),
     this.delay = const Duration(milliseconds: 100),

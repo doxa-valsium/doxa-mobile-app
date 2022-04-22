@@ -333,7 +333,10 @@ class ThemeTestScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const PulsatingButton(),
+                      PulsatingButton(
+                        primaryColor: Theme.of(context).colorScheme.primary,
+                        secondaryColor: Theme.of(context).colorScheme.secondary,
+                      ),
                       Column(
                         children: [
                           const PulsatingButton(
@@ -345,6 +348,7 @@ class ThemeTestScreen extends StatelessWidget {
                           ),
                           PulsatingButton(
                             primaryColor: Colors.grey.shade300,
+                            secondaryColor: Colors.grey.shade600,
                             discRadius: 45,
                             animationRadius: 50,
                           ),

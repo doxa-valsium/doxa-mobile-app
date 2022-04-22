@@ -15,9 +15,12 @@ class PulsingButtonScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Center(
-              child: PulsatingButton(),
+              child: PulsatingButton(
+                primaryColor: Theme.of(context).colorScheme.primary,
+                secondaryColor: Theme.of(context).colorScheme.secondary,
+              ),
             ),
           ],
         ),
@@ -25,4 +28,3 @@ class PulsingButtonScreen extends StatelessWidget {
     );
   }
 }
-
