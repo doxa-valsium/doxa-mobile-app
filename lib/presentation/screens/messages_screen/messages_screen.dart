@@ -41,7 +41,7 @@ class MessagesScreen extends StatelessWidget {
               ),
               SizedBox(
                 width: double.infinity,
-                height: 120,
+                height: 100,
                 child: ListView.builder(
                   primary: false,
                   shrinkWrap: true,
@@ -80,7 +80,7 @@ class MessagesScreen extends StatelessWidget {
                       itemCount: 7,
                       itemBuilder: (context, index) => const Padding(
                         padding: EdgeInsets.symmetric(vertical: 8.0),
-                        child: ConversationCard(msgTag: true),
+                        child: ConversationCard(msgTag: false),
                       ),
                     ),
                   ],

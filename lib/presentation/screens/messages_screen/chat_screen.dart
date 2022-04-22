@@ -96,6 +96,7 @@ class _ChatScreenState extends State<ChatScreen> {
         leading: IconButton(
           onPressed: () => context.router.pop(),
           icon: const Icon(Icons.arrow_back_ios_new),
+          highlightColor: Colors.transparent,
         ),
         iconTheme: const IconThemeData(
           color: Colors.black,

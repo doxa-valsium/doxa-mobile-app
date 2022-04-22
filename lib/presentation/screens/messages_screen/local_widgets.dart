@@ -130,26 +130,26 @@ class MatchChatHead extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Color> colorRing() {
-      if (timeleft < 0.25) {
-        return [
-          Theme.of(context).colorScheme.secondary,
-          Theme.of(context).colorScheme.onError,
-          Theme.of(context).colorScheme.onError,
-          Theme.of(context).colorScheme.secondary,
+      if (timeleft < 0.45) {
+        return const [
+          Color(0xffFFEAEA),
+          Color(0xffD53030),
+          Color(0xe2D53030),
+          Color(0xffFFEAEA),
         ];
-      } else if (timeleft < 0.5) {
-        return [
-          Theme.of(context).colorScheme.secondary,
-          const Color.fromARGB(255, 246, 153, 12),
-          const Color.fromARGB(255, 246, 153, 12),
-          Theme.of(context).colorScheme.secondary,
+      } else if (timeleft < 0.75) {
+        return const [
+          Color(0xffFFEED4),
+          Color(0xffF6990C),
+          Color(0xe2F7B249),
+          Color(0xffFFEED4),
         ];
       } else {
-        return [
-          Theme.of(context).colorScheme.secondary,
-          Theme.of(context).colorScheme.primary,
-          Theme.of(context).colorScheme.primary,
-          Theme.of(context).colorScheme.secondary,
+        return const [
+          Color(0xffCCE8F4),
+          Color(0xff30a2d5),
+          Color(0xe230a2d5),
+          Color(0xffCCE8F4),
         ];
       }
     }
