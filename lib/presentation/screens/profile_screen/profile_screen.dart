@@ -13,7 +13,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       appBar: AppBar(
-        elevation: 0.0,
+        elevation: 0.0, //asda
         title: Padding(
           padding: const EdgeInsets.only(left: 8.0, top: 16.0),
           child: Text(
@@ -93,7 +93,7 @@ class ProfileScreen extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
+                        // mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
                             child: ProfileMenuItem(
