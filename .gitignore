@@ -48,4 +48,3 @@ app.*.map.json
 #router generated file
 lib/routes/router.gr.dart
 lib/routes/router.gr.dart
-*.dart
