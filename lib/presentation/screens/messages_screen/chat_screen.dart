@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:auto_route/auto_route.dart';
-import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/buttom_widget.dart';
+import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/bottom_widget.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
@@ -110,7 +110,7 @@ class _ChatScreenState extends State<ChatScreen> {
           sendButtonVisibilityMode: SendButtonVisibilityMode.always,
           customBottomWidget: Padding(
             padding:  const EdgeInsets.all(20.0),
-            child:  ButtomWidget(onPressed: _handleSendPressed),
+            child:  BottomWidget(onPressed: _handleSendPressed),
           ),
         ),
       ),

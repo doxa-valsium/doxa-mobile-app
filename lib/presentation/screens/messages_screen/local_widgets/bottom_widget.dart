@@ -2,8 +2,8 @@ import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
-class ButtomWidget extends StatelessWidget {
-  const ButtomWidget({
+class BottomWidget extends StatelessWidget {
+  const BottomWidget({
     required this.onPressed,
     Key? key,
   }) : super(key: key);
