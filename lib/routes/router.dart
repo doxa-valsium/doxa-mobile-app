@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/screens/counter_screen/counter_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/home_screen/home_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/jobs_screen/jobs_screen.dart';
-import 'package:doxa_mobile_app/presentation/screens/login_screen/login_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/chat_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/messages_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/navigator_screen/navigator_screen.dart';
