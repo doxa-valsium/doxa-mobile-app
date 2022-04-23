@@ -29,21 +29,25 @@ class JobsScreen extends StatelessWidget {
                 borderType: BorderType.RRect,
                 child: Container(
                   child: Center(
-                      child: Padding(
-                    padding: const EdgeInsets.only(top: 28, bottom: 22.82),
-                    child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      const Iconify(
-                        Mdi.plus_circle_outline,
-                        size: 56,
-                        color: Color(0xFF0061FE),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 28, bottom: 22.82),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Iconify(
+                            Mdi.plus_circle_outline,
+                            size: 56,
+                            color: Color(0xFF0061FE),
+                          ),
+                          const SizedBox(height: 9.8),
+                          Text(
+                            'Upload a Job',
+                            style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.primary),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 9.8),
-                      Text(
-                        'Upload a Job',
-                        style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.primary),
-                      ),
-                    ]),
-                  )),
+                    ),
+                  ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: Theme.of(context).colorScheme.secondary,
