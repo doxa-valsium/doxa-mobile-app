@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:auto_route/auto_route.dart';
+import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/buttom_widget.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
-import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
@@ -108,48 +108,9 @@ class _ChatScreenState extends State<ChatScreen> {
           onSendPressed: _handleSendPressed,
           user: _user,
           sendButtonVisibilityMode: SendButtonVisibilityMode.always,
-          customBottomWidget: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Container(
-              height: 60,
-              decoration: BoxDecoration(
-                boxShadow: Styles.elevation1,
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              padding: const EdgeInsets.fromLTRB(20, 0, 8, 0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Type something.',
-                        hintStyle: Theme.of(context).textTheme.bodyText2?.copyWith(
-                              color: Colors.grey,
-                            ),
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 48,
-                    width: 56,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
-                      borderRadius: BorderRadius.circular(16),
-                      boxShadow: Styles.elevation1,
-                    ),
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.send,
-                        color: Theme.of(context).colorScheme.onPrimary,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          customBottomWidget: const Padding(
+            padding:  EdgeInsets.all(20.0),
+            child:  ButtomWidget(),
           ),
         ),
       ),
