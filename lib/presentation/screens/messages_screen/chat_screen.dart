@@ -62,15 +62,11 @@ class _ChatScreenState extends State<ChatScreen> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Expanded(
-              flex: 1,
-              child: Avatar(
-                radius: 32,
-                avatarUrl: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQicA4b4KLMCWYETPLWMNk7REyoOOQMMB37wrpcg2Iux4QuqM-j",
-              ),
+            const Avatar(
+              radius: 32,
+              avatarUrl: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQicA4b4KLMCWYETPLWMNk7REyoOOQMMB37wrpcg2Iux4QuqM-j",
             ),
             Expanded(
-              flex: 4,
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Column(
@@ -109,8 +105,8 @@ class _ChatScreenState extends State<ChatScreen> {
           user: _user,
           sendButtonVisibilityMode: SendButtonVisibilityMode.always,
           customBottomWidget: Padding(
-            padding:  const EdgeInsets.all(20.0),
-            child:  BottomWidget(onPressed: _handleSendPressed),
+            padding: const EdgeInsets.all(20.0),
+            child: BottomWidget(onPressed: _handleSendPressed),
           ),
         ),
       ),
