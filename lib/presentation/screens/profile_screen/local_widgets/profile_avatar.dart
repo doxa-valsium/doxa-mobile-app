@@ -2,9 +2,9 @@ import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:flutter/material.dart';
 
 class ProfileAvatar extends StatelessWidget {
-  const ProfileAvatar({Key? key, required this.avatarUrl}) : super(key: key);
+  const ProfileAvatar({Key? key, this.avatarUrl}) : super(key: key);
 
-  final String avatarUrl;
+  final String? avatarUrl;
 
   @override
   Widget build(BuildContext context) {
