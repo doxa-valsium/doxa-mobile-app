@@ -11,6 +11,7 @@ import 'package:doxa_mobile_app/presentation/screens/playground/playground_scree
 import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_job_screen.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Screen,Route',
@@ -64,8 +65,8 @@ import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_scre
               page: JobsScreen,
             ),
             AutoRoute(
-              path: LoginScreen.route,
-              page: LoginScreen,
+              path: SingleJobScreen.route,
+              page: SingleJobScreen,
             ),
           ],
         ),

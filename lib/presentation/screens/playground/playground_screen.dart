@@ -40,6 +40,19 @@ class PlaygroundScreen extends StatelessWidget {
               },
               child: const Text("Custom Widgets"),
             ),
+            MaterialButton(
+              onPressed: () {
+                context.router.push(const CustomWidgetsRoute());
+                // Get.toNamed(JobsPage.route);
+              },
+              child: const Text("Go to Jobs"),
+            ),
+            MaterialButton(
+              onPressed: () {
+                // Get.toNamed(SingleJobOpened.route);
+              },
+              child: const Text("Go to Single Job Opened"),
+            ),
           ],
         ),
       ),
