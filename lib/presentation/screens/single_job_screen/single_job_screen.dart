@@ -1,8 +1,8 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:doxa_mobile_app/presentation/widgets/costum_extended_card.dart';
+import 'package:doxa_mobile_app/presentation/widgets/custom_extended_card.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_dotted_border.dart';
-import 'package:doxa_mobile_app/presentation/widgets/single_job_card.dart';
+import 'package:doxa_mobile_app/presentation/screens/single_job_screen/local_widgets/single_job_card.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ic.dart';
