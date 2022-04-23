@@ -1,10 +1,14 @@
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 class ButtomWidget extends StatelessWidget {
   const ButtomWidget({
+    required this.onPressed,
     Key? key,
   }) : super(key: key);
+
+  final void Function(types.PartialText) onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +46,7 @@ class ButtomWidget extends StatelessWidget {
                 Icons.send,
                 color: Theme.of(context).colorScheme.onPrimary,
               ),
-              onPressed: () {},
+              onPressed: () => onPressed(const types.PartialText(text: 'hello')),
             ),
           ),
         ],

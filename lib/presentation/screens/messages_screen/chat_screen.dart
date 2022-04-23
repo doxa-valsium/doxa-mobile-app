@@ -108,9 +108,9 @@ class _ChatScreenState extends State<ChatScreen> {
           onSendPressed: _handleSendPressed,
           user: _user,
           sendButtonVisibilityMode: SendButtonVisibilityMode.always,
-          customBottomWidget: const Padding(
-            padding:  EdgeInsets.all(20.0),
-            child:  ButtomWidget(),
+          customBottomWidget: Padding(
+            padding:  const EdgeInsets.all(20.0),
+            child:  ButtomWidget(onPressed: _handleSendPressed),
           ),
         ),
       ),
