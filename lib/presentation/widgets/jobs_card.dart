@@ -122,7 +122,7 @@ class JobsCard extends StatelessWidget {
           if (isActive == false)
             const Iconify(
               Mdi.briefcase_edit_outline,
-              size: 25,
+              size: 18,
               color: Color(0xFF0061FE),
             ),
           SizedBox(width: 10),

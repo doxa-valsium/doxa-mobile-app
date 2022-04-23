@@ -56,7 +56,7 @@ class SingleJobCard extends StatelessWidget {
           if (newMessage)
             Iconify(
               Mdi.message_processing,
-              size: 25,
+              size: 16,
               color: Theme.of(context).colorScheme.onSecondaryContainer,
             ),
           if (newMessage) const SizedBox(width: 10),
@@ -69,7 +69,7 @@ class SingleJobCard extends StatelessWidget {
           if (newMessage == false)
             const Iconify(
               Bx.check_double,
-              size: 25,
+              size: 16,
               color: Color(0xFF0061FE),
             ),
           const SizedBox(width: 10),

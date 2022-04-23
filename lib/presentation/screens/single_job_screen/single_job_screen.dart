@@ -94,52 +94,6 @@ class SingleJobScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline6?.copyWith(color: Colors.black),
               ),
               const SizedBox(height: 9),
-              // Row(
-              //   children: const [
-              //     SingleJobCard(
-              //       newMessage: true,
-              //       buttonType1: ButtonType.primary,
-              //     ),
-              //     SizedBox(width: 8),
-              //     SingleJobCard(
-              //       newMessage: true,
-              //       buttonType1: ButtonType.primary,
-              //     ),
-              //   ],
-              // ),
-              // const SizedBox(height: 9),
-              // Row(
-              //   children: const [
-              //     OpenedJobBox(
-              //       name: "Ahmed Raza",
-              //       company: "Current role @ Current Company",
-              //       url: "https://picsum.photos/200",
-              //     ),
-              //     SizedBox(width: 8),
-              //     OpenedJobBox(
-              //       name: "Ahmed Raza",
-              //       company: "Current role @ Current Company",
-              //       url: 'https://picsum.photos/200',
-              //     ),
-              //   ],
-              // ),
-              // const SizedBox(height: 9),
-              // Row(
-              //   children: const [
-              //     OpenedJobBox(
-              //       name: "Ahmed Raza",
-              //       company: "Current role @ Current Company",
-              //       url: "https://picsum.photos/200",
-              //     ),
-              //     SizedBox(width: 8),
-              //     OpenedJobBox(
-              //       name: "Ahmed Raza",
-              //       company: "Current role @ Current Company",
-              //       url: 'https://picsum.photos/200',
-              //     ),
-              //   ],
-              // ),
-              // const SizedBox(height: 9),
               GridView(
                 clipBehavior: Clip.none,
                 shrinkWrap: true,
