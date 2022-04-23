@@ -1,4 +1,5 @@
 import 'package:doxa_mobile_app/presentation/widgets/custom_dotted_border.dart';
+import 'package:doxa_mobile_app/presentation/widgets/pulsating_button.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -315,6 +316,45 @@ class ThemeTestScreen extends StatelessWidget {
                         style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.primary),
                       ),
                     ),
+                  ),
+                ),
+                Center(
+                  child: Text(
+                    'Pulsating Buttons',
+                    style: Theme.of(context).textTheme.headline5,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      PulsatingButton(
+                        primaryColor: Theme.of(context).colorScheme.primary,
+                        secondaryColor: Theme.of(context).colorScheme.secondary,
+                      ),
+                      Column(
+                        children: [
+                          const PulsatingButton(
+                            primaryColor: Colors.yellow,
+                            secondaryColor: Colors.red,
+                            glowColor: Colors.green,
+                            discRadius: 45,
+                            animationRadius: 50,
+                          ),
+                          PulsatingButton(
+                            primaryColor: Colors.grey.shade300,
+                            secondaryColor: Colors.grey.shade600,
+                            discRadius: 45,
+                            animationRadius: 50,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ],

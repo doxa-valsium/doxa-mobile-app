@@ -27,6 +27,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter_chat_ui: ^1.5.8
+  percent_indicator: ^4.0.0
   avatar_glow: ^2.0.2
   bloc: ^8.0.3
   cupertino_icons: ^1.0.2
