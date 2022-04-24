@@ -28,7 +28,7 @@ class CustomExtendedCard extends StatelessWidget {
             BoxDecoration(boxShadow: Styles.elevation3, color: Colors.white, borderRadius: const BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
         height: upperBoxHeight,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(12.0),
           child: childTopCard,
         ),
       ),

@@ -21,6 +21,7 @@ class SingleJobCard extends StatelessWidget {
       lowerBoxHeight: 40,
       buttonType: buttonType1,
       childTopCard: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Align(
             alignment: Alignment.centerLeft,
@@ -55,44 +56,45 @@ class SingleJobCard extends StatelessWidget {
       ),
       childBottomCard: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (newMessage)
-            Iconify(
-              Mdi.message_processing,
-              size: 16,
-              color: Theme.of(context).colorScheme.onSecondaryContainer,
-            ),
-          if (newMessage) const SizedBox(width: 10),
-          if (newMessage)
-            SizedBox(
-              width: 100,
-              child: Text(
-                'MESSAGE',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.background),
-              ),
-            ),
-          if (newMessage == false)
-            const Iconify(
-              Bx.check_double,
-              size: 16,
-              color: Color(0xFF0061FE),
-            ),
-          const SizedBox(width: 10),
-          if (newMessage == false)
-            SizedBox(
-              width: 100,
-              child: Text(
-                'VIEW CONVERSATION',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.primary),
-              ),
-            ),
-        ],
+        children: newMessage
+            ? [
+                Flexible(
+                  child: Iconify(
+                    Mdi.message_processing,
+                    size: 16,
+                    color: Theme.of(context).colorScheme.onSecondaryContainer,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Flexible(
+                  child: Text(
+                    'MESSAGE',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.background),
+                  ),
+                ),
+              ]
+            : [
+                const Flexible(
+                  child: Iconify(
+                    Bx.check_double,
+                    size: 16,
+                    color: Color(0xFF0061FE),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Flexible(
+                  child: Text(
+                    'VIEW CONVERSATION',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.primary),
+                  ),
+                ),
+              ],
       ),
     );
   }
