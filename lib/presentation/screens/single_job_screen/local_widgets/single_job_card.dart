@@ -41,12 +41,15 @@ class SingleJobCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Text(
-            "Software Engineer @ Current Company",
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.left,
-            style: Theme.of(context).textTheme.overline?.copyWith(color: const Color(0xFF737B7D)),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "Software Engineer @ Current Company",
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.left,
+              style: Theme.of(context).textTheme.overline?.copyWith(color: const Color(0xFF737B7D)),
+            ),
           ),
         ],
       ),
@@ -61,10 +64,15 @@ class SingleJobCard extends StatelessWidget {
             ),
           if (newMessage) const SizedBox(width: 10),
           if (newMessage)
-            Text(
-              'MESSAGE',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.background),
+            SizedBox(
+              width: 100,
+              child: Text(
+                'MESSAGE',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.background),
+              ),
             ),
           if (newMessage == false)
             const Iconify(
@@ -74,10 +82,15 @@ class SingleJobCard extends StatelessWidget {
             ),
           const SizedBox(width: 10),
           if (newMessage == false)
-            Text(
-              'VIEW CONVERSATION',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.primary),
+            SizedBox(
+              width: 100,
+              child: Text(
+                'VIEW CONVERSATION',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.primary),
+              ),
             ),
         ],
       ),

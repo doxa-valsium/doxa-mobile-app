@@ -100,9 +100,10 @@ class SingleJobScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 0.8,
+                  mainAxisExtent: 200,
                   crossAxisSpacing: 8,
                   mainAxisSpacing: 20,
+                  
                 ),
                 children: const [
                   SingleJobCard(newMessage: true, buttonType1: ButtonType.primary),
