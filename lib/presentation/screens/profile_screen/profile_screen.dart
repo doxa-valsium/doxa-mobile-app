@@ -1,61 +1,12 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
-import 'package:doxa_mobile_app/presentation/screens/profile_screen/local_widgets/profile_avatar.dart';
+import 'package:doxa_mobile_app/presentation/screens/profile_screen/local_widgets/profile_stack_handler.dart';
+import 'package:doxa_mobile_app/routes/router.gr.dart';
+import 'package:flutter/material.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/local_widgets/profile_menu_item.dart';
-import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
-
-import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-
-class OraanLogoContainer extends StatelessWidget {
-  final Widget child;
-
-  const OraanLogoContainer({required this.child});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 20,
-        ),
-        Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Container(
-                padding: EdgeInsets.only(top: 44, left: 20, right: 20, bottom: 20),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(8),
-                  boxShadow: [BoxShadow(blurRadius: 30, color: Colors.grey[300]!, offset: Offset(0, 12))],
-                  border: Border.all(color: Theme.of(context).primaryColor, width: 2),
-                ),
-                child: child),
-            Positioned.fill(
-              top: -40,
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: Container(
-                  padding: EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Theme.of(context).primaryColor, width: 2.0),
-                  ),
-                  child: Avatar(
-                    avatarUrl:
-                        'https://1.bp.blogspot.com/-W_7SWMP5Rag/YTuyV5XvtUI/AAAAAAAAuUQ/hm6bYcvlFgQqgv1uosog6K8y0dC9eglTQCLcBGAsYHQ/s880/Best-Profile-Pic-For-Boys%2B%25281%2529.jpg',
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-}
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:iconify_flutter/icons/teenyicons.dart';
+import 'package:iconify_flutter/icons/uiw.dart';
+import 'package:auto_route/auto_route.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const String route = 'profile-screen';
@@ -65,84 +16,133 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        title: Padding(
-          padding: const EdgeInsets.only(left: 8.0, top: 16.0),
-          child: Text(
-            'Profile',
-            style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
-          ),
-        ),
-        automaticallyImplyLeading: false,
-        backgroundColor: Theme.of(context).colorScheme.background,
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.only(top: 56.0, left: 16.0, right: 16.0),
-          child: Column(
-            children: [
-              OraanLogoContainer(
-                child: Column(children: [
-                  Container(
-                    height: 100,
-                    width: double.infinity,
-                    color: Colors.green,
+        extendBody: true,
+        body: SafeArea(
+          child: NestedScrollView(
+            floatHeaderSlivers: true,
+            headerSliverBuilder: (context, innerBoxIsScrolled) => [
+              SliverAppBar(
+                floating: true,
+                snap: true,
+                elevation: 0.0,
+                title: Padding(
+                  padding: const EdgeInsets.only(left: 8.0, top: 16.0),
+                  child: Text(
+                    'Profile',
+                    style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
                   ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Container(
-                    height: 200,
-                    width: double.infinity,
-                    color: Colors.green,
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Container(
-                    height: 200,
-                    width: double.infinity,
-                    color: Colors.green,
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                ]),
-              )
-              // Stack(
-              //   children: [
-              //     Container(
-              //       height: 200,
-              //       width: double.infinity,
-              //       color: Colors.green,
-              //     ),
-              //     Container(
-              //       height: 200,
-              //       width: double.infinity,
-              //       color: Colors.green,
-              //     ),
-              //     Container(
-              //       height: 200,
-              //       width: double.infinity,
-              //       color: Colors.green,
-              //     ),
-              //     Container(
-              //       height: 200,
-              //       width: double.infinity,
-              //       color: Colors.green,
-              //     ),
-              //     Container(
-              //       height: 200,
-              //       width: double.infinity,
-              //       color: Colors.green,
-              //     ),
-              //   ],
-              // ),
+                ),
+                automaticallyImplyLeading: false,
+                backgroundColor: Theme.of(context).colorScheme.background,
+              ),
             ],
+            body: SingleChildScrollView(
+              padding: const EdgeInsets.only(top: 56.0, left: 16.0, right: 16.0),
+              child: Column(
+                children: [
+                  ProfileStackHandler(
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 4.0),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          //mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Flexible(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      context.router.push(const CompanyProfileRoute());
+                                    },
+                                    child: Text(
+                                      'Ahmed Raza',
+                                      style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.onBackground),
+                                      softWrap: false,
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 1,
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 4.0),
+                                  Text(
+                                    'Creative Designer - Software Housasdasdae',
+                                    style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onBackground),
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  const SizedBox(height: 8.0),
+                                  Text(
+                                    'ahmedraadasdasddasadassadza@gmail.com',
+                                    style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.onSurface),
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        ProfileMenuItem(
+                          isEditProfile: true,
+                          menuIcon: Iconify(
+                            Teenyicons.edit_outline,
+                            color: Theme.of(context).colorScheme.primary,
+                            size: 24.0,
+                          ),
+                          menuText: 'EDIT PROFILE',
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        ProfileMenuItem(
+                          isEditProfile: false,
+                          menuIcon: Iconify(
+                            Mdi.office_building_cog_outline,
+                            color: Theme.of(context).colorScheme.onSurface,
+                            size: 24.0,
+                          ),
+                          menuText: 'COMPANY PROFILE',
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        ProfileMenuItem(
+                          isEditProfile: false,
+                          menuIcon: Iconify(
+                            Uiw.setting_o,
+                            color: Theme.of(context).colorScheme.onSurface,
+                            size: 24.0,
+                          ),
+                          menuText: 'SETTINGS',
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        ProfileMenuItem(
+                          isEditProfile: false,
+                          menuIcon: Iconify(
+                            Mdi.logout,
+                            color: Theme.of(context).colorScheme.onSurface,
+                            size: 24.0,
+                          ),
+                          menuText: 'LOGOUT',
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

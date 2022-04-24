@@ -136,7 +136,23 @@ class Styles {
     tertiary: Color(0xFFD9FFE1),
     onTertiary: Color(0xFF00CB2D),
   );
-
+  static const LinearGradient gradient1 = LinearGradient(
+    begin: Alignment.centerRight,
+    end: Alignment.centerLeft,
+    colors: [
+      Color(0xFFD0E2FF),
+      Color(0xFFCEE1FF),
+    ],
+  );
+  static const LinearGradient gradient2 = LinearGradient(
+    begin: Alignment.centerRight,
+    end: Alignment.centerLeft,
+    colors: [
+      Color(0xFF99C0FF),
+      Color(0xFFD3E4FF),
+      Color(0xFFD1E3FF),
+    ],
+  );
   static List<BoxShadow> elevation1 = [
     const BoxShadow(
       color: Color.fromRGBO(34, 32, 32, 0.25),
