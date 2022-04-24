@@ -107,6 +107,7 @@ class _ChatScreenState extends State<ChatScreen> {
           onSendPressed: _handleSendPressed,
           user: _user,
           sendButtonVisibilityMode: SendButtonVisibilityMode.always,
+          theme: DefaultChatTheme(primaryColor: Theme.of(context).colorScheme.primary),
           customBottomWidget: Padding(
             padding: const EdgeInsets.all(20.0),
             child: BottomWidget(onPressed: _handleSendPressed),
