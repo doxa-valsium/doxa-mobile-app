@@ -25,6 +25,7 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   final List<types.Message> _messages = [];
   final _user = const types.User(id: '06c33e8b-e835-4736-80f4-63f44b66666c');
+  final _user2 = const types.User(id: '06c33e8b-e835-4736-80f4-63f44b66666d');
 
   void _addMessage(types.Message message) {
     setState(() {
@@ -32,9 +33,11 @@ class _ChatScreenState extends State<ChatScreen> {
     });
   }
 
-  void _handleSendPressed(types.PartialText message) {
+  void _handleSendPressed(
+    types.PartialText message,
+  ) {
     final textMessage = types.TextMessage(
-      author: _user,
+      author: (Random().nextBool() == true) ? _user : _user2,
       createdAt: DateTime.now().millisecondsSinceEpoch,
       id: randomString(),
       text: message.text,

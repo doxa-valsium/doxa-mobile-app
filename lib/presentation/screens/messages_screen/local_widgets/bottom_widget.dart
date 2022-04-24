@@ -46,7 +46,11 @@ class BottomWidget extends StatelessWidget {
                 Icons.send,
                 color: Theme.of(context).colorScheme.onPrimary,
               ),
-              onPressed: () => onPressed(const types.PartialText(text: 'hello')),
+              onPressed: () => onPressed(
+                const types.PartialText(
+                    text:
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor id eu nisl nunc mi ipsum faucibus vitae. Augue eget arcu dictum varius duis. Lectus quam id leo in. Vestibulum lectus mauris ultrices eros in cursus turpis.'),
+              ),
             ),
           ),
         ],
