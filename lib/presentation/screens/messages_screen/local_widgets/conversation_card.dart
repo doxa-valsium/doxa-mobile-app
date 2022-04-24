@@ -29,7 +29,7 @@ class ConversationCard extends StatelessWidget {
         );
       },
       child: Container(
-        height: 92,
+        height: 96,
         decoration: BoxDecoration(
           boxShadow: Styles.elevation2,
           color: Theme.of(context).colorScheme.onPrimary,
@@ -39,12 +39,10 @@ class ConversationCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(
-                flex: 1,
-                child: Avatar(
-                  radius: 28,
-                  avatarUrl: imageSource,
-                )),
+            Avatar(
+              radius: 28,
+              avatarUrl: imageSource,
+            ),
             Expanded(
               flex: 4,
               child: Padding(
