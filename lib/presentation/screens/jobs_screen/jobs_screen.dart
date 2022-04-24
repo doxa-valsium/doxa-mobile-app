@@ -32,10 +32,10 @@ class JobsScreen extends StatelessWidget {
                       child: Padding(
                     padding: const EdgeInsets.only(top: 28, bottom: 22.82),
                     child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      const Iconify(
+                      Iconify(
                         Mdi.plus_circle_outline,
                         size: 56,
-                        color: Color(0xFF0061FE),
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                       const SizedBox(height: 9.8),
                       Text(
@@ -57,34 +57,11 @@ class JobsScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-
-                  // childAspectRatio: 50 / 60,
-                  // childAspectRatio: MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height),
                   crossAxisSpacing: 8,
                   mainAxisSpacing: 8,
                   mainAxisExtent: 180,
                 ),
                 children: const [
-                  // Container(
-                  //   width: double.infinity,
-                  //   height: double.infinity,
-                  //   color: Colors.red,
-                  // ),
-                  // Container(
-                  //   width: double.infinity,
-                  //   height: double.infinity,
-                  //   color: Colors.blue,
-                  // ),
-                  // Container(
-                  //   width: double.infinity,
-                  //   height: double.infinity,
-                  //   color: Colors.green,
-                  // ),
-                  // Container(
-                  //   width: double.infinity,
-                  //   height: double.infinity,
-                  //   color: Colors.green,
-                  // ),
                   JobCard(isActive: true, buttonType1: ButtonType.primary),
                   JobCard(isActive: false, buttonType1: ButtonType.secondary),
                   JobCard(isActive: true, buttonType1: ButtonType.primary),

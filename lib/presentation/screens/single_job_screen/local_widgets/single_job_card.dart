@@ -8,9 +8,6 @@ import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 class SingleJobCard extends StatelessWidget {
   final bool newMessage;
   final ButtonType buttonType1;
-  // final String title;
-  // final String subtitle;
-  // final String matches;
 
   const SingleJobCard({Key? key, required this.newMessage, required this.buttonType1}) : super(key: key);
 
@@ -56,6 +53,7 @@ class SingleJobCard extends StatelessWidget {
       ),
       childBottomCard: Row(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: newMessage
             ? [
                 Flexible(
@@ -77,17 +75,17 @@ class SingleJobCard extends StatelessWidget {
                 ),
               ]
             : [
-                const Flexible(
+                Flexible(
                   child: Iconify(
                     Bx.check_double,
                     size: 16,
-                    color: Color(0xFF0061FE),
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
                 const SizedBox(width: 8),
                 Flexible(
                   child: Text(
-                    'VIEW CONVERSATION',
+                    'VIEW INBOX',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,

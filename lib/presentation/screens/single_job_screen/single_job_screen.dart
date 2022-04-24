@@ -103,7 +103,6 @@ class SingleJobScreen extends StatelessWidget {
                   mainAxisExtent: 200,
                   crossAxisSpacing: 8,
                   mainAxisSpacing: 20,
-                  
                 ),
                 children: const [
                   SingleJobCard(newMessage: true, buttonType1: ButtonType.primary),
