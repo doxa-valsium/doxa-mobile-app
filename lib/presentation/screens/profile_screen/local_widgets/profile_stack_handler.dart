@@ -9,6 +9,7 @@ class ProfileStackHandler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.max,
       children: [
         const SizedBox(
           height: 20,

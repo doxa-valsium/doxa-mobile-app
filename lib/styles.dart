@@ -127,6 +127,8 @@ class Styles {
     error: Color(0xFFFFEAEA),
     surface: Color(0xFFE7E7E7),
     background: Color(0xFFFFFFFF),
+    surfaceVariant: Color(0xFF737478),
+    onSurfaceVariant: Color(0xFF848484),
     onPrimary: Color(0xFFFFFFFF),
     onSecondary: Color(0xFF0061FE),
     onSecondaryContainer: Color(0xFFF6FCFF),

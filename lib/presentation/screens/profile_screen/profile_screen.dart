@@ -39,9 +39,11 @@ class ProfileScreen extends StatelessWidget {
             body: SingleChildScrollView(
               padding: const EdgeInsets.only(top: 56.0, left: 16.0, right: 16.0),
               child: Column(
+                mainAxisSize: MainAxisSize.max,
                 children: [
                   ProfileStackHandler(
                     child: Column(
+                      mainAxisSize: MainAxisSize.max,
                       children: [
                         const SizedBox(height: 4.0),
                         Row(
@@ -54,18 +56,13 @@ class ProfileScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  InkWell(
-                                    onTap: () {
-                                      context.router.push(const CompanyProfileRoute());
-                                    },
-                                    child: Text(
-                                      'Ahmed Raza',
-                                      style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.onBackground),
-                                      softWrap: false,
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 1,
-                                      textAlign: TextAlign.center,
-                                    ),
+                                  Text(
+                                    'Ahmed Raza',
+                                    style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.onBackground),
+                                    softWrap: false,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    textAlign: TextAlign.center,
                                   ),
                                   const SizedBox(height: 4.0),
                                   Text(
@@ -99,6 +96,7 @@ class ProfileScreen extends StatelessWidget {
                             size: 24.0,
                           ),
                           menuText: 'EDIT PROFILE',
+                          onTap: () {},
                         ),
                         const SizedBox(
                           height: 16,
@@ -111,6 +109,9 @@ class ProfileScreen extends StatelessWidget {
                             size: 24.0,
                           ),
                           menuText: 'COMPANY PROFILE',
+                          onTap: () {
+                            context.router.push(const CompanyProfileRoute());
+                          },
                         ),
                         const SizedBox(
                           height: 16,
@@ -123,6 +124,7 @@ class ProfileScreen extends StatelessWidget {
                             size: 24.0,
                           ),
                           menuText: 'SETTINGS',
+                          onTap: () {},
                         ),
                         const SizedBox(
                           height: 16,
@@ -135,6 +137,7 @@ class ProfileScreen extends StatelessWidget {
                             size: 24.0,
                           ),
                           menuText: 'LOGOUT',
+                          onTap: () {},
                         ),
                       ],
                     ),

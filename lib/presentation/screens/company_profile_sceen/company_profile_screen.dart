@@ -32,7 +32,7 @@ class CompanyProfileScreen extends StatelessWidget {
               backgroundColor: Theme.of(context).colorScheme.background,
               leading: Padding(
                 padding: const EdgeInsets.only(top: 16.0, left: 20.0),
-                child: InkWell(
+                child: GestureDetector(
                   onTap: () {
                     context.router.pop();
                   },

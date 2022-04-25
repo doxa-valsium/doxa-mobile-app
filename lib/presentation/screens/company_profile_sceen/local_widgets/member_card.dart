@@ -28,53 +28,49 @@ class MemberCard extends StatelessWidget {
           boxShadow: Styles.elevation2,
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Flexible(
+            Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
+                    padding: const EdgeInsets.only(left: 16.0),
                     child: Avatar(
-                      radius: 20.0,
+                      radius: 24.0,
                       avatarUrl: avatarUrl,
                     ),
                   ),
                 ],
               ),
             ),
-            Flexible(
+            Expanded(
               flex: 3,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Flexible(
-                    child: Text(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 12.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
                       memberName,
                       style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.onBackground),
                       softWrap: false,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
-                      textAlign: TextAlign.center,
                     ),
-                  ),
-                  Flexible(
-                    child: Text(
+                    Text(
                       memberPosition,
-                      style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.onSurface),
+                      style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
                       softWrap: false,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
-                      textAlign: TextAlign.center,
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-            Flexible(
+            Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -84,7 +80,7 @@ class MemberCard extends StatelessWidget {
                       size: 28.0,
                       color: Theme.of(context).colorScheme.onSurface,
                     ),
-                    alignment: const Alignment(1.0, -0.6),
+                    alignment: const Alignment(0.7, -0.6),
                   ),
                   Align(
                     child: Container(
@@ -101,7 +97,7 @@ class MemberCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    alignment: Alignment.bottomRight,
+                    alignment: Alignment.bottomCenter,
                   ),
                 ],
               ),
@@ -118,31 +114,31 @@ class MemberCard extends StatelessWidget {
           boxShadow: Styles.elevation2,
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Flexible(
+            Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
+                    padding: const EdgeInsets.only(left: 16.0),
                     child: Avatar(
-                      radius: 20.0,
+                      radius: 24.0,
                       avatarUrl: avatarUrl,
                     ),
                   ),
                 ],
               ),
             ),
-            Flexible(
+            Expanded(
               flex: 3,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Flexible(
-                    child: Text(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 12.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
                       memberName,
                       style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.onBackground),
                       softWrap: false,
@@ -150,23 +146,20 @@ class MemberCard extends StatelessWidget {
                       maxLines: 1,
                       textAlign: TextAlign.center,
                     ),
-                  ),
-                  Flexible(
-                    child: Text(
+                    Text(
                       memberPosition,
-                      style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.onSurface),
+                      style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
                       softWrap: false,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                       textAlign: TextAlign.center,
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-            Flexible(
+            Expanded(
               child: Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Expanded(
                     child: Align(
@@ -175,7 +168,7 @@ class MemberCard extends StatelessWidget {
                         size: 28.0,
                         color: Theme.of(context).colorScheme.onSurface,
                       ),
-                      alignment: const Alignment(1.0, -0.6),
+                      alignment: const Alignment(0.7, -0.6),
                     ),
                   ),
                 ],

@@ -13,19 +13,24 @@ class ProfileAvatar extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         Container(
-          height: 140,
+          height: 148,
           width: 148,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             shape: BoxShape.circle,
-            gradient: Styles.gradient1,
+            color: Styles.mainTheme.colorScheme.secondaryContainer.withOpacity(0.6),
           ),
         ),
         Container(
           height: 112,
           width: 112,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             shape: BoxShape.circle,
-            gradient: Styles.gradient1,
+            color: Styles.mainTheme.colorScheme.secondaryContainer.withOpacity(1.0),
+            border: Border.all(
+              color: Styles.mainTheme.colorScheme.secondaryContainer,
+              width: 3.0,
+              style: BorderStyle.solid,
+            ),
           ),
         ),
         Avatar(
