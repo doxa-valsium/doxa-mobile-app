@@ -17,7 +17,6 @@ class JobsScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: CustomAppBar(
-          isLeading: false,
           leading: null,
           title: Padding(
             padding: const EdgeInsets.only(left: 8.0, top: 16.0),

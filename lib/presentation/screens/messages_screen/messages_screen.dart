@@ -15,12 +15,11 @@ class MessagesScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: CustomAppBar(
-          isLeading: false,
           leading: null,
           title: Padding(
             padding: const EdgeInsets.only(left: 8.0, top: 16.0),
             child: Text(
-              'Jobs',
+              'Messages',
               style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
             ),
           ),
