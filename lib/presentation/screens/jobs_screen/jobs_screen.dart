@@ -1,4 +1,5 @@
 import 'package:dotted_border/dotted_border.dart';
+import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_dotted_border.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_extended_card.dart';
 import 'package:doxa_mobile_app/presentation/screens/jobs_screen/local_widgets/job_card.dart';
@@ -15,63 +16,62 @@ class JobsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Jobs',
-                style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
-              ),
-              const SizedBox(height: 20),
-              CustomDottedBorder(
-                borderType: BorderType.RRect,
-                child: Container(
-                  child: Center(
-                      child: Padding(
-                    padding: const EdgeInsets.only(top: 28, bottom: 22.82),
-                    child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Iconify(
-                        Mdi.plus_circle_outline,
-                        size: 56,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                      const SizedBox(height: 9.8),
-                      Text(
-                        'Upload a Job',
-                        style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.primary),
-                      ),
-                    ]),
-                  )),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Theme.of(context).colorScheme.secondary,
+        child: CustomAppBar(
+          title: 'Jobs',
+          showBackButton: false,
+          body: SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomDottedBorder(
+                  borderType: BorderType.RRect,
+                  child: Container(
+                    child: Center(
+                        child: Padding(
+                      padding: const EdgeInsets.only(top: 28, bottom: 22.82),
+                      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                        Iconify(
+                          Mdi.plus_circle_outline,
+                          size: 56,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                        const SizedBox(height: 9.8),
+                        Text(
+                          'Upload a Job',
+                          style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.primary),
+                        ),
+                      ]),
+                    )),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 20),
-              GridView(
-                clipBehavior: Clip.none,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 8,
-                  mainAxisExtent: 180,
-                ),
-                children: const [
-                  JobCard(isActive: true, buttonType1: ButtonType.primary),
-                  JobCard(isActive: false, buttonType1: ButtonType.secondary),
-                  JobCard(isActive: true, buttonType1: ButtonType.primary),
-                  JobCard(isActive: false, buttonType1: ButtonType.secondary),
-                  JobCard(isActive: true, buttonType1: ButtonType.primary),
-                  JobCard(isActive: false, buttonType1: ButtonType.secondary),
-                  JobCard(isActive: false, buttonType1: ButtonType.secondary),
-                ],
-              )
-            ],
+                const SizedBox(height: 20),
+                GridView(
+                  clipBehavior: Clip.none,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                    mainAxisExtent: 180,
+                  ),
+                  children: const [
+                    JobCard(isActive: true, buttonType1: ButtonType.primary),
+                    JobCard(isActive: false, buttonType1: ButtonType.secondary),
+                    JobCard(isActive: true, buttonType1: ButtonType.primary),
+                    JobCard(isActive: false, buttonType1: ButtonType.secondary),
+                    JobCard(isActive: true, buttonType1: ButtonType.primary),
+                    JobCard(isActive: false, buttonType1: ButtonType.secondary),
+                    JobCard(isActive: false, buttonType1: ButtonType.secondary),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
