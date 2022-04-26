@@ -31,11 +31,9 @@ class MemberCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(
-              child: Avatar(
-                radius: 20.0,
-                avatarUrl: avatarUrl,
-              ),
+            Avatar(
+              radius: 20.0,
+              avatarUrl: avatarUrl,
             ),
             Expanded(
               flex: 4,
@@ -100,6 +98,7 @@ class MemberCard extends StatelessWidget {
       );
     } else {
       return Container(
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0),
         height: 72.0,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.onSecondaryContainer,
@@ -109,24 +108,14 @@ class MemberCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16.0),
-                    child: Avatar(
-                      radius: 24.0,
-                      avatarUrl: avatarUrl,
-                    ),
-                  ),
-                ],
-              ),
+            Avatar(
+              radius: 20.0,
+              avatarUrl: avatarUrl,
             ),
             Expanded(
-              flex: 3,
+              flex: 4,
               child: Padding(
-                padding: const EdgeInsets.only(left: 12.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
