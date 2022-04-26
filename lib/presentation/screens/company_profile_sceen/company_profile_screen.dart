@@ -118,25 +118,46 @@ class CompanyProfileScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20.0,
                       ),
-                      Column(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Flexible(
-                                child: Text(
-                                  'WEBSITE',
-                                  style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onBackground),
-                                  softWrap: false,
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  textAlign: TextAlign.start,
-                                ),
+                          Flexible(
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 4.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    'WEBSITE',
+                                    style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onBackground),
+                                    softWrap: false,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    textAlign: TextAlign.start,
+                                  ),
+                                  Text(
+                                    'www.companyinfo.com',
+                                    style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.primary),
+                                    softWrap: false,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ],
                               ),
-                              Flexible(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(right: 28.0),
-                                  child: Text(
+                            ),
+                          ),
+                          Flexible(
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 28.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
                                     'CONTACT',
                                     style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onBackground),
                                     softWrap: false,
@@ -144,88 +165,58 @@ class CompanyProfileScreen extends StatelessWidget {
                                     maxLines: 1,
                                     textAlign: TextAlign.start,
                                   ),
-                                ),
+                                  Text(
+                                    '+92-3352366331',
+                                    style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.primary),
+                                    softWrap: false,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Flexible(
-                                child: Text(
-                                  'www.companyinfo.com',
-                                  style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.primary),
-                                  softWrap: false,
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  textAlign: TextAlign.start,
-                                ),
-                              ),
-                              Flexible(
-                                child: Text(
-                                  '+92-3352366331',
-                                  style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.primary),
-                                  softWrap: false,
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  textAlign: TextAlign.start,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20.0,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Flexible(
-                                child: Text(
-                                  'MEMBERS',
-                                  style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onBackground),
-                                  softWrap: false,
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  textAlign: TextAlign.start,
-                                ),
-                              ),
-                            ],
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Flexible(
+                            child: Text(
+                              'MEMBERS',
+                              style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onBackground),
+                              softWrap: false,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              textAlign: TextAlign.start,
+                            ),
                           ),
                         ],
                       ),
                       const SizedBox(
                         height: 8.0,
                       ),
-                      const MemberCard(
-                        avatarUrl:
-                            'https://1.bp.blogspot.com/-W_7SWMP5Rag/YTuyV5XvtUI/AAAAAAAAuUQ/hm6bYcvlFgQqgv1uosog6K8y0dC9eglTQCLcBGAsYHQ/s880/Best-Profile-Pic-For-Boys%2B%25281%2529.jpg',
-                        memberName: 'Ahemd Raza',
-                        memberPosition: 'Creative Designer',
-                        isAdmin: true,
-                      ),
-                      const SizedBox(height: 12.0),
-                      const MemberCard(
-                        avatarUrl:
-                            'https://1.bp.blogspot.com/-W_7SWMP5Rag/YTuyV5XvtUI/AAAAAAAAuUQ/hm6bYcvlFgQqgv1uosog6K8y0dC9eglTQCLcBGAsYHQ/s880/Best-Profile-Pic-For-Boys%2B%25281%2529.jpg',
-                        memberName: 'Ahemd Raza',
-                        memberPosition: 'Creative Designer',
-                        isAdmin: false,
-                      ),
-                      const SizedBox(height: 12.0),
-                      const MemberCard(
-                        avatarUrl:
-                            'https://1.bp.blogspot.com/-W_7SWMP5Rag/YTuyV5XvtUI/AAAAAAAAuUQ/hm6bYcvlFgQqgv1uosog6K8y0dC9eglTQCLcBGAsYHQ/s880/Best-Profile-Pic-For-Boys%2B%25281%2529.jpg',
-                        memberName: 'Ahemd Raza',
-                        memberPosition: 'Creative Designer',
-                        isAdmin: false,
-                      ),
-                      const SizedBox(height: 12.0),
-                      const MemberCard(
-                        avatarUrl:
-                            'https://1.bp.blogspot.com/-W_7SWMP5Rag/YTuyV5XvtUI/AAAAAAAAuUQ/hm6bYcvlFgQqgv1uosog6K8y0dC9eglTQCLcBGAsYHQ/s880/Best-Profile-Pic-For-Boys%2B%25281%2529.jpg',
-                        memberName: 'Ahemd Raza',
-                        memberPosition: 'Creative Designer',
-                        isAdmin: false,
+                      ListView.builder(
+                        primary: false,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemCount: 7,
+                        itemBuilder: (context, index) {
+                          return const Padding(
+                            padding: EdgeInsets.only(bottom: 12.0),
+                            child: MemberCard(
+                              avatarUrl:
+                                  'https://1.bp.blogspot.com/-W_7SWMP5Rag/YTuyV5XvtUI/AAAAAAAAuUQ/hm6bYcvlFgQqgv1uosog6K8y0dC9eglTQCLcBGAsYHQ/s880/Best-Profile-Pic-For-Boys%2B%25281%2529.jpg',
+                              memberName: 'Ahmed Raza',
+                              memberPosition: 'Creative Designer',
+                              isAdmin: true,
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),

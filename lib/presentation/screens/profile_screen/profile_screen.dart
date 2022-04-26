@@ -139,6 +139,9 @@ class ProfileScreen extends StatelessWidget {
                           menuText: 'LOGOUT',
                           onTap: () {},
                         ),
+                        const SizedBox(
+                          height: 16,
+                        ),
                       ],
                     ),
                   )
