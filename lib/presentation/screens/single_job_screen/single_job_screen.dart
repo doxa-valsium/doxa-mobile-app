@@ -20,26 +20,8 @@ class SingleJobScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: CustomAppBar(
-          leading: Padding(
-            padding: const EdgeInsets.only(top: 16.0, left: 20.0),
-            child: GestureDetector(
-              onTap: () {
-                context.router.pop();
-              },
-              child: Iconify(
-                Ic.sharp_keyboard_arrow_left,
-                size: 8.0,
-                color: Theme.of(context).colorScheme.onBackground,
-              ),
-            ),
-          ),
-          title: Padding(
-            padding: const EdgeInsets.only(left: 8.0, top: 16.0),
-            child: Text(
-              'HR Executive',
-              style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
-            ),
-          ),
+          title: 'HR Executive',
+          showBackButton: true,
           body: SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
             child: Column(
