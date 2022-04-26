@@ -6,9 +6,7 @@ import 'package:doxa_mobile_app/presentation/widgets/custom_dotted_border.dart';
 import 'package:doxa_mobile_app/presentation/screens/single_job_screen/local_widgets/single_job_card.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
-import 'package:auto_route/auto_route.dart';
 
 class SingleJobScreen extends StatelessWidget {
   static const String route = 'single-job-screen';
