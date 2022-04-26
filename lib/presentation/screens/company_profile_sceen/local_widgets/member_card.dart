@@ -21,6 +21,7 @@ class MemberCard extends StatelessWidget {
   Widget build(BuildContext context) {
     if (isAdmin) {
       return Container(
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0),
         height: 72.0,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.onSecondaryContainer,
@@ -31,23 +32,15 @@ class MemberCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16.0),
-                    child: Avatar(
-                      radius: 24.0,
-                      avatarUrl: avatarUrl,
-                    ),
-                  ),
-                ],
+              child: Avatar(
+                radius: 20.0,
+                avatarUrl: avatarUrl,
               ),
             ),
             Expanded(
-              flex: 3,
+              flex: 4,
               child: Padding(
-                padding: const EdgeInsets.only(left: 12.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,7 +90,7 @@ class MemberCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    alignment: Alignment.bottomCenter,
+                    alignment: const Alignment(0.7, -0.6),
                   ),
                 ],
               ),

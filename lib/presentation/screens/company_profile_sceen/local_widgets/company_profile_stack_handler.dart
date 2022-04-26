@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/company_avatar.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:flutter/material.dart';
 
@@ -45,37 +45,6 @@ class CompanyProfileStackHandler extends StatelessWidget {
           ],
         ),
       ],
-    );
-  }
-}
-
-class CompanyAvatar extends StatelessWidget {
-  const CompanyAvatar({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 150.0,
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
-      ),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
-        child: CachedNetworkImage(
-          fit: BoxFit.fill,
-          imageUrl: 'https://www.woodley.co/wp-content/uploads/2020/06/Canopy-11.jpg',
-          errorWidget: (context, url, error) => const Icon(Icons.error),
-        ),
-      ),
     );
   }
 }
