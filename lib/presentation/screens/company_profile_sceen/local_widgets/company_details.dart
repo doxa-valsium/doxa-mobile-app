@@ -90,7 +90,7 @@ class CompanyDetails extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Flexible(
+            Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(right: 4.0),
                 child: Column(
@@ -118,7 +118,7 @@ class CompanyDetails extends StatelessWidget {
                 ),
               ),
             ),
-            Flexible(
+            Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(right: 28.0),
                 child: Column(
