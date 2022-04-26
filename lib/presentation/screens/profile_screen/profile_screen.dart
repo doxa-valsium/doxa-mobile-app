@@ -33,11 +33,11 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 automaticallyImplyLeading: false,
-                backgroundColor: Theme.of(context).colorScheme.background,
+                backgroundColor: Colors.transparent,
               ),
             ],
             body: SingleChildScrollView(
-              padding: const EdgeInsets.only(top: 56.0, left: 16.0, right: 16.0),
+              padding: const EdgeInsets.only(top: 60.0, left: 16.0, right: 16.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [

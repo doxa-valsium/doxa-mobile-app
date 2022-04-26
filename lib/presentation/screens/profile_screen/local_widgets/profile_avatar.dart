@@ -16,21 +16,18 @@ class ProfileAvatar extends StatelessWidget {
           height: 148,
           width: 148,
           decoration: BoxDecoration(
+            boxShadow: Styles.elevation2,
             shape: BoxShape.circle,
-            color: Styles.mainTheme.colorScheme.secondaryContainer.withOpacity(0.6),
+            color: Styles.mainTheme.colorScheme.primary.withAlpha(40),
           ),
         ),
         Container(
           height: 112,
           width: 112,
           decoration: BoxDecoration(
+            boxShadow: Styles.elevation2,
             shape: BoxShape.circle,
-            color: Styles.mainTheme.colorScheme.secondaryContainer.withOpacity(1.0),
-            border: Border.all(
-              color: Styles.mainTheme.colorScheme.secondaryContainer,
-              width: 3.0,
-              style: BorderStyle.solid,
-            ),
+            color: Styles.mainTheme.colorScheme.primary.withAlpha(40),
           ),
         ),
         Avatar(
