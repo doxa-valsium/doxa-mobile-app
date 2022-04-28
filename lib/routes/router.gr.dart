@@ -11,24 +11,26 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i7;
-import 'package:flutter/material.dart' as _i14;
+import 'package:flutter/material.dart' as _i15;
 
-import '../presentation/screens/counter_screen/counter_screen.dart' as _i10;
-import '../presentation/screens/home_screen/home_screen.dart' as _i9;
-import '../presentation/screens/jobs_screen/jobs_screen.dart' as _i11;
+import '../presentation/screens/company_profile_sceen/company_profile_screen.dart'
+    as _i14;
+import '../presentation/screens/counter_screen/counter_screen.dart' as _i9;
+import '../presentation/screens/home_screen/home_screen.dart' as _i8;
+import '../presentation/screens/jobs_screen/jobs_screen.dart' as _i10;
 import '../presentation/screens/messages_screen/chat_screen.dart' as _i5;
-import '../presentation/screens/messages_screen/messages_screen.dart' as _i13;
+import '../presentation/screens/messages_screen/messages_screen.dart' as _i12;
 import '../presentation/screens/navigator_screen/navigator_screen.dart' as _i6;
 import '../presentation/screens/playground/custom_widgets_screen.dart' as _i4;
 import '../presentation/screens/playground/playground_screen.dart' as _i1;
 import '../presentation/screens/playground/pulsing_button_screen.dart' as _i3;
 import '../presentation/screens/playground/theme_test_screen.dart' as _i2;
-import '../presentation/screens/profile_screen/profile_screen.dart' as _i8;
+import '../presentation/screens/profile_screen/profile_screen.dart' as _i13;
 import '../presentation/screens/single_job_screen/single_job_screen.dart'
-    as _i12;
+    as _i11;
 
 class AppRouter extends _i7.RootStackRouter {
-  AppRouter([_i14.GlobalKey<_i14.NavigatorState>? navigatorKey])
+  AppRouter([_i15.GlobalKey<_i15.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
@@ -71,27 +73,35 @@ class AppRouter extends _i7.RootStackRouter {
     },
     ProfileRouter.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i8.ProfileScreen());
+          routeData: routeData, child: const _i7.EmptyRouterPage());
     },
     HomeRoute.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i9.HomeScreen());
+          routeData: routeData, child: const _i8.HomeScreen());
     },
     CounterRoute.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i10.CounterScreen());
+          routeData: routeData, child: const _i9.CounterScreen());
     },
     JobsRoute.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i11.JobsScreen());
+          routeData: routeData, child: const _i10.JobsScreen());
     },
     SingleJobRoute.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i12.SingleJobScreen());
+          routeData: routeData, child: const _i11.SingleJobScreen());
     },
     MessagesRoute.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i13.MessagesScreen());
+          routeData: routeData, child: const _i12.MessagesScreen());
+    },
+    ProfileRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i13.ProfileScreen());
+    },
+    CompanyProfileRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i14.CompanyProfileScreen());
     }
   };
 
@@ -131,7 +141,15 @@ class AppRouter extends _i7.RootStackRouter {
                         path: '', parent: MessagesRouter.name)
                   ]),
               _i7.RouteConfig(ProfileRouter.name,
-                  path: 'profile-screen', parent: NavigatorRoute.name)
+                  path: 'profile-screen',
+                  parent: NavigatorRoute.name,
+                  children: [
+                    _i7.RouteConfig(ProfileRoute.name,
+                        path: '', parent: ProfileRouter.name),
+                    _i7.RouteConfig(CompanyProfileRoute.name,
+                        path: 'company-profile-screen',
+                        parent: ProfileRouter.name)
+                  ])
             ])
       ];
 }
@@ -218,15 +236,17 @@ class MessagesRouter extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.ProfileScreen]
+/// [_i7.EmptyRouterPage]
 class ProfileRouter extends _i7.PageRouteInfo<void> {
-  const ProfileRouter() : super(ProfileRouter.name, path: 'profile-screen');
+  const ProfileRouter({List<_i7.PageRouteInfo>? children})
+      : super(ProfileRouter.name,
+            path: 'profile-screen', initialChildren: children);
 
   static const String name = 'ProfileRouter';
 }
 
 /// generated route for
-/// [_i9.HomeScreen]
+/// [_i8.HomeScreen]
 class HomeRoute extends _i7.PageRouteInfo<void> {
   const HomeRoute() : super(HomeRoute.name, path: '');
 
@@ -234,7 +254,7 @@ class HomeRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.CounterScreen]
+/// [_i9.CounterScreen]
 class CounterRoute extends _i7.PageRouteInfo<void> {
   const CounterRoute() : super(CounterRoute.name, path: 'counter-screen');
 
@@ -242,7 +262,7 @@ class CounterRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.JobsScreen]
+/// [_i10.JobsScreen]
 class JobsRoute extends _i7.PageRouteInfo<void> {
   const JobsRoute() : super(JobsRoute.name, path: '');
 
@@ -250,7 +270,7 @@ class JobsRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i12.SingleJobScreen]
+/// [_i11.SingleJobScreen]
 class SingleJobRoute extends _i7.PageRouteInfo<void> {
   const SingleJobRoute()
       : super(SingleJobRoute.name, path: 'single-job-screen');
@@ -259,9 +279,26 @@ class SingleJobRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i13.MessagesScreen]
+/// [_i12.MessagesScreen]
 class MessagesRoute extends _i7.PageRouteInfo<void> {
   const MessagesRoute() : super(MessagesRoute.name, path: '');
 
   static const String name = 'MessagesRoute';
+}
+
+/// generated route for
+/// [_i13.ProfileScreen]
+class ProfileRoute extends _i7.PageRouteInfo<void> {
+  const ProfileRoute() : super(ProfileRoute.name, path: '');
+
+  static const String name = 'ProfileRoute';
+}
+
+/// generated route for
+/// [_i14.CompanyProfileScreen]
+class CompanyProfileRoute extends _i7.PageRouteInfo<void> {
+  const CompanyProfileRoute()
+      : super(CompanyProfileRoute.name, path: 'company-profile-screen');
+
+  static const String name = 'CompanyProfileRoute';
 }
