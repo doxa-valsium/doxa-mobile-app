@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/presentation/screens/playground/playground_view/app_navigator.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
@@ -42,15 +43,13 @@ class PlaygroundScreen extends StatelessWidget {
             ),
             MaterialButton(
               onPressed: () {
-                context.router.push(const CustomWidgetsRoute());
-                // Get.toNamed(JobsPage.route);
+                //context.router.pushRoute(LoginRoute());
+                context.router.push(const AppNavigatorRoute());
               },
-              child: const Text("Go to Jobs"),
+              child: const Text("Go to login Screen"),
             ),
             MaterialButton(
-              onPressed: () {
-                // Get.toNamed(SingleJobOpened.route);
-              },
+              onPressed: () {},
               child: const Text("Go to Single Job Opened"),
             ),
           ],

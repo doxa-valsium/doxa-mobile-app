@@ -13,8 +13,8 @@ class AmplifyAuthRepository implements AuthRepository {
   }
 
   @override
-  Future<void> signInWithEmailAndPassword(String email, String password) {
-    return Future.delayed(kMockFutureDelay, () => null);
+  Future<String> signInWithEmailAndPassword({required String email, required String password}) {
+    return Future.delayed(kMockFutureDelay, () => 'abc');
   }
 
   @override
@@ -23,7 +23,18 @@ class AmplifyAuthRepository implements AuthRepository {
   }
 
   @override
-  Future<void> signUpWithEmailAndPassword(String email, String password) {
+  Future<void> signUpWithEmailAndPassword({required String email, required String password}) {
     return Future.delayed(kMockFutureDelay, () => null);
+  }
+
+  @override
+  Future<String> confirmSignUp({required String email, required String confirmationCode}) {
+    return Future.delayed(kMockFutureDelay, () => 'abc');
+  }
+
+  @override
+  Future<String> attemptAutoLogin() {
+    // TODO: implement attemptAutoLogin
+    throw UnimplementedError();
   }
 }

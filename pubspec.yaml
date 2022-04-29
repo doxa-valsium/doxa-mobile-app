@@ -42,7 +42,10 @@ dependencies:
   cached_network_image: ^3.2.0
   dotted_border: ^2.0.0+2
   auto_route: ^3.2.4
-  
+  amplify_flutter: ^0.4.0
+  amplify_auth_cognito: ^0.4.0
+  amplify_analytics_pinpoint: ^0.4.0
+  amplify_api: ^0.4.0
 
 dev_dependencies:
   auto_route_generator: ^3.2.3
