@@ -1,10 +1,9 @@
-import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
-import 'package:doxa_mobile_app/data/repositories/auth_repository/mock_auth_repository.dart';
+import 'package:doxa_mobile_app/data/repositories/auth_repository/amplify_auth_repository.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/auth/auth_cubit.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/confirm/confirmation_bloc.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/confirm/confirmation_event.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/confirm/confirmation_state.dart';
-import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/form_submission_status..dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/form_submission_status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,11 +18,11 @@ class ConfirmScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('confirmation code'),
+        title: const Text('confirmation code'),
       ),
       body: BlocProvider(
         create: (context) => ConfirmationBloc(
-          authRepository: context.read<MockAuthRepository>(),
+          authRepository: context.read<AmplifyAuthRepository>(),
           authCubit: context.read<AuthCubit>(),
         ),
         child: SafeArea(
@@ -38,12 +37,12 @@ class ConfirmScreen extends StatelessWidget {
               },
               builder: (context, state) {
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextFormField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           icon: Icon(Icons.person),
                           hintText: 'Confirmation Code',
                         ),
@@ -53,14 +52,14 @@ class ConfirmScreen extends StatelessWidget {
                             ),
                       ),
                       state.formStatus is FormSubmitting
-                          ? CircularProgressIndicator()
+                          ? const CircularProgressIndicator()
                           : ElevatedButton(
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
                                   context.read<ConfirmationBloc>().add(ConfirmationSubmitted());
                                 }
                               },
-                              child: Text('Confirm'),
+                              child: const Text('Confirm'),
                             ),
                     ],
                   ),

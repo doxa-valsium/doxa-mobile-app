@@ -10,7 +10,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   AuthCubit({this.sessionCubit}) : super(AuthState.login);
 
-  late AuthCredentials auth_crendentials;
+  late AuthCredentials authCrendentials;
   void showLogin() => emit(AuthState.login);
   void showLSignUp() => emit(AuthState.signUp);
   void showConfirmSignUp({
@@ -18,7 +18,7 @@ class AuthCubit extends Cubit<AuthState> {
     required String email,
     required String password,
   }) {
-    auth_crendentials = AuthCredentials(
+    authCrendentials = AuthCredentials(
       username: username,
       email: email,
       password: password,

@@ -3,7 +3,6 @@ import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repositor
 import 'package:doxa_mobile_app/data/repositories/auth_repository/mock_auth_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/database_repository/amplify_database_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/database_repository/database_repository.dart';
-import 'package:doxa_mobile_app/data/repositories/database_repository/mock_database_repositroy.dart';
 import 'package:doxa_mobile_app/services/environment_config_service.dart';
 
 class RepositoryProvider {
@@ -18,13 +17,13 @@ class RepositoryProvider {
     }
   }
 
-  static void  _prodInit() {
+  static void _prodInit() {
     databaseRepositry = AmplifyDatabaseRepository();
     authRepository = AmplifyAuthRepository();
   }
 
   static void _mockInit() {
-    databaseRepositry = MockDatabaseRepository();
+    //  databaseRepositry = MockDatabaseRepository();
     authRepository = MockAuthRepository();
   }
 }

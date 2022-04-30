@@ -1,6 +1,6 @@
-import 'package:doxa_mobile_app/data/repositories/auth_repository/mock_auth_repository.dart';
+import 'package:doxa_mobile_app/data/repositories/auth_repository/amplify_auth_repository.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/auth/auth_cubit.dart';
-import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/form_submission_status..dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/form_submission_status.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/signup/signup_bloc.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/signup/signup_event.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/signup/signup_state.dart';
@@ -19,7 +19,7 @@ class SignupScreen extends StatelessWidget {
     return Scaffold(
       body: BlocProvider(
         create: (context) => SignUpBloc(
-          authRepository: context.read<MockAuthRepository>(),
+          authRepository: context.read<AmplifyAuthRepository>(),
           authCubit: context.read<AuthCubit>(),
         ),
         child: SafeArea(
@@ -81,12 +81,12 @@ class SignupScreen extends StatelessWidget {
                               },
                               child: const Text('SignUp'),
                             ),
-                      SizedBox(height: 20.0),
+                      const SizedBox(height: 20.0),
                       TextButton(
                         onPressed: () {
                           context.read<AuthCubit>().showLogin();
                         },
-                        child: Text('already have an account ? Login..'),
+                        child: const Text('already have an account ? Login..'),
                       ),
                     ],
                   );

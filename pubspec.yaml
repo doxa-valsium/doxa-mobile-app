@@ -46,6 +46,7 @@ dependencies:
   amplify_auth_cognito: ^0.4.0
   amplify_analytics_pinpoint: ^0.4.0
   amplify_api: ^0.4.0
+  amplify_datastore: ^0.4.0
 
 dev_dependencies:
   auto_route_generator: ^3.2.3

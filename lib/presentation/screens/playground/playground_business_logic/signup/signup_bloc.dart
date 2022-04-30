@@ -1,12 +1,12 @@
-import 'package:doxa_mobile_app/data/repositories/auth_repository/mock_auth_repository.dart';
+import 'package:doxa_mobile_app/data/repositories/auth_repository/amplify_auth_repository.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/auth/auth_cubit.dart';
-import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/form_submission_status..dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/form_submission_status.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/signup/signup_event.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/signup/signup_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
-  final MockAuthRepository authRepository;
+  final AmplifyAuthRepository authRepository;
   final AuthCubit authCubit;
 
   SignUpBloc({required this.authRepository, required this.authCubit}) : super(SignUpState()) {
@@ -23,7 +23,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       emit(state.copyWith(formStatus: FormSubmitting()));
 
       try {
-        await authRepository.signUpWithEmailAndPassword(email: state.email, password: state.email);
+        await authRepository.signUpWithEmailAndPassword(username: state.username, email: state.email, password: state.email);
         emit(state.copyWith(formStatus: SubmissionSuccess()));
 
         authCubit.showConfirmSignUp(

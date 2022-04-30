@@ -1,4 +1,4 @@
-import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/form_submission_status..dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/form_submission_status.dart';
 
 class LoginState {
   final String firstName;

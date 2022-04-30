@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SessionScreen extends StatelessWidget {
-  const SessionScreen({Key? key}) : super(key: key);
+  final String? username;
+  const SessionScreen({Key? key, required this.username}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +13,12 @@ class SessionScreen extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Session Screen'),
+          const Text('Session Screen'),
           TextButton(
             onPressed: () {
               BlocProvider.of<SessionCubit>(context).signOut();
             },
-            child: Text('Sign Out..'),
+            child: const Text('Sign Out..'),
           ),
         ],
       )),

@@ -9,6 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppNavigatorScreen extends StatelessWidget {
   static const String route = 'app-nav-screen';
+
+  const AppNavigatorScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SessionCubit, SessionState>(builder: (context, state) {
@@ -29,7 +31,11 @@ class AppNavigatorScreen extends StatelessWidget {
             ),
 
           // Show session flow
-          if (state is Authenticated) const MaterialPage(child: SessionScreen())
+          if (state is Authenticated)
+            MaterialPage(
+                child: SessionScreen(
+              username: state.user!.username,
+            ))
         ],
         onPopPage: (route, result) => route.didPop(result),
       );

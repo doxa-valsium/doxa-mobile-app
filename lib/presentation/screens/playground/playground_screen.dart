@@ -1,4 +1,3 @@
-import 'package:doxa_mobile_app/presentation/screens/playground/playground_view/app_navigator.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';

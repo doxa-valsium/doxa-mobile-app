@@ -1,14 +1,13 @@
-import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
-import 'package:doxa_mobile_app/data/repositories/auth_repository/mock_auth_repository.dart';
+import 'package:doxa_mobile_app/data/repositories/auth_repository/amplify_auth_repository.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/auth/auth_crendentials.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/auth/auth_cubit.dart';
-import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/form_submission_status..dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/form_submission_status.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/login/login_event.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/login/login_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  final MockAuthRepository authRepository;
+  final AmplifyAuthRepository authRepository;
   final AuthCubit authCubit;
 
   LoginBloc({required this.authRepository, required this.authCubit}) : super(LoginState()) {
