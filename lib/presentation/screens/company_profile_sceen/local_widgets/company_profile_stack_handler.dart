@@ -1,4 +1,4 @@
-import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/company_avatar.dart';
+import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/company_banner.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:flutter/material.dart';
 
@@ -30,15 +30,15 @@ class CompanyProfileStackHandler extends StatelessWidget {
               ),
               child: child,
             ),
-            const CompanyAvatar(),
+            const CompanyBanner(),
             const Positioned.fill(
               top: 90,
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Avatar(
+                  avatarType: AvatarType.company,
                   radius: 52,
-                  avatarUrl:
-                      'https://1.bp.blogspot.com/-W_7SWMP5Rag/YTuyV5XvtUI/AAAAAAAAuUQ/hm6bYcvlFgQqgv1uosog6K8y0dC9eglTQCLcBGAsYHQ/s880/Best-Profile-Pic-For-Boys%2B%25281%2529.jpg',
+                  avatarUrl: 'https://picsum.photos/200',
                 ),
               ),
             ),

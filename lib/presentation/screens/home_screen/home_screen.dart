@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               SliverAppBar(
-                toolbarHeight: 100,
+                toolbarHeight: 96,
                 backgroundColor: Theme.of(context).colorScheme.background,
                 title: Padding(
                   padding: const EdgeInsets.only(top: 20),

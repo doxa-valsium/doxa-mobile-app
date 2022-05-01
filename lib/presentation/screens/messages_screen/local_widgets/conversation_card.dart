@@ -77,14 +77,14 @@ class ConversationCard extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
                     "11: 06 PM",
                     style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.onSurface),
                   ),
-                  const Spacer(),
                   if (msgTag)
                     Container(
                       height: 24,
@@ -95,7 +95,7 @@ class ConversationCard extends StatelessWidget {
                       ),
                       child: Center(
                         child: Text(
-                          "88+",
+                          "10+",
                           textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
                         ),
