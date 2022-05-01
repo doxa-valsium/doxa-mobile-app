@@ -23,7 +23,8 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       emit(state.copyWith(formStatus: FormSubmitting()));
 
       try {
-        await authRepository.signUpWithEmailAndPassword(username: state.username, email: state.email, password: state.email);
+        await authRepository.signUpWithEmailAndPassword(username: state.username, email: state.email, password: state.password);
+
         emit(state.copyWith(formStatus: SubmissionSuccess()));
 
         authCubit.showConfirmSignUp(

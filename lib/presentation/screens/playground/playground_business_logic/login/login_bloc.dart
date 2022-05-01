@@ -50,39 +50,3 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     });
   }
 }
-
-
-
-//  LoginBloc({required this.authRepository}) : super(LoginState()) {
-//     on<LoginEvent>(_onEvent);
-//   }
-
-//   Future<void> _onEvent(LoginEvent event, Emitter<LoginState> emit) async {
-//     // fist name changed
-//     if (event is LoginFirstNameChanged) {
-//       emit(state.copyWith(email: event.firstName));
-//     }
-//     // last name changed
-//     if (event is LoginLastNameChanged) {
-//       emit(state.copyWith(email: event.lastName));
-//     }
-//     // email changed
-//     if (event is LoginEmailChanged) {
-//       emit(state.copyWith(email: event.email));
-//     }
-//     // password update
-//     else if (event is LoginPasswordChanged) {
-//       emit(state.copyWith(password: event.password));
-//     }
-//     //form submitted
-//     else if (event is LoginSubmitted) {
-//       emit(state.copyWith(formStatus: FormSubmitting()));
-
-//       try {
-//         await authRepository.signInWithEmailAndPassword('taha@gmail.com', '12345');
-//         emit(state.copyWith(formStatus: SubmissionSuccess()));
-//       } catch (e) {
-//         emit(state.copyWith(formStatus: SubmissionFailed()));
-//       }
-//     }
-//   }

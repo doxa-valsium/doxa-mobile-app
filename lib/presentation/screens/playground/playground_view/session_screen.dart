@@ -13,7 +13,7 @@ class SessionScreen extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Session Screen'),
+          Text('Hello $username'),
           TextButton(
             onPressed: () {
               BlocProvider.of<SessionCubit>(context).signOut();

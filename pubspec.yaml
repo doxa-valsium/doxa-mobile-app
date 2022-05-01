@@ -44,7 +44,6 @@ dependencies:
   auto_route: ^3.2.4
   amplify_flutter: ^0.4.0
   amplify_auth_cognito: ^0.4.0
-  amplify_analytics_pinpoint: ^0.4.0
   amplify_api: ^0.4.0
   amplify_datastore: ^0.4.0
 

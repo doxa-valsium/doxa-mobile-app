@@ -58,8 +58,7 @@ Future<void> _configureAmplify() async {
     // Add the following line to add Auth plugin to your app.
     AmplifyAuthCognito authPlugin = AmplifyAuthCognito();
     AmplifyDataStore datastorePlugin = AmplifyDataStore(modelProvider: ModelProvider.instance);
-    await Amplify.addPlugin(authPlugin);
-    await Amplify.addPlugin(datastorePlugin);
+    await Amplify.addPlugins([authPlugin, datastorePlugin]);
 
     // call Amplify.configure to use the initialized categories in your app
     await Amplify.configure(amplifyconfig);
