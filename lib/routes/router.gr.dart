@@ -22,9 +22,8 @@ import '../presentation/screens/messages_screen/chat_screen.dart' as _i5;
 import '../presentation/screens/messages_screen/messages_screen.dart' as _i13;
 import '../presentation/screens/navigator_screen/navigator_screen.dart' as _i7;
 import '../presentation/screens/playground/custom_widgets_screen.dart' as _i4;
+import '../presentation/screens/playground/manage_1x_2x_3x_images.dart' as _i6;
 import '../presentation/screens/playground/playground_screen.dart' as _i1;
-import '../presentation/screens/playground/playground_view/manage_1x_2x_3x_images.dart'
-    as _i6;
 import '../presentation/screens/playground/pulsing_button_screen.dart' as _i3;
 import '../presentation/screens/playground/theme_test_screen.dart' as _i2;
 import '../presentation/screens/profile_screen/profile_screen.dart' as _i14;
