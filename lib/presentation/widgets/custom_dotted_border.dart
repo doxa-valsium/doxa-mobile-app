@@ -16,14 +16,15 @@ class CustomDottedBorder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DottedBorder(
-      color: Theme.of(context).colorScheme.onSecondary,
-      strokeWidth: 2,
-      radius: radius,
-      dashPattern: const [5, 4],
-      borderType: borderType,
-      child: child,
-      customPath: customPath == null ? null : (Size size) => customPath!(size, radius),
-    );
-  }
+      return DottedBorder(
+        color: Theme.of(context).colorScheme.onSecondary,
+        strokeWidth: 2,
+        radius: radius,
+        dashPattern: const [5, 4],
+        borderType: borderType,
+        child: child,
+        customPath: customPath == null ? null : (Size size) => customPath!(size, radius),
+      );
+    }
+  
 }

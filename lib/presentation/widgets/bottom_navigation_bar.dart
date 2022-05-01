@@ -32,6 +32,8 @@ class BottomNavBar extends StatelessWidget {
         child: SizedBox(
           height: 80,
           child: BottomNavigationBar(
+            showSelectedLabels: true,
+            showUnselectedLabels: true,
             type: BottomNavigationBarType.fixed,
             currentIndex: tabsRouter.activeIndex,
             onTap: tabsRouter.setActiveIndex,

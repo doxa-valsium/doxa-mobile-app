@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class CompanyAvatar extends StatelessWidget {
-  const CompanyAvatar({
+class CompanyBanner extends StatelessWidget {
+  const CompanyBanner({
     Key? key,
   }) : super(key: key);
 
