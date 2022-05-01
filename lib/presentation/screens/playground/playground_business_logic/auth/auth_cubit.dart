@@ -12,14 +12,16 @@ class AuthCubit extends Cubit<AuthState> {
 
   late AuthCredentials authCrendentials;
   void showLogin() => emit(AuthState.login);
-  void showLSignUp() => emit(AuthState.signUp);
+  void showSignUp() => emit(AuthState.signUp);
   void showConfirmSignUp({
-    required String username,
+    required String firstName,
+    required String lastName,
     required String email,
     required String password,
   }) {
     authCrendentials = AuthCredentials(
-      username: username,
+      firstName: firstName,
+      lastName: lastName,
       email: email,
       password: password,
     );

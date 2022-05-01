@@ -30,7 +30,7 @@ class MockAuthRepository implements AuthRepository {
   }
 
   @override
-  Future<bool> signUpWithEmailAndPassword({required username, required String email, required String password}) async {
+  Future<bool> signUpWithEmailAndPassword({required firstName, required lastName, required String email, required String password}) async {
     return Future.delayed(kMockFutureDelay);
   }
 

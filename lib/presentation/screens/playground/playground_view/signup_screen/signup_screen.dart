@@ -42,11 +42,22 @@ class SignupScreen extends StatelessWidget {
                         obscureText: false,
                         decoration: const InputDecoration(
                           icon: Icon(Icons.person),
-                          hintText: 'Username',
+                          hintText: 'First Name',
                         ),
-                        validator: (value) => state.isValidUsername ? null : 'enter correct user name',
+                        validator: (value) => state.isValidFirstName ? null : 'enter correct first name',
                         onChanged: (value) => context.read<SignUpBloc>().add(
-                              SignUpUsernameChanged(username: value),
+                              SignUpFirstNameChanged(firstName: value),
+                            ),
+                      ),
+                      TextFormField(
+                        obscureText: false,
+                        decoration: const InputDecoration(
+                          icon: Icon(Icons.person),
+                          hintText: 'Last Name',
+                        ),
+                        validator: (value) => state.isValidLastName ? null : 'enter correct lastName',
+                        onChanged: (value) => context.read<SignUpBloc>().add(
+                              SignUpLastNameChanged(lastName: value),
                             ),
                       ),
                       TextFormField(

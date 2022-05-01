@@ -40,28 +40,6 @@ class LoginScreen extends StatelessWidget {
                       TextFormField(
                         obscureText: false,
                         decoration: const InputDecoration(
-                          icon: Icon(Icons.person),
-                          hintText: 'First Name',
-                        ),
-                        validator: (value) => state.isValidFirstName ? null : 'enter correct first name',
-                        onChanged: (value) => context.read<LoginBloc>().add(
-                              LoginFirstNameChanged(firstName: value),
-                            ),
-                      ),
-                      TextFormField(
-                        obscureText: false,
-                        decoration: const InputDecoration(
-                          icon: Icon(Icons.person),
-                          hintText: 'Last Name',
-                        ),
-                        validator: (value) => state.isValidLastName ? null : 'enter correct lastName',
-                        onChanged: (value) => context.read<LoginBloc>().add(
-                              LoginLastNameChanged(lastName: value),
-                            ),
-                      ),
-                      TextFormField(
-                        obscureText: false,
-                        decoration: const InputDecoration(
                           icon: Icon(Icons.email),
                           hintText: 'Email',
                         ),
@@ -94,7 +72,7 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox(height: 20.0),
                       TextButton(
                         onPressed: () {
-                          context.read<AuthCubit>().showLSignUp();
+                          context.read<AuthCubit>().showSignUp();
                         },
                         child: const Text('dont have an account ? Singup..'),
                       ),

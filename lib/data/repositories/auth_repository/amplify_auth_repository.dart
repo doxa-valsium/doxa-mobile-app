@@ -15,8 +15,8 @@ class AmplifyAuthRepository implements AuthRepository {
   }
 
   @override
-  Future<bool> signUpWithEmailAndPassword({required username, required String email, required String password}) async {
-    final options = CognitoSignUpOptions(userAttributes: {CognitoUserAttributeKey.name: username.trim()});
+  Future<bool> signUpWithEmailAndPassword({required firstName, required lastName, required String email, required String password}) async {
+    final options = CognitoSignUpOptions(userAttributes: {CognitoUserAttributeKey.name: firstName.trim(), CognitoUserAttributeKey.middleName: lastName.trim()});
     try {
       final result = await Amplify.Auth.signUp(
         username: email.trim(),

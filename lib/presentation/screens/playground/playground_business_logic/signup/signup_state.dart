@@ -1,8 +1,11 @@
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_business_logic/form_submission_status.dart';
 
 class SignUpState {
-  final String username;
-  bool get isValidUsername => username.length > 3;
+  final String firstName;
+  bool get isValidFirstName => firstName.length > 3;
+
+  final String lastName;
+  bool get isValidLastName => lastName.length > 3;
 
   final String email;
   bool get isValidEmail => email.contains('@');
@@ -13,20 +16,23 @@ class SignUpState {
   final FormSubmissionStatus formStatus;
 
   SignUpState({
-    this.username = '',
+    this.firstName = '',
+    this.lastName = '',
     this.email = '',
     this.password = '',
     this.formStatus = const InitialFormStatus(),
   });
 
   SignUpState copyWith({
-    String? username,
+    String? firstName,
+    String? lastName,
     String? email,
     String? password,
     FormSubmissionStatus? formStatus,
   }) {
     return SignUpState(
-      username: username ?? this.username,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
       email: email ?? this.email,
       password: password ?? this.password,
       formStatus: formStatus ?? this.formStatus,

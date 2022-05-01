@@ -22,8 +22,8 @@ class AmplifyDatabaseRepository implements DatabaseRepositry {
   }
 
   @override
-  Future<User?> createUser({required String? userId, String? username, String? email}) async {
-    final newUser = User(id: userId, username: username, email: email);
+  Future<User?> createUser({required String? userId, String? firstName, String? lastName, String? email}) async {
+    final newUser = User(id: userId, firstName: firstName, lastName: lastName, email: email);
     try {
       await Amplify.DataStore.save(newUser);
     } catch (e) {

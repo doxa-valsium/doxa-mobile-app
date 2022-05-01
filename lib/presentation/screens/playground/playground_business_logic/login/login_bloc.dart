@@ -11,14 +11,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthCubit authCubit;
 
   LoginBloc({required this.authRepository, required this.authCubit}) : super(LoginState()) {
-    // first name changed
-    on<LoginFirstNameChanged>((event, emit) {
-      emit(state.copyWith(firstName: event.firstName));
-    });
-    //last name changed
-    on<LoginLastNameChanged>((event, emit) {
-      emit(state.copyWith(lastName: event.lastName));
-    });
     // email changed
     on<LoginEmailChanged>((event, emit) {
       emit(state.copyWith(email: event.email));
@@ -39,7 +31,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         emit(state.copyWith(formStatus: SubmissionSuccess()));
 
         authCubit.launchSession(AuthCredentials(
-          username: state.firstName,
           email: state.email,
           password: state.password,
           userId: userId,

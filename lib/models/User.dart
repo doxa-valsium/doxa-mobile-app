@@ -28,10 +28,9 @@ import 'package:flutter/foundation.dart';
 class User extends Model {
   static const classType = const _UserModelType();
   final String id;
-  final String? _username;
+  final String? _firstName;
+  final String? _lastName;
   final String? _email;
-  final String? _avatarUrl;
-  final String? _description;
   final TemporalDateTime? _createdAt;
   final TemporalDateTime? _updatedAt;
 
@@ -43,20 +42,16 @@ class User extends Model {
     return id;
   }
   
-  String? get username {
-    return _username;
+  String? get firstName {
+    return _firstName;
+  }
+  
+  String? get lastName {
+    return _lastName;
   }
   
   String? get email {
     return _email;
-  }
-  
-  String? get avatarUrl {
-    return _avatarUrl;
-  }
-  
-  String? get description {
-    return _description;
   }
   
   TemporalDateTime? get createdAt {
@@ -67,15 +62,14 @@ class User extends Model {
     return _updatedAt;
   }
   
-  const User._internal({required this.id, username, email, avatarUrl, description, createdAt, updatedAt}): _username = username, _email = email, _avatarUrl = avatarUrl, _description = description, _createdAt = createdAt, _updatedAt = updatedAt;
+  const User._internal({required this.id, firstName, lastName, email, createdAt, updatedAt}): _firstName = firstName, _lastName = lastName, _email = email, _createdAt = createdAt, _updatedAt = updatedAt;
   
-  factory User({String? id, String? username, String? email, String? avatarUrl, String? description}) {
+  factory User({String? id, String? firstName, String? lastName, String? email}) {
     return User._internal(
       id: id == null ? UUID.getUUID() : id,
-      username: username,
-      email: email,
-      avatarUrl: avatarUrl,
-      description: description);
+      firstName: firstName,
+      lastName: lastName,
+      email: email);
   }
   
   bool equals(Object other) {
@@ -87,10 +81,9 @@ class User extends Model {
     if (identical(other, this)) return true;
     return other is User &&
       id == other.id &&
-      _username == other._username &&
-      _email == other._email &&
-      _avatarUrl == other._avatarUrl &&
-      _description == other._description;
+      _firstName == other._firstName &&
+      _lastName == other._lastName &&
+      _email == other._email;
   }
   
   @override
@@ -102,10 +95,9 @@ class User extends Model {
     
     buffer.write("User {");
     buffer.write("id=" + "$id" + ", ");
-    buffer.write("username=" + "$_username" + ", ");
+    buffer.write("firstName=" + "$_firstName" + ", ");
+    buffer.write("lastName=" + "$_lastName" + ", ");
     buffer.write("email=" + "$_email" + ", ");
-    buffer.write("avatarUrl=" + "$_avatarUrl" + ", ");
-    buffer.write("description=" + "$_description" + ", ");
     buffer.write("createdAt=" + (_createdAt != null ? _createdAt!.format() : "null") + ", ");
     buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null"));
     buffer.write("}");
@@ -113,33 +105,30 @@ class User extends Model {
     return buffer.toString();
   }
   
-  User copyWith({String? id, String? username, String? email, String? avatarUrl, String? description}) {
+  User copyWith({String? id, String? firstName, String? lastName, String? email}) {
     return User._internal(
       id: id ?? this.id,
-      username: username ?? this.username,
-      email: email ?? this.email,
-      avatarUrl: avatarUrl ?? this.avatarUrl,
-      description: description ?? this.description);
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      email: email ?? this.email);
   }
   
   User.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
-      _username = json['username'],
+      _firstName = json['firstName'],
+      _lastName = json['lastName'],
       _email = json['email'],
-      _avatarUrl = json['avatarUrl'],
-      _description = json['description'],
       _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
       _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'username': _username, 'email': _email, 'avatarUrl': _avatarUrl, 'description': _description, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'firstName': _firstName, 'lastName': _lastName, 'email': _email, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
 
   static final QueryField ID = QueryField(fieldName: "user.id");
-  static final QueryField USERNAME = QueryField(fieldName: "username");
+  static final QueryField FIRSTNAME = QueryField(fieldName: "firstName");
+  static final QueryField LASTNAME = QueryField(fieldName: "lastName");
   static final QueryField EMAIL = QueryField(fieldName: "email");
-  static final QueryField AVATARURL = QueryField(fieldName: "avatarUrl");
-  static final QueryField DESCRIPTION = QueryField(fieldName: "description");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "User";
     modelSchemaDefinition.pluralName = "Users";
@@ -158,25 +147,19 @@ class User extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.id());
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: User.USERNAME,
+      key: User.FIRSTNAME,
+      isRequired: false,
+      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+    ));
+    
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+      key: User.LASTNAME,
       isRequired: false,
       ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
       key: User.EMAIL,
-      isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
-    ));
-    
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: User.AVATARURL,
-      isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
-    ));
-    
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: User.DESCRIPTION,
       isRequired: false,
       ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));

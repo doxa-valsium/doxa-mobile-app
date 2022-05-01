@@ -10,8 +10,13 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   final AuthCubit authCubit;
 
   SignUpBloc({required this.authRepository, required this.authCubit}) : super(SignUpState()) {
-    on<SignUpUsernameChanged>((event, emit) {
-      emit(state.copyWith(username: event.username));
+    // first name changed
+    on<SignUpFirstNameChanged>((event, emit) {
+      emit(state.copyWith(firstName: event.firstName));
+    });
+    //last name changed
+    on<SignUpLastNameChanged>((event, emit) {
+      emit(state.copyWith(lastName: event.lastName));
     });
     on<SignUpEmailChanged>((event, emit) {
       emit(state.copyWith(email: event.email));
@@ -23,12 +28,13 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       emit(state.copyWith(formStatus: FormSubmitting()));
 
       try {
-        await authRepository.signUpWithEmailAndPassword(username: state.username, email: state.email, password: state.password);
+        await authRepository.signUpWithEmailAndPassword(firstName: state.firstName, lastName: state.lastName, email: state.email, password: state.password);
 
         emit(state.copyWith(formStatus: SubmissionSuccess()));
 
         authCubit.showConfirmSignUp(
-          username: state.username,
+          firstName: state.firstName,
+          lastName: state.lastName,
           email: state.email,
           password: state.password,
         );

@@ -23,7 +23,11 @@ class SessionCubit extends Cubit<SessionState> {
         throw Exception('User not logged in');
       }
       User? user = await databaseRepository.getUserById(userId: userId);
-      user ??= await databaseRepository.createUser(userId: userId, username: 'User-${UUID()}');
+      user ??= await databaseRepository.createUser(
+        userId: userId,
+        firstName: 'User-${UUID()}',
+        lastName: 'User-${UUID()}',
+      );
 
       emit(Authenticated(user: user));
     } on Exception {
@@ -37,8 +41,9 @@ class SessionCubit extends Cubit<SessionState> {
       User? user = await databaseRepository.getUserById(userId: credentials.userId);
       user ??= await databaseRepository.createUser(
         userId: credentials.userId,
-        username: credentials.username,
         email: credentials.email,
+        firstName: credentials.firstName,
+        lastName: credentials.lastName,
       );
       logger.d('show session ka user after createUser : {$user}');
       emit(Authenticated(user: user));

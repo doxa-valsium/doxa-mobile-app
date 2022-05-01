@@ -34,7 +34,8 @@ class AppNavigatorScreen extends StatelessWidget {
           if (state is Authenticated)
             MaterialPage(
                 child: SessionScreen(
-              username: state.user?.username,
+              firstName: state.user?.firstName,
+              lastName: state.user?.lastName,
             ))
         ],
         onPopPage: (route, result) => route.didPop(result),

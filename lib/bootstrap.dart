@@ -4,7 +4,6 @@ import 'dart:developer';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_datastore/amplify_datastore.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
-
 import 'package:bloc/bloc.dart';
 import 'package:doxa_mobile_app/amplifyconfiguration.dart';
 import 'package:doxa_mobile_app/business_logic/app_bloc_observer.dart';
