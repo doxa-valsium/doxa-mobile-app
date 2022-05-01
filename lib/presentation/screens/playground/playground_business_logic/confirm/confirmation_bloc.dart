@@ -22,7 +22,7 @@ class ConfirmationBloc extends Bloc<ConfirmationEvent, ConfirmationState> {
           email: authCubit.authCrendentials.email, //authCubit.authCrendentials.username,
           confirmationCode: state.code,
         );
-        emit(state.copyWith(formStatus: SubmissionSuccess()));
+        emit(state.copyWith(formStatus: SubmissionSuccess())); //chagnges
 
         final credentials = authCubit.authCrendentials;
         final userId = await authRepository.signInWithEmailAndPassword(email: credentials.email, password: credentials.password);
