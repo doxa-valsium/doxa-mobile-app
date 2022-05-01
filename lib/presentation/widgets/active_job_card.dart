@@ -14,7 +14,7 @@ class ActiveJobCard extends StatelessWidget {
       child: Container(
         width: 187,
         padding: const EdgeInsets.only(top: 17),
-        decoration: BoxDecoration(boxShadow: Styles.elevation3, color: Colors.white, borderRadius: const BorderRadius.all(Radius.circular(20))),
+        decoration: BoxDecoration(boxShadow: Styles.elevation3, color: Colors.white, borderRadius: const BorderRadius.all(Radius.circular(8))),
         height: 113,
         child: Padding(
           padding: const EdgeInsets.all(12.0),
