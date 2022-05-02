@@ -1,10 +1,8 @@
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/company_details.dart';
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/company_profile_stack_handler.dart';
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/member_card.dart';
+import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/ic.dart';
-import 'package:auto_route/auto_route.dart';
 
 class CompanyProfileScreen extends StatelessWidget {
   static const String route = 'company-profile-screen';
@@ -16,36 +14,9 @@ class CompanyProfileScreen extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       body: SafeArea(
-        child: NestedScrollView(
-          floatHeaderSlivers: true,
-          headerSliverBuilder: (context, innerBoxIsScrolled) => [
-            SliverAppBar(
-              floating: true,
-              snap: true,
-              elevation: 0.0,
-              title: Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: Text(
-                  'My Company',
-                  style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
-                ),
-              ),
-              backgroundColor: Theme.of(context).colorScheme.background,
-              leading: Padding(
-                padding: const EdgeInsets.only(top: 16.0, left: 20.0),
-                child: GestureDetector(
-                  onTap: () {
-                    context.router.pop();
-                  },
-                  child: Iconify(
-                    Ic.sharp_keyboard_arrow_left,
-                    size: 8.0,
-                    color: Theme.of(context).colorScheme.onBackground,
-                  ),
-                ),
-              ),
-            ),
-          ],
+        child: CustomAppBar(
+          title: 'My Company',
+          showBackButton: true,
           body: SingleChildScrollView(
             padding: const EdgeInsets.only(top: 4.0, left: 16.0, right: 16.0),
             child: Column(

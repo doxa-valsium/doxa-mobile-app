@@ -1,10 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dotted_border/dotted_border.dart';
-import 'package:doxa_mobile_app/presentation/widgets/custom_dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/et.dart';
-import 'package:iconify_flutter/icons/ri.dart';
 import 'package:iconify_flutter/icons/fluent.dart';
 
 /// A widget that displays a circle avatar.
