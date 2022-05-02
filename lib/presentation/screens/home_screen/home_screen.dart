@@ -1,10 +1,11 @@
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/conversation_card.dart';
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/match_chat_head.dart';
-import 'package:doxa_mobile_app/presentation/widgets/active_job_card.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:doxa_mobile_app/presentation/widgets/custom_extended_card.dart';
+import 'package:doxa_mobile_app/presentation/widgets/job_card.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String route = 'home-screen';
@@ -77,7 +78,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SizedBox(
                   width: double.infinity,
-                  height: 150,
+                  height: 180,
                   child: ListView.builder(
                       clipBehavior: Clip.none,
                       primary: false,
@@ -85,8 +86,13 @@ class HomeScreen extends StatelessWidget {
                       physics: const ScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
+                      itemExtent: 180,
                       itemBuilder: (context, index) {
-                        return const ActiveJobCard();
+                        // return const ActiveJobCard();
+                        return const Padding(
+                          padding: EdgeInsets.only(left: 12),
+                          child: JobCard(isActive: true, buttonType1: ButtonType.primary),
+                        );
                       }),
                 ),
                 Padding(
