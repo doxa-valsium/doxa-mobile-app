@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/presentation/screens/profile_screen/local_widgets/profile_details.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/local_widgets/profile_stack_handler.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
@@ -32,44 +33,10 @@ class ProfileScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     const SizedBox(height: 4.0),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      //mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Flexible(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Ahmed Raza',
-                                style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.onBackground),
-                                softWrap: false,
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 4.0),
-                              Text(
-                                'Creative Designer - Software Housasdasdae',
-                                style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onBackground),
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 8.0),
-                              Text(
-                                'ahmedraadasdasddasadassadza@gmail.com',
-                                style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.onSurface),
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                    const ProfileDetails(
+                      name: 'Ahmed Raza',
+                      position: 'Creative Designer',
+                      email: 'ahmedraza@gmail.com',
                     ),
                     const SizedBox(
                       height: 16,
