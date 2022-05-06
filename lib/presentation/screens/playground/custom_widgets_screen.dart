@@ -1,5 +1,4 @@
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
-import 'package:doxa_mobile_app/presentation/widgets/default_avatar.dart';
 import 'package:flutter/material.dart';
 
 class CustomWidgetsScreen extends StatelessWidget {
@@ -60,12 +59,13 @@ class CustomWidgetsScreen extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        const DefaultAvatar(
+                        const Avatar(
                           radius: 50,
+                          avatarType: AvatarType.company,
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Default Avatar',
+                          'Avatar with image url = null \n and avatar type compnay',
                           style: Theme.of(context).textTheme.caption,
                         ),
                       ],

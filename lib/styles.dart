@@ -127,6 +127,8 @@ class Styles {
     error: Color(0xFFFFEAEA),
     surface: Color(0xFFE7E7E7),
     background: Color(0xFFFFFFFF),
+    surfaceVariant: Color(0xFF737478),
+    onSurfaceVariant: Color(0xFF848484),
     onPrimary: Color(0xFFFFFFFF),
     onSecondary: Color(0xFF0061FE),
     onSecondaryContainer: Color(0xFFF6FCFF),
@@ -136,7 +138,23 @@ class Styles {
     tertiary: Color(0xFFD9FFE1),
     onTertiary: Color(0xFF00CB2D),
   );
-
+  static const LinearGradient gradient1 = LinearGradient(
+    begin: Alignment.centerRight,
+    end: Alignment.centerLeft,
+    colors: [
+      Color(0xFFD0E2FF),
+      Color(0xFFCEE1FF),
+    ],
+  );
+  static const LinearGradient gradient2 = LinearGradient(
+    begin: Alignment.centerRight,
+    end: Alignment.centerLeft,
+    colors: [
+      Color(0xFF99C0FF),
+      Color(0xFFD3E4FF),
+      Color(0xFFD1E3FF),
+    ],
+  );
   static List<BoxShadow> elevation1 = [
     const BoxShadow(
       color: Color.fromRGBO(34, 32, 32, 0.25),

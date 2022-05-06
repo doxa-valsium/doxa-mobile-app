@@ -48,7 +48,6 @@ app.*.map.json
 #router generated file
 lib/routes/router.gr.dart
 lib/routes/router.gr.dart
-
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
@@ -69,3 +68,4 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+lib/routes/router.gr.dart

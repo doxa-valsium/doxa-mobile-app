@@ -46,6 +46,10 @@ class PlaygroundScreen extends StatelessWidget {
                 context.router.push(const AppNavigatorRoute());
               },
               child: const Text("Go to login Screen"),
+                context.router.push(const ManageImagesRoute());
+                // Get.toNamed(JobsPage.route);
+              },
+              child: const Text("Go to manage images"),
             ),
             MaterialButton(
               onPressed: () {},

@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/company_profile_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/counter_screen/counter_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/home_screen/home_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/jobs_screen/jobs_screen.dart';
@@ -12,6 +13,7 @@ import 'package:doxa_mobile_app/presentation/screens/playground/playground_view/
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_view/loading_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_view/login_screen/login_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_view/signup_screen/signup_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/manage_1x_2x_3x_images.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_screen.dart';
@@ -59,6 +61,12 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
     AutoRoute(
       path: LoadingScreen.route,
       page: LoadingScreen,
+      path: ChatScreen.route,
+      page: ChatScreen,
+    ),
+    AutoRoute(
+      path: ManageImagesScreen.route,
+      page: ManageImagesScreen,
     ),
     AutoRoute(
       path: NavigatorScreen.route,
@@ -108,7 +116,17 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
         AutoRoute(
           path: ProfileScreen.route,
           name: 'ProfileRouter',
-          page: ProfileScreen,
+          page: EmptyRouterPage,
+          children: [
+            AutoRoute(
+              initial: true,
+              page: ProfileScreen,
+            ),
+            AutoRoute(
+              path: CompanyProfileScreen.route,
+              page: CompanyProfileScreen,
+            ),
+          ],
         ),
       ],
     ),

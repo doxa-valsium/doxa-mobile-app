@@ -20,18 +20,20 @@ class BottomNavBar extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: Styles.elevation1,
         borderRadius: BorderRadius.only(
-          topRight: Radius.circular(39),
-          topLeft: Radius.circular(39),
+          topRight: Radius.circular(40),
+          topLeft: Radius.circular(40),
         ),
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.only(
-          topRight: Radius.circular(39),
-          topLeft: Radius.circular(39),
+          topRight: Radius.circular(40),
+          topLeft: Radius.circular(40),
         ),
         child: SizedBox(
           height: 80,
           child: BottomNavigationBar(
+            showSelectedLabels: true,
+            showUnselectedLabels: true,
             type: BottomNavigationBarType.fixed,
             currentIndex: tabsRouter.activeIndex,
             onTap: tabsRouter.setActiveIndex,
@@ -40,12 +42,12 @@ class BottomNavBar extends StatelessWidget {
                 icon: Iconify(
                   Teenyicons.home_alt_outline,
                   color: Theme.of(context).colorScheme.onSurface,
-                  size: 25.0,
+                  size: 24.0,
                 ),
                 activeIcon: Iconify(
                   Teenyicons.home_alt_outline,
                   color: Theme.of(context).colorScheme.primary,
-                  size: 25.0,
+                  size: 24.0,
                 ),
                 backgroundColor: Colors.blue,
                 label: 'Home',
@@ -54,12 +56,12 @@ class BottomNavBar extends StatelessWidget {
                 icon: Iconify(
                   Ep.suitcase,
                   color: Theme.of(context).colorScheme.onSurface,
-                  size: 25.0,
+                  size: 24.0,
                 ),
                 activeIcon: Iconify(
                   Ep.suitcase,
                   color: Theme.of(context).colorScheme.primary,
-                  size: 25.0,
+                  size: 24.0,
                 ),
                 label: 'Jobs',
               ),
@@ -67,12 +69,12 @@ class BottomNavBar extends StatelessWidget {
                 icon: Iconify(
                   Teenyicons.chat_typing_outline,
                   color: Theme.of(context).colorScheme.onSurface,
-                  size: 25.0,
+                  size: 24.0,
                 ),
                 activeIcon: Iconify(
                   Teenyicons.chat_typing_outline,
                   color: Theme.of(context).colorScheme.primary,
-                  size: 25.0,
+                  size: 24.0,
                 ),
                 label: 'Messages',
               ),
@@ -80,12 +82,12 @@ class BottomNavBar extends StatelessWidget {
                 icon: Iconify(
                   Teenyicons.user_circle_outline,
                   color: Theme.of(context).colorScheme.onSurface,
-                  size: 25.0,
+                  size: 24.0,
                 ),
                 activeIcon: Iconify(
                   Teenyicons.user_circle_outline,
                   color: Theme.of(context).colorScheme.primary,
-                  size: 25.0,
+                  size: 24.0,
                 ),
                 label: 'Profile',
                 //backgroundColor: Colors.blue,
