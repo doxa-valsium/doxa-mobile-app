@@ -48,6 +48,9 @@ class AmplifyAuthRepository implements AuthRepository {
   Future<String> getUser() async {
     try {
       final attributes = await Amplify.Auth.fetchUserAttributes();
+      attributes.forEach((element) {
+        logger.d('key : ${element.userAttributeKey} , value : ${element.value}');
+      });
       final userId = attributes.first.value; //firstWhere((element) => element.userAttributeKey.toString() == element.value).value; // ' sub ;
       return userId;
     } catch (e) {

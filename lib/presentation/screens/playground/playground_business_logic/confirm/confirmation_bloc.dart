@@ -22,12 +22,14 @@ class ConfirmationBloc extends Bloc<ConfirmationEvent, ConfirmationState> {
           email: authCubit.authCrendentials.email, //authCubit.authCrendentials.username,
           confirmationCode: state.code,
         );
-        emit(state.copyWith(formStatus: SubmissionSuccess())); //chagnges
 
         final credentials = authCubit.authCrendentials;
         final userId = await authRepository.signInWithEmailAndPassword(email: credentials.email, password: credentials.password);
+        
+        emit(state.copyWith(formStatus: SubmissionSuccess())); //chagnges
 
         credentials.userId = userId;
+
         authCubit.launchSession(credentials);
       } catch (e) {
         logger.e('1 : $e');

@@ -13,33 +13,36 @@ class AppNavigatorScreen extends StatelessWidget {
   const AppNavigatorScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SessionCubit, SessionState>(builder: (context, state) {
-      return Navigator(
-        pages: [
-          // Show loading screen
-          if (state is UnknownSessionState) const MaterialPage(child: LoadingScreen()),
+    return BlocBuilder<SessionCubit, SessionState>(
+      builder: (context, state) {
+        return Navigator(
+          pages: [
+            // Show loading screen
+            if (state is UnknownSessionState) const MaterialPage(child: LoadingScreen()),
 
-          // Show auth flow
-          if (state is Unauthenticated)
-            MaterialPage(
-              child: BlocProvider(
-                create: (context) => AuthCubit(
-                  sessionCubit: context.read<SessionCubit>(),
+            // Show auth flow
+            if (state is Unauthenticated)
+              MaterialPage(
+                child: BlocProvider(
+                  create: (context) => AuthCubit(
+                    sessionCubit: context.read<SessionCubit>(),
+                  ),
+                  child: const AuthNavigatorScreen(),
                 ),
-                child: const AuthNavigatorScreen(),
               ),
-            ),
 
-          // Show session flow
-          if (state is Authenticated)
-            MaterialPage(
+            // Show session flow
+            if (state is Authenticated)
+              MaterialPage(
                 child: SessionScreen(
-              firstName: state.user?.firstName,
-              lastName: state.user?.lastName,
-            ))
-        ],
-        onPopPage: (route, result) => route.didPop(result),
-      );
-    });
+                  firstName: state.user?.firstName,
+                  lastName: state.user?.lastName,
+                ),
+              ),
+          ],
+          onPopPage: (route, result) => route.didPop(result),
+        );
+      },
+    );
   }
 }

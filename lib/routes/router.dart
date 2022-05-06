@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/company_profile_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/counter_screen/counter_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/home_screen/home_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/jobs_screen/jobs_screen.dart';
@@ -60,6 +61,11 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
       path: LoadingScreen.route,
       page: LoadingScreen,
     ),
+    AutoRoute(
+      path: CompanyProfileScreen.route,
+      page: CompanyProfileScreen,
+    ),
+    
     AutoRoute(
       path: NavigatorScreen.route,
       page: NavigatorScreen,
