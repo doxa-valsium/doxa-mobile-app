@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-doxatest-staging-171326-authRole",
+      "UnauthRoleArn": "arn:aws:iam::357740061345:role/amplify-doxatest-staging-171326-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::357740061345:role/amplify-doxatest-staging-171326-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-doxatest-staging-171326-deployment",
+      "UnauthRoleName": "amplify-doxatest-staging-171326-unauthRole",
+      "StackName": "amplify-doxatest-staging-171326",
+      "StackId": "arn:aws:cloudformation:us-east-1:357740061345:stack/amplify-doxatest-staging-171326/864b3480-c25f-11ec-8dff-0e2af5cf5e71",
+      "AmplifyAppId": "d1z4lq97zvj5wx"
+    },
+    "categories": {
+      "auth": {
+        "doxad3834981": {}
+      }
+    }
+  }
+}

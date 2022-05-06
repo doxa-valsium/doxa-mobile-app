@@ -1,8 +1,9 @@
 abstract class AuthRepository {
-  Future<void> signInWithEmailAndPassword(String email, String password);
+  Future<String?> signInWithEmailAndPassword({required String email, required String password});
   Future<void> signOut();
-  Future<void> signUpWithEmailAndPassword(String email, String password);
+  Future<bool> signUpWithEmailAndPassword({required firstName, required lastName, required String email, required String password});
   bool isSignedIn();
   Future<String> getUser();
+  Future<bool> confirmSignUp({required String email, required String confirmationCode});
+  Future<String?> attemptAutoLogin();
 }
-

@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/company_profile_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/counter_screen/counter_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/home_screen/home_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/jobs_screen/jobs_screen.dart';
@@ -8,7 +7,11 @@ import 'package:doxa_mobile_app/presentation/screens/messages_screen/messages_sc
 import 'package:doxa_mobile_app/presentation/screens/navigator_screen/navigator_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/custom_widgets_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_screen.dart';
-import 'package:doxa_mobile_app/presentation/screens/playground/manage_1x_2x_3x_images.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/playground_view/app_navigator.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/playground_view/auth_navigator.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/playground_view/loading_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/playground_view/login_screen/login_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/playground_view/signup_screen/signup_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_screen.dart';
@@ -38,12 +41,24 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
       page: ChatScreen,
     ),
     AutoRoute(
-      path: ChatScreen.route,
-      page: ChatScreen,
+      path: LoginScreen.route,
+      page: LoginScreen,
     ),
     AutoRoute(
-      path: ManageImagesScreen.route,
-      page: ManageImagesScreen,
+      path: SignupScreen.route,
+      page: SignupScreen,
+    ),
+    AutoRoute(
+      path: AuthNavigatorScreen.route,
+      page: AuthNavigatorScreen,
+    ),
+    AutoRoute(
+      path: AppNavigatorScreen.route,
+      page: AppNavigatorScreen,
+    ),
+    AutoRoute(
+      path: LoadingScreen.route,
+      page: LoadingScreen,
     ),
     AutoRoute(
       path: NavigatorScreen.route,
@@ -93,17 +108,7 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
         AutoRoute(
           path: ProfileScreen.route,
           name: 'ProfileRouter',
-          page: EmptyRouterPage,
-          children: [
-            AutoRoute(
-              initial: true,
-              page: ProfileScreen,
-            ),
-            AutoRoute(
-              path: CompanyProfileScreen.route,
-              page: CompanyProfileScreen,
-            ),
-          ],
+          page: ProfileScreen,
         ),
       ],
     ),
