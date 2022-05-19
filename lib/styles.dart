@@ -131,7 +131,7 @@ class Styles {
     onSurfaceVariant: Color(0xFF848484),
     onPrimary: Color(0xFFFFFFFF),
     onSecondary: Color(0xFF0061FE),
-    onSecondaryContainer: Color(0xFFF6FCFF),
+    onSecondaryContainer: Color(0xFFF0FAFF),
     onError: Color(0xFFD53030),
     onSurface: Color(0xFFA6A6A6),
     onBackground: Color(0xFF081C43),
