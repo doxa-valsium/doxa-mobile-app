@@ -4,10 +4,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/bottom_widget.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 
-// For the testing purposes, you should probably use https://pub.dev/packages/uuid
 String randomString() {
   var random = Random.secure();
   var values = List<int>.generate(16, (i) => random.nextInt(255));
@@ -19,10 +19,10 @@ class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
 
   @override
-  _ChatScreenState createState() => _ChatScreenState();
+  ChatScreenState createState() => ChatScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class ChatScreenState extends State<ChatScreen> {
   final List<types.Message> _messages = [];
   final _user = const types.User(id: '06c33e8b-e835-4736-80f4-63f44b66666c');
   final _user2 = const types.User(id: '06c33e8b-e835-4736-80f4-63f44b66666d');

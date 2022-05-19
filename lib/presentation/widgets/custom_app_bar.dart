@@ -21,6 +21,7 @@ class CustomAppBar extends StatelessWidget {
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
+            centerTitle: false,
             floating: true,
             snap: true,
             elevation: 0.0,
@@ -32,7 +33,7 @@ class CustomAppBar extends StatelessWidget {
               ),
             ),
             backgroundColor: Theme.of(context).colorScheme.background,
-            automaticallyImplyLeading: false,
+            automaticallyImplyLeading: true,
           ),
         ],
         body: body,

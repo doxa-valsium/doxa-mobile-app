@@ -31,6 +31,10 @@ class SingleJobScreen extends StatelessWidget {
                       child: CustomDottedBorder(
                         borderType: BorderType.RRect,
                         child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
                           child: Center(
                               child: Padding(
                             padding: const EdgeInsets.only(top: 28, bottom: 22.82),
@@ -47,10 +51,6 @@ class SingleJobScreen extends StatelessWidget {
                               ),
                             ]),
                           )),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
                         ),
                       ),
                     ),

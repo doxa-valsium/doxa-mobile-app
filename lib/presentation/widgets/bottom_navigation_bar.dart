@@ -30,7 +30,7 @@ class BottomNavBar extends StatelessWidget {
           topLeft: Radius.circular(40),
         ),
         child: SizedBox(
-          height: 80,
+          height: 88,
           child: BottomNavigationBar(
             showSelectedLabels: true,
             showUnselectedLabels: true,

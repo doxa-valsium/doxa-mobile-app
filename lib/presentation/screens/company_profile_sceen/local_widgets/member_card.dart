@@ -66,14 +66,15 @@ class MemberCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Align(
+                    alignment: const Alignment(0.7, -0.6),
                     child: Iconify(
                       Bx.dots_vertical_rounded,
                       size: 28.0,
                       color: Theme.of(context).colorScheme.onSurface,
                     ),
-                    alignment: const Alignment(0.7, -0.6),
                   ),
                   Align(
+                    alignment: const Alignment(0.7, -0.6),
                     child: Container(
                       width: 48.0,
                       height: 16.0,
@@ -88,7 +89,6 @@ class MemberCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    alignment: const Alignment(0.7, -0.6),
                   ),
                 ],
               ),
@@ -145,12 +145,12 @@ class MemberCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Align(
+                      alignment: const Alignment(0.7, -0.6),
                       child: Iconify(
                         Bx.dots_vertical_rounded,
                         size: 28.0,
                         color: Theme.of(context).colorScheme.onSurface,
                       ),
-                      alignment: const Alignment(0.7, -0.6),
                     ),
                   ),
                 ],

@@ -41,13 +41,13 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                       Container(
-                        child: const Avatar(
-                          radius: 30,
-                          avatarUrl: 'https://picsum.photos/200',
-                        ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           boxShadow: Styles.elevation3,
+                        ),
+                        child: const Avatar(
+                          radius: 30,
+                          avatarUrl: 'https://picsum.photos/200',
                         ),
                       ),
                     ],
