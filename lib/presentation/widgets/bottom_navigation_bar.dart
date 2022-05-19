@@ -29,71 +29,68 @@ class BottomNavBar extends StatelessWidget {
           topRight: Radius.circular(40),
           topLeft: Radius.circular(40),
         ),
-        child: SizedBox(
-          height: 88,
-          child: BottomNavigationBar(
-            showSelectedLabels: true,
-            showUnselectedLabels: true,
-            type: BottomNavigationBarType.fixed,
-            currentIndex: tabsRouter.activeIndex,
-            onTap: tabsRouter.setActiveIndex,
-            items: [
-              BottomNavigationBarItem(
-                icon: Iconify(
-                  Teenyicons.home_alt_outline,
-                  color: Theme.of(context).colorScheme.onSurface,
-                  size: 24.0,
-                ),
-                activeIcon: Iconify(
-                  Teenyicons.home_alt_outline,
-                  color: Theme.of(context).colorScheme.primary,
-                  size: 24.0,
-                ),
-                backgroundColor: Colors.blue,
-                label: 'Home',
+        child: BottomNavigationBar(
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+          type: BottomNavigationBarType.fixed,
+          currentIndex: tabsRouter.activeIndex,
+          onTap: tabsRouter.setActiveIndex,
+          items: [
+            BottomNavigationBarItem(
+              icon: Iconify(
+                Teenyicons.home_alt_outline,
+                color: Theme.of(context).colorScheme.onSurface,
+                size: 24.0,
               ),
-              BottomNavigationBarItem(
-                icon: Iconify(
-                  Ep.suitcase,
-                  color: Theme.of(context).colorScheme.onSurface,
-                  size: 24.0,
-                ),
-                activeIcon: Iconify(
-                  Ep.suitcase,
-                  color: Theme.of(context).colorScheme.primary,
-                  size: 24.0,
-                ),
-                label: 'Jobs',
+              activeIcon: Iconify(
+                Teenyicons.home_alt_outline,
+                color: Theme.of(context).colorScheme.primary,
+                size: 24.0,
               ),
-              BottomNavigationBarItem(
-                icon: Iconify(
-                  Teenyicons.chat_typing_outline,
-                  color: Theme.of(context).colorScheme.onSurface,
-                  size: 24.0,
-                ),
-                activeIcon: Iconify(
-                  Teenyicons.chat_typing_outline,
-                  color: Theme.of(context).colorScheme.primary,
-                  size: 24.0,
-                ),
-                label: 'Messages',
+              backgroundColor: Colors.blue,
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Iconify(
+                Ep.suitcase,
+                color: Theme.of(context).colorScheme.onSurface,
+                size: 24.0,
               ),
-              BottomNavigationBarItem(
-                icon: Iconify(
-                  Teenyicons.user_circle_outline,
-                  color: Theme.of(context).colorScheme.onSurface,
-                  size: 24.0,
-                ),
-                activeIcon: Iconify(
-                  Teenyicons.user_circle_outline,
-                  color: Theme.of(context).colorScheme.primary,
-                  size: 24.0,
-                ),
-                label: 'Profile',
-                //backgroundColor: Colors.blue,
+              activeIcon: Iconify(
+                Ep.suitcase,
+                color: Theme.of(context).colorScheme.primary,
+                size: 24.0,
               ),
-            ],
-          ),
+              label: 'Jobs',
+            ),
+            BottomNavigationBarItem(
+              icon: Iconify(
+                Teenyicons.chat_typing_outline,
+                color: Theme.of(context).colorScheme.onSurface,
+                size: 24.0,
+              ),
+              activeIcon: Iconify(
+                Teenyicons.chat_typing_outline,
+                color: Theme.of(context).colorScheme.primary,
+                size: 24.0,
+              ),
+              label: 'Messages',
+            ),
+            BottomNavigationBarItem(
+              icon: Iconify(
+                Teenyicons.user_circle_outline,
+                color: Theme.of(context).colorScheme.onSurface,
+                size: 24.0,
+              ),
+              activeIcon: Iconify(
+                Teenyicons.user_circle_outline,
+                color: Theme.of(context).colorScheme.primary,
+                size: 24.0,
+              ),
+              label: 'Profile',
+              //backgroundColor: Colors.blue,
+            ),
+          ],
         ),
       ),
     );
