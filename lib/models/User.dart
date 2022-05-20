@@ -17,8 +17,9 @@
 // Generated files can be excluded from analysis in analysis_options.yaml
 // For more info, see: https://dart.dev/guides/language/analysis-options#excluding-code-from-analysis
 
-// ignore_for_file: public_member_api_docs, file_names, unnecessary_new, prefer_if_null_operators, prefer_const_constructors, slash_for_doc_comments, annotate_overrides, non_constant_identifier_names, unnecessary_string_interpolations, prefer_adjacent_string_concatenation, unnecessary_const, dead_code
+// ignore_for_file: public_member_api_docs, annotate_overrides, dead_code, dead_codepublic_member_api_docs, depend_on_referenced_packages, file_names, library_private_types_in_public_api, no_leading_underscores_for_library_prefixes, no_leading_underscores_for_local_identifiers, non_constant_identifier_names, null_check_on_nullable_type_parameter, prefer_adjacent_string_concatenation, prefer_const_constructors, prefer_if_null_operators, prefer_interpolation_to_compose_strings, slash_for_doc_comments, sort_child_properties_last, unnecessary_const, unnecessary_constructor_name, unnecessary_late, unnecessary_new, unnecessary_null_aware_assignments, unnecessary_nullable_for_final_variable_declarations, unnecessary_string_interpolations, use_build_context_synchronously
 
+import 'ModelProvider.dart';
 import 'package:amplify_core/amplify_core.dart';
 import 'package:flutter/foundation.dart';
 
@@ -28,9 +29,9 @@ import 'package:flutter/foundation.dart';
 class User extends Model {
   static const classType = const _UserModelType();
   final String id;
+  final UserType? _userType;
   final String? _firstName;
   final String? _lastName;
-  final String? _email;
   final TemporalDateTime? _createdAt;
   final TemporalDateTime? _updatedAt;
 
@@ -42,16 +43,25 @@ class User extends Model {
     return id;
   }
   
+  UserType get userType {
+    try {
+      return _userType!;
+    } catch(e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion:
+            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString()
+          );
+    }
+  }
+  
   String? get firstName {
     return _firstName;
   }
   
   String? get lastName {
     return _lastName;
-  }
-  
-  String? get email {
-    return _email;
   }
   
   TemporalDateTime? get createdAt {
@@ -62,14 +72,14 @@ class User extends Model {
     return _updatedAt;
   }
   
-  const User._internal({required this.id, firstName, lastName, email, createdAt, updatedAt}): _firstName = firstName, _lastName = lastName, _email = email, _createdAt = createdAt, _updatedAt = updatedAt;
+  const User._internal({required this.id, required userType, firstName, lastName, createdAt, updatedAt}): _userType = userType, _firstName = firstName, _lastName = lastName, _createdAt = createdAt, _updatedAt = updatedAt;
   
-  factory User({String? id, String? firstName, String? lastName, String? email}) {
+  factory User({String? id, required UserType userType, String? firstName, String? lastName}) {
     return User._internal(
       id: id == null ? UUID.getUUID() : id,
+      userType: userType,
       firstName: firstName,
-      lastName: lastName,
-      email: email);
+      lastName: lastName);
   }
   
   bool equals(Object other) {
@@ -81,9 +91,9 @@ class User extends Model {
     if (identical(other, this)) return true;
     return other is User &&
       id == other.id &&
+      _userType == other._userType &&
       _firstName == other._firstName &&
-      _lastName == other._lastName &&
-      _email == other._email;
+      _lastName == other._lastName;
   }
   
   @override
@@ -95,9 +105,9 @@ class User extends Model {
     
     buffer.write("User {");
     buffer.write("id=" + "$id" + ", ");
+    buffer.write("userType=" + (_userType != null ? enumToString(_userType)! : "null") + ", ");
     buffer.write("firstName=" + "$_firstName" + ", ");
     buffer.write("lastName=" + "$_lastName" + ", ");
-    buffer.write("email=" + "$_email" + ", ");
     buffer.write("createdAt=" + (_createdAt != null ? _createdAt!.format() : "null") + ", ");
     buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null"));
     buffer.write("}");
@@ -105,30 +115,30 @@ class User extends Model {
     return buffer.toString();
   }
   
-  User copyWith({String? id, String? firstName, String? lastName, String? email}) {
+  User copyWith({String? id, UserType? userType, String? firstName, String? lastName}) {
     return User._internal(
       id: id ?? this.id,
+      userType: userType ?? this.userType,
       firstName: firstName ?? this.firstName,
-      lastName: lastName ?? this.lastName,
-      email: email ?? this.email);
+      lastName: lastName ?? this.lastName);
   }
   
   User.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
+      _userType = enumFromString<UserType>(json['userType'], UserType.values),
       _firstName = json['firstName'],
       _lastName = json['lastName'],
-      _email = json['email'],
       _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
       _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'firstName': _firstName, 'lastName': _lastName, 'email': _email, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'userType': enumToString(_userType), 'firstName': _firstName, 'lastName': _lastName, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
 
   static final QueryField ID = QueryField(fieldName: "user.id");
+  static final QueryField USERTYPE = QueryField(fieldName: "userType");
   static final QueryField FIRSTNAME = QueryField(fieldName: "firstName");
   static final QueryField LASTNAME = QueryField(fieldName: "lastName");
-  static final QueryField EMAIL = QueryField(fieldName: "email");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "User";
     modelSchemaDefinition.pluralName = "Users";
@@ -147,6 +157,12 @@ class User extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.id());
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
+      key: User.USERTYPE,
+      isRequired: true,
+      ofType: ModelFieldType(ModelFieldTypeEnum.enumeration)
+    ));
+    
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
       key: User.FIRSTNAME,
       isRequired: false,
       ofType: ModelFieldType(ModelFieldTypeEnum.string)
@@ -154,12 +170,6 @@ class User extends Model {
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
       key: User.LASTNAME,
-      isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
-    ));
-    
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: User.EMAIL,
       isRequired: false,
       ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));

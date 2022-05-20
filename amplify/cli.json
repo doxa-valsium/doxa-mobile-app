@@ -11,7 +11,8 @@
             "transformerversion": 2,
             "suppressschemamigrationprompt": true,
             "securityenhancementnotification": false,
-            "showfieldauthnotification": false
+            "showfieldauthnotification": false,
+            "usesubusernamefordefaultidentityclaim": true
         },
         "frontend-ios": {
             "enablexcodeintegration": true

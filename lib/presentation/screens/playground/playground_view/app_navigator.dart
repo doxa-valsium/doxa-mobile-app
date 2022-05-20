@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppNavigatorScreen extends StatelessWidget {
-  static const String route = 'app-nav-screen';
+  //static const String route = 'app-nav-screen';
+  static const String route = '/';
 
   const AppNavigatorScreen({Key? key}) : super(key: key);
   @override

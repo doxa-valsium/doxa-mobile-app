@@ -1,5 +1,0 @@
-{
-  "AppSyncApiName": "Doxa",
-  "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
-}

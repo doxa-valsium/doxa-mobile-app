@@ -137,7 +137,7 @@ class AppRouter extends _i13.RootStackRouter {
 
   @override
   List<_i13.RouteConfig> get routes => [
-        _i13.RouteConfig(PlaygroundRoute.name, path: '/'),
+        _i13.RouteConfig(PlaygroundRoute.name, path: 'playground-screen'),
         _i13.RouteConfig(ThemeTestRoute.name, path: 'theme-test-screen'),
         _i13.RouteConfig(PulsingButtonRoute.name,
             path: 'pulsing-button-screen'),
@@ -147,7 +147,7 @@ class AppRouter extends _i13.RootStackRouter {
         _i13.RouteConfig(LoginRoute.name, path: 'login-screen'),
         _i13.RouteConfig(SignupRoute.name, path: 'signup-screen'),
         _i13.RouteConfig(AuthNavigatorRoute.name, path: 'auth-screen'),
-        _i13.RouteConfig(AppNavigatorRoute.name, path: 'app-nav-screen'),
+        _i13.RouteConfig(AppNavigatorRoute.name, path: '/'),
         _i13.RouteConfig(LoadingRoute.name, path: 'loading-screen'),
         _i13.RouteConfig(CompanyProfileRoute.name,
             path: 'company-profile-screen'),
@@ -188,7 +188,8 @@ class AppRouter extends _i13.RootStackRouter {
 /// generated route for
 /// [_i1.PlaygroundScreen]
 class PlaygroundRoute extends _i13.PageRouteInfo<void> {
-  const PlaygroundRoute() : super(PlaygroundRoute.name, path: '/');
+  const PlaygroundRoute()
+      : super(PlaygroundRoute.name, path: 'playground-screen');
 
   static const String name = 'PlaygroundRoute';
 }
@@ -282,8 +283,7 @@ class AuthNavigatorRoute extends _i13.PageRouteInfo<void> {
 /// generated route for
 /// [_i9.AppNavigatorScreen]
 class AppNavigatorRoute extends _i13.PageRouteInfo<void> {
-  const AppNavigatorRoute()
-      : super(AppNavigatorRoute.name, path: 'app-nav-screen');
+  const AppNavigatorRoute() : super(AppNavigatorRoute.name, path: '/');
 
   static const String name = 'AppNavigatorRoute';
 }

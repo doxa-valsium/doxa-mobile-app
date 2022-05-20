@@ -1,7 +1,12 @@
+enum UserType {
+  RECRUITER
+  CANDIDATE
+}
+
 type User @model @auth(rules: [{allow: public}]) {
   id: ID!
+  userType: UserType!
   firstName: String
   lastName: String
-  email: String
 }
  

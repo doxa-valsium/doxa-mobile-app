@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
 class PlaygroundScreen extends StatelessWidget {
-  static const String route = '/';
+  // static const String route = '/';
+  static const String route = 'playground-screen';
+
   const PlaygroundScreen({Key? key}) : super(key: key);
 
   @override

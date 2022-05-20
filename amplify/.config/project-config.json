@@ -2,7 +2,7 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "Doxa",
+  "projectName": "doxaapp",
   "version": "3.1",
   "frontend": "flutter",
   "flutter": {

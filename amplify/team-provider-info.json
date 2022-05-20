@@ -1,19 +1,19 @@
 {
-  "staging": {
+  "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-doxatest-staging-171326-authRole",
-      "UnauthRoleArn": "arn:aws:iam::357740061345:role/amplify-doxatest-staging-171326-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::357740061345:role/amplify-doxatest-staging-171326-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-doxatest-staging-171326-deployment",
-      "UnauthRoleName": "amplify-doxatest-staging-171326-unauthRole",
-      "StackName": "amplify-doxatest-staging-171326",
-      "StackId": "arn:aws:cloudformation:us-east-1:357740061345:stack/amplify-doxatest-staging-171326/864b3480-c25f-11ec-8dff-0e2af5cf5e71",
-      "AmplifyAppId": "d1z4lq97zvj5wx"
+      "AuthRoleName": "amplify-doxaapp-dev-230410-authRole",
+      "UnauthRoleArn": "arn:aws:iam::357740061345:role/amplify-doxaapp-dev-230410-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::357740061345:role/amplify-doxaapp-dev-230410-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-doxaapp-dev-230410-deployment",
+      "UnauthRoleName": "amplify-doxaapp-dev-230410-unauthRole",
+      "StackName": "amplify-doxaapp-dev-230410",
+      "StackId": "arn:aws:cloudformation:ap-south-1:357740061345:stack/amplify-doxaapp-dev-230410/c1c7bdc0-d60b-11ec-ba3c-06b217e744a8",
+      "AmplifyAppId": "deexpi46a0a1f"
     },
     "categories": {
       "auth": {
-        "doxad3834981": {}
+        "doxaapp": {}
       }
     }
   }
