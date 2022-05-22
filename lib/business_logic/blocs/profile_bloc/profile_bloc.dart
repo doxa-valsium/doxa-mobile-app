@@ -13,7 +13,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       try {
         await Future.delayed(const Duration(seconds: 2));
         //uncomment this line to simulate error
-        throw Exception();
+        // throw Exception();
       } on Exception {
         emit(ProfileScreenError(errorMessage: 'Ops something went wrong ....'));
       }
