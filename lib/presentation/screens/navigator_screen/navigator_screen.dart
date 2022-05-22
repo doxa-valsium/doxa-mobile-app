@@ -1,4 +1,4 @@
-import 'package:doxa_mobile_app/presentation/screens/profile_screen/bloc/profile_bloc.dart';
+import 'package:doxa_mobile_app/business_logic/blocs/profile_bloc/profile_bloc.dart';
 import 'package:doxa_mobile_app/presentation/widgets/bottom_navigation_bar.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
