@@ -3,6 +3,7 @@ import 'package:doxa_mobile_app/presentation/widgets/candidate_card_pub.dart';
 import 'package:doxa_mobile_app/presentation/widgets/candidate_card_segments.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_chip.dart';
 import 'package:doxa_mobile_app/styles.dart';
+import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 
@@ -15,10 +16,18 @@ class CandidateCard extends StatefulWidget {
 
 class _CandidateCardState extends State<CandidateCard> {
   GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
+  FlipCardController? _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = FlipCardController();
+  }
 
   @override
   Widget build(BuildContext context) {
     return FlipCard(
+      controller: _controller,
       key: cardKey,
       flipOnTouch: false,
       front: Dialog(

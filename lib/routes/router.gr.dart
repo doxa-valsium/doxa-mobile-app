@@ -38,7 +38,7 @@ class AppRouter extends _i8.RootStackRouter {
   final Map<String, _i8.PageFactory> pagesMap = {
     PlaygroundRoute.name: (routeData) {
       return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.PlaygroundScreen());
+          routeData: routeData, child: _i1.PlaygroundScreen());
     },
     ThemeTestRoute.name: (routeData) {
       return _i8.MaterialPageX<dynamic>(

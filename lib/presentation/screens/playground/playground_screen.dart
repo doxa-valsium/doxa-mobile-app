@@ -1,10 +1,12 @@
 import 'package:doxa_mobile_app/presentation/widgets/candidate_card.dart';
+import 'package:doxa_mobile_app/presentation/widgets/candidate_card2.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
 class PlaygroundScreen extends StatelessWidget {
   static const String route = '/';
+  
   const PlaygroundScreen({Key? key}) : super(key: key);
 
   @override
@@ -59,6 +61,12 @@ class PlaygroundScreen extends StatelessWidget {
                 showDialog(context: context, builder: (context) => const CandidateCard());
               },
               child: const Text("Show Dialogue Box"),
+            ),
+            MaterialButton(
+              onPressed: () {
+                showDialog(context: context, builder: (context) => const CandidateCard2());
+              },
+              child: const Text("Dialogue Box 2 Custom Animation"),
             ),
           ],
         ),

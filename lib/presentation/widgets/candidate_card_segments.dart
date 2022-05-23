@@ -120,8 +120,9 @@ class _CandidateCardSegmentState extends State<CandidateCardSegment> {
                 onTap: () {
                   setState(() {
                     showmoreClicked = true;
-                    total = widget.workExperiences?.length ?? 0;
+                    total = widget.workExperiences!.length;
                     print(showmoreClicked);
+                    print(widget.workExperiences!.length);
                   });
                 },
                 child: Text(
