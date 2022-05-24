@@ -7,6 +7,7 @@ import 'package:doxa_mobile_app/presentation/screens/messages_screen/chat_screen
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/messages_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/navigator_screen/navigator_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/custom_widgets_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/playground/login_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/manage_1x_2x_3x_images.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button_screen.dart';
@@ -44,6 +45,10 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
     AutoRoute(
       path: ManageImagesScreen.route,
       page: ManageImagesScreen,
+    ),
+    AutoRoute(
+      path: LoginScreen.route,
+      page: LoginScreen,
     ),
     AutoRoute(
       path: NavigatorScreen.route,
