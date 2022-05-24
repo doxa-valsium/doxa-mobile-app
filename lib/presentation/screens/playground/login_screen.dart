@@ -45,6 +45,8 @@ class LoginScreen extends StatelessWidget {
               const Spacer(
                 flex: 1,
               ),
+              // TODO: Make ElevatedButton a custom widget
+              
               SizedBox(
                 width: double.maxFinite,
                 height: 50.0,
@@ -63,30 +65,54 @@ class LoginScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
                 ),
               ),
-              GestureDetector(
-                onTap: () {},
-                child: CustomDottedBorder(
-                  borderType: BorderType.RRect,
-                  radius: const Radius.circular(16),
-                  child: Container(
-                    height: 50 - 4,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: Theme.of(context).colorScheme.onSecondaryContainer,
-                    ),
-                    padding: const EdgeInsets.all(10),
-                    child: Center(
-                      child: Text(
-                        'REGISTER',
-                        style: Theme.of(context).textTheme.button,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              DashedButton(borderRadius: 16, buttonText: "SIGN UP", color: Theme.of(context).colorScheme.onSecondaryContainer, func: () {}, dashLineRadius: 16, height: 50 - 4),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DashedButton extends StatelessWidget {
+  final double height;
+  final double borderRadius;
+  final double dashLineRadius;
+  final Color color;
+  final String buttonText;
+  final VoidCallback func;
+
+  const DashedButton({
+    Key? key,
+    required this.height,
+    required this.borderRadius,
+    required this.dashLineRadius,
+    required this.color,
+    required this.buttonText,
+    required this.func,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: func,
+      child: CustomDottedBorder(
+        borderType: BorderType.RRect,
+        radius: Radius.circular(dashLineRadius),
+        child: Container(
+          height: height,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(borderRadius),
+            color: color,
+          ),
+          padding: const EdgeInsets.all(10),
+          child: Center(
+            child: Text(
+              buttonText,
+              style: Theme.of(context).textTheme.button,
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
       ),
