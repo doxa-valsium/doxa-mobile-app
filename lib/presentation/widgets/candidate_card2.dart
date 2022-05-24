@@ -7,9 +7,11 @@ import 'package:doxa_mobile_app/presentation/widgets/custom_chip.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
+import 'package:swipable_stack/swipable_stack.dart';
 
 class CandidateCard2 extends StatefulWidget {
-  const CandidateCard2({Key? key}) : super(key: key);
+  final SwipableStackController swipecontroller;
+  const CandidateCard2({Key? key, required this.swipecontroller}) : super(key: key);
 
   @override
   State<CandidateCard2> createState() => _CandidateCard2State();
@@ -43,12 +45,12 @@ class _CandidateCard2State extends State<CandidateCard2> {
     return AnimatedSwitcher(
         duration: const Duration(milliseconds: 1000),
         // reverseDuration: const Duration(milliseconds: 1000),
-        switchInCurve: Curves.easeInBack,
-        switchOutCurve: Curves.easeInBack.flipped,
+        switchInCurve: Curves.ease,
+        switchOutCurve: Curves.ease.flipped,
         transitionBuilder: transtion,
         child: isFlipped
             ? Dialog(
-                key: ValueKey(false),
+                key: const ValueKey(false),
                 insetPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(31.0)),
                 backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
@@ -200,34 +202,47 @@ class _CandidateCard2State extends State<CandidateCard2> {
                           bottom: 0,
                           child: Row(
                             children: [
-                              Container(
-                                  height: 48,
-                                  width: MediaQuery.of(context).size.width * 0.95 / 2,
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(31)),
-                                    color: Theme.of(context).colorScheme.onSurface,
-                                  ),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      'DISLIKE',
-                                      style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                              GestureDetector(
+                                onTap: () {
+                                  widget.swipecontroller.next(
+                                    swipeDirection: SwipeDirection.left,
+                                    duration: const Duration(milliseconds: 1200),
+                                  );
+                                },
+                                child: Container(
+                                    height: 48,
+                                    width: MediaQuery.of(context).size.width * 0.95 / 2,
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(31)),
+                                      color: Theme.of(context).colorScheme.onSurface,
                                     ),
-                                  )),
-                              Container(
-                                  height: 48,
-                                  width: MediaQuery.of(context).size.width * 0.95 / 2,
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(bottomRight: Radius.circular(31)),
-                                    color: Theme.of(context).colorScheme.primary,
-                                  ),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      'LIKE',
-                                      style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        'DISLIKE',
+                                        style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                                      ),
+                                    )),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  widget.swipecontroller.next(swipeDirection: SwipeDirection.right, duration: const Duration(milliseconds: 1200));
+                                },
+                                child: Container(
+                                    height: 48,
+                                    width: MediaQuery.of(context).size.width * 0.95 / 2,
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.only(bottomRight: Radius.circular(31)),
+                                      color: Theme.of(context).colorScheme.primary,
                                     ),
-                                  )),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        'LIKE',
+                                        style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                                      ),
+                                    )),
+                              ),
                             ],
                           ))
                     ],
@@ -391,34 +406,45 @@ class _CandidateCard2State extends State<CandidateCard2> {
                           bottom: 0,
                           child: Row(
                             children: [
-                              Container(
-                                  height: 48,
-                                  width: MediaQuery.of(context).size.width * 0.95 / 2,
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(31)),
-                                    color: Theme.of(context).colorScheme.onSurface,
-                                  ),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      'DISLIKE',
-                                      style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                              GestureDetector(
+                                onTap: () {
+                                  widget.swipecontroller.next(swipeDirection: SwipeDirection.left, duration: const Duration(milliseconds: 1200));
+                                  // widget.swipecontroller.currentIndex += 1;
+                                },
+                                child: Container(
+                                    height: 48,
+                                    width: MediaQuery.of(context).size.width * 0.95 / 2,
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(31)),
+                                      color: Theme.of(context).colorScheme.onSurface,
                                     ),
-                                  )),
-                              Container(
-                                  height: 48,
-                                  width: MediaQuery.of(context).size.width * 0.95 / 2,
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(bottomRight: Radius.circular(31)),
-                                    color: Theme.of(context).colorScheme.primary,
-                                  ),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      'LIKE',
-                                      style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        'DISLIKE',
+                                        style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                                      ),
+                                    )),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  widget.swipecontroller.next(swipeDirection: SwipeDirection.right, duration: const Duration(milliseconds: 1200));
+                                },
+                                child: Container(
+                                    height: 48,
+                                    width: MediaQuery.of(context).size.width * 0.95 / 2,
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.only(bottomRight: Radius.circular(31)),
+                                      color: Theme.of(context).colorScheme.primary,
                                     ),
-                                  )),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        'LIKE',
+                                        style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                                      ),
+                                    )),
+                              ),
                             ],
                           ))
                     ],
