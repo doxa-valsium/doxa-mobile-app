@@ -1,3 +1,5 @@
+import 'package:dotted_border/dotted_border.dart';
+import 'package:doxa_mobile_app/presentation/widgets/custom_dotted_border.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -7,63 +9,84 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(28.0),
-            child: Column(
-              children: [
-                Image.asset('assets/images/logo.png'),
-                const SizedBox(height: 20),
-                Image.asset('assets/images/login_screen.png'),
-                const SizedBox(height: 20),
-                const InputField(
-                  hintText: 'Email',
-                  inputType: TextInputType.emailAddress,
-                  isPassword: false,
-                  prefixIcon: Icon(Icons.alternate_email),
-                  suffixWidget: null,
+        child: Padding(
+          padding: const EdgeInsets.all(28.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset('assets/images/final_logo.png'),
+              const Spacer(
+                flex: 1,
+              ),
+              Image.asset('assets/images/login_screen.png'),
+              const Spacer(
+                flex: 1,
+              ),
+              const InputField(
+                hintText: 'Email',
+                inputType: TextInputType.emailAddress,
+                isPassword: false,
+                prefixIcon: Icon(Icons.alternate_email),
+                suffixWidget: null,
+              ),
+              const SizedBox(height: 20),
+              const InputField(
+                hintText: 'Password',
+                inputType: TextInputType.text,
+                isPassword: true,
+                prefixIcon: Icon(Icons.lock),
+                suffixWidget: Text(
+                  'Forgot?',
+                  style: TextStyle(color: Colors.blue),
                 ),
-                const SizedBox(height: 20),
-                const InputField(
-                  hintText: 'Password',
-                  inputType: TextInputType.text,
-                  isPassword: true,
-                  prefixIcon: Icon(Icons.lock),
-                  suffixWidget: Text(
-                    'Forgot?',
-                    style: TextStyle(color: Colors.blue),
+              ),
+              const Spacer(
+                flex: 1,
+              ),
+              SizedBox(
+                width: double.maxFinite,
+                height: 50.0,
+                child: ElevatedButton(
+                  child: Text(
+                    'BUTTON',
+                    style: Theme.of(context).textTheme.button?.copyWith(color: Colors.white),
                   ),
+                  onPressed: () {},
                 ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: double.maxFinite,
-                  height: 50.0,
-                  child: ElevatedButton(
-                    child: Text(
-                      'LOGIN',
-                      style: Theme.of(context).textTheme.button?.copyWith(color: Colors.white),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Text(
+                  "Or if you’re new here",
+                  style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: CustomDottedBorder(
+                  borderType: BorderType.RRect,
+                  radius: const Radius.circular(16),
+                  child: Container(
+                    height: 50 - 4,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: Theme.of(context).colorScheme.onSecondaryContainer,
                     ),
-                    onPressed: () {},
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Text("Or if you’re new here", style: Theme.of(context).textTheme.caption),
-                ),
-                SizedBox(
-                  width: double.maxFinite,
-                  height: 50.0,
-                  child: OutlinedButton(
-                    onPressed: () {},
-                    child: Text(
-                      'REGISTER',
-                      style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onBackground),
+                    padding: const EdgeInsets.all(10),
+                    child: Center(
+                      child: Text(
+                        'REGISTER',
+                        style: Theme.of(context).textTheme.button,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
