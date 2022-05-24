@@ -28,10 +28,11 @@ class CustomChip extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (externalLink)
-                Icon(
+                const Icon(
                   Icons.open_in_new,
                   size: 16,
-                  color: foregroundColor,
+                  // color: foregroundColor,
+                  color: Colors.black,
                 ),
               Text(
                 text,
