@@ -1,5 +1,4 @@
 import 'package:doxa_mobile_app/presentation/widgets/candidate_card.dart';
-import 'package:doxa_mobile_app/presentation/widgets/candidate_card2.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
@@ -60,15 +59,9 @@ class PlaygroundScreen extends StatelessWidget {
               ),
               MaterialButton(
                 onPressed: () {
-                  showDialog(context: context, builder: (context) => const CandidateCard());
-                },
-                child: const Text("Show Dialogue Box"),
-              ),
-              MaterialButton(
-                onPressed: () {
                   showDialog(
                       context: context,
-                      builder: (context) => CandidateCard2(
+                      builder: (context) => CandidateCard(
                             swipecontroller: swipecontroller,
                           ));
                 },
@@ -76,18 +69,7 @@ class PlaygroundScreen extends StatelessWidget {
               ),
               MaterialButton(
                 onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) => SwipableStack(
-                            controller: swipecontroller,
-                            allowVerticalSwipe: false,
-                            itemCount: 10,
-                            builder: (context, properties) {
-                              return CandidateCard2(
-                                swipecontroller: swipecontroller,
-                              );
-                            },
-                          ));
+                  swipabeCards(context, swipecontroller);
                 },
                 child: const Text("Swipable Cards"),
               ),
@@ -96,5 +78,20 @@ class PlaygroundScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<dynamic> swipabeCards(BuildContext context, SwipableStackController swipecontroller) {
+    return showDialog(
+        context: context,
+        builder: (context) => SwipableStack(
+              controller: swipecontroller,
+              allowVerticalSwipe: false,
+              itemCount: 10,
+              builder: (context, properties) {
+                return CandidateCard(
+                  swipecontroller: swipecontroller,
+                );
+              },
+            ));
   }
 }
