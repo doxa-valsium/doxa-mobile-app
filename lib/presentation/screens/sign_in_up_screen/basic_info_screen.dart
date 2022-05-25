@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/input_field.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/type_selector.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
+import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -83,7 +85,9 @@ class BasicInfoScreen extends StatelessWidget {
                         'CONTINUE',
                         style: Theme.of(context).textTheme.button?.copyWith(color: Colors.white),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        context.router.push(const EmailVerificationRoute());
+                      },
                     ),
                   ),
                 ],

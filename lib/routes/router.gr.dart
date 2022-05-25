@@ -10,171 +10,180 @@
 //
 // ignore_for_file: type=lint
 
-import 'package:auto_route/auto_route.dart' as _i11;
-import 'package:flutter/material.dart' as _i19;
+import 'package:auto_route/auto_route.dart' as _i12;
+import 'package:flutter/material.dart' as _i20;
 
 import '../presentation/screens/company_profile_sceen/company_profile_screen.dart'
-    as _i18;
-import '../presentation/screens/counter_screen/counter_screen.dart' as _i13;
-import '../presentation/screens/home_screen/home_screen.dart' as _i12;
-import '../presentation/screens/jobs_screen/jobs_screen.dart' as _i14;
+    as _i19;
+import '../presentation/screens/counter_screen/counter_screen.dart' as _i14;
+import '../presentation/screens/home_screen/home_screen.dart' as _i13;
+import '../presentation/screens/jobs_screen/jobs_screen.dart' as _i15;
 import '../presentation/screens/messages_screen/chat_screen.dart' as _i5;
-import '../presentation/screens/messages_screen/messages_screen.dart' as _i16;
-import '../presentation/screens/navigator_screen/navigator_screen.dart' as _i10;
+import '../presentation/screens/messages_screen/messages_screen.dart' as _i17;
+import '../presentation/screens/navigator_screen/navigator_screen.dart' as _i11;
 import '../presentation/screens/playground/custom_widgets_screen.dart' as _i4;
 import '../presentation/screens/playground/manage_1x_2x_3x_images.dart' as _i6;
 import '../presentation/screens/playground/playground_screen.dart' as _i1;
 import '../presentation/screens/playground/pulsing_button_screen.dart' as _i3;
 import '../presentation/screens/playground/theme_test_screen.dart' as _i2;
-import '../presentation/screens/sign_in_up_screen/basic_info_screen.dart' as _i9;
-import '../presentation/screens/profile_screen/profile_screen.dart' as _i17;
+import '../presentation/screens/profile_screen/profile_screen.dart' as _i18;
+import '../presentation/screens/sign_in_up_screen/basic_info_screen.dart'
+    as _i9;
+import '../presentation/screens/sign_in_up_screen/email_verification.dart'
+    as _i10;
 import '../presentation/screens/sign_in_up_screen/login_screen.dart' as _i7;
 import '../presentation/screens/sign_in_up_screen/registration_screen.dart'
     as _i8;
 import '../presentation/screens/single_job_screen/single_job_screen.dart'
-    as _i15;
+    as _i16;
 
-class AppRouter extends _i11.RootStackRouter {
-  AppRouter([_i19.GlobalKey<_i19.NavigatorState>? navigatorKey])
+class AppRouter extends _i12.RootStackRouter {
+  AppRouter([_i20.GlobalKey<_i20.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i11.PageFactory> pagesMap = {
+  final Map<String, _i12.PageFactory> pagesMap = {
     PlaygroundRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
+      return _i12.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.PlaygroundScreen());
     },
     ThemeTestRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
+      return _i12.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i2.ThemeTestScreen());
     },
     PulsingButtonRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
+      return _i12.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i3.PulsingButtonScreen());
     },
     CustomWidgetsRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
+      return _i12.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i4.CustomWidgetsScreen());
     },
     ChatRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
+      return _i12.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i5.ChatScreen());
     },
     ManageImagesRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
+      return _i12.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i6.ManageImagesScreen());
     },
     LoginRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
+      return _i12.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i7.LoginScreen());
     },
     RegistrationRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
+      return _i12.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i8.RegistrationScreen());
     },
     BasicInfoRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
+      return _i12.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i9.BasicInfoScreen());
     },
+    EmailVerificationRoute.name: (routeData) {
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i10.EmailVerificationScreen());
+    },
     NavigatorRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i10.NavigatorScreen());
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i11.NavigatorScreen());
     },
     HomeRouter.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i11.EmptyRouterPage());
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i12.EmptyRouterPage());
     },
     JobsRouter.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i11.EmptyRouterPage());
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i12.EmptyRouterPage());
     },
     MessagesRouter.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i11.EmptyRouterPage());
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i12.EmptyRouterPage());
     },
     ProfileRouter.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i11.EmptyRouterPage());
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i12.EmptyRouterPage());
     },
     HomeRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i12.HomeScreen());
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i13.HomeScreen());
     },
     CounterRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i13.CounterScreen());
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i14.CounterScreen());
     },
     JobsRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i14.JobsScreen());
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i15.JobsScreen());
     },
     SingleJobRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i15.SingleJobScreen());
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i16.SingleJobScreen());
     },
     MessagesRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i16.MessagesScreen());
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i17.MessagesScreen());
     },
     ProfileRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i17.ProfileScreen());
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i18.ProfileScreen());
     },
     CompanyProfileRoute.name: (routeData) {
-      return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i18.CompanyProfileScreen());
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i19.CompanyProfileScreen());
     }
   };
 
   @override
-  List<_i11.RouteConfig> get routes => [
-        _i11.RouteConfig(PlaygroundRoute.name, path: '/'),
-        _i11.RouteConfig(ThemeTestRoute.name, path: 'theme-test-screen'),
-        _i11.RouteConfig(PulsingButtonRoute.name,
+  List<_i12.RouteConfig> get routes => [
+        _i12.RouteConfig(PlaygroundRoute.name, path: '/'),
+        _i12.RouteConfig(ThemeTestRoute.name, path: 'theme-test-screen'),
+        _i12.RouteConfig(PulsingButtonRoute.name,
             path: 'pulsing-button-screen'),
-        _i11.RouteConfig(CustomWidgetsRoute.name,
+        _i12.RouteConfig(CustomWidgetsRoute.name,
             path: 'custom-widgets-screen'),
-        _i11.RouteConfig(ChatRoute.name, path: 'chat-screen'),
-        _i11.RouteConfig(ChatRoute.name, path: 'chat-screen'),
-        _i11.RouteConfig(ManageImagesRoute.name, path: 'manage-images-screen'),
-        _i11.RouteConfig(LoginRoute.name, path: 'LoginRoute'),
-        _i11.RouteConfig(RegistrationRoute.name, path: 'registration-screen'),
-        _i11.RouteConfig(BasicInfoRoute.name, path: 'basic-info-screen'),
-        _i11.RouteConfig(NavigatorRoute.name,
+        _i12.RouteConfig(ChatRoute.name, path: 'chat-screen'),
+        _i12.RouteConfig(ChatRoute.name, path: 'chat-screen'),
+        _i12.RouteConfig(ManageImagesRoute.name, path: 'manage-images-screen'),
+        _i12.RouteConfig(LoginRoute.name, path: 'LoginRoute'),
+        _i12.RouteConfig(RegistrationRoute.name, path: 'registration-screen'),
+        _i12.RouteConfig(BasicInfoRoute.name, path: 'basic-info-screen'),
+        _i12.RouteConfig(EmailVerificationRoute.name,
+            path: 'email-verification-screen'),
+        _i12.RouteConfig(NavigatorRoute.name,
             path: 'navigator-screen',
             children: [
-              _i11.RouteConfig(HomeRouter.name,
+              _i12.RouteConfig(HomeRouter.name,
                   path: 'home-screen',
                   parent: NavigatorRoute.name,
                   children: [
-                    _i11.RouteConfig(HomeRoute.name,
+                    _i12.RouteConfig(HomeRoute.name,
                         path: '', parent: HomeRouter.name),
-                    _i11.RouteConfig(CounterRoute.name,
+                    _i12.RouteConfig(CounterRoute.name,
                         path: 'counter-screen', parent: HomeRouter.name)
                   ]),
-              _i11.RouteConfig(JobsRouter.name,
+              _i12.RouteConfig(JobsRouter.name,
                   path: 'jobs-screen',
                   parent: NavigatorRoute.name,
                   children: [
-                    _i11.RouteConfig(JobsRoute.name,
+                    _i12.RouteConfig(JobsRoute.name,
                         path: '', parent: JobsRouter.name),
-                    _i11.RouteConfig(SingleJobRoute.name,
+                    _i12.RouteConfig(SingleJobRoute.name,
                         path: 'single-job-screen', parent: JobsRouter.name)
                   ]),
-              _i11.RouteConfig(MessagesRouter.name,
+              _i12.RouteConfig(MessagesRouter.name,
                   path: 'messages-screen',
                   parent: NavigatorRoute.name,
                   children: [
-                    _i11.RouteConfig(MessagesRoute.name,
+                    _i12.RouteConfig(MessagesRoute.name,
                         path: '', parent: MessagesRouter.name)
                   ]),
-              _i11.RouteConfig(ProfileRouter.name,
+              _i12.RouteConfig(ProfileRouter.name,
                   path: 'profile-screen',
                   parent: NavigatorRoute.name,
                   children: [
-                    _i11.RouteConfig(ProfileRoute.name,
+                    _i12.RouteConfig(ProfileRoute.name,
                         path: '', parent: ProfileRouter.name),
-                    _i11.RouteConfig(CompanyProfileRoute.name,
+                    _i12.RouteConfig(CompanyProfileRoute.name,
                         path: 'company-profile-screen',
                         parent: ProfileRouter.name)
                   ])
@@ -184,7 +193,7 @@ class AppRouter extends _i11.RootStackRouter {
 
 /// generated route for
 /// [_i1.PlaygroundScreen]
-class PlaygroundRoute extends _i11.PageRouteInfo<void> {
+class PlaygroundRoute extends _i12.PageRouteInfo<void> {
   const PlaygroundRoute() : super(PlaygroundRoute.name, path: '/');
 
   static const String name = 'PlaygroundRoute';
@@ -192,7 +201,7 @@ class PlaygroundRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.ThemeTestScreen]
-class ThemeTestRoute extends _i11.PageRouteInfo<void> {
+class ThemeTestRoute extends _i12.PageRouteInfo<void> {
   const ThemeTestRoute()
       : super(ThemeTestRoute.name, path: 'theme-test-screen');
 
@@ -201,7 +210,7 @@ class ThemeTestRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.PulsingButtonScreen]
-class PulsingButtonRoute extends _i11.PageRouteInfo<void> {
+class PulsingButtonRoute extends _i12.PageRouteInfo<void> {
   const PulsingButtonRoute()
       : super(PulsingButtonRoute.name, path: 'pulsing-button-screen');
 
@@ -210,7 +219,7 @@ class PulsingButtonRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.CustomWidgetsScreen]
-class CustomWidgetsRoute extends _i11.PageRouteInfo<void> {
+class CustomWidgetsRoute extends _i12.PageRouteInfo<void> {
   const CustomWidgetsRoute()
       : super(CustomWidgetsRoute.name, path: 'custom-widgets-screen');
 
@@ -219,7 +228,7 @@ class CustomWidgetsRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.ChatScreen]
-class ChatRoute extends _i11.PageRouteInfo<void> {
+class ChatRoute extends _i12.PageRouteInfo<void> {
   const ChatRoute() : super(ChatRoute.name, path: 'chat-screen');
 
   static const String name = 'ChatRoute';
@@ -227,7 +236,7 @@ class ChatRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.ManageImagesScreen]
-class ManageImagesRoute extends _i11.PageRouteInfo<void> {
+class ManageImagesRoute extends _i12.PageRouteInfo<void> {
   const ManageImagesRoute()
       : super(ManageImagesRoute.name, path: 'manage-images-screen');
 
@@ -236,7 +245,7 @@ class ManageImagesRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.LoginScreen]
-class LoginRoute extends _i11.PageRouteInfo<void> {
+class LoginRoute extends _i12.PageRouteInfo<void> {
   const LoginRoute() : super(LoginRoute.name, path: 'LoginRoute');
 
   static const String name = 'LoginRoute';
@@ -244,7 +253,7 @@ class LoginRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i8.RegistrationScreen]
-class RegistrationRoute extends _i11.PageRouteInfo<void> {
+class RegistrationRoute extends _i12.PageRouteInfo<void> {
   const RegistrationRoute()
       : super(RegistrationRoute.name, path: 'registration-screen');
 
@@ -253,7 +262,7 @@ class RegistrationRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.BasicInfoScreen]
-class BasicInfoRoute extends _i11.PageRouteInfo<void> {
+class BasicInfoRoute extends _i12.PageRouteInfo<void> {
   const BasicInfoRoute()
       : super(BasicInfoRoute.name, path: 'basic-info-screen');
 
@@ -261,9 +270,18 @@ class BasicInfoRoute extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.NavigatorScreen]
-class NavigatorRoute extends _i11.PageRouteInfo<void> {
-  const NavigatorRoute({List<_i11.PageRouteInfo>? children})
+/// [_i10.EmailVerificationScreen]
+class EmailVerificationRoute extends _i12.PageRouteInfo<void> {
+  const EmailVerificationRoute()
+      : super(EmailVerificationRoute.name, path: 'email-verification-screen');
+
+  static const String name = 'EmailVerificationRoute';
+}
+
+/// generated route for
+/// [_i11.NavigatorScreen]
+class NavigatorRoute extends _i12.PageRouteInfo<void> {
+  const NavigatorRoute({List<_i12.PageRouteInfo>? children})
       : super(NavigatorRoute.name,
             path: 'navigator-screen', initialChildren: children);
 
@@ -271,27 +289,27 @@ class NavigatorRoute extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.EmptyRouterPage]
-class HomeRouter extends _i11.PageRouteInfo<void> {
-  const HomeRouter({List<_i11.PageRouteInfo>? children})
+/// [_i12.EmptyRouterPage]
+class HomeRouter extends _i12.PageRouteInfo<void> {
+  const HomeRouter({List<_i12.PageRouteInfo>? children})
       : super(HomeRouter.name, path: 'home-screen', initialChildren: children);
 
   static const String name = 'HomeRouter';
 }
 
 /// generated route for
-/// [_i11.EmptyRouterPage]
-class JobsRouter extends _i11.PageRouteInfo<void> {
-  const JobsRouter({List<_i11.PageRouteInfo>? children})
+/// [_i12.EmptyRouterPage]
+class JobsRouter extends _i12.PageRouteInfo<void> {
+  const JobsRouter({List<_i12.PageRouteInfo>? children})
       : super(JobsRouter.name, path: 'jobs-screen', initialChildren: children);
 
   static const String name = 'JobsRouter';
 }
 
 /// generated route for
-/// [_i11.EmptyRouterPage]
-class MessagesRouter extends _i11.PageRouteInfo<void> {
-  const MessagesRouter({List<_i11.PageRouteInfo>? children})
+/// [_i12.EmptyRouterPage]
+class MessagesRouter extends _i12.PageRouteInfo<void> {
+  const MessagesRouter({List<_i12.PageRouteInfo>? children})
       : super(MessagesRouter.name,
             path: 'messages-screen', initialChildren: children);
 
@@ -299,9 +317,9 @@ class MessagesRouter extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.EmptyRouterPage]
-class ProfileRouter extends _i11.PageRouteInfo<void> {
-  const ProfileRouter({List<_i11.PageRouteInfo>? children})
+/// [_i12.EmptyRouterPage]
+class ProfileRouter extends _i12.PageRouteInfo<void> {
+  const ProfileRouter({List<_i12.PageRouteInfo>? children})
       : super(ProfileRouter.name,
             path: 'profile-screen', initialChildren: children);
 
@@ -309,32 +327,32 @@ class ProfileRouter extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i12.HomeScreen]
-class HomeRoute extends _i11.PageRouteInfo<void> {
+/// [_i13.HomeScreen]
+class HomeRoute extends _i12.PageRouteInfo<void> {
   const HomeRoute() : super(HomeRoute.name, path: '');
 
   static const String name = 'HomeRoute';
 }
 
 /// generated route for
-/// [_i13.CounterScreen]
-class CounterRoute extends _i11.PageRouteInfo<void> {
+/// [_i14.CounterScreen]
+class CounterRoute extends _i12.PageRouteInfo<void> {
   const CounterRoute() : super(CounterRoute.name, path: 'counter-screen');
 
   static const String name = 'CounterRoute';
 }
 
 /// generated route for
-/// [_i14.JobsScreen]
-class JobsRoute extends _i11.PageRouteInfo<void> {
+/// [_i15.JobsScreen]
+class JobsRoute extends _i12.PageRouteInfo<void> {
   const JobsRoute() : super(JobsRoute.name, path: '');
 
   static const String name = 'JobsRoute';
 }
 
 /// generated route for
-/// [_i15.SingleJobScreen]
-class SingleJobRoute extends _i11.PageRouteInfo<void> {
+/// [_i16.SingleJobScreen]
+class SingleJobRoute extends _i12.PageRouteInfo<void> {
   const SingleJobRoute()
       : super(SingleJobRoute.name, path: 'single-job-screen');
 
@@ -342,24 +360,24 @@ class SingleJobRoute extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i16.MessagesScreen]
-class MessagesRoute extends _i11.PageRouteInfo<void> {
+/// [_i17.MessagesScreen]
+class MessagesRoute extends _i12.PageRouteInfo<void> {
   const MessagesRoute() : super(MessagesRoute.name, path: '');
 
   static const String name = 'MessagesRoute';
 }
 
 /// generated route for
-/// [_i17.ProfileScreen]
-class ProfileRoute extends _i11.PageRouteInfo<void> {
+/// [_i18.ProfileScreen]
+class ProfileRoute extends _i12.PageRouteInfo<void> {
   const ProfileRoute() : super(ProfileRoute.name, path: '');
 
   static const String name = 'ProfileRoute';
 }
 
 /// generated route for
-/// [_i18.CompanyProfileScreen]
-class CompanyProfileRoute extends _i11.PageRouteInfo<void> {
+/// [_i19.CompanyProfileScreen]
+class CompanyProfileRoute extends _i12.PageRouteInfo<void> {
   const CompanyProfileRoute()
       : super(CompanyProfileRoute.name, path: 'company-profile-screen');
 
