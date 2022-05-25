@@ -3,8 +3,6 @@ import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_wid
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/input_field.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class RegistrationScreen extends StatelessWidget {
   static const String route = 'registration-screen';
@@ -52,7 +50,7 @@ class RegistrationScreen extends StatelessWidget {
                 hintText: 'Password',
                 inputType: TextInputType.text,
                 isPassword: true,
-                prefixIcon: Icon(Icons.lock),
+                prefixIcon: const Icon(Icons.lock),
                 suffixWidget: null,
                 suffixIcon: Icon(Icons.visibility_off_outlined, size: 18, color: Theme.of(context).colorScheme.surfaceVariant),
               ),
@@ -70,7 +68,9 @@ class RegistrationScreen extends StatelessWidget {
                     'REGISTER',
                     style: Theme.of(context).textTheme.button?.copyWith(color: Colors.white),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.push(const BasicInfoRoute());
+                  },
                 ),
               ),
 

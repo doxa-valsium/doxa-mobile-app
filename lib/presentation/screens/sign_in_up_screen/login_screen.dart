@@ -1,7 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/dashed_button.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/input_field.dart';
-import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {

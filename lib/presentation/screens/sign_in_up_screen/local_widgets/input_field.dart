@@ -8,15 +8,8 @@ class InputField extends StatelessWidget {
   final Icon? prefixIcon;
   final Icon? suffixIcon;
 
-  const InputField({
-    Key? key,
-    required this.hintText,
-    required this.suffixWidget,
-    required this.inputType,
-    required this.isPassword,
-    required this.prefixIcon,
-    this.suffixIcon
-  }) : super(key: key);
+  const InputField({Key? key, required this.hintText, required this.suffixWidget, required this.inputType, required this.isPassword, this.prefixIcon, this.suffixIcon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +20,7 @@ class InputField extends StatelessWidget {
         suffixIcon: suffixIcon,
         suffix: suffixWidget,
         hintText: hintText,
+        hintStyle: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
         prefixIcon: prefixIcon,
         prefixIconColor: Theme.of(context).colorScheme.surfaceVariant,
         filled: true,
