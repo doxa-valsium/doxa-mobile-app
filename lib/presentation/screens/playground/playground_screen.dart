@@ -52,6 +52,12 @@ class PlaygroundScreen extends StatelessWidget {
               },
               child: const Text("Go to Flow View Demo"),
             ),
+            MaterialButton(
+              onPressed: () {
+                context.router.push(const JobFormFlowRoute());
+              },
+              child: const Text("Go to Job Form"),
+            ),
           ],
         ),
       ),

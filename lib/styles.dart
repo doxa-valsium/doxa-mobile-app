@@ -3,20 +3,38 @@ import 'package:google_fonts/google_fonts.dart';
 
 class Styles {
   static ThemeData mainTheme = ThemeData(
-    cardColor: _colorScheme.background,
-    disabledColor: _colorScheme.onSurface,
-    errorColor: _colorScheme.error,
-    highlightColor: _colorScheme.primary,
-    hintColor: _colorScheme.onSurface,
-    primaryColor: _colorScheme.primary,
-    scaffoldBackgroundColor: _colorScheme.background,
-    bottomAppBarColor: _colorScheme.background,
-    colorScheme: _colorScheme,
-    textTheme: _textTheme,
-    bottomNavigationBarTheme: _bottomNavigationBarThemeData,
-    elevatedButtonTheme: _elevatedButtonThemeData,
-    outlinedButtonTheme: _outlinedButtonThemeData,
+      cardColor: _colorScheme.background,
+      disabledColor: _colorScheme.onSurface,
+      errorColor: _colorScheme.error,
+      highlightColor: _colorScheme.primary,
+      hintColor: _colorScheme.onSurface,
+      primaryColor: _colorScheme.primary,
+      scaffoldBackgroundColor: _colorScheme.background,
+      bottomAppBarColor: _colorScheme.background,
+      colorScheme: _colorScheme,
+      textTheme: _textTheme,
+      bottomNavigationBarTheme: _bottomNavigationBarThemeData,
+      elevatedButtonTheme: _elevatedButtonThemeData,
+      outlinedButtonTheme: _outlinedButtonThemeData,
+      inputDecorationTheme: _inputDecorationTheme,
+      appBarTheme: _appBarTheme);
+
+  static final AppBarTheme _appBarTheme = AppBarTheme(
+    color: _colorScheme.background,
+    elevation: 0.0,
+    iconTheme: IconThemeData(
+      color: _colorScheme.onSurfaceVariant,
+    ),
+    
+    titleTextStyle: _textTheme.headline6?.copyWith(color: _colorScheme.onSurfaceVariant,
+    ),
   );
+
+  static final InputDecorationTheme _inputDecorationTheme = InputDecorationTheme(
+      fillColor: _colorScheme.onSecondaryContainer,
+      filled: true,
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
+      errorStyle: _textTheme.caption?.copyWith(color: _colorScheme.onError));
 
   static final OutlinedButtonThemeData _outlinedButtonThemeData = OutlinedButtonThemeData(
     style: ButtonStyle(
