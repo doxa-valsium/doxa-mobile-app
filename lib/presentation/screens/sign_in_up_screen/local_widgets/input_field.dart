@@ -6,14 +6,16 @@ class InputField extends StatelessWidget {
   final TextInputType? inputType;
   final bool? isPassword;
   final Icon? prefixIcon;
+  final Icon? suffixIcon;
 
   const InputField({
     Key? key,
-    @required this.hintText,
-    @required this.suffixWidget,
-    @required this.inputType,
-    @required this.isPassword,
-    @required this.prefixIcon,
+    required this.hintText,
+    required this.suffixWidget,
+    required this.inputType,
+    required this.isPassword,
+    required this.prefixIcon,
+    this.suffixIcon
   }) : super(key: key);
 
   @override
@@ -22,6 +24,7 @@ class InputField extends StatelessWidget {
       keyboardType: inputType,
       obscureText: isPassword ?? false,
       decoration: InputDecoration(
+        suffixIcon: suffixIcon,
         suffix: suffixWidget,
         hintText: hintText,
         prefixIcon: prefixIcon,

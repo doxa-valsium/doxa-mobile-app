@@ -13,6 +13,7 @@ import 'package:doxa_mobile_app/presentation/screens/playground/manage_1x_2x_3x_
 import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/registration_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_job_screen.dart';
 
 @MaterialAutoRouter(
@@ -49,6 +50,10 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
     AutoRoute(
       path: LoginScreen.route,
       page: LoginScreen,
+    ),
+    AutoRoute(
+      path: RegistrationScreen.route,
+      page: RegistrationScreen,
     ),
     AutoRoute(
       path: NavigatorScreen.route,

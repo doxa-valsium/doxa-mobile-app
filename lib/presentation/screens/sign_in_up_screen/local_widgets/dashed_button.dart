@@ -22,24 +22,30 @@ class DashedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: func,
-      child: CustomDottedBorder(
-        borderType: BorderType.RRect,
-        radius: Radius.circular(dashLineRadius),
-        child: Container(
-          height: height,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(borderRadius),
-            color: color,
-          ),
-          padding: const EdgeInsets.all(10),
-          child: Center(
-            child: Text(
-              buttonText,
-              style: Theme.of(context).textTheme.button,
-              textAlign: TextAlign.center,
+    return CustomDottedBorder(
+      strokeWidth: 1,
+      borderType: BorderType.RRect,
+      radius: Radius.circular(dashLineRadius),
+      child: Material(
+        borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+        color: color,
+        child: InkWell(
+          onTap: func,
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent.withOpacity(0.1),
+          child: Container(
+            height: height,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(borderRadius),
+            ),
+            padding: const EdgeInsets.all(10),
+            child: Center(
+              child: Text(
+                buttonText,
+                style: Theme.of(context).textTheme.button,
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
         ),

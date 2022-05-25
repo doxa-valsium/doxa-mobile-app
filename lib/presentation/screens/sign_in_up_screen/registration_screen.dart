@@ -3,10 +3,12 @@ import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_wid
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/input_field.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
-class LoginScreen extends StatelessWidget {
-  static const String route = 'LoginRoute';
-  const LoginScreen({Key? key}) : super(key: key);
+class RegistrationScreen extends StatelessWidget {
+  static const String route = 'registration-screen';
+  const RegistrationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class LoginScreen extends StatelessWidget {
               const Spacer(
                 flex: 1,
               ),
-              Image.asset('assets/images/login_screen.png'),
+              Image.asset('assets/images/registration_screen.png'),
               const Spacer(
                 flex: 1,
               ),
@@ -34,15 +36,13 @@ class LoginScreen extends StatelessWidget {
                 suffixWidget: null,
               ),
               const SizedBox(height: 20),
-              const InputField(
+              InputField(
                 hintText: 'Password',
                 inputType: TextInputType.text,
                 isPassword: true,
                 prefixIcon: Icon(Icons.lock),
-                suffixWidget: Text(
-                  'Forgot?',
-                  style: TextStyle(color: Colors.blue),
-                ),
+                suffixWidget: null,
+                suffixIcon: Icon(Icons.visibility_off_outlined, size: 18, color: Theme.of(context).colorScheme.surfaceVariant),
               ),
               const Spacer(
                 flex: 1,
@@ -54,7 +54,7 @@ class LoginScreen extends StatelessWidget {
                 height: 50.0,
                 child: ElevatedButton(
                   child: Text(
-                    'LOGIN',
+                    'REGISTER',
                     style: Theme.of(context).textTheme.button?.copyWith(color: Colors.white),
                   ),
                   onPressed: () {},
@@ -63,11 +63,11 @@ class LoginScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Text(
-                  "Or if you’re new here",
+                  "Or if you’re already a member",
                   style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
                 ),
               ),
-              DashedButton(borderRadius: 16, buttonText: "SIGN UP", color: Theme.of(context).colorScheme.onSecondaryContainer, func: () {}, dashLineRadius: 16, height: 50 - 4),
+              DashedButton(borderRadius: 16, buttonText: "LOGIN IN", color: Theme.of(context).colorScheme.onSecondaryContainer, func: () {}, dashLineRadius: 16, height: 50 - 4),
             ],
           ),
         ),
