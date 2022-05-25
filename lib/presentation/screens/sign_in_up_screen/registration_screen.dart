@@ -18,16 +18,26 @@ class RegistrationScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(28.0),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/images/final_logo.png'),
+              Center(child: Image.asset('assets/images/final_logo.png')),
+
+              const Spacer(
+                flex: 3,
+              ),
+
+              Center(child: Image.asset('assets/images/registration_screen.png')),
+
+              const Spacer(
+                flex: 3,
+              ),
+
+              Text("Register", style: Theme.of(context).textTheme.headline5, textAlign: TextAlign.left),
+
               const Spacer(
                 flex: 1,
               ),
-              Image.asset('assets/images/registration_screen.png'),
-              const Spacer(
-                flex: 1,
-              ),
+
               const InputField(
                 hintText: 'Email',
                 inputType: TextInputType.emailAddress,
@@ -35,7 +45,9 @@ class RegistrationScreen extends StatelessWidget {
                 prefixIcon: Icon(Icons.alternate_email),
                 suffixWidget: null,
               ),
+
               const SizedBox(height: 20),
+
               InputField(
                 hintText: 'Password',
                 inputType: TextInputType.text,
@@ -44,8 +56,9 @@ class RegistrationScreen extends StatelessWidget {
                 suffixWidget: null,
                 suffixIcon: Icon(Icons.visibility_off_outlined, size: 18, color: Theme.of(context).colorScheme.surfaceVariant),
               ),
+
               const Spacer(
-                flex: 1,
+                flex: 3,
               ),
               // TODO: Make ElevatedButton a custom widget
 
@@ -60,13 +73,17 @@ class RegistrationScreen extends StatelessWidget {
                   onPressed: () {},
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Text(
-                  "Or if you’re already a member",
-                  style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
+
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    "Or if you’re already a member",
+                    style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
+                  ),
                 ),
               ),
+
               DashedButton(borderRadius: 16, buttonText: "LOGIN IN", color: Theme.of(context).colorScheme.onSecondaryContainer, func: () {}, dashLineRadius: 16, height: 50 - 4),
             ],
           ),

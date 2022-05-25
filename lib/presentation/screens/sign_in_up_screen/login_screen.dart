@@ -16,16 +16,21 @@ class LoginScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(28.0),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/images/final_logo.png'),
+              Center(child: Image.asset('assets/images/final_logo.png')),
+              const Spacer(
+                flex: 3,
+              ),
+              Center(child: Image.asset('assets/images/login_screen.png')),
+              const Spacer(
+                flex: 3,
+              ),
+              Text("Login", style: Theme.of(context).textTheme.headline5, textAlign: TextAlign.left),
               const Spacer(
                 flex: 1,
               ),
-              Image.asset('assets/images/login_screen.png'),
-              const Spacer(
-                flex: 1,
-              ),
+
               const InputField(
                 hintText: 'Email',
                 inputType: TextInputType.emailAddress,
@@ -45,7 +50,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               const Spacer(
-                flex: 1,
+                flex: 3,
               ),
               // TODO: Make ElevatedButton a custom widget
 
@@ -60,11 +65,13 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {},
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Text(
-                  "Or if you’re new here",
-                  style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    "Or if you’re new here",
+                    style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
+                  ),
                 ),
               ),
               DashedButton(borderRadius: 16, buttonText: "SIGN UP", color: Theme.of(context).colorScheme.onSecondaryContainer, func: () {}, dashLineRadius: 16, height: 50 - 4),
