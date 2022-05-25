@@ -155,16 +155,16 @@ class Styles {
       Color(0xFFD1E3FF),
     ],
   );
-  static List<BoxShadow> elevation1 = [
-    const BoxShadow(
+  static List<BoxShadow> elevation1 = const [
+    BoxShadow(
       color: Color.fromRGBO(34, 32, 32, 0.25),
       blurRadius: 54,
       spreadRadius: 0.0,
     )
   ];
 
-  static List<BoxShadow> elevation2 = [
-    const BoxShadow(
+  static List<BoxShadow> elevation2 = const [
+    BoxShadow(
       color: Color.fromRGBO(178, 176, 176, 0.25),
       blurRadius: 53.01,
       spreadRadius: 0.0,
@@ -172,8 +172,8 @@ class Styles {
     )
   ];
 
-  static List<BoxShadow> elevation3 = [
-    const BoxShadow(
+  static List<BoxShadow> elevation3 = const [
+    BoxShadow(
       color: Color.fromRGBO(0, 0, 0, 0.25),
       blurRadius: 4.0,
       spreadRadius: 0.0,
