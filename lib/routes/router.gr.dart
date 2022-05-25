@@ -22,7 +22,7 @@ import '../presentation/screens/messages_screen/chat_screen.dart' as _i5;
 import '../presentation/screens/messages_screen/messages_screen.dart' as _i14;
 import '../presentation/screens/navigator_screen/navigator_screen.dart' as _i8;
 import '../presentation/screens/playground/custom_widgets_screen.dart' as _i4;
-import '../presentation/screens/playground/login_screen.dart' as _i7;
+import '../presentation/screens/sign_in_up_screen/login_screen.dart' as _i7;
 import '../presentation/screens/playground/manage_1x_2x_3x_images.dart' as _i6;
 import '../presentation/screens/playground/playground_screen.dart' as _i1;
 import '../presentation/screens/playground/pulsing_button_screen.dart' as _i3;
