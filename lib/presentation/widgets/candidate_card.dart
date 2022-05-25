@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:math';
 
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
@@ -217,7 +219,8 @@ class _CandidateCardState extends State<CandidateCard> {
                         },
                         child: Container(
                             height: 48,
-                            width: MediaQuery.of(context).size.width * 0.95 / 2,
+                            width: (MediaQuery.of(context).size.width - 24) / 2,
+                            // width: widget,
                             decoration: BoxDecoration(
                               borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(31)),
                               color: Theme.of(context).colorScheme.onSurface,
@@ -236,7 +239,7 @@ class _CandidateCardState extends State<CandidateCard> {
                         },
                         child: Container(
                             height: 48,
-                            width: MediaQuery.of(context).size.width * 0.95 / 2,
+                            width: (MediaQuery.of(context).size.width - 24) / 2,
                             decoration: BoxDecoration(
                               borderRadius: const BorderRadius.only(bottomRight: Radius.circular(31)),
                               color: Theme.of(context).colorScheme.primary,
@@ -419,7 +422,7 @@ class _CandidateCardState extends State<CandidateCard> {
                         },
                         child: Container(
                             height: 48,
-                            width: MediaQuery.of(context).size.width * 0.95 / 2,
+                            width: (MediaQuery.of(context).size.width - 24) / 2,
                             decoration: BoxDecoration(
                               borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(31)),
                               color: Theme.of(context).colorScheme.onSurface,
@@ -438,7 +441,7 @@ class _CandidateCardState extends State<CandidateCard> {
                         },
                         child: Container(
                             height: 48,
-                            width: MediaQuery.of(context).size.width * 0.95 / 2,
+                            width: (MediaQuery.of(context).size.width - 24) / 2,
                             decoration: BoxDecoration(
                               borderRadius: const BorderRadius.only(bottomRight: Radius.circular(31)),
                               color: Theme.of(context).colorScheme.primary,
