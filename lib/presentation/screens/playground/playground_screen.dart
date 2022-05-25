@@ -1,5 +1,6 @@
 import 'package:doxa_mobile_app/presentation/widgets/candidate_card.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
+import 'package:doxa_mobile_app/swipable_card_function.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:swipable_stack/swipable_stack.dart';
@@ -69,7 +70,7 @@ class PlaygroundScreen extends StatelessWidget {
               ),
               MaterialButton(
                 onPressed: () {
-                  swipabeCards(context, swipecontroller);
+                  swipableCards(context, swipecontroller);
                 },
                 child: const Text("Swipable Cards"),
               ),
@@ -78,20 +79,5 @@ class PlaygroundScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<dynamic> swipabeCards(BuildContext context, SwipableStackController swipecontroller) {
-    return showDialog(
-        context: context,
-        builder: (context) => SwipableStack(
-              controller: swipecontroller,
-              allowVerticalSwipe: false,
-              itemCount: 10,
-              builder: (context, properties) {
-                return CandidateCard(
-                  swipecontroller: swipecontroller,
-                );
-              },
-            ));
   }
 }
