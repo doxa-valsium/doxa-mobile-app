@@ -1,4 +1,5 @@
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/input_field.dart';
+import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/type_selector.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class BasicInfoScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Welcome! We would like to know a little more about.",
+                    "Welcome! We would like to know a little more about you.",
                     style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
                   ),
                   const Spacer(),
@@ -38,55 +39,56 @@ class BasicInfoScreen extends StatelessWidget {
                     inputType: TextInputType.name,
                     isPassword: false,
                   ),
-                  const Spacer(),
+                  const Spacer(
+                    flex: 2,
+                  ),
                   Text(
                     "Register as",
                     style: Theme.of(context).textTheme.subtitle2?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
                   ),
-                  const Spacer(),
+                  const Spacer(
+                    flex: 2,
+                  ),
                   Row(
                     children: [
-                      Expanded(child: TypeSelector(), flex: 10),
+                      Expanded(
+                        flex: 10,
+                        child: TypeSelector(
+                          bodycolor: Theme.of(context).colorScheme.onSecondaryContainer,
+                          elevation: Styles.elevation3,
+                          imagePath: 'assets/images/candidate.png',
+                          text: 'Candidate',
+                        ),
+                      ),
                       const Spacer(),
-                      Expanded(child: TypeSelector(), flex: 10),
-                      // TypeSelector(),
+                      Expanded(
+                        flex: 10,
+                        child: TypeSelector(
+                          bodycolor: Theme.of(context).colorScheme.onSecondaryContainer,
+                          elevation: Styles.elevation3,
+                          imagePath: 'assets/images/recruiter.png',
+                          text: 'Recruiter',
+                        ),
+                      ),
                     ],
-                  )
+                  ),
+                  const Spacer(
+                    flex: 10,
+                  ),
+                  SizedBox(
+                    width: double.maxFinite,
+                    height: 50.0,
+                    child: ElevatedButton(
+                      child: Text(
+                        'CONTINUE',
+                        style: Theme.of(context).textTheme.button?.copyWith(color: Colors.white),
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
                 ],
               ),
             )),
-      ),
-    );
-  }
-}
-
-class TypeSelector extends StatelessWidget {
-  List<BoxShadow> elevation;
-  Color bodycolor;
-  String imagePath;
-
-  TypeSelector({Key? key, required this.elevation, required this.bodycolor, required this.imagePath}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: Styles.elevation3,
-        color: Theme.of(context).colorScheme.onSecondaryContainer,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: Theme.of(context).colorScheme.primary,
-          width: 1.5,
-        ),
-      ),
-      padding: const EdgeInsets.only(left: 40, right: 40, top: 32, bottom: 10),
-      child: Column(
-        children: [
-          Image.asset('assets/images/candidate.png'),
-          const SizedBox(height: 8),
-          const Text(
-            "Candidate",
-          ),
-        ],
       ),
     );
   }
