@@ -1,4 +1,6 @@
 import 'package:doxa_mobile_app/presentation/screens/job_form/job_form_step_one.dart';
+import 'package:doxa_mobile_app/presentation/screens/job_form/job_form_step_three.dart';
+import 'package:doxa_mobile_app/presentation/screens/job_form/job_form_step_two.dart';
 import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_screen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_screen_widgets.dart';
 import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_view.dart';
@@ -26,13 +28,39 @@ class JobFormFlowScreen extends StatelessWidget {
                 anchor: FlowScreenDefaultAnchor(
                   buttonText: 'Continue',
                   onPressed: (context) {
-                    if (_formKey.currentState!.saveAndValidate()) {
-                      // print(_formKey.currentState);
-                      FlowView.of(context).next();
-                    }
+                    // if (_formKey.currentState!.saveAndValidate()) {
+                    // print(_formKey.currentState);
+                    FlowView.of(context).next();
+                    // }
                   },
                 ),
                 child: const JobFormStepOne(),
+              ),
+              FlowScreen(
+                title: 'Create a New Job',
+                anchor: FlowScreenDefaultAnchor(
+                  buttonText: 'Continue',
+                  onPressed: (context) {
+                    // if (_formKey.currentState!.saveAndValidate()) {
+                    // print(_formKey.currentState);
+                    FlowView.of(context).next();
+                    // }
+                  },
+                ),
+                child: const JobFormStepTwo(),
+              ),
+              FlowScreen(
+                title: 'Create a New Job',
+                anchor: FlowScreenDefaultAnchor(
+                  buttonText: 'Continue',
+                  onPressed: (context) {
+                    // if (_formKey.currentState!.saveAndValidate()) {
+                    // print(_formKey.currentState);
+                    FlowView.of(context).next();
+                    // }
+                  },
+                ),
+                child: const JobFormStepThree(),
               ),
             ],
           ),

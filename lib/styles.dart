@@ -25,8 +25,8 @@ class Styles {
     iconTheme: IconThemeData(
       color: _colorScheme.onSurfaceVariant,
     ),
-    
-    titleTextStyle: _textTheme.headline6?.copyWith(color: _colorScheme.onSurfaceVariant,
+    titleTextStyle: _textTheme.headline6?.copyWith(
+      color: _colorScheme.onSurfaceVariant,
     ),
   );
 

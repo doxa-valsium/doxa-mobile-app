@@ -1,10 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/list_screen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
-import 'package:doxa_mobile_app/presentation/widgets/custom_text_form_field.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
@@ -88,7 +85,7 @@ class JobFormStepOne extends StatelessWidget {
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
               type: FormListType.staticList,
-              title: "Employement Type",
+              title: "Workplace Type",
             ),
           )
         ],
