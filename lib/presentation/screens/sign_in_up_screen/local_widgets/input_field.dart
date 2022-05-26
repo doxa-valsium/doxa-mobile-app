@@ -7,13 +7,23 @@ class InputField extends StatelessWidget {
   final bool? isPassword;
   final Icon? prefixIcon;
   final Icon? suffixIcon;
+  final TextEditingController? controller;
 
-  const InputField({Key? key, required this.hintText, required this.suffixWidget, required this.inputType, required this.isPassword, this.prefixIcon, this.suffixIcon})
-      : super(key: key);
+  const InputField({
+    Key? key,
+    required this.hintText,
+    this.suffixWidget,
+    this.inputType,
+    this.isPassword = false,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.controller,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       keyboardType: inputType,
       obscureText: isPassword ?? false,
       decoration: InputDecoration(
