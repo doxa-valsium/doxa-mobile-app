@@ -9,7 +9,7 @@ class EmailVerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: CustomAppBar(
             title: 'Email Verification',
@@ -27,24 +27,58 @@ class EmailVerificationScreen extends StatelessWidget {
                     "We have sent a code to abc@gmail.com. Please enter it below",
                     style: Theme.of(context).textTheme.headline6?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
                   ),
-                  const Spacer(),
+                  const Spacer(
+                    flex: 2,
+                  ),
                   Center(
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: const [
-                        Expanded(child: OTPcontainer()),
-                        const Spacer(),
-                        Expanded(child: OTPcontainer()),
-                        const Spacer(),
-                        Expanded(child: OTPcontainer()),
-                        const Spacer(),
-                        Expanded(child: OTPcontainer()),
-                        const Spacer(),
-                        Expanded(child: OTPcontainer()),
-                        const Spacer(),
-                        Expanded(child: OTPcontainer()),
+                        OTPcontainer(),
+                        OTPcontainer(),
+                        OTPcontainer(),
+                        OTPcontainer(),
+                        OTPcontainer(),
+                        OTPcontainer(),
                       ],
                     ),
-                  )
+                  ),
+                  const Spacer(
+                    flex: 2,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "Didn't receive it?",
+                        style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                              color: Theme.of(context).colorScheme.surfaceVariant,
+                            ),
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        "Request a new one",
+                        style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                      ),
+                    ],
+                  ),
+                  const Spacer(
+                    flex: 1,
+                  ),
+                  SizedBox(
+                    width: double.maxFinite,
+                    height: 50.0,
+                    child: ElevatedButton(
+                      child: Text(
+                        'COMPLETE VERIFICATION',
+                        style: Theme.of(context).textTheme.button?.copyWith(color: Colors.white),
+                      ),
+                      onPressed: () {
+                        // context.router.push(const EmailVerificationRoute());
+                      },
+                    ),
+                  ),
                 ],
               ),
             )),
@@ -66,7 +100,12 @@ class OTPcontainer extends StatelessWidget {
       decoration: BoxDecoration(boxShadow: Styles.elevation3, color: Colors.white, borderRadius: BorderRadius.circular(10)),
       child: TextFormField(
         keyboardType: TextInputType.phone,
+        textAlign: TextAlign.center,
+        maxLength: 1,
+        textInputAction: TextInputAction.next,
+        style: Theme.of(context).textTheme.headline6?.copyWith(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold, fontSize: 20),
         decoration: InputDecoration(
+          counterText: '',
           filled: true,
           fillColor: Theme.of(context).colorScheme.onSecondaryContainer,
           enabledBorder: const OutlineInputBorder(

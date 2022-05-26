@@ -13,8 +13,7 @@ class BasicInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      extendBody: true,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: CustomAppBar(
             title: 'Basic Info',
