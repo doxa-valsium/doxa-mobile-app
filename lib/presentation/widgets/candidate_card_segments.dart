@@ -54,7 +54,7 @@ class _CandidateCardSegmentState extends State<CandidateCardSegment> {
             ),
           ],
         ),
-        const SizedBox(height: 9),
+        const SizedBox(height: 12),
         // listview builder
         ListView.builder(
           shrinkWrap: true,
@@ -75,6 +75,7 @@ class _CandidateCardSegmentState extends State<CandidateCardSegment> {
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onBackground),
                       ),
+                      SizedBox(height: 4),
                       Text(
                         widget.workExperiences![index][1],
                         // maxLines: 1,
@@ -94,7 +95,7 @@ class _CandidateCardSegmentState extends State<CandidateCardSegment> {
                           fontSize: 10,
                         ),
                       ),
-                      const SizedBox(height: 2),
+                      const SizedBox(height: 6),
                       if (widget.workExperiences![0]?.length == 4)
                         Text(
                           widget.workExperiences![index][3],
@@ -113,33 +114,36 @@ class _CandidateCardSegmentState extends State<CandidateCardSegment> {
           },
         ),
         if (showmoreClicked == false && widget.workExperiences!.length > 2)
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ImageFiltered(
-                  imageFilter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-                  child: Text(
-                    "Senior Graphic Designer",
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onBackground),
-                  )),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    showmoreClicked = true;
-                    total = widget.workExperiences!.length;
-                    print(showmoreClicked);
-                    print(widget.workExperiences!.length);
-                  });
-                },
-                child: Text(
-                  "See More",
-                  style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.primary),
-                ),
-              )
-            ],
+          SizedBox(
+            height: 4,
           ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            ImageFiltered(
+                imageFilter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+                child: Text(
+                  "Senior Graphic Designer",
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onBackground),
+                )),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  showmoreClicked = true;
+                  total = widget.workExperiences!.length;
+                  print(showmoreClicked);
+                  print(widget.workExperiences!.length);
+                });
+              },
+              child: Text(
+                "See More",
+                style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.primary),
+              ),
+            )
+          ],
+        ),
       ],
     );
   }

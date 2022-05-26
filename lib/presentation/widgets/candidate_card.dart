@@ -2,6 +2,7 @@
 
 import 'dart:math';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:doxa_mobile_app/presentation/widgets/candidate_card_pub.dart';
 import 'package:doxa_mobile_app/presentation/widgets/candidate_card_segments.dart';
@@ -55,7 +56,7 @@ class _CandidateCardState extends State<CandidateCard> {
 
   Dialog BackCandidateCard(BuildContext context) {
     return Dialog(
-        key: ValueKey(true),
+        key: const ValueKey(true),
         insetPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(31.0)),
         backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
@@ -66,7 +67,7 @@ class _CandidateCardState extends State<CandidateCard> {
             children: [
               SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 0),
+                  padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 22.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -76,7 +77,7 @@ class _CandidateCardState extends State<CandidateCard> {
                           IconButton(
                             icon: const Icon(Icons.close),
                             onPressed: () {
-                              Navigator.of(context).pop();
+                              context.router.pop(context);
                             },
                           ),
                         ],
@@ -272,7 +273,7 @@ class _CandidateCardState extends State<CandidateCard> {
             children: [
               SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 0),
+                  padding: const EdgeInsets.only(left: 22, right: 22, top: 15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -282,7 +283,7 @@ class _CandidateCardState extends State<CandidateCard> {
                           IconButton(
                             icon: const Icon(Icons.close),
                             onPressed: () {
-                              Navigator.of(context).pop();
+                              context.router.pop(context);
                             },
                           ),
                         ],

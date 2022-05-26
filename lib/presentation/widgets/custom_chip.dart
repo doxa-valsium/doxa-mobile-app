@@ -34,6 +34,7 @@ class CustomChip extends StatelessWidget {
                   // color: foregroundColor,
                   color: Colors.black,
                 ),
+              const SizedBox(width: 8),
               Text(
                 text,
                 maxLines: 1,
