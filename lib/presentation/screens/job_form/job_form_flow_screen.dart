@@ -54,10 +54,10 @@ class JobFormFlowScreen extends StatelessWidget {
                 anchor: FlowScreenDefaultAnchor(
                   buttonText: 'Continue',
                   onPressed: (context) {
-                    // if (_formKey.currentState!.saveAndValidate()) {
-                    // print(_formKey.currentState);
-                    FlowView.of(context).next();
-                    // }
+                    if (_formKey.currentState!.saveAndValidate()) {
+                      // print(_formKey.currentState);
+                      FlowView.of(context).next();
+                    }
                   },
                 ),
                 child: const JobFormStepThree(),

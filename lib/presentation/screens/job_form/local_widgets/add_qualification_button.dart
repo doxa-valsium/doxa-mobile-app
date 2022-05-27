@@ -1,7 +1,7 @@
 import 'package:doxa_mobile_app/business_logic/cubits/add_qualification_button/add_qualification_button_qubit.dart';
 import 'package:doxa_mobile_app/business_logic/cubits/add_qualification_button/add_qualification_button_state.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/custom_switch.dart';
-import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/list_screen.dart';
+import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

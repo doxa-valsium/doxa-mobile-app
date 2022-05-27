@@ -10,6 +10,8 @@ void fullScreenDialog(context, TextEditingController controller, Widget child) {
       pageBuilder: (BuildContext buildContext, Animation animation, Animation secondaryAnimation) {
         return child;
       }).then((value) {
-        controller.text = value.toString();
+        if (value != null) {
+          controller.text = value.toString();
+        }
   });
 }

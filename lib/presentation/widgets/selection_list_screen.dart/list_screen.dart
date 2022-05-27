@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/list_component.dart';
-import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/search_bar_form_list.dart';
+import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_component.dart';
+import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/search_bar_form_list.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ic.dart';
