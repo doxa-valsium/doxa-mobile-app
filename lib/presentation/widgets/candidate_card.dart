@@ -67,7 +67,7 @@ class _CandidateCardState extends State<CandidateCard> {
           child: Stack(
             children: [
               BumbleScrollbar(
-                scrollbarMargin: const EdgeInsets.only(top: 20, right: 8.0),
+                scrollbarMargin: const EdgeInsets.only(top: 36, right: 8.0),
                 thumbColor: Theme.of(context).colorScheme.primary,
                 child: SingleChildScrollView(
                   child: Padding(
@@ -277,7 +277,7 @@ class _CandidateCardState extends State<CandidateCard> {
           child: Stack(
             children: [
               BumbleScrollbar(
-                scrollbarMargin: const EdgeInsets.only(top: 20, right: 8.0),
+                scrollbarMargin: const EdgeInsets.only(top: 36, right: 8.0),
                 thumbColor: Theme.of(context).colorScheme.primary,
                 child: SingleChildScrollView(
                   child: Padding(
