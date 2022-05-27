@@ -58,6 +58,18 @@ class PlaygroundScreen extends StatelessWidget {
               },
               child: const Text("Go to Job Form"),
             ),
+            MaterialButton(
+              onPressed: () {
+                context.router.push(const LoginRoute());
+              },
+              child: const Text("Go to Login Screen"),
+            ),
+            MaterialButton(
+              onPressed: () {
+                context.router.push(const RegistrationRoute());
+              },
+              child: const Text("Go to Registration Screen"),
+            ),
           ],
         ),
       ),
