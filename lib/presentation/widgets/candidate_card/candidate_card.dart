@@ -1,17 +1,14 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'dart:math';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
-import 'package:doxa_mobile_app/presentation/widgets/candidate_card_pub.dart';
-import 'package:doxa_mobile_app/presentation/widgets/candidate_card_segments.dart';
+import 'package:doxa_mobile_app/presentation/widgets/candidate_card/candidate_card_pub.dart';
+import 'package:doxa_mobile_app/presentation/widgets/candidate_card/candidate_card_segments.dart';
+import 'package:doxa_mobile_app/presentation/widgets/candidate_card/custom_scrollbar.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_chip.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:swipable_stack/swipable_stack.dart';
-import 'package:bumble_scrollbar/bumble_scrollbar.dart';
 
 class CandidateCard extends StatefulWidget {
   final SwipableStackController swipecontroller;
@@ -48,14 +45,13 @@ class _CandidateCardState extends State<CandidateCard> {
   Widget build(BuildContext context) {
     return AnimatedSwitcher(
         duration: const Duration(milliseconds: 1000),
-        // reverseDuration: const Duration(milliseconds: 1000),
         switchInCurve: Curves.ease,
         switchOutCurve: Curves.ease.flipped,
         transitionBuilder: transtion,
-        child: isFlipped ? FrontCadidateCard(context) : BackCandidateCard(context));
+        child: isFlipped ? frontCadidateCard(context) : backCandidateCard(context));
   }
 
-  Dialog BackCandidateCard(BuildContext context) {
+  Dialog backCandidateCard(BuildContext context) {
     return Dialog(
         key: const ValueKey(true),
         insetPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
@@ -66,7 +62,7 @@ class _CandidateCardState extends State<CandidateCard> {
           height: MediaQuery.of(context).size.height,
           child: Stack(
             children: [
-              BumbleScrollbar(
+              CustomScrollbar(
                 scrollbarMargin: const EdgeInsets.only(top: 36, right: 8.0),
                 thumbColor: Theme.of(context).colorScheme.primary,
                 child: SingleChildScrollView(
@@ -124,7 +120,7 @@ class _CandidateCardState extends State<CandidateCard> {
                         ),
                         const SizedBox(height: 10),
                         const CandidateCardSegment(
-                          workExperiences: [
+                          listItems: [
                             ['Senior Graphic Designer', 'HABIB BANK LIMITED', 'December 2021 - Present'],
                             ['Senior Graphic Designer', 'HABIB BANK LIMITED', 'December 2021 - Present'],
                             ['Senior Graphic Designer', 'HABIB BANK LIMITED', 'December 2021 - Present']
@@ -185,7 +181,7 @@ class _CandidateCardState extends State<CandidateCard> {
                         ),
                         const SizedBox(height: 10),
                         const CandidateCardSegment(
-                          workExperiences: [
+                          listItems: [
                             ['ABC University', 'Bachelors of Arts', 'Graphic Design', 'December 2021 - Present'],
                             ['ABC University', 'Bachelors of Arts', 'Graphic Design', 'December 2021 - Present'],
                             ['ABC University', 'Bachelors of Arts', 'Graphic Design', 'December 2021 - Present']
@@ -265,7 +261,7 @@ class _CandidateCardState extends State<CandidateCard> {
         ));
   }
 
-  Dialog FrontCadidateCard(BuildContext context) {
+  Dialog frontCadidateCard(BuildContext context) {
     return Dialog(
         key: const ValueKey(false),
         insetPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
@@ -276,7 +272,7 @@ class _CandidateCardState extends State<CandidateCard> {
           height: MediaQuery.of(context).size.height,
           child: Stack(
             children: [
-              BumbleScrollbar(
+              CustomScrollbar(
                 scrollbarMargin: const EdgeInsets.only(top: 36, right: 8.0),
                 thumbColor: Theme.of(context).colorScheme.primary,
                 child: SingleChildScrollView(
@@ -334,7 +330,7 @@ class _CandidateCardState extends State<CandidateCard> {
                         ),
                         const SizedBox(height: 10),
                         const CandidateCardSegment(
-                          workExperiences: [
+                          listItems: [
                             ['Figma Expert', 'Figma Corp.', '23 June 2019'],
                             ['Figma Expert', 'Figma Corp.', '23 June 2019'],
                             ['Figma Expert', 'Figma Corp.', '23 June 2019']
@@ -344,7 +340,7 @@ class _CandidateCardState extends State<CandidateCard> {
                         ),
                         const SizedBox(height: 10),
                         const CandidateCardSegment(
-                          workExperiences: [
+                          listItems: [
                             ['Best Design Awards', 'Global Design Hackathon', '23 June 2019'],
                             ['Best Design Awards', 'Global Design Hackathon', '23 June 2019'],
                             ['Best Design Awards', 'Global Design Hackathon', '23 June 2019']
@@ -354,7 +350,7 @@ class _CandidateCardState extends State<CandidateCard> {
                         ),
                         const SizedBox(height: 10),
                         const CandidateCardSegmentPublication(
-                          workExperiences: [
+                          listItems: [
                             ['Impact of High Fidelty Design in Low Income Economy', 'Human Centered Design', 'The Design Journal', '06 Aug 2021'],
                           ],
                           title: 'PUBLICATIONS',

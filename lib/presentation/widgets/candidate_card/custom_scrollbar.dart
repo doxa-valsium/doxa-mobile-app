@@ -44,7 +44,7 @@ class _CustomScrollbarState extends State<CustomScrollbar> {
   void initState() {
     super.initState();
     _showScrollbar = widget.showScrollbar;
-    _thumbHeight = widget.strokeHeight * 0.2;
+    _thumbHeight = widget.strokeHeight * 0.4;
     _strokeHeight = widget.strokeHeight;
     _controller = ScrollController()..addListener(_scrollListener);
   }

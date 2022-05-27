@@ -2,14 +2,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class CandidateCardSegmentPublication extends StatefulWidget {
-  final List? workExperiences;
+  final List? listItems;
   final String title;
   final String extraInfo;
   final String extrainfo2;
 
   const CandidateCardSegmentPublication({
     Key? key,
-    required this.workExperiences,
+    required this.listItems,
     required this.title,
     this.extraInfo = '',
     this.extrainfo2 = '',
@@ -19,17 +19,22 @@ class CandidateCardSegmentPublication extends StatefulWidget {
   State<CandidateCardSegmentPublication> createState() => _CandidateCardSegmentPublication();
 }
 
+// How the publication variables show up
+// Title
+// listItems[0]
+// listItems[1]
+// listItems[2]      listItems[3]
+
 class _CandidateCardSegmentPublication extends State<CandidateCardSegmentPublication> {
   @override
   Widget build(BuildContext context) {
     int total;
-    if (widget.workExperiences?.length == 1) {
+    if (widget.listItems?.length == 1) {
       total = 1;
     } else {
       total = 2;
     }
 
-    // int total = 2;
     bool showmoreClicked = false;
 
     return Column(
@@ -48,7 +53,6 @@ class _CandidateCardSegmentPublication extends State<CandidateCardSegmentPublica
           ],
         ),
         const SizedBox(height: 9),
-        // listview builder
         ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
@@ -58,13 +62,13 @@ class _CandidateCardSegmentPublication extends State<CandidateCardSegmentPublica
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  widget.workExperiences![index][0],
+                  widget.listItems![index][0],
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onBackground),
                 ),
                 Text(
-                  widget.workExperiences![index][1],
+                  widget.listItems![index][1],
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
@@ -73,13 +77,13 @@ class _CandidateCardSegmentPublication extends State<CandidateCardSegmentPublica
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      widget.workExperiences![index][2],
+                      widget.listItems![index][2],
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.primary),
                     ),
                     Text(
-                      widget.workExperiences![index][3],
+                      widget.listItems![index][3],
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
@@ -90,14 +94,14 @@ class _CandidateCardSegmentPublication extends State<CandidateCardSegmentPublica
             );
           },
         ),
-        if (showmoreClicked == false && widget.workExperiences!.length > 1)
+        if (showmoreClicked == false && widget.listItems!.length > 1)
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ImageFiltered(
                   imageFilter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
                   child: Text(
-                    "Senior Graphic Designer",
+                    widget.listItems![widget.listItems!.length - 1][0],
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onBackground),
@@ -106,8 +110,7 @@ class _CandidateCardSegmentPublication extends State<CandidateCardSegmentPublica
                 onTap: () {
                   setState(() {
                     showmoreClicked = true;
-                    total = widget.workExperiences?.length ?? 0;
-                    print(showmoreClicked);
+                    total = widget.listItems?.length ?? 0;
                   });
                 },
                 child: Text(
