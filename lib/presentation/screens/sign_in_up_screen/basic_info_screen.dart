@@ -41,6 +41,20 @@ class BasicInfoScreen extends StatelessWidget {
                     inputType: TextInputType.name,
                     isPassword: false,
                   ),
+                  const Spacer(),
+                  const InputField(
+                    hintText: 'Last Name',
+                    suffixWidget: null,
+                    inputType: TextInputType.name,
+                    isPassword: false,
+                  ),
+                  const Spacer(),
+                  const InputField(
+                    hintText: 'Last Name',
+                    suffixWidget: null,
+                    inputType: TextInputType.name,
+                    isPassword: false,
+                  ),
                   const Spacer(
                     flex: 2,
                   ),
