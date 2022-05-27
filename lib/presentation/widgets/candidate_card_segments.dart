@@ -31,7 +31,7 @@ class _CandidateCardSegmentState extends State<CandidateCardSegment> {
     } else {
       total = widget.showAtFirst;
     }
-
+    total = widget.workExperiences!.length;
     // int total = 2;
     bool showmoreClicked = false;
 

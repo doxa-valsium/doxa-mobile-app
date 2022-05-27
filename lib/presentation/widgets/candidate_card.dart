@@ -11,6 +11,7 @@ import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:swipable_stack/swipable_stack.dart';
+import 'package:bumble_scrollbar/bumble_scrollbar.dart';
 
 class CandidateCard extends StatefulWidget {
   final SwipableStackController swipecontroller;
@@ -65,147 +66,151 @@ class _CandidateCardState extends State<CandidateCard> {
           height: MediaQuery.of(context).size.height,
           child: Stack(
             children: [
-              SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 22.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.close),
-                            onPressed: () {
-                              context.router.pop(context);
-                            },
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              boxShadow: Styles.elevation3,
+              BumbleScrollbar(
+                scrollbarMargin: const EdgeInsets.only(top: 20, right: 8.0),
+                thumbColor: Theme.of(context).colorScheme.primary,
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 22.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.close),
+                              onPressed: () {
+                                context.router.pop(context);
+                              },
                             ),
-                            child: const Avatar(
-                              radius: 35,
-                              avatarUrl: 'https://picsum.photos/200',
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Ahmed Raza',
-                                style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
-                              ),
-                              Text(
-                                'Creative Designer',
-                                style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        'I am a professional creative designer with 8 years of experience in management. I am a professional',
-                        style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 10),
-                      const CandidateCardSegment(
-                        workExperiences: [
-                          ['Senior Graphic Designer', 'HABIB BANK LIMITED', 'December 2021 - Present'],
-                          ['Senior Graphic Designer', 'HABIB BANK LIMITED', 'December 2021 - Present'],
-                          ['Senior Graphic Designer', 'HABIB BANK LIMITED', 'December 2021 - Present']
-                        ],
-                        title: 'WORK EXPERIENCE',
-                        extraInfo: '2 years',
-                        showAtFirst: 2,
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        'SKILLS',
-                        style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                      ),
-                      const SizedBox(height: 10),
-                      GridView(
-                        clipBehavior: Clip.none,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          crossAxisSpacing: 12,
-                          mainAxisSpacing: 6,
-                          mainAxisExtent: 26,
+                          ],
                         ),
-                        children: [
-                          CustomChip(
-                            text: 'Lorem Ipsum',
-                            // backgroundColor: Theme.of(context).colorScheme.surface,
-                            // give color in hex code
-                            backgroundColor: const Color(0xFFE1EAFF),
-                            foregroundColor: Theme.of(context).colorScheme.primary,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                                boxShadow: Styles.elevation3,
+                              ),
+                              child: const Avatar(
+                                radius: 35,
+                                avatarUrl: 'https://picsum.photos/200',
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Ahmed Raza',
+                                  style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
+                                ),
+                                Text(
+                                  'Creative Designer',
+                                  style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          'I am a professional creative designer with 8 years of experience in management. I am a professional',
+                          style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(height: 10),
+                        const CandidateCardSegment(
+                          workExperiences: [
+                            ['Senior Graphic Designer', 'HABIB BANK LIMITED', 'December 2021 - Present'],
+                            ['Senior Graphic Designer', 'HABIB BANK LIMITED', 'December 2021 - Present'],
+                            ['Senior Graphic Designer', 'HABIB BANK LIMITED', 'December 2021 - Present']
+                          ],
+                          title: 'WORK EXPERIENCE',
+                          extraInfo: '2 years',
+                          showAtFirst: 2,
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          'SKILLS',
+                          style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
+                        ),
+                        const SizedBox(height: 10),
+                        GridView(
+                          clipBehavior: Clip.none,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 12,
+                            mainAxisSpacing: 6,
+                            mainAxisExtent: 26,
                           ),
-                          CustomChip(
-                            text: 'Lorem Ipsum',
-                            // backgroundColor: Theme.of(context).colorScheme.tertiary,
-                            backgroundColor: const Color(0xFFE1EAFF),
-                            foregroundColor: Theme.of(context).colorScheme.primary,
-                          ),
-                          CustomChip(
-                            text: 'Lorem Ipsum',
-                            // backgroundColor: Theme.of(context).colorScheme.tertiary,
-                            backgroundColor: const Color(0xFFE1EAFF),
-                            foregroundColor: Theme.of(context).colorScheme.primary,
-                          ),
-                          CustomChip(
-                            text: 'Lorem Ipsum',
-                            // backgroundColor: Theme.of(context).colorScheme.onPrimary,
-                            backgroundColor: const Color(0xFFE1EAFF),
-                            foregroundColor: Theme.of(context).colorScheme.primary,
-                          ),
-                          CustomChip(
-                            text: 'Lorem Ipsum',
-                            // backgroundColor: Theme.of(context).colorScheme.tertiary,
-                            backgroundColor: const Color(0xFFE1EAFF),
-                            foregroundColor: Theme.of(context).colorScheme.primary,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      const CandidateCardSegment(
-                        workExperiences: [
-                          ['ABC University', 'Bachelors of Arts', 'Graphic Design', 'December 2021 - Present'],
-                          ['ABC University', 'Bachelors of Arts', 'Graphic Design', 'December 2021 - Present'],
-                          ['ABC University', 'Bachelors of Arts', 'Graphic Design', 'December 2021 - Present']
-                        ],
-                        title: 'EDUCATION',
-                        showAtFirst: 2,
-                      ),
-                      // add the flip icon
-                      const SizedBox(height: 10),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.flip),
-                            iconSize: 30,
-                            color: Theme.of(context).colorScheme.onBackground,
-                            onPressed: () => setState(() {
-                              isFlipped = !isFlipped;
-                            }),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 50)
-                    ],
+                          children: [
+                            CustomChip(
+                              text: 'Lorem Ipsum',
+                              // backgroundColor: Theme.of(context).colorScheme.surface,
+                              // give color in hex code
+                              backgroundColor: const Color(0xFFE1EAFF),
+                              foregroundColor: Theme.of(context).colorScheme.primary,
+                            ),
+                            CustomChip(
+                              text: 'Lorem Ipsum',
+                              // backgroundColor: Theme.of(context).colorScheme.tertiary,
+                              backgroundColor: const Color(0xFFE1EAFF),
+                              foregroundColor: Theme.of(context).colorScheme.primary,
+                            ),
+                            CustomChip(
+                              text: 'Lorem Ipsum',
+                              // backgroundColor: Theme.of(context).colorScheme.tertiary,
+                              backgroundColor: const Color(0xFFE1EAFF),
+                              foregroundColor: Theme.of(context).colorScheme.primary,
+                            ),
+                            CustomChip(
+                              text: 'Lorem Ipsum',
+                              // backgroundColor: Theme.of(context).colorScheme.onPrimary,
+                              backgroundColor: const Color(0xFFE1EAFF),
+                              foregroundColor: Theme.of(context).colorScheme.primary,
+                            ),
+                            CustomChip(
+                              text: 'Lorem Ipsum',
+                              // backgroundColor: Theme.of(context).colorScheme.tertiary,
+                              backgroundColor: const Color(0xFFE1EAFF),
+                              foregroundColor: Theme.of(context).colorScheme.primary,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        const CandidateCardSegment(
+                          workExperiences: [
+                            ['ABC University', 'Bachelors of Arts', 'Graphic Design', 'December 2021 - Present'],
+                            ['ABC University', 'Bachelors of Arts', 'Graphic Design', 'December 2021 - Present'],
+                            ['ABC University', 'Bachelors of Arts', 'Graphic Design', 'December 2021 - Present']
+                          ],
+                          title: 'EDUCATION',
+                          showAtFirst: 2,
+                        ),
+                        // add the flip icon
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.flip),
+                              iconSize: 30,
+                              color: Theme.of(context).colorScheme.onBackground,
+                              onPressed: () => setState(() {
+                                isFlipped = !isFlipped;
+                              }),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 50)
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -271,142 +276,146 @@ class _CandidateCardState extends State<CandidateCard> {
           height: MediaQuery.of(context).size.height,
           child: Stack(
             children: [
-              SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 22, right: 22, top: 15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.close),
-                            onPressed: () {
-                              context.router.pop(context);
-                            },
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              boxShadow: Styles.elevation3,
+              BumbleScrollbar(
+                scrollbarMargin: const EdgeInsets.only(top: 20, right: 8.0),
+                thumbColor: Theme.of(context).colorScheme.primary,
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 22, right: 22, top: 15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.close),
+                              onPressed: () {
+                                context.router.pop(context);
+                              },
                             ),
-                            child: const Avatar(
-                              radius: 35,
-                              avatarUrl: 'https://picsum.photos/200',
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Ahmed Raza',
-                                style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
-                              ),
-                              Text(
-                                'Creative Designer',
-                                style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        'I am a professional creative designer with 8 years of experience in management. I am a professional',
-                        style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 10),
-                      const CandidateCardSegment(
-                        workExperiences: [
-                          ['Figma Expert', 'Figma Corp.', '23 June 2019'],
-                          ['Figma Expert', 'Figma Corp.', '23 June 2019'],
-                          ['Figma Expert', 'Figma Corp.', '23 June 2019']
-                        ],
-                        title: 'CERTIFICATIONS',
-                        showAtFirst: 1,
-                      ),
-                      const SizedBox(height: 10),
-                      const CandidateCardSegment(
-                        workExperiences: [
-                          ['Best Design Awards', 'Global Design Hackathon', '23 June 2019'],
-                          ['Best Design Awards', 'Global Design Hackathon', '23 June 2019'],
-                          ['Best Design Awards', 'Global Design Hackathon', '23 June 2019']
-                        ],
-                        title: 'AWARDS',
-                        showAtFirst: 1,
-                      ),
-                      const SizedBox(height: 10),
-                      const CandidateCardSegmentPublication(
-                        workExperiences: [
-                          ['Impact of High Fidelty Design in Low Income Economy', 'Human Centered Design', 'The Design Journal', '06 Aug 2021'],
-                        ],
-                        title: 'PUBLICATIONS',
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        'EXTERNAL LINKS',
-                        style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                      ),
-                      const SizedBox(height: 10),
-                      GridView(
-                        clipBehavior: Clip.none,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          crossAxisSpacing: 12,
-                          mainAxisSpacing: 5,
-                          mainAxisExtent: 26,
+                          ],
                         ),
-                        children: [
-                          CustomChip(
-                            text: 'Behance',
-                            // backgroundColor: Theme.of(context).colorScheme.surface,
-                            backgroundColor: const Color(0xFFE1EAFF),
-                            foregroundColor: Theme.of(context).colorScheme.primary,
-                            externalLink: true,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                                boxShadow: Styles.elevation3,
+                              ),
+                              child: const Avatar(
+                                radius: 35,
+                                avatarUrl: 'https://picsum.photos/200',
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Ahmed Raza',
+                                  style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
+                                ),
+                                Text(
+                                  'Creative Designer',
+                                  style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          'I am a professional creative designer with 8 years of experience in management. I am a professional',
+                          style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(height: 10),
+                        const CandidateCardSegment(
+                          workExperiences: [
+                            ['Figma Expert', 'Figma Corp.', '23 June 2019'],
+                            ['Figma Expert', 'Figma Corp.', '23 June 2019'],
+                            ['Figma Expert', 'Figma Corp.', '23 June 2019']
+                          ],
+                          title: 'CERTIFICATIONS',
+                          showAtFirst: 1,
+                        ),
+                        const SizedBox(height: 10),
+                        const CandidateCardSegment(
+                          workExperiences: [
+                            ['Best Design Awards', 'Global Design Hackathon', '23 June 2019'],
+                            ['Best Design Awards', 'Global Design Hackathon', '23 June 2019'],
+                            ['Best Design Awards', 'Global Design Hackathon', '23 June 2019']
+                          ],
+                          title: 'AWARDS',
+                          showAtFirst: 1,
+                        ),
+                        const SizedBox(height: 10),
+                        const CandidateCardSegmentPublication(
+                          workExperiences: [
+                            ['Impact of High Fidelty Design in Low Income Economy', 'Human Centered Design', 'The Design Journal', '06 Aug 2021'],
+                          ],
+                          title: 'PUBLICATIONS',
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          'EXTERNAL LINKS',
+                          style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
+                        ),
+                        const SizedBox(height: 10),
+                        GridView(
+                          clipBehavior: Clip.none,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 12,
+                            mainAxisSpacing: 5,
+                            mainAxisExtent: 26,
                           ),
-                          CustomChip(
-                            text: 'LinkedIn',
-                            // backgroundColor: Theme.of(context).colorScheme.tertiary,
-                            backgroundColor: const Color(0xFFE1EAFF),
-                            foregroundColor: Theme.of(context).colorScheme.primary,
-                            externalLink: true,
-                          ),
-                          CustomChip(
-                            text: 'Dribble',
-                            // backgroundColor: Theme.of(context).colorScheme.tertiary,
-                            backgroundColor: const Color(0xFFE1EAFF),
-                            foregroundColor: Theme.of(context).colorScheme.primary,
-                            externalLink: true,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.flip),
-                            iconSize: 30,
-                            color: Theme.of(context).colorScheme.onBackground,
-                            onPressed: () => setState(() {
-                              isFlipped = !isFlipped;
-                            }),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 50),
-                    ],
+                          children: [
+                            CustomChip(
+                              text: 'Behance',
+                              // backgroundColor: Theme.of(context).colorScheme.surface,
+                              backgroundColor: const Color(0xFFE1EAFF),
+                              foregroundColor: Theme.of(context).colorScheme.primary,
+                              externalLink: true,
+                            ),
+                            CustomChip(
+                              text: 'LinkedIn',
+                              // backgroundColor: Theme.of(context).colorScheme.tertiary,
+                              backgroundColor: const Color(0xFFE1EAFF),
+                              foregroundColor: Theme.of(context).colorScheme.primary,
+                              externalLink: true,
+                            ),
+                            CustomChip(
+                              text: 'Dribble',
+                              // backgroundColor: Theme.of(context).colorScheme.tertiary,
+                              backgroundColor: const Color(0xFFE1EAFF),
+                              foregroundColor: Theme.of(context).colorScheme.primary,
+                              externalLink: true,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.flip),
+                              iconSize: 30,
+                              color: Theme.of(context).colorScheme.onBackground,
+                              onPressed: () => setState(() {
+                                isFlipped = !isFlipped;
+                              }),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 50),
+                      ],
+                    ),
                   ),
                 ),
               ),

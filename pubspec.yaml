@@ -30,6 +30,7 @@ dependencies:
   auto_route: ^4.0.1
   avatar_glow: ^2.0.2
   bloc: ^8.0.3
+  bumble_scrollbar: ^0.0.2
   cached_network_image: ^3.2.1
   cupertino_icons: ^1.0.4
   dotted_border: ^2.0.0+2
