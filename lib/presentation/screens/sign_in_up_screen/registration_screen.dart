@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/dashed_button.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/input_field.dart';
+import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 
 class RegistrationScreen extends StatelessWidget {
   static const String route = 'registration-screen';
@@ -13,7 +15,6 @@ class RegistrationScreen extends StatelessWidget {
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(28.0),
@@ -42,23 +43,30 @@ class RegistrationScreen extends StatelessWidget {
                   height: 28 / 4,
                 ),
 
-                const InputField(
-                  hintText: 'Email',
-                  inputType: TextInputType.emailAddress,
-                  isPassword: false,
-                  prefixIcon: Icon(Icons.alternate_email),
-                  suffixWidget: null,
+                CustomFormBuilderTextField(
+                  name: "Email",
+                  controller: TextEditingController(),
+                  keyboardType: TextInputType.emailAddress,
+                  labelText: "Email Address",
+                  prefixIcon: const Icon(Icons.alternate_email),
+                  validators: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(),
+                    FormBuilderValidators.email(),
+                  ]),
                 ),
 
                 const SizedBox(height: 16 / 2),
 
-                InputField(
-                  hintText: 'Password',
-                  inputType: TextInputType.text,
-                  isPassword: true,
+                CustomFormBuilderTextField(
+                  name: "Password",
+                  controller: TextEditingController(),
+                  keyboardType: TextInputType.visiblePassword,
+                  labelText: "Password",
                   prefixIcon: const Icon(Icons.lock),
-                  suffixWidget: null,
-                  suffixIcon: Icon(Icons.visibility_off_outlined, size: 18, color: Theme.of(context).colorScheme.surfaceVariant),
+                  validators: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(),
+                    FormBuilderValidators.minLength(6),
+                  ]),
                 ),
 
                 const SizedBox(
