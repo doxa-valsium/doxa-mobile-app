@@ -3,12 +3,8 @@ import 'package:doxa_mobile_app/business_logic/cubits/add_qualification_button/a
 import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/custom_switch.dart';
 import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ic.dart';
