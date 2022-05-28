@@ -14,6 +14,8 @@ class CustomFormBuilderTextField extends StatelessWidget {
   final bool? isPassword;
   final Icon? prefixIcon;
   final Icon? suffixIcon;
+  final bool? readOnly;
+  final VoidCallback? onTap;
 
   const CustomFormBuilderTextField({
     Key? key,
@@ -29,6 +31,8 @@ class CustomFormBuilderTextField extends StatelessWidget {
     this.isPassword = false,
     this.prefixIcon,
     this.suffixIcon,
+    this.readOnly = false,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -45,6 +49,8 @@ class CustomFormBuilderTextField extends StatelessWidget {
       expands: expands,
       minLines: expands ? null : minLines,
       maxLines: expands ? null : maxLines,
+      readOnly: readOnly ?? false,
+      onTap: onTap,
       decoration: InputDecoration(
         hintText: labelText,
         suffixIcon: suffixIcon,

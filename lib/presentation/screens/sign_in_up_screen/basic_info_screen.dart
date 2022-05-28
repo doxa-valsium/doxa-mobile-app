@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/input_field.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/type_selector.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
@@ -7,9 +8,12 @@ import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfiel
 import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:doxa_mobile_app/styles.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl/intl.dart';
+import 'package:logger/logger.dart';
 
 class BasicInfoScreen extends StatefulWidget {
   static const String route = 'basic-info-screen';
@@ -22,15 +26,37 @@ class BasicInfoScreen extends StatefulWidget {
 class _BasicInfoScreenState extends State<BasicInfoScreen> {
   DateTime? _date = DateTime.now();
   final TextEditingController _dateController = TextEditingController();
-  final DateFormat dateFormatter = DateFormat('MMM dd, yyyy hh:mm');
+  final DateFormat dateFormatter = DateFormat('dd-MM-yyyy');
 
   _handleDatePicker() async {
-    final DateTime? date = await showDatePicker(context: context, initialDate: _date!, firstDate: DateTime(2000), lastDate: DateTime(2050));
-    if (date != null && date != _date) {
-      setState(() {
-        _date = date;
-      });
-      // _dateController.text = _dateFormatter.format(date);
+    // if platform is android
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      final DateTime? date =
+          await showDatePicker(context: context, initialDate: DateTime(_date!.year - 20), firstDate: DateTime(_date!.year - 100), lastDate: DateTime(_date!.year - 13));
+      if (date != null && date != _date) {
+        setState(() {
+          _date = date;
+        });
+        _dateController.text = dateFormatter.format(date);
+      }
+    } else if (defaultTargetPlatform == TargetPlatform.iOS) {
+      final DateTime? date = await showCupertinoModalPopup(
+        context: context,
+        builder: (BuildContext context) {
+          return CupertinoDatePicker(
+            mode: CupertinoDatePickerMode.date,
+            initialDateTime: DateTime(_date!.year - 20),
+            minimumYear: DateTime(_date!.year - 100).year,
+            maximumYear: DateTime(_date!.year - 13).year,
+            onDateTimeChanged: (DateTime date) {
+              setState(() {
+                _date = date;
+              });
+              _dateController.text = dateFormatter.format(date);
+            },
+          );
+        },
+      );
     }
   }
 
@@ -82,24 +108,35 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
                     ),
                   ),
                   const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: TextFormField(
-                      readOnly: true,
-                      controller: _dateController,
-                      style: TextStyle(fontSize: 18),
-                      onTap: _handleDatePicker,
-                      decoration: InputDecoration(
-                          labelText: 'Date',
-                          labelStyle: TextStyle(
-                            fontSize: 18,
-                            fontFamily: 'ProximaNova',
-                            color: Colors.white,
-                            fontWeight: FontWeight.w800,
-                          ),
-                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0))),
-                    ),
+                  CustomFormBuilderTextField(
+                    name: "DOB",
+                    controller: _dateController,
+                    keyboardType: TextInputType.text,
+                    labelText: "Birthday",
+                    readOnly: true,
+                    onTap: _handleDatePicker,
+                    validators: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(),
+                    ]),
                   ),
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(vertical: 20),
+                  //   child: TextFormField(
+                  //     readOnly: true,
+                  //     controller: _dateController,
+                  //     style: TextStyle(fontSize: 18),
+                  //     onTap: _handleDatePicker,
+                  //     decoration: InputDecoration(
+                  //         labelText: 'Date',
+                  //         labelStyle: TextStyle(
+                  //           fontSize: 18,
+                  //           fontFamily: 'ProximaNova',
+                  //           color: Colors.white,
+                  //           fontWeight: FontWeight.w800,
+                  //         ),
+                  //         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0))),
+                  //   ),
+                  // ),
                   const Spacer(
                     flex: 2,
                   ),
