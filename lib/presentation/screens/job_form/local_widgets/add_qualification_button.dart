@@ -119,7 +119,9 @@ class _AddQualificationButtonState extends State<AddQualificationButton> {
                       child: AnimatedOpacity(
                         duration: const Duration(milliseconds: 200),
                         opacity: state.showContainers ? 1 : 0,
-                        child: CustomSwitch(),
+                        child: const CustomSwitch(
+                          options: ["Preferred", "Required"],
+                        ),
                       ),
                     )
                   ],

@@ -23,7 +23,6 @@ class AddQualificationButtonCubit extends Cubit<AddQualificationButtonState> {
 
   void showContainer() {
     if (state.isExpanded) {
-      Future.delayed(const Duration(milliseconds: 500));
       emit(state.copyWith(showContainers: true));
     }
   }
