@@ -33,7 +33,7 @@ class CustomAppBar extends StatelessWidget {
               ),
             ),
             backgroundColor: Theme.of(context).colorScheme.background,
-            automaticallyImplyLeading: true,
+            automaticallyImplyLeading: false,
           ),
         ],
         body: body,
@@ -47,24 +47,24 @@ class CustomAppBar extends StatelessWidget {
             snap: true,
             elevation: 0.0,
             title: Padding(
-              padding: const EdgeInsets.only(left: 8.0, top: 16.0),
+              padding: const EdgeInsets.only(left: 0.0, top: 16.0),
               child: Text(
                 title,
                 style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
               ),
             ),
             backgroundColor: Theme.of(context).colorScheme.background,
-            automaticallyImplyLeading: true,
+            // automaticallyImplyLeading: true,
             leading: Padding(
               padding: const EdgeInsets.only(top: 16.0, left: 20.0),
               child: GestureDetector(
                 onTap: () {
                   context.router.pop();
                 },
-                child: Iconify(
-                  Ic.sharp_keyboard_arrow_left,
+                child: const Iconify(
+                  Ic.round_arrow_back_ios,
                   size: 8.0,
-                  color: Theme.of(context).colorScheme.onBackground,
+                  color: Color(0xFF737B7D),
                 ),
               ),
             ),
