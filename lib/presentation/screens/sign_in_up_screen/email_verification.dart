@@ -1,7 +1,6 @@
-import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
-import 'package:doxa_mobile_app/styles.dart';
+import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/otp_container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 
 class EmailVerificationScreen extends StatelessWidget {
   static const String route = 'email-verification-screen';
@@ -10,132 +9,132 @@ class EmailVerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: SafeArea(
-        child: CustomAppBar(
-            title: 'Email Verification',
-            showBackButton: true,
-            body: Padding(
-              padding: const EdgeInsets.all(28.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: Image.asset('assets/images/email_verification.png'),
-                  ),
-                  const Spacer(),
-                  Text(
-                    "We have sent a code to abc@gmail.com. Please enter it below",
-                    style: Theme.of(context).textTheme.headline6?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
-                  ),
-                  const Spacer(
-                    flex: 2,
-                  ),
-
-                  Center(
-                    child: OtpTextField(
-                      numberOfFields: 5,
-                      borderColor: Color(0xFF6A53A1),
-                      focusedBorderColor: Color(0xFF6A53A1),
-                      // styles: [createStyle(Color(0xFF6A53A1))],
-                      showFieldAsBox: false,
-                      borderWidth: 4.0,
-                      //runs when a code is typed in
-                      onCodeChanged: (String code) {
-                        //handle validation or checks here if necessary
-                      },
-                      //runs when every textfield is filled
-                      onSubmit: (String verificationCode) {},
-                    ),
-                  ),
-                  // Center(
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //     children: const [
-                  //       OTPcontainer(),
-                  //       OTPcontainer(),
-                  //       OTPcontainer(),
-                  //       OTPcontainer(),
-                  //       OTPcontainer(),
-                  //       OTPcontainer(),
-                  //     ],
-                  //   ),
-                  // ),
-                  const Spacer(
-                    flex: 2,
-                  ),
-                  Row(
+      // resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(28.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Image.asset('assets/images/email_verification.png'),
+                ),
+                const SizedBox(
+                  height: 48,
+                ),
+                Text(
+                  "We have sent a code to abc@gmail.com. Please enter it below",
+                  style: Theme.of(context).textTheme.headline6?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
+                ),
+                const SizedBox(
+                  height: 84,
+                ),
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text(
-                        "Didn't receive it?",
-                        style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                              color: Theme.of(context).colorScheme.surfaceVariant,
-                            ),
+                      OTPcontainer(
+                        name: "OTP1",
+                        controller: TextEditingController(),
+                        keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
+                        validators: FormBuilderValidators.compose([
+                          FormBuilderValidators.required(),
+                          FormBuilderValidators.numeric(),
+                        ]),
                       ),
-                      const SizedBox(width: 8),
-                      Text(
-                        "Request a new one",
-                        style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
+                      OTPcontainer(
+                        name: "OTP2",
+                        controller: TextEditingController(),
+                        keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
+                        validators: FormBuilderValidators.compose([
+                          FormBuilderValidators.required(),
+                          FormBuilderValidators.numeric(),
+                        ]),
+                      ),
+                      OTPcontainer(
+                        name: "OTP3",
+                        controller: TextEditingController(),
+                        keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
+                        validators: FormBuilderValidators.compose([
+                          FormBuilderValidators.required(),
+                          FormBuilderValidators.numeric(),
+                        ]),
+                      ),
+                      OTPcontainer(
+                        name: "OTP4",
+                        controller: TextEditingController(),
+                        keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
+                        validators: FormBuilderValidators.compose([
+                          FormBuilderValidators.required(),
+                          FormBuilderValidators.numeric(),
+                        ]),
+                      ),
+                      OTPcontainer(
+                        name: "OTP5",
+                        controller: TextEditingController(),
+                        keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
+                        validators: FormBuilderValidators.compose([
+                          FormBuilderValidators.required(),
+                          FormBuilderValidators.numeric(),
+                        ]),
+                      ),
+                      OTPcontainer(
+                        name: "OTP6",
+                        controller: TextEditingController(),
+                        keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.done,
+                        validators: FormBuilderValidators.compose([
+                          FormBuilderValidators.required(),
+                          FormBuilderValidators.numeric(),
+                        ]),
                       ),
                     ],
                   ),
-                  const Spacer(
-                    flex: 1,
-                  ),
-                  SizedBox(
-                    width: double.maxFinite,
-                    height: 50.0,
-                    child: ElevatedButton(
-                      child: Text(
-                        'COMPLETE VERIFICATION',
-                        style: Theme.of(context).textTheme.button?.copyWith(color: Colors.white),
-                      ),
-                      onPressed: () {
-                        // context.router.push(const EmailVerificationRoute());
-                      },
+                ),
+                const SizedBox(
+                  height: 80,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Didn't receive it?",
+                      style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                            color: Theme.of(context).colorScheme.surfaceVariant,
+                          ),
                     ),
+                    const SizedBox(width: 8),
+                    Text(
+                      "Request a new one",
+                      style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                SizedBox(
+                  width: double.maxFinite,
+                  height: 50.0,
+                  child: ElevatedButton(
+                    child: Text(
+                      'COMPLETE VERIFICATION',
+                      style: Theme.of(context).textTheme.button?.copyWith(color: Colors.white),
+                    ),
+                    onPressed: () {
+                      // context.router.push(const EmailVerificationRoute());
+                    },
                   ),
-                ],
-              ),
-            )),
-      ),
-    );
-  }
-}
-
-class OTPcontainer extends StatelessWidget {
-  const OTPcontainer({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      width: 48,
-      decoration: BoxDecoration(boxShadow: Styles.elevation3, color: Colors.white, borderRadius: BorderRadius.circular(10)),
-      child: TextFormField(
-        keyboardType: TextInputType.phone,
-        textAlign: TextAlign.center,
-        maxLength: 1,
-        textInputAction: TextInputAction.next,
-        style: Theme.of(context).textTheme.headline6?.copyWith(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold, fontSize: 20),
-        decoration: InputDecoration(
-          counterText: '',
-          filled: true,
-          fillColor: Theme.of(context).colorScheme.onSecondaryContainer,
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-          ),
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-          ),
-          border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+              ],
+            ),
           ),
         ),
       ),

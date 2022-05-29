@@ -39,7 +39,7 @@ class CustomFormBuilderTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return FormBuilderTextField(
       textAlign: TextAlign.left,
-      textAlignVertical: TextAlignVertical.top,
+      textAlignVertical: TextAlignVertical.center,
       style: Theme.of(context).textTheme.bodyText2?.copyWith(
             color: Colors.black,
           ),
