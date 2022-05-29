@@ -101,7 +101,7 @@ class AppRouter extends _i14.RootStackRouter {
     },
     EmailVerificationRoute.name: (routeData) {
       return _i14.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i12.EmailVerificationScreen());
+          routeData: routeData, child: _i12.EmailVerificationScreen());
     },
     NavigatorRoute.name: (routeData) {
       return _i14.MaterialPageX<dynamic>(

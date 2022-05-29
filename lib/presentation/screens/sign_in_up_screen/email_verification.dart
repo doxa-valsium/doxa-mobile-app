@@ -1,6 +1,7 @@
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class EmailVerificationScreen extends StatelessWidget {
   static const String route = 'email-verification-screen';
@@ -30,19 +31,36 @@ class EmailVerificationScreen extends StatelessWidget {
                   const Spacer(
                     flex: 2,
                   ),
+
                   Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        OTPcontainer(),
-                        OTPcontainer(),
-                        OTPcontainer(),
-                        OTPcontainer(),
-                        OTPcontainer(),
-                        OTPcontainer(),
-                      ],
+                    child: OtpTextField(
+                      numberOfFields: 5,
+                      borderColor: Color(0xFF6A53A1),
+                      focusedBorderColor: Color(0xFF6A53A1),
+                      // styles: [createStyle(Color(0xFF6A53A1))],
+                      showFieldAsBox: false,
+                      borderWidth: 4.0,
+                      //runs when a code is typed in
+                      onCodeChanged: (String code) {
+                        //handle validation or checks here if necessary
+                      },
+                      //runs when every textfield is filled
+                      onSubmit: (String verificationCode) {},
                     ),
                   ),
+                  // Center(
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //     children: const [
+                  //       OTPcontainer(),
+                  //       OTPcontainer(),
+                  //       OTPcontainer(),
+                  //       OTPcontainer(),
+                  //       OTPcontainer(),
+                  //       OTPcontainer(),
+                  //     ],
+                  //   ),
+                  // ),
                   const Spacer(
                     flex: 2,
                   ),

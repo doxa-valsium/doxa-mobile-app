@@ -119,24 +119,6 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
                       FormBuilderValidators.required(),
                     ]),
                   ),
-                  // Padding(
-                  //   padding: const EdgeInsets.symmetric(vertical: 20),
-                  //   child: TextFormField(
-                  //     readOnly: true,
-                  //     controller: _dateController,
-                  //     style: TextStyle(fontSize: 18),
-                  //     onTap: _handleDatePicker,
-                  //     decoration: InputDecoration(
-                  //         labelText: 'Date',
-                  //         labelStyle: TextStyle(
-                  //           fontSize: 18,
-                  //           fontFamily: 'ProximaNova',
-                  //           color: Colors.white,
-                  //           fontWeight: FontWeight.w800,
-                  //         ),
-                  //         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0))),
-                  //   ),
-                  // ),
                   const Spacer(
                     flex: 2,
                   ),
