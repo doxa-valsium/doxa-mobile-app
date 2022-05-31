@@ -1,12 +1,15 @@
 import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/add_qualification_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 
 class JobFormStepThree extends StatelessWidget {
-  const JobFormStepThree({Key? key}) : super(key: key);
+  final VoidCallback onAdd;
+
+  const JobFormStepThree({Key? key, required this.onAdd}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,13 +44,14 @@ class JobFormStepThree extends StatelessWidget {
               keyboardType: TextInputType.number,
               validators: FormBuilderValidators.compose([
                 FormBuilderValidators.required(),
+                FormBuilderValidators.numeric(),
                 FormBuilderValidators.maxLength(8),
               ]),
             ),
             const SizedBox(
               height: 16,
             ),
-            const AddQualificationButton()
+            AddQualificationButton(onAdd: onAdd),
           ],
         ));
   }

@@ -6,18 +6,18 @@ import 'package:flutter/material.dart';
 class AddQualificationButtonCubit extends Cubit<AddQualificationButtonState> {
   BuildContext context;
 
-  AddQualificationButtonCubit({required double buttonHeight, required bool isExpanded, required bool showContainers, required this.context})
-      : super(AddQualificationButtonState(buttonHeight: buttonHeight, isExpanded: isExpanded, showContainers: showContainers));
+  AddQualificationButtonCubit({required double buttonHeight, required bool isExpanded, required bool showContainers, required bool isEditing, required this.context})
+      : super(AddQualificationButtonState(buttonHeight: buttonHeight, isExpanded: isExpanded, showContainers: showContainers, isEditing: isEditing));
 
   void expand() {
     if (!state.isExpanded) {
-      emit(state.copyWith(isExpanded: true, buttonHeight: 360));
+      emit(state.copyWith(isExpanded: true, buttonHeight: 400, showContainers: true));
     }
   }
 
   void collapse() {
     if (state.isExpanded) {
-      emit(state.copyWith(isExpanded: false, buttonHeight: 54));
+      emit(state.copyWith(isExpanded: false, buttonHeight: 54, showContainers: false));
     }
   }
 
@@ -25,5 +25,9 @@ class AddQualificationButtonCubit extends Cubit<AddQualificationButtonState> {
     if (state.isExpanded) {
       emit(state.copyWith(showContainers: true));
     }
+  }
+
+  void toggleIsEditing() {
+    emit(state.copyWith(isEditing: !state.isEditing));
   }
 }

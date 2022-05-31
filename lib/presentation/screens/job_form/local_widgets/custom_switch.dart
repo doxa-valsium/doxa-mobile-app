@@ -7,8 +7,11 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 
 class CustomSwitch extends StatelessWidget {
   final List<String> options;
+  final String name;
+
   const CustomSwitch({
     Key? key,
+    required this.name,
     required this.options,
   }) : super(key: key);
 
@@ -22,7 +25,7 @@ class CustomSwitch extends StatelessWidget {
       ),
       child: BlocBuilder<CustomSwitchCubit, CustomSwitchState>(builder: (context, state) {
         return FormBuilderField(
-          name: "name",
+          name: name,
           validator: FormBuilderValidators.compose([
             FormBuilderValidators.required(),
           ]),
@@ -45,7 +48,6 @@ class CustomSwitch extends StatelessWidget {
                     AnimatedPositioned(
                       curve: Curves.easeInOut,
                       duration: const Duration(milliseconds: 200),
-                      // top: 4,
                       left: state.positionX,
                       child: Container(
                         height: 32,

@@ -11,6 +11,7 @@ void fullScreenDialog(context, TextEditingController controller, Widget child) {
         return child;
       }).then((value) {
         if (value != null) {
+          print("Closed with $value");
           controller.text = value.toString();
         }
   });

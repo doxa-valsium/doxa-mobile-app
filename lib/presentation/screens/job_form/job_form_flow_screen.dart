@@ -19,7 +19,7 @@ class JobFormFlowScreen extends StatelessWidget {
         child: FormBuilder(
           // autovalidateMode: AutovalidateMode.on
           // ,
-          autoFocusOnValidationFailure: true,
+          // autoFocusOnValidationFailure: true,
           key: _formKey,
           child: FlowView(
             steps: [
@@ -28,10 +28,10 @@ class JobFormFlowScreen extends StatelessWidget {
                 anchor: FlowScreenDefaultAnchor(
                   buttonText: 'Continue',
                   onPressed: (context) {
-                    // if (_formKey.currentState!.saveAndValidate()) {
-                    // print(_formKey.currentState);
-                    FlowView.of(context).next();
-                    // }
+                    if (_formKey.currentState!.saveAndValidate()) {
+                      // print(_formKey.currentState);
+                      FlowView.of(context).next();
+                    }
                   },
                 ),
                 child: const JobFormStepOne(),
@@ -41,10 +41,10 @@ class JobFormFlowScreen extends StatelessWidget {
                 anchor: FlowScreenDefaultAnchor(
                   buttonText: 'Continue',
                   onPressed: (context) {
-                    // if (_formKey.currentState!.saveAndValidate()) {
-                    // print(_formKey.currentState);
-                    FlowView.of(context).next();
-                    // }
+                    if (_formKey.currentState!.saveAndValidate()) {
+                      // print(_formKey.currentState);
+                      FlowView.of(context).next();
+                    }
                   },
                 ),
                 child: const JobFormStepTwo(),
@@ -60,7 +60,13 @@ class JobFormFlowScreen extends StatelessWidget {
                     }
                   },
                 ),
-                child: const JobFormStepThree(),
+                child: JobFormStepThree(
+                  onAdd: () {
+                  if (_formKey.currentState!.saveAndValidate()) {
+                    // print(_formKey.currentState);
+                    FlowView.of(context).next();
+                  }
+                }),
               ),
             ],
           ),
