@@ -4,4 +4,4 @@ import 'services/environment_config_service.dart';
 
 void main() {
   bootstrap(() => App(), environment: Environment.mock);
-}
+} 

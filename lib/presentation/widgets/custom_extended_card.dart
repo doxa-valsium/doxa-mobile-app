@@ -14,7 +14,7 @@ class CustomExtendedCard extends StatelessWidget {
   const CustomExtendedCard({
     Key? key,
     this.buttonType = ButtonType.primary,
-    required this.upperBoxHeight,
+    required this.upperBoxHeight,   
     required this.lowerBoxHeight,
     required this.childTopCard,
     required this.childBottomCard,
