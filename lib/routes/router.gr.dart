@@ -88,20 +88,27 @@ class AppRouter extends _i14.RootStackRouter {
           barrierDismissible: false);
     },
     LoginRoute.name: (routeData) {
+      final args = routeData.argsAs<LoginRouteArgs>(
+          orElse: () => const LoginRouteArgs());
       return _i14.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i9.LoginScreen());
+          routeData: routeData, child: _i9.LoginScreen(key: args.key));
     },
     RegistrationRoute.name: (routeData) {
+      final args = routeData.argsAs<RegistrationRouteArgs>(
+          orElse: () => const RegistrationRouteArgs());
       return _i14.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i10.RegistrationScreen());
+          routeData: routeData, child: _i10.RegistrationScreen(key: args.key));
     },
     BasicInfoRoute.name: (routeData) {
+      final args = routeData.argsAs<BasicInfoRouteArgs>();
       return _i14.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i11.BasicInfoScreen());
+          routeData: routeData,
+          child: _i11.BasicInfoScreen(
+              key: args.key, registrationData: args.registrationData));
     },
     EmailVerificationRoute.name: (routeData) {
       return _i14.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i12.EmailVerificationScreen());
+          routeData: routeData, child: const _i12.EmailVerificationScreen());
     },
     NavigatorRoute.name: (routeData) {
       return _i14.MaterialPageX<dynamic>(
@@ -297,28 +304,70 @@ class JobFormFlowRouteArgs {
 
 /// generated route for
 /// [_i9.LoginScreen]
-class LoginRoute extends _i14.PageRouteInfo<void> {
-  const LoginRoute() : super(LoginRoute.name, path: 'LoginRoute');
+class LoginRoute extends _i14.PageRouteInfo<LoginRouteArgs> {
+  LoginRoute({_i22.Key? key})
+      : super(LoginRoute.name,
+            path: 'LoginRoute', args: LoginRouteArgs(key: key));
 
   static const String name = 'LoginRoute';
 }
 
+class LoginRouteArgs {
+  const LoginRouteArgs({this.key});
+
+  final _i22.Key? key;
+
+  @override
+  String toString() {
+    return 'LoginRouteArgs{key: $key}';
+  }
+}
+
 /// generated route for
 /// [_i10.RegistrationScreen]
-class RegistrationRoute extends _i14.PageRouteInfo<void> {
-  const RegistrationRoute()
-      : super(RegistrationRoute.name, path: 'registration-screen');
+class RegistrationRoute extends _i14.PageRouteInfo<RegistrationRouteArgs> {
+  RegistrationRoute({_i22.Key? key})
+      : super(RegistrationRoute.name,
+            path: 'registration-screen', args: RegistrationRouteArgs(key: key));
 
   static const String name = 'RegistrationRoute';
 }
 
+class RegistrationRouteArgs {
+  const RegistrationRouteArgs({this.key});
+
+  final _i22.Key? key;
+
+  @override
+  String toString() {
+    return 'RegistrationRouteArgs{key: $key}';
+  }
+}
+
 /// generated route for
 /// [_i11.BasicInfoScreen]
-class BasicInfoRoute extends _i14.PageRouteInfo<void> {
-  const BasicInfoRoute()
-      : super(BasicInfoRoute.name, path: 'basic-info-screen');
+class BasicInfoRoute extends _i14.PageRouteInfo<BasicInfoRouteArgs> {
+  BasicInfoRoute(
+      {_i22.Key? key, required Map<String, dynamic> registrationData})
+      : super(BasicInfoRoute.name,
+            path: 'basic-info-screen',
+            args: BasicInfoRouteArgs(
+                key: key, registrationData: registrationData));
 
   static const String name = 'BasicInfoRoute';
+}
+
+class BasicInfoRouteArgs {
+  const BasicInfoRouteArgs({this.key, required this.registrationData});
+
+  final _i22.Key? key;
+
+  final Map<String, dynamic> registrationData;
+
+  @override
+  String toString() {
+    return 'BasicInfoRouteArgs{key: $key, registrationData: $registrationData}';
+  }
 }
 
 /// generated route for

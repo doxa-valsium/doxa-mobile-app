@@ -60,13 +60,13 @@ class PlaygroundScreen extends StatelessWidget {
             ),
             MaterialButton(
               onPressed: () {
-                context.router.push(const LoginRoute());
+                context.router.push(LoginRoute());
               },
               child: const Text("Go to Login Screen"),
             ),
             MaterialButton(
               onPressed: () {
-                context.router.push(const RegistrationRoute());
+                context.router.push(RegistrationRoute());
               },
               child: const Text("Go to Registration Screen"),
             ),
