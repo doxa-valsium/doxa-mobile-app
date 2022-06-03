@@ -48,10 +48,6 @@ class Major extends Selectable {
   const Major({String? id, required String label}) : super._internal(id: id, label: label);
 }
 
-class Affiliation extends Selectable {
-  const Affiliation({String? id, required String label}) : super._internal(id: id, label: label);
-}
-
 class Institute extends Selectable {
   const Institute({String? id, required String label}) : super._internal(id: id, label: label);
 }

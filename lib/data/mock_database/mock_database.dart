@@ -1,20 +1,365 @@
 import 'package:doxa_mobile_app/models/models.dart';
 
-class MockDatabase {
-  List<Gender> genders = [
-    const Gender(label: "Male", id: "0"),
-    const Gender(label: "Female", id: "1"),
-    const Gender(label: "Non-Binary", id: "2"),
-    const Gender(label: "Prefer Not to Menteion", id: "3"),
-  ];
-  List<EmploymentType> employmentType = [
-    const EmploymentType(label: "PartType", id: "0"),
-    
-
-
-
-  ];
-  List<WorkplaceType> workplaceType = [];
-  List<City> city = [];
-  List<Country> country = [];
-}
+List<Gender> genders = [
+  const Gender(label: "Male", id: "0"),
+  const Gender(label: "Female", id: "1"),
+  const Gender(label: "Non-Binary", id: "2"),
+  const Gender(label: "Prefer Not to Menteion", id: "3"),
+];
+List<EmploymentType> employmentType = [
+  const EmploymentType(label: "Part Time", id: "0"),
+  const EmploymentType(label: "Full Time", id: "1"),
+  const EmploymentType(label: "Internship", id: "2"),
+  const EmploymentType(label: "Volunteer", id: "3"),
+  const EmploymentType(label: "Other", id: "4"),
+];
+List<WorkplaceType> workplaceType = [
+  const WorkplaceType(label: "In-Person", id: "0"),
+  const WorkplaceType(label: "Remote", id: "1"),
+  const WorkplaceType(label: "Hybrid", id: "2"),
+];
+List<City> cities = [
+  const City(label: "Karachi", id: "0"),
+  const City(label: "Lahore", id: "1"),
+  const City(label: "Islamabad", id: "2"),
+  const City(label: "Peshawar", id: "3"),
+  const City(label: "Quetta", id: "4"),
+  const City(label: "Multan", id: "5"),
+  const City(label: "Faisalabad", id: "6"),
+  const City(label: "Rawalpindi", id: "7"),
+  const City(label: "Sukkur", id: "8"),
+  const City(label: "Hyderabad", id: "9"),
+];
+List<Country> countries = [
+  const Country(label: "Pakistan", id: "0"),
+];
+List<Industry> industries = [
+  const Industry(label: "Software", id: "0"),
+  const Industry(label: "Hardware", id: "1"),
+  const Industry(label: "Design", id: "2"),
+  const Industry(label: "Marketing", id: "3"),
+  const Industry(label: "Sales", id: "4"),
+  const Industry(label: "Finance", id: "5"),
+  const Industry(label: "HR", id: "6"),
+  const Industry(label: "IT", id: "7"),
+  const Industry(label: "Other", id: "8"),
+];
+List<Skill> skills = [
+  const Skill(label: "Java", id: "0"),
+  const Skill(label: "Dart", id: "1"),
+  const Skill(label: "Flutter", id: "2"),
+  const Skill(label: "Python", id: "3"),
+  const Skill(label: "C++", id: "4"),
+  const Skill(label: "C#", id: "5"),
+  const Skill(label: "PHP", id: "6"),
+  const Skill(label: "Ruby", id: "7"),
+  const Skill(label: "Swift", id: "8"),
+  const Skill(label: "Kotlin", id: "9"),
+  const Skill(label: "Go", id: "10"),
+  const Skill(label: "Rust", id: "11"),
+  const Skill(label: "Scala", id: "12"),
+  const Skill(label: "Objective-C", id: "13"),
+  const Skill(label: "C", id: "14"),
+];
+List<Degree> degrees = [
+  const Degree(label: "Associate's Degree", id: "0"),
+  const Degree(label: "Bachelor's of Art", id: "1"),
+  const Degree(label: "Master's Degree", id: "2"),
+  const Degree(label: "Doctorate", id: "3"),
+  const Degree(label: "Diploma", id: "4"),
+  const Degree(label: "Certificate", id: "5"),
+  const Degree(label: "Bachelor's Science", id: "6"),
+  const Degree(label: "Bachelor's Engineering", id: "7"),
+  const Degree(label: "Bachelor's Commerce", id: "8"),
+  const Degree(label: "Bachelor's Business", id: "9"),
+  const Degree(label: "Bachelor's Arts", id: "10"),
+  const Degree(label: "Bachelor's Architecture", id: "11"),
+];
+List<Major> majors = [
+  const Major(label: "Applied math", id: "0"),
+  const Major(label: "Agricultural science", id: "1"),
+  const Major(label: "Animal science", id: "2"),
+  const Major(label: "Astronomy", id: "3"),
+  const Major(label: "Biochemistry", id: "4"),
+  const Major(label: "Bioengineering", id: "5"),
+  const Major(label: "Biology, including marine, micro, molecular and neurobiology", id: "6"),
+  const Major(label: "Botany", id: "7"),
+  const Major(label: "Chemistry", id: "8"),
+  const Major(label: "Criminal science and forensics", id: "9"),
+  const Major(label: "Earth and space science", id: "10"),
+  const Major(label: "Entomology", id: "11"),
+  const Major(label: "Food science, including nutrition science", id: "12"),
+  const Major(label: "Genetics", id: "13"),
+  const Major(label: "Geology", id: "14"),
+  const Major(label: "Kinesiology, including sports medicine and exercise biology", id: "15"),
+  const Major(label: "Medical technology", id: "16"),
+  const Major(label: "Nursing", id: "17"),
+  const Major(label: "Oceanography", id: "18"),
+  const Major(label: "Physics", id: "19"),
+  const Major(label: "Physiology", id: "20"),
+  const Major(label: "Psychology", id: "21"),
+  const Major(label: "Speech and hearing sciences and disorders", id: "22"),
+  const Major(label: "Statistics", id: "23"),
+  const Major(label: "Viticulture and enology, a field that includes vineyard management", id: "24"),
+  const Major(label: "Aquatic and fishery sciences", id: "25"),
+  const Major(label: "Atmospheric sciences", id: "26"),
+  const Major(label: "Biology", id: "27"),
+  const Major(label: "Ecology", id: "28"),
+  const Major(label: "Earth and space sciences, including astronomy and geology", id: "29"),
+  const Major(label: "Environmental studies and policy", id: "30"),
+  const Major(label: "Environmental science", id: "31"),
+  const Major(label: "Resource management, including forestry and wildlife management", id: "32"),
+  const Major(label: "Oceanography and marine biology", id: "33"),
+  const Major(label: "Accounting and informational systems", id: "34"),
+  const Major(label: "Business administration", id: "35"),
+  const Major(label: "Construction management", id: "36"),
+  const Major(label: "Economics", id: "37"),
+  const Major(label: "Entrepreneurship", id: "38"),
+  const Major(label: "Finance", id: "39"),
+  const Major(label: "Health informatics", id: "40"),
+  const Major(label: "Industrial engineering", id: "41"),
+  const Major(label: "Aeronautics and astronautics, the design, testing and production of aircraft, missiles, and spacecraft", id: "42"),
+  const Major(label: "Applied mathematical sciences", id: "43"),
+  const Major(label: "Bioengineering", id: "44"),
+  const Major(label: "Bioresource science and engineering", id: "45"),
+  const Major(label: "Chemical engineering", id: "46"),
+  const Major(label: "Civil and environmental engineering", id: "47"),
+  const Major(label: "Computer engineering and computer science", id: "48"),
+  const Major(label: "Technical communication, a field that includes tech writing", id: "49"),
+];
+List<Institute> institutes = [
+  const Institute(label: "University of California, Berkeley", id: "0"),
+  const Institute(label: "University of California, Los Angeles", id: "1"),
+  const Institute(label: "University of California, San Diego", id: "2"),
+  const Institute(label: "University of California, San Francisco", id: "3"),
+  const Institute(label: "University of California, Irvine", id: "4"),
+  const Institute(label: "University of California, Davis", id: "5"),
+  const Institute(label: "University of California, Riverside", id: "6"),
+  const Institute(label: "University of California, Merced", id: "7"),
+  const Institute(label: "Habib University", id: "8"),
+];
+List<JobTitle> jobTitles = [
+  const JobTitle(label: "Software Engineer", id: "0"),
+  const JobTitle(label: "Human Recources", id: "1"),
+  const JobTitle(label: "Business Development", id: "2"),
+  const JobTitle(label: "Marketing", id: "3"),
+  const JobTitle(label: "Sales", id: "4"),
+  const JobTitle(label: "Customer Service", id: "5"),
+  const JobTitle(label: "Finance", id: "6"),
+  const JobTitle(label: "Accounting", id: "7"),
+  const JobTitle(label: "Administrative", id: "8"),
+  const JobTitle(label: "IT", id: "9"),
+  const JobTitle(label: "Punerd", id: "10"),
+  const JobTitle(label: "Doctor", id: "11"),
+  const JobTitle(label: "Nurse", id: "12"),
+  const JobTitle(label: "Teacher", id: "13"),
+];
+List<Company> companies = [
+  Company(
+    title: "Google",
+    industry: industries[0],
+    bio:
+        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    website: "www.google.org",
+    location: Location(city: cities[0], country: countries[0]),
+    email: 'abc@email.com',
+    phone: "098755362836",
+    recruiters: [user[0] as Recruiter],
+  ),
+  Company(
+    title: "Facebook",
+    industry: industries[1],
+    bio:
+        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    website: "www.facebook.org",
+    location: Location(city: cities[1], country: countries[0]),
+    email: 'email@email.com',
+    phone: "098755362836",
+    recruiters: [user[1] as Recruiter],
+  ),
+];
+List<User> user = [
+  Recruiter(
+    userId: "0",
+    firstName: "Faaz",
+    lastName: "lastName",
+    email: "faz@email.com",
+    gender: genders[0],
+    dateOfBirth: DateTime.now().subtract(const Duration(days: 365 * 50)),
+    isAdmin: true,
+    company: companies[0],
+  ),
+  Recruiter(
+    userId: "1",
+    firstName: "Abuzar",
+    lastName: "Rasool",
+    email: "raz@email.com",
+    gender: genders[0],
+    dateOfBirth: DateTime.now().subtract(const Duration(days: 365 * 30)),
+    isAdmin: false,
+    company: companies[0],
+  ),
+  Recruiter(
+    userId: "2",
+    firstName: "Hussain",
+    lastName: "Abbas",
+    email: "huss@email.com",
+    gender: genders[0],
+    dateOfBirth: DateTime.now().subtract(const Duration(days: 365 * 18)),
+    isAdmin: true,
+    company: companies[1],
+  ),
+  Recruiter(
+    userId: "3",
+    firstName: "Jawwaaad",
+    lastName: "Rajani",
+    email: "raj@email.com",
+    gender: genders[0],
+    dateOfBirth: DateTime.now().subtract(const Duration(days: 365 * 40)),
+    isAdmin: false,
+    company: companies[1],
+  ),
+  Candidate(
+    userId: "4",
+    firstName: "Asad",
+    lastName: "Raza",
+    email: "a@email.com",
+    gender: genders[3],
+    dateOfBirth: DateTime.now().subtract(const Duration(days: 365 * 40)),
+    bio:
+        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    education: [
+      Education(
+          institute: institutes[0],
+          qualification: Qualification(
+            degree: degrees[0],
+            major: majors[0],
+            isCompleted: true,
+          )),
+    ],
+    experiance: [
+      Experiance(
+          company: companies[0],
+          employmentType: employmentType[0],
+          industry: industries[0],
+          title: jobTitles[0] as String,
+          location: Location(city: cities[0], country: countries[0]),
+          startDate: DateTime.now().subtract(const Duration(days: 365 * 5)),
+          endDate: DateTime.now().subtract(const Duration(days: 365 * 4))),
+    ],
+    skills: [skills[0], skills[1]],
+    preferrence: Preferrence(
+        employmentType: employmentType[0],
+        workplaceType: workplaceType[0],
+        locations: [Location(city: cities[0], country: countries[0])],
+        industries: [industries[0]],
+        jobRoles: [
+          jobTitles[0],
+        ],
+        salarayRange: const SalarayRange(max: 500000, min: 10000)),
+  ),
+  Candidate(
+    profilePictureUrl: "https://i.pravatar.cc/300",
+    publications: [
+      Publication(title: "How to Get Gurls", field: "Sex", journal: "Sex Note", date: DateTime.now()),
+    ],
+    awards: [
+      Award(title: "Tatta", awardedBy: "Asad Raza", date: DateTime.now()),
+    ],
+    certifications: [
+      Certification(title: "EE God", dated: DateTime.now(), affiliation: "BAsit"),
+    ],
+    externalLinks: const [
+      ExternalLink(
+        tag: "Facebook",
+        url: "www.facebook.com",
+      ),
+    ],
+    userId: "5",
+    firstName: "Hamza",
+    lastName: "Inrfan",
+    email: "hi@email.com",
+    gender: genders[2],
+    dateOfBirth: DateTime.now().subtract(const Duration(days: 365 * 33)),
+    bio:
+        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    education: [
+      Education(
+          institute: institutes[0],
+          qualification: Qualification(
+            degree: degrees[0],
+            major: majors[0],
+            isCompleted: true,
+          )),
+    ],
+    experiance: [
+      Experiance(
+          company: companies[0],
+          employmentType: employmentType[0],
+          industry: industries[0],
+          title: jobTitles[0] as String,
+          location: Location(city: cities[0], country: countries[0]),
+          startDate: DateTime.now().subtract(const Duration(days: 365 * 5)),
+          endDate: DateTime.now().subtract(const Duration(days: 365 * 4))),
+    ],
+    skills: [skills[0], skills[1]],
+    preferrence: Preferrence(
+        employmentType: employmentType[0],
+        workplaceType: workplaceType[0],
+        locations: [Location(city: cities[0], country: countries[0])],
+        industries: [industries[0]],
+        jobRoles: [
+          jobTitles[0],
+        ],
+        salarayRange: const SalarayRange(max: 500000, min: 10000)),
+  ),
+  Candidate(
+    profilePictureUrl: "https://i.pravatar.cc/300",
+    certifications: [
+      Certification(title: "EE God", dated: DateTime.now(), affiliation: "BAsit"),
+    ],
+    externalLinks: const [
+      ExternalLink(
+        tag: "Facebook",
+        url: "www.facebook.com",
+      ),
+    ],
+    userId: "6",
+    firstName: "Taha",
+    lastName: "Aslam",
+    email: "ta@email.com",
+    gender: genders[2],
+    dateOfBirth: DateTime.now().subtract(const Duration(days: 365 * 13)),
+    bio:
+        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    education: [
+      Education(
+          institute: institutes[0],
+          qualification: Qualification(
+            degree: degrees[0],
+            major: majors[0],
+            isCompleted: true,
+          )),
+    ],
+    experiance: [
+      Experiance(
+          company: companies[0],
+          employmentType: employmentType[0],
+          industry: industries[0],
+          title: jobTitles[0] as String,
+          location: Location(city: cities[0], country: countries[0]),
+          startDate: DateTime.now().subtract(const Duration(days: 365 * 5)),
+          endDate: DateTime.now().subtract(const Duration(days: 365 * 4))),
+    ],
+    skills: [skills[0], skills[1]],
+    preferrence: Preferrence(
+        employmentType: employmentType[0],
+        workplaceType: workplaceType[0],
+        locations: [Location(city: cities[0], country: countries[0])],
+        industries: [industries[0]],
+        jobRoles: [
+          jobTitles[0],
+        ],
+        salarayRange: const SalarayRange(max: 500000, min: 10000)),
+  ),
+];
