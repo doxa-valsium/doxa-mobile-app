@@ -164,7 +164,7 @@ List<Company> companies = [
     location: Location(city: cities[0], country: countries[0]),
     email: 'abc@email.com',
     phone: "098755362836",
-    recruiters: [user[0] as Recruiter],
+    recruiters: [user[0] as Recruiter, user[1] as Recruiter],
   ),
   Company(
     title: "Facebook",
@@ -175,7 +175,7 @@ List<Company> companies = [
     location: Location(city: cities[1], country: countries[0]),
     email: 'email@email.com',
     phone: "098755362836",
-    recruiters: [user[1] as Recruiter],
+    recruiters: [user[2] as Recruiter, user[3] as Recruiter],
   ),
 ];
 List<User> user = [
@@ -361,5 +361,148 @@ List<User> user = [
           jobTitles[0],
         ],
         salarayRange: const SalarayRange(max: 500000, min: 10000)),
+  ),
+];
+
+List<Job> jobs = [
+  Job(
+    title: "HR Manager",
+    headline: "Need a HR Manager",
+    employmentType: employmentType[0],
+    workplaceType: workplaceType[0],
+    salarayRange: const SalarayRange(min: 50000, max: 10000),
+    yearsExperianceRequired: 5,
+    requiredQualification: [
+      Qualification(
+        degree: degrees[1],
+        major: majors[1],
+        isCompleted: true,
+      ),
+    ],
+    prefferedQualification: [
+      Qualification(
+        degree: degrees[0],
+        major: majors[0],
+        isCompleted: true,
+      ),
+    ],
+    industry: industries[0],
+    skills: [skills[0], skills[1]],
+    isActive: true,
+    company: companies[0],
+    openedByRecruiterId: '0',
+  ),
+  Job(
+    title: "IT Manager",
+    headline: "Need a IT Manager",
+    employmentType: employmentType[1],
+    workplaceType: workplaceType[1],
+    salarayRange: const SalarayRange(min: 60000, max: 20000),
+    yearsExperianceRequired: 4,
+    requiredQualification: [
+      Qualification(
+        degree: degrees[0],
+        major: majors[0],
+        isCompleted: true,
+      ),
+    ],
+    prefferedQualification: [
+      Qualification(
+        degree: degrees[1],
+        major: majors[1],
+        isCompleted: true,
+      ),
+    ],
+    industry: industries[0],
+    skills: [skills[0], skills[1]],
+    isActive: true,
+    company: companies[0],
+    openedByRecruiterId: '1',
+  ),
+  Job(
+    title: "Software Engineer",
+    headline: "Need a HR Manager",
+    employmentType: employmentType[0],
+    workplaceType: workplaceType[0],
+    salarayRange: const SalarayRange(min: 500000, max: 100000),
+    yearsExperianceRequired: 5,
+    requiredQualification: [
+      Qualification(
+        degree: degrees[3],
+        major: majors[3],
+        isCompleted: true,
+      ),
+    ],
+    prefferedQualification: [
+      Qualification(
+        degree: degrees[2],
+        major: majors[2],
+        isCompleted: true,
+      ),
+      Qualification(
+        degree: degrees[1],
+        major: majors[1],
+        isCompleted: true,
+      ),
+    ],
+    industry: industries[2],
+    skills: [skills[0], skills[1]],
+    isActive: true,
+    company: companies[0],
+    openedByRecruiterId: '0',
+  ),
+  Job(
+    title: "SCRUM Master",
+    headline: "Need a SCRUM Master",
+    employmentType: employmentType[2],
+    workplaceType: workplaceType[2],
+    salarayRange: const SalarayRange(min: 600000, max: 200000),
+    yearsExperianceRequired: 6,
+    requiredQualification: [
+      Qualification(
+        degree: degrees[1],
+        major: majors[1],
+        isCompleted: true,
+      ),
+    ],
+    prefferedQualification: [
+      Qualification(
+        degree: degrees[1],
+        major: majors[1],
+        isCompleted: true,
+      ),
+    ],
+    industry: industries[4],
+    skills: [skills[5], skills[3]],
+    isActive: true,
+    company: companies[0],
+    openedByRecruiterId: '1',
+  ),
+  Job(
+    title: "UI/UX Designer",
+    headline: "Need a UI/UX Designer",
+    employmentType: employmentType[3],
+    workplaceType: workplaceType[3],
+    salarayRange: const SalarayRange(min: 60000, max: 20000),
+    yearsExperianceRequired: 2,
+    requiredQualification: [
+      Qualification(
+        degree: degrees[1],
+        major: majors[1],
+        isCompleted: true,
+      ),
+    ],
+    prefferedQualification: [
+      Qualification(
+        degree: degrees[2],
+        major: majors[2],
+        isCompleted: true,
+      ),
+    ],
+    industry: industries[2],
+    skills: [skills[1], skills[4]],
+    isActive: true,
+    company: companies[1],
+    openedByRecruiterId: '0',
   ),
 ];
