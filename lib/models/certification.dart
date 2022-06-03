@@ -1,10 +1,9 @@
-import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:equatable/equatable.dart';
 
 class Certification extends Equatable {
   final String title;
   final DateTime dated;
-  final Affiliation affiliation;
+  final String affiliation;
   const Certification({
     required this.title,
     required this.dated,

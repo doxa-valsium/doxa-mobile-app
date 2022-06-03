@@ -1,9 +1,11 @@
+import 'package:doxa_mobile_app/models/company.dart';
 import 'package:doxa_mobile_app/models/job.dart';
 import 'package:doxa_mobile_app/models/user.dart';
 
 class Recruiter extends User {
   final bool? isAdmin;
-  final List<Job>? jobs;
+  final List<Job> jobs;
+  final Company? company;
 
   const Recruiter(
       {required super.userId,
@@ -13,6 +15,7 @@ class Recruiter extends User {
       required super.gender,
       required super.dateOfBirth,
       required this.isAdmin,
+      this.company,
       this.jobs=const [],
       super.profilePictureUrl});
 
