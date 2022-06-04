@@ -78,6 +78,60 @@ class PlaygroundScreen extends StatelessWidget {
                 },
                 child: const Text("Swipable Cards"),
               ),
+              MaterialButton(
+                onPressed: () {
+                  context.router.push(const NavigatorRoute());
+                },
+                child: const Text("Main App"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  context.router.push(const ThemeTestRoute());
+                },
+                child: const Text("Go to Theme Testing"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  context.router.push(const PulsingButtonRoute());
+                },
+                child: const Text("Go to Pusling Button"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  context.router.push(const CustomWidgetsRoute());
+                },
+                child: const Text("Custom Widgets"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  context.router.push(const ManageImagesRoute());
+                },
+                child: const Text("Go to manage images"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  context.router.push(const FlowViewDemoRoute());
+                },
+                child: const Text("Go to Flow View Demo"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  context.router.push(JobFormFlowRoute());
+                },
+                child: const Text("Go to Job Form"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  context.router.push(LoginRoute());
+                },
+                child: const Text("Go to Login Screen"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  context.router.push(RegistrationRoute());
+                },
+                child: const Text("Go to Registration Screen"),
+              ),
             ],
           ),
         ),

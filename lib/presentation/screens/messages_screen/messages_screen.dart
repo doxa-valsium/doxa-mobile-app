@@ -14,7 +14,7 @@ class MessagesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: CustomAppBar(
+        child: CustomAppBarAndBody(
           title: 'Messages',
           showBackButton: false,
           body: SingleChildScrollView(

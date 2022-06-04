@@ -17,7 +17,7 @@ class SingleJobScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: CustomAppBar(
+        child: CustomAppBarAndBody(
           title: 'HR Executive',
           showBackButton: true,
           body: SingleChildScrollView(
