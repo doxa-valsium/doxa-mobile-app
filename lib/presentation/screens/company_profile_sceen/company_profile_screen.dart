@@ -4,6 +4,7 @@ import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
+
 class CompanyProfileScreen extends StatelessWidget {
   static const String route = 'company-profile-screen';
 

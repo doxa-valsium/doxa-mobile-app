@@ -106,8 +106,10 @@ class AppRouter extends _i15.RootStackRouter {
           routeData: routeData, child: const _i12.EmailVerificationScreen());
     },
     EditCompanyRoute.name: (routeData) {
+      final args = routeData.argsAs<EditCompanyRouteArgs>(
+          orElse: () => const EditCompanyRouteArgs());
       return _i15.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i13.EditCompanyScreen());
+          routeData: routeData, child: _i13.EditCompanyScreen(key: args.key));
     },
     NavigatorRoute.name: (routeData) {
       return _i15.MaterialPageX<dynamic>(
@@ -339,11 +341,23 @@ class EmailVerificationRoute extends _i15.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i13.EditCompanyScreen]
-class EditCompanyRoute extends _i15.PageRouteInfo<void> {
-  const EditCompanyRoute()
-      : super(EditCompanyRoute.name, path: 'edit-company-screen');
+class EditCompanyRoute extends _i15.PageRouteInfo<EditCompanyRouteArgs> {
+  EditCompanyRoute({_i23.Key? key})
+      : super(EditCompanyRoute.name,
+            path: 'edit-company-screen', args: EditCompanyRouteArgs(key: key));
 
   static const String name = 'EditCompanyRoute';
+}
+
+class EditCompanyRouteArgs {
+  const EditCompanyRouteArgs({this.key});
+
+  final _i23.Key? key;
+
+  @override
+  String toString() {
+    return 'EditCompanyRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for
