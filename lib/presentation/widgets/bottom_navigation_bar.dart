@@ -37,55 +37,79 @@ class BottomNavBar extends StatelessWidget {
           onTap: tabsRouter.setActiveIndex,
           items: [
             BottomNavigationBarItem(
-              icon: Iconify(
-                Teenyicons.home_alt_outline,
-                color: Theme.of(context).colorScheme.onSurface,
-                size: 24.0,
+              icon: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Iconify(
+                  Teenyicons.home_alt_outline,
+                  color: Theme.of(context).colorScheme.onSurface,
+                  size: 24.0,
+                ),
               ),
-              activeIcon: Iconify(
-                Teenyicons.home_alt_outline,
-                color: Theme.of(context).colorScheme.primary,
-                size: 24.0,
+              activeIcon: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Iconify(
+                  Teenyicons.home_alt_outline,
+                  color: Theme.of(context).colorScheme.primary,
+                  size: 24.0,
+                ),
               ),
               backgroundColor: Colors.blue,
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Iconify(
-                Ep.suitcase,
-                color: Theme.of(context).colorScheme.onSurface,
-                size: 24.0,
+              icon: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Iconify(
+                  Ep.suitcase,
+                  color: Theme.of(context).colorScheme.onSurface,
+                  size: 24.0,
+                ),
               ),
-              activeIcon: Iconify(
-                Ep.suitcase,
-                color: Theme.of(context).colorScheme.primary,
-                size: 24.0,
+              activeIcon: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Iconify(
+                  Ep.suitcase,
+                  color: Theme.of(context).colorScheme.primary,
+                  size: 24.0,
+                ),
               ),
               label: 'Jobs',
             ),
             BottomNavigationBarItem(
-              icon: Iconify(
-                Teenyicons.chat_typing_outline,
-                color: Theme.of(context).colorScheme.onSurface,
-                size: 24.0,
+              icon: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Iconify(
+                  Teenyicons.chat_typing_outline,
+                  color: Theme.of(context).colorScheme.onSurface,
+                  size: 24.0,
+                ),
               ),
-              activeIcon: Iconify(
-                Teenyicons.chat_typing_outline,
-                color: Theme.of(context).colorScheme.primary,
-                size: 24.0,
+              activeIcon: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Iconify(
+                  Teenyicons.chat_typing_outline,
+                  color: Theme.of(context).colorScheme.primary,
+                  size: 24.0,
+                ),
               ),
               label: 'Messages',
             ),
             BottomNavigationBarItem(
-              icon: Iconify(
-                Teenyicons.user_circle_outline,
-                color: Theme.of(context).colorScheme.onSurface,
-                size: 24.0,
+              icon: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Iconify(
+                  Teenyicons.user_circle_outline,
+                  color: Theme.of(context).colorScheme.onSurface,
+                  size: 24.0,
+                ),
               ),
-              activeIcon: Iconify(
-                Teenyicons.user_circle_outline,
-                color: Theme.of(context).colorScheme.primary,
-                size: 24.0,
+              activeIcon: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Iconify(
+                  Teenyicons.user_circle_outline,
+                  color: Theme.of(context).colorScheme.primary,
+                  size: 24.0,
+                ),
               ),
               label: 'Profile',
               //backgroundColor: Colors.blue,
