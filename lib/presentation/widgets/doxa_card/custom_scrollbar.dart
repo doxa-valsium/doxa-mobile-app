@@ -29,7 +29,7 @@ class CustomScrollbar extends StatefulWidget {
   final bool showScrollbar;
 
   @override
-  _CustomScrollbarState createState() => _CustomScrollbarState();
+  State<CustomScrollbar> createState() => _CustomScrollbarState();
 }
 
 class _CustomScrollbarState extends State<CustomScrollbar> {
