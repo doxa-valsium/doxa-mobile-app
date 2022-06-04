@@ -1,6 +1,5 @@
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
-// ignore: depend_on_referenced_packages
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 class BottomWidget extends StatelessWidget {

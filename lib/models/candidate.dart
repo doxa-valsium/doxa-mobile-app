@@ -8,7 +8,6 @@ import 'package:doxa_mobile_app/models/publication.dart';
 import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:doxa_mobile_app/models/user.dart';
 
-// ignore: must_be_immutable
 class Candidate extends User {
   final String bio;
   final List<Education> education;

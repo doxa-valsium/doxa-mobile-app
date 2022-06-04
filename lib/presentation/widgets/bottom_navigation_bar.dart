@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/styles.dart';
@@ -19,7 +17,7 @@ class BottomNavBar extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         boxShadow: Styles.elevation1,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topRight: Radius.circular(40),
           topLeft: Radius.circular(40),
         ),
