@@ -16,7 +16,8 @@ class CustomChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      width: 80,
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(19)),
         color: backgroundColor,
@@ -26,20 +27,22 @@ class CustomChip extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if (externalLink)
+              if (externalLink) ...[
                 const Icon(
                   Icons.open_in_new,
                   size: 16,
-                  // color: foregroundColor,
                   color: Colors.black,
                 ),
-              const SizedBox(width: 8),
-              Text(
-                text,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.overline?.copyWith(color: foregroundColor),
+                const SizedBox(width: 8),
+              ],
+              Flexible(
+                child: Text(
+                  text,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.overline?.copyWith(color: foregroundColor),
+                ),
               ),
             ],
           )),
