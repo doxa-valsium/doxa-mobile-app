@@ -50,61 +50,6 @@ class PlaygroundScreen extends StatelessWidget {
               MaterialButton(
                 onPressed: () {
                   context.router.push(const ManageImagesRoute());
-                  // Get.toNamed(JobsPage.route);
-                },
-                child: const Text("Go to manage images"),
-              ),
-              MaterialButton(
-                onPressed: () {
-                  // Get.toNamed(SingleJobOpened.route);
-                },
-                child: const Text("Go to Single Job Opened"),
-              ),
-              MaterialButton(
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) => DoxaCard(
-                            swipecontroller: swipecontroller,
-                            backWidget: const BackCandidateCardContent(),
-                            frontWidget: const FrontCandidateCardContent(),
-                          ));
-                },
-                child: const Text("Dialogue Box 2 Custom Animation"),
-              ),
-              MaterialButton(
-                onPressed: () {
-                  swipableCards(context, swipecontroller);
-                },
-                child: const Text("Swipable Cards"),
-              ),
-              MaterialButton(
-                onPressed: () {
-                  context.router.push(const NavigatorRoute());
-                },
-                child: const Text("Main App"),
-              ),
-              MaterialButton(
-                onPressed: () {
-                  context.router.push(const ThemeTestRoute());
-                },
-                child: const Text("Go to Theme Testing"),
-              ),
-              MaterialButton(
-                onPressed: () {
-                  context.router.push(const PulsingButtonRoute());
-                },
-                child: const Text("Go to Pusling Button"),
-              ),
-              MaterialButton(
-                onPressed: () {
-                  context.router.push(const CustomWidgetsRoute());
-                },
-                child: const Text("Custom Widgets"),
-              ),
-              MaterialButton(
-                onPressed: () {
-                  context.router.push(const ManageImagesRoute());
                 },
                 child: const Text("Go to manage images"),
               ),
@@ -131,6 +76,24 @@ class PlaygroundScreen extends StatelessWidget {
                   context.router.push(RegistrationRoute());
                 },
                 child: const Text("Go to Registration Screen"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => DoxaCard(
+                            swipecontroller: swipecontroller,
+                            backWidget: const BackCandidateCardContent(),
+                            frontWidget: const FrontCandidateCardContent(),
+                          ));
+                },
+                child: const Text("Dialogue Box 2 Custom Animation"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  swipableCards(context, swipecontroller);
+                },
+                child: const Text("Swipable Cards"),
               ),
             ],
           ),
