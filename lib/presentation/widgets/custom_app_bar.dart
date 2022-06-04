@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBarAndBody extends StatelessWidget {
   final Widget body;
   final String title;
   final bool showBackButton;
 
-  const CustomAppBar({
+  const CustomAppBarAndBody({
     Key? key,
     required this.body,
     required this.title,

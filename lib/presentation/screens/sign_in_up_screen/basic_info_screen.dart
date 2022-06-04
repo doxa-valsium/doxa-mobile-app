@@ -27,7 +27,7 @@ class BasicInfoScreen extends StatelessWidget {
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: CustomAppBar(
+        child: CustomAppBarAndBody(
           showBackButton: true,
           title: 'Basic Info',
           body: SingleChildScrollView(
