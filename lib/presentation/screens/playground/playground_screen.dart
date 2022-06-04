@@ -1,6 +1,8 @@
-import 'package:doxa_mobile_app/presentation/widgets/candidate_card/candidate_card.dart';
+import 'package:doxa_mobile_app/presentation/widgets/candidate_card/back_candidate_card_content.dart';
+import 'package:doxa_mobile_app/presentation/widgets/candidate_card/front_candidate_card_content.dart';
+import 'package:doxa_mobile_app/presentation/widgets/doxa_card/doxa_card.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
-import 'package:doxa_mobile_app/presentation/widgets/candidate_card/swipable_card_function.dart';
+import 'package:doxa_mobile_app/presentation/widgets/doxa_card/swipable_card_function.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:swipable_stack/swipable_stack.dart';
@@ -62,8 +64,10 @@ class PlaygroundScreen extends StatelessWidget {
                 onPressed: () {
                   showDialog(
                       context: context,
-                      builder: (context) => CandidateCard(
+                      builder: (context) => DoxaCard(
                             swipecontroller: swipecontroller,
+                            backWidget: const BackCandidateCardContent(),
+                            frontWidget: const FrontCandidateCardContent(),
                           ));
                 },
                 child: const Text("Dialogue Box 2 Custom Animation"),
