@@ -1,6 +1,9 @@
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/company_banner.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:flutter/material.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/fluent.dart';
+import 'package:iconify_flutter/icons/lucide.dart';
 
 class CompanyProfileStackHandler extends StatelessWidget {
   final Widget child;
@@ -42,6 +45,54 @@ class CompanyProfileStackHandler extends StatelessWidget {
                 ),
               ),
             ),
+            Positioned.fill(
+                top: 165,
+                right: -60,
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.secondary,
+                      borderRadius: const BorderRadius.all(Radius.circular(25)),
+                      border: Border.all(color: Theme.of(context).colorScheme.onSurface, width: 1),
+                    ),
+                    padding: const EdgeInsets.all(8.0),
+                    // child: Icon(
+                    //   Icons.add_a_photo_outlined,
+                    //   size: 20.0,
+                    //   color: Theme.of(context).colorScheme.primary,
+                    // )),
+                    child: Iconify(
+                      Fluent.camera_edit_20_filled,
+                      size: 20.0,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ),
+                )),
+            Positioned.fill(
+              top: 10,
+              right: -290,
+              child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.secondary,
+                      borderRadius: const BorderRadius.all(Radius.circular(25)),
+                      border: Border.all(color: Theme.of(context).colorScheme.onSurface, width: 1),
+                    ),
+                    padding: const EdgeInsets.all(8.0),
+                    // child: Icon(
+                    //   Icons.add_a_photo_outlined,
+                    //   size: 30.0,
+                    //   color: Theme.of(context).colorScheme.primary,
+                    // )),
+                    child: Iconify(
+                      Fluent.camera_edit_20_filled,
+                      size: 30.0,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  )),
+            )
           ],
         ),
       ],
