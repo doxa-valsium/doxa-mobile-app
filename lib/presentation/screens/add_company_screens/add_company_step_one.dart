@@ -39,6 +39,7 @@ class AddCompanyStepOne extends StatelessWidget {
             name: "industry",
             formKey: formKey,
             labelText: "Industry",
+            holdVal: true,
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
               type: FormListType.staticList,
@@ -49,6 +50,7 @@ class AddCompanyStepOne extends StatelessWidget {
           CustomFormBuilderDropDown(
             name: "location",
             formKey: formKey,
+            holdVal: true,
             labelText: "Location",
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
