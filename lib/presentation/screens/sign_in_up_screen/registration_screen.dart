@@ -48,6 +48,8 @@ class RegistrationScreen extends StatelessWidget {
                     height: 28 / 4,
                   ),
                   CustomFormBuilderTextField(
+                    formKey: _registrationFormKey,
+                    focusNode: FocusNode(),
                     name: "registration_email",
                     controller: TextEditingController(),
                     keyboardType: TextInputType.emailAddress,
@@ -60,6 +62,8 @@ class RegistrationScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16 / 2),
                   CustomFormBuilderTextField(
+                    formKey: _registrationFormKey,
+                    focusNode: FocusNode(),
                     name: "registration_password",
                     controller: TextEditingController(),
                     keyboardType: TextInputType.visiblePassword,
