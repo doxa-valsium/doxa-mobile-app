@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.dart';
 import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
@@ -16,25 +17,14 @@ class JobFormStepOne extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Basic Info",
-                style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-              Iconify(
-                Mdi.info_circle_outline,
-                size: 20,
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
-            ],
+          JobFieldTitleWithInfo(
+            title: "Job Title",
+            onInfo: () {},
           ),
           const SizedBox(height: 16),
           CustomFormBuilderTextField(
               name: "title",
+              focusNode: FocusNode(),
               controller: TextEditingController(),
               labelText: "Title",
               validators: FormBuilderValidators.compose([
@@ -44,6 +34,7 @@ class JobFormStepOne extends StatelessWidget {
           const SizedBox(height: 16),
           CustomFormBuilderTextField(
             name: "headline",
+            focusNode: FocusNode(),
             controller: TextEditingController(),
             labelText: "Headline",
             validators: FormBuilderValidators.compose([
@@ -52,21 +43,9 @@ class JobFormStepOne extends StatelessWidget {
             ]),
           ),
           const SizedBox(height: 54),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Job Nature",
-                style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-              Iconify(
-                Mdi.info_circle_outline,
-                size: 20,
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
-            ],
+          JobFieldTitleWithInfo(
+            title: "Job Nature",
+            onInfo: () {},
           ),
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(

@@ -30,6 +30,7 @@ class CustomSwitch extends StatelessWidget {
             FormBuilderValidators.required(),
           ]),
           builder: (FormFieldState<dynamic> field) {
+            field.setValue(state.toggleValue);
             return GestureDetector(
               onTap: () {
                 BlocProvider.of<CustomSwitchCubit>(context).toggle();

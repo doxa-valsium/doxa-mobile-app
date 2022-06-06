@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void fullScreenDialog(context, TextEditingController controller, Widget child) {
+void fullScreenDialog(context, TextEditingController controller, Widget child, bool forSkills, void Function(String)? onSkillAdd) {
   showGeneralDialog(
       context: context,
       barrierDismissible: true,
@@ -10,9 +10,12 @@ void fullScreenDialog(context, TextEditingController controller, Widget child) {
       pageBuilder: (BuildContext buildContext, Animation animation, Animation secondaryAnimation) {
         return child;
       }).then((value) {
-        if (value != null) {
-          print("Closed with $value");
-          controller.text = value.toString();
-        }
+    if (value != null) {
+      controller.text = value.toString();
+      if (forSkills) {
+        onSkillAdd!(value.toString());
+        controller.clear();
+      }
+    }
   });
 }

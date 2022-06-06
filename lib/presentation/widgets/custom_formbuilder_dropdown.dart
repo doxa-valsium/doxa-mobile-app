@@ -3,23 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ic.dart';
-import 'package:iconify_flutter/icons/mdi.dart';
 
 class CustomFormBuilderDropDown extends StatelessWidget {
   final String name;
   final String labelText;
   final Widget child;
-  final String? Function(String?) validators;
+  final String? Function(String?)? validators;
   final TextEditingController _controller = TextEditingController();
   final bool invertColors;
+  final bool forSkills;
+  final void Function(String)? onSkillAdd;
 
   CustomFormBuilderDropDown({
     Key? key,
     required this.name,
     required this.labelText,
-    required this.validators,
+    // required this.validators,
     required this.child,
     this.invertColors = false,
+    this.forSkills = false,
+    this.onSkillAdd,
+    this.validators,
   }) : super(key: key);
 
   @override
@@ -41,7 +45,12 @@ class CustomFormBuilderDropDown extends StatelessWidget {
           fillColor: invertColors ? Theme.of(context).colorScheme.background : null),
       validator: validators,
       onTap: () {
-        fullScreenDialog(context, _controller, child);
+        if (forSkills) {
+          fullScreenDialog(context, _controller, child, true, onSkillAdd);
+          _controller.clear();
+        } else {
+          fullScreenDialog(context, _controller, child, false, null);
+        }
       },
     );
   }
