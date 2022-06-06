@@ -21,9 +21,8 @@ class JobFormStepOne extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          JobFieldTitleWithInfo(
+          const JobFieldTitleWithInfo(
             title: "Job Title",
-            onInfo: () {},
           ),
           const SizedBox(height: 16),
           CustomFormBuilderTextField(
@@ -50,9 +49,8 @@ class JobFormStepOne extends StatelessWidget {
             ]),
           ),
           const SizedBox(height: 54),
-          JobFieldTitleWithInfo(
+          const JobFieldTitleWithInfo(
             title: "Job Nature",
-            onInfo: () {},
           ),
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(
