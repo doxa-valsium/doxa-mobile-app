@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/logger.dart';
-import 'package:doxa_mobile_app/presentation/screens/add_company_screens/add_company_flowscreen.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/dashed_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
 import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';

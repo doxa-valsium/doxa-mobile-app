@@ -1,9 +1,6 @@
 import 'package:doxa_mobile_app/presentation/screens/add_company_screens/add_company_step_one.dart';
 import 'package:doxa_mobile_app/presentation/screens/add_company_screens/add_company_step_three.dart';
 import 'package:doxa_mobile_app/presentation/screens/add_company_screens/add_company_step_two.dart';
-import 'package:doxa_mobile_app/presentation/screens/job_form/job_form_step_one.dart';
-import 'package:doxa_mobile_app/presentation/screens/job_form/job_form_step_three.dart';
-import 'package:doxa_mobile_app/presentation/screens/job_form/job_form_step_two.dart';
 import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_screen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_screen_widgets.dart';
 import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_view.dart';
