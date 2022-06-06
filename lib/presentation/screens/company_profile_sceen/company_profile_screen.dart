@@ -15,7 +15,7 @@ class CompanyProfileScreen extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       body: SafeArea(
-        child: CustomAppBar(
+        child: CustomAppBarAndBody(
           title: 'My Company',
           showBackButton: true,
           body: SingleChildScrollView(
