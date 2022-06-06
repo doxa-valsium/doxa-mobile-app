@@ -28,7 +28,7 @@ class JobsScreen extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    context.router.push(const JobFormFlowRoute());
+                    context.router.push(JobFormFlowRoute());
                   },
                   child: CustomDottedBorder(
                     borderType: BorderType.RRect,
