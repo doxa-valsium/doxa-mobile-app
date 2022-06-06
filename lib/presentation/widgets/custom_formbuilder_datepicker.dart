@@ -2,6 +2,7 @@ import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl/intl.dart';
 
@@ -9,6 +10,7 @@ class CustomFormBuilderDatePicker extends StatelessWidget {
   final DateTime _date = DateTime.now();
   final TextEditingController _dateController = TextEditingController();
   final DateFormat dateFormatter = DateFormat('dd-MM-yyyy');
+  final formKey = GlobalKey<FormBuilderState>();
 
   CustomFormBuilderDatePicker({Key? key}) : super(key: key);
 
@@ -42,6 +44,8 @@ class CustomFormBuilderDatePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomFormBuilderTextField(
+      formKey: formKey,
+      focusNode: FocusNode(),
       name: "DOB",
       controller: _dateController,
       keyboardType: TextInputType.text,

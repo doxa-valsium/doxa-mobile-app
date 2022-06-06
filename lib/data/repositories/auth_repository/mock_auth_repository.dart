@@ -26,4 +26,34 @@ class MockAuthRepository implements AuthRepository {
   Future<void> signUpWithEmailAndPassword(String email, String password) {
     return Future.delayed(kMockFutureDelay, () => null);
   }
+
+  @override
+  String? attemptAutoLogin() {
+    // TODO: implement attemptAutoLogin
+    throw UnimplementedError();
+  }
+
+  @override
+  String? getLoggedInUser() {
+    // TODO: implement getLoggedInUser
+    throw UnimplementedError();
+  }
+
+  @override
+  Future getLoggedInUserSession() {
+    // TODO: implement getLoggedInUserSession
+    throw UnimplementedError();
+  }
+
+  @override
+  Future signIn({required String email, required String password}) {
+    // TODO: implement signIn
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> signUp({required String email, required String password}) {
+    // TODO: implement signUp
+    throw UnimplementedError();
+  }
 }

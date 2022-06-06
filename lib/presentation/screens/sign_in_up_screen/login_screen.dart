@@ -39,6 +39,8 @@ class LoginScreen extends StatelessWidget {
                     height: 28 / 4,
                   ),
                   CustomFormBuilderTextField(
+                    formKey: _loginFormKey,
+                    focusNode: FocusNode(),
                     name: "login_email",
                     controller: TextEditingController(),
                     keyboardType: TextInputType.emailAddress,
@@ -51,6 +53,8 @@ class LoginScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16 / 2),
                   CustomFormBuilderTextField(
+                    formKey: _loginFormKey,
+                    focusNode: FocusNode(),
                     name: "login_password",
                     controller: TextEditingController(),
                     keyboardType: TextInputType.visiblePassword,

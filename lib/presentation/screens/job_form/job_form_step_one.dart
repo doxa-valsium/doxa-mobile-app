@@ -1,13 +1,18 @@
+import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.dart';
 import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/mdi.dart';
 
 class JobFormStepOne extends StatelessWidget {
-  const JobFormStepOne({Key? key}) : super(key: key);
+  final GlobalKey<FormBuilderState> formKey;
+
+  const JobFormStepOne({
+    Key? key,
+    required this.formKey,
+    }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,25 +21,15 @@ class JobFormStepOne extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Basic Info",
-                style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-              Iconify(
-                Mdi.info_circle_outline,
-                size: 20,
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
-            ],
+          JobFieldTitleWithInfo(
+            title: "Job Title",
+            onInfo: () {},
           ),
           const SizedBox(height: 16),
           CustomFormBuilderTextField(
+              formKey: formKey,
               name: "title",
+              focusNode: FocusNode(),
               controller: TextEditingController(),
               labelText: "Title",
               validators: FormBuilderValidators.compose([
@@ -43,7 +38,10 @@ class JobFormStepOne extends StatelessWidget {
               ])),
           const SizedBox(height: 16),
           CustomFormBuilderTextField(
+              formKey: formKey,
+
             name: "headline",
+            focusNode: FocusNode(),
             controller: TextEditingController(),
             labelText: "Headline",
             validators: FormBuilderValidators.compose([
@@ -52,26 +50,16 @@ class JobFormStepOne extends StatelessWidget {
             ]),
           ),
           const SizedBox(height: 54),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Job Nature",
-                style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-              Iconify(
-                Mdi.info_circle_outline,
-                size: 20,
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
-            ],
+          JobFieldTitleWithInfo(
+            title: "Job Nature",
+            onInfo: () {},
           ),
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(
+            formKey: formKey,
             name: "employementType",
             labelText: "Employement Type",
+            holdVal: true,
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
               type: FormListType.staticList,
@@ -80,6 +68,8 @@ class JobFormStepOne extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(
+            formKey: formKey,
+            holdVal: true,
             name: "workplaceType",
             labelText: "Workplace Type",
             validators: FormBuilderValidators.required(),

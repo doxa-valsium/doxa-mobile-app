@@ -44,6 +44,8 @@ class BasicInfoScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     CustomFormBuilderTextField(
+                      formKey: _registrationFormKey,
+                      focusNode: FocusNode(),
                       name: "FirstName",
                       controller: TextEditingController(),
                       keyboardType: TextInputType.text,
@@ -54,6 +56,8 @@ class BasicInfoScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     CustomFormBuilderTextField(
+                      formKey: _registrationFormKey,
+                      focusNode: FocusNode(),
                       name: "LastName",
                       controller: TextEditingController(),
                       keyboardType: TextInputType.text,
@@ -64,6 +68,7 @@ class BasicInfoScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     CustomFormBuilderDropDown(
+                      formKey: _registrationFormKey,
                       name: "Gender",
                       labelText: "Gender",
                       validators: FormBuilderValidators.required(),
