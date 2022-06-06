@@ -1,9 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/company_details.dart';
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/company_profile_stack_handler.dart';
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/member_card.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar_and_body.dart';
+import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
-
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/bxs.dart';
 
 class CompanyProfileScreen extends StatelessWidget {
   static const String route = 'company-profile-screen';
@@ -16,6 +19,18 @@ class CompanyProfileScreen extends StatelessWidget {
       extendBody: true,
       body: SafeArea(
         child: CustomAppBarAndBody(
+          // iconData:
+          icon: Padding(
+            padding: const EdgeInsets.only(right: 16, top: 8),
+            child: IconButton(
+                onPressed: () {
+                  context.router.push(EditCompanyRoute());
+                },
+                icon: const Iconify(
+                  Bxs.edit,
+                  size: 55,
+                )),
+          ),
           title: 'My Company',
           showBackButton: true,
           body: SingleChildScrollView(

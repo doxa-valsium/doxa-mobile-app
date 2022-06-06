@@ -32,7 +32,6 @@ class _CustomSwitchState extends State<CustomSwitch> {
                 duration: const Duration(milliseconds: 200),
                 top: 8,
                 left: 8,
-                // TODO: Need to create a switch buttonn of preferred and required
                 child: Container(
                   height: 28,
                   decoration: BoxDecoration(

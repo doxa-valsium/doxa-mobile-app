@@ -78,10 +78,10 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
       path: EmailVerificationScreen.route,
       page: EmailVerificationScreen,
     ),
-    AutoRoute(
-      path: EditCompanyScreen.route,
-      page: EditCompanyScreen,
-    ),
+    // AutoRoute(
+    //   path: EditCompanyScreen.route,
+    //   page: EditCompanyScreen,
+    // ),
     AutoRoute(
       path: NavigatorScreen.route,
       page: NavigatorScreen,
@@ -138,7 +138,14 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
             ),
             AutoRoute(
               path: CompanyProfileScreen.route,
-              page: CompanyProfileScreen,
+              name: 'CompanyProfileRouter',
+              page: EmptyRouterPage,
+              children: [
+                AutoRoute(
+                  path: EditCompanyScreen.route,
+                  page: EditCompanyScreen,
+                ),
+              ],
             ),
           ],
         ),

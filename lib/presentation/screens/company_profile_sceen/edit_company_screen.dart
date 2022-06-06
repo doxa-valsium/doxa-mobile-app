@@ -1,7 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/company_banner.dart';
+import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/presentation/widgets/anchored_single_child_scroll_view.dart';
-import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar_and_body.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_elevated_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
@@ -32,7 +30,10 @@ class EditCompanyScreen extends StatelessWidget {
               anchor: CustomElevatedButton(
                 buttonText: 'Save',
                 onPressed: () {
-                  if (_formKey.currentState!.saveAndValidate()) {}
+                  if (_formKey.currentState!.saveAndValidate()) {
+                    logger.i(_formKey.currentState!.value);
+                    
+                  }
                 },
               ),
               child: FormBuilder(
