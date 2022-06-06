@@ -1,5 +1,3 @@
-// ignore_for_file: depend_on_referenced_packages
-
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -12,6 +10,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       emit(ProfileScreenLoading());
       try {
         await Future.delayed(const Duration(seconds: 2));
+        emit(ProfileScreenLoaded());
         //uncomment this line to simulate error
         // throw Exception();
       } on Exception {

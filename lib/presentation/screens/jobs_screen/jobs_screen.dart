@@ -18,7 +18,7 @@ class JobsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: CustomAppBar(
+        child: CustomAppBarAndBody(
           title: 'Jobs',
           showBackButton: false,
           body: SingleChildScrollView(

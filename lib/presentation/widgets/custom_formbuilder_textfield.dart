@@ -12,6 +12,12 @@ class CustomFormBuilderTextField extends StatelessWidget {
   final int minLines;
   final int maxLines;
   final FocusNode focusNode;
+  final Widget? suffixWidget;
+  final bool? isPassword;
+  final Icon? prefixIcon;
+  final Icon? suffixIcon;
+  final bool? readOnly;
+  final VoidCallback? onTap;
 
   const CustomFormBuilderTextField({
     Key? key,
@@ -25,6 +31,12 @@ class CustomFormBuilderTextField extends StatelessWidget {
     this.expands = false,
     this.minLines = 1,
     this.maxLines = 1,
+    this.suffixWidget,
+    this.isPassword = false,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.readOnly = false,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -33,9 +45,9 @@ class CustomFormBuilderTextField extends StatelessWidget {
     return FormBuilderTextField(
       focusNode: focusNode,
       textAlign: TextAlign.left,
-      textAlignVertical: TextAlignVertical.top,
+      textAlignVertical: TextAlignVertical.center,
       style: Theme.of(context).textTheme.bodyText2?.copyWith(
-            color: Theme.of(context).colorScheme.onSurfaceVariant,
+            color: Colors.black,
           ),
       name: name,
       controller: controller,
@@ -43,8 +55,16 @@ class CustomFormBuilderTextField extends StatelessWidget {
       expands: expands,
       minLines: expands ? null : minLines,
       maxLines: expands ? null : maxLines,
-      decoration: InputDecoration(hintText: labelText),
+      readOnly: readOnly ?? false,
+      onTap: onTap,
+      decoration: InputDecoration(
+        hintText: labelText,
+        suffixIcon: suffixIcon,
+        suffix: suffixWidget,
+        prefixIcon: prefixIcon,
+      ),
       validator: validators,
+      obscureText: isPassword ?? false,
     );
   }
 }

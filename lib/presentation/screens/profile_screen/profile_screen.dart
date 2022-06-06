@@ -26,7 +26,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       body: SafeArea(
-        child: CustomAppBar(
+        child: CustomAppBarAndBody(
           title: 'Profile',
           showBackButton: false,
           body: BlocBuilder<ProfileBloc, ProfileState>(
@@ -112,7 +112,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 );
               } else if (state is ProfileScreenError) {
-                return  Center(
+                return Center(
                   child: Text(state.errorMessage),
                 );
               } else {

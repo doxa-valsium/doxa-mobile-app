@@ -31,10 +31,12 @@ class Styles {
   );
 
   static final InputDecorationTheme _inputDecorationTheme = InputDecorationTheme(
-      fillColor: _colorScheme.onSecondaryContainer,
-      filled: true,
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
-      errorStyle: _textTheme.caption?.copyWith(color: _colorScheme.onError));
+    fillColor: _colorScheme.onSecondaryContainer,
+    filled: true,
+    border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
+    errorStyle: _textTheme.caption?.copyWith(color: _colorScheme.onError),
+    hintStyle: _textTheme.bodyText2?.copyWith(color: _colorScheme.onSurfaceVariant),
+  );
 
   static final OutlinedButtonThemeData _outlinedButtonThemeData = OutlinedButtonThemeData(
     style: ButtonStyle(

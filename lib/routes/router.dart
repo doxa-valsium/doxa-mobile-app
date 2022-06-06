@@ -9,11 +9,15 @@ import 'package:doxa_mobile_app/presentation/screens/messages_screen/messages_sc
 import 'package:doxa_mobile_app/presentation/screens/navigator_screen/navigator_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/custom_widgets_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/flow_view_demo_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/basic_info_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/email_verification.dart';
+import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/login_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/manage_1x_2x_3x_images.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/registration_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_job_screen.dart';
 
 @MaterialAutoRouter(
@@ -56,6 +60,22 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
       path: JobFormFlowScreen.route,
       page: JobFormFlowScreen,
       fullscreenDialog: true,
+    ),
+    AutoRoute(
+      path: LoginScreen.route,
+      page: LoginScreen,
+    ),
+    AutoRoute(
+      path: RegistrationScreen.route,
+      page: RegistrationScreen,
+    ),
+    AutoRoute(
+      path: BasicInfoScreen.route,
+      page: BasicInfoScreen,
+    ),
+    AutoRoute(
+      path: EmailVerificationScreen.route,
+      page: EmailVerificationScreen,
     ),
     AutoRoute(
       path: NavigatorScreen.route,
