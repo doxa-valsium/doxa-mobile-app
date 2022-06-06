@@ -51,6 +51,7 @@ class EditCompanyScreen extends StatelessWidget {
                       name: "industry",
                       labelText: "Industry",
                       validators: FormBuilderValidators.required(),
+                      formKey: _formKey,
                       child: const ListScreen(
                         type: FormListType.dynamicList,
                         title: 'Industry',
@@ -65,6 +66,7 @@ class EditCompanyScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     CustomFormBuilderDropDown(
+                      formKey: _formKey,
                       name: "location",
                       labelText: "Location",
                       validators: FormBuilderValidators.required(),
@@ -89,6 +91,8 @@ class EditCompanyScreen extends StatelessWidget {
                       height: 200,
                       child: CustomFormBuilderTextField(
                         name: "bio",
+                        focusNode: FocusNode(),
+                        formKey: _formKey,
                         controller: TextEditingController(),
                         keyboardType: TextInputType.multiline,
                         labelText: "Description the Company...",
@@ -110,6 +114,8 @@ class EditCompanyScreen extends StatelessWidget {
                     ),
                     CustomFormBuilderTextField(
                       name: "phone1",
+                      formKey: _formKey,
+                      focusNode: FocusNode(),
                       controller: TextEditingController(),
                       labelText: "Contact",
                       validators: FormBuilderValidators.compose([
@@ -130,6 +136,8 @@ class EditCompanyScreen extends StatelessWidget {
                     ),
                     CustomFormBuilderTextField(
                       name: "website",
+                      formKey: _formKey,
+                      focusNode: FocusNode(),
                       controller: TextEditingController(),
                       labelText: "Website",
                       validators: FormBuilderValidators.compose([
