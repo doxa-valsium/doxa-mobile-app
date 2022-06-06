@@ -1,5 +1,5 @@
 import 'package:dotted_border/dotted_border.dart';
-import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
+import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar_and_body.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_dotted_border.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_extended_card.dart';
 import 'package:doxa_mobile_app/presentation/widgets/job_card.dart';

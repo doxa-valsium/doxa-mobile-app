@@ -3,7 +3,6 @@ import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/fluent.dart';
-import 'package:iconify_flutter/icons/lucide.dart';
 
 class CompanyProfileStackHandler extends StatelessWidget {
   final Widget child;
