@@ -78,7 +78,10 @@ class BasicInfoScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    CustomFormBuilderDatePicker(),
+                    CustomFormBuilderDatePicker(
+                      name: "DOB",
+                      labelText: "Date of Birth",
+                    ),
                     const SizedBox(height: 16),
                     Text(
                       "Register as",

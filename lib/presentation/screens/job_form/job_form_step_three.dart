@@ -28,9 +28,8 @@ class JobFormStepThree extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            JobFieldTitleWithInfo(
+            const JobFieldTitleWithInfo(
               title: "Experience",
-              onInfo: () {},
             ),
             const SizedBox(
               height: 16,

@@ -10,9 +10,11 @@ class CustomFormBuilderDatePicker extends StatelessWidget {
   final DateTime _date = DateTime.now();
   final TextEditingController _dateController = TextEditingController();
   final DateFormat dateFormatter = DateFormat('dd-MM-yyyy');
+  final String labelText;
+  final String name;
   final formKey = GlobalKey<FormBuilderState>();
 
-  CustomFormBuilderDatePicker({Key? key}) : super(key: key);
+  CustomFormBuilderDatePicker({Key? key, required this.labelText, required this.name}) : super(key: key);
 
   _showDatePicker(BuildContext context) async {
     // if platform is android
@@ -44,16 +46,15 @@ class CustomFormBuilderDatePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomFormBuilderTextField(
-      formKey: formKey,
       focusNode: FocusNode(),
-      name: "DOB",
+      name: name,
       controller: _dateController,
       keyboardType: TextInputType.text,
       prefixIcon: const Icon(
         Icons.calendar_today_outlined,
         size: 20,
       ),
-      labelText: "Date of birth",
+      labelText: labelText,
       readOnly: true,
       onTap: () async {
         DateTime date = await _showDatePicker(context);

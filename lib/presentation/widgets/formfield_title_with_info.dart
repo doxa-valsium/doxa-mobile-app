@@ -4,8 +4,8 @@ import 'package:iconify_flutter/icons/mdi.dart';
 
 class JobFieldTitleWithInfo extends StatelessWidget {
   final String title;
-  final VoidCallback onInfo;
-  const JobFieldTitleWithInfo({Key? key, required this.title, required this.onInfo}) : super(key: key);
+  final bool isOptional;
+  const JobFieldTitleWithInfo({Key? key, required this.title, this.isOptional = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +18,25 @@ class JobFieldTitleWithInfo extends StatelessWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        GestureDetector(
-          onTap: onInfo,
-          child: Iconify(
-            Mdi.info_circle_outline,
-            size: 20,
-            color: Theme.of(context).colorScheme.onSurfaceVariant,
-          ),
+        Row(
+          children: [
+            if (isOptional)
+              Text(
+                "Optional",
+                style: Theme.of(context).textTheme.bodyText2!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            if (isOptional) const SizedBox(width: 12),
+            GestureDetector(
+              onTap: () {},
+              child: Iconify(
+                Mdi.info_circle_outline,
+                size: 20,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
+            ),
+          ],
         ),
       ],
     );

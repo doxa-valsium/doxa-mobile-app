@@ -18,9 +18,8 @@ class JobFormStepTwo extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            JobFieldTitleWithInfo(
+            const JobFieldTitleWithInfo(
               title: "Description",
-              onInfo: () {},
             ),
             const SizedBox(
               height: 16,
