@@ -1,11 +1,14 @@
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
+import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 
 class AddCompanyStepTwo extends StatelessWidget {
-  const AddCompanyStepTwo({Key? key}) : super(key: key);
+  final GlobalKey<FormBuilderState> formKey;
+  const AddCompanyStepTwo({Key? key, required this.formKey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,27 +17,17 @@ class AddCompanyStepTwo extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Optional Info",
-                  style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Iconify(
-                  Mdi.info_circle_outline,
-                  size: 20,
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
-              ],
+            const JobFieldTitleWithInfo(
+              title: "Optional Info",
+              isOptional: false,
             ),
             const SizedBox(
               height: 16,
             ),
             CustomFormBuilderTextField(
                 name: "email",
+                formKey: formKey,
+                focusNode: FocusNode(),
                 controller: TextEditingController(),
                 labelText: "Email",
                 validators: FormBuilderValidators.compose([
@@ -45,6 +38,8 @@ class AddCompanyStepTwo extends StatelessWidget {
             ),
             CustomFormBuilderTextField(
                 name: "phone",
+                focusNode: FocusNode(),
+                formKey: formKey,
                 controller: TextEditingController(),
                 labelText: "Phone",
                 validators: FormBuilderValidators.compose([
@@ -54,7 +49,13 @@ class AddCompanyStepTwo extends StatelessWidget {
               height: 16,
             ),
             CustomFormBuilderTextField(
-                name: "website", controller: TextEditingController(), labelText: "Website", validators: FormBuilderValidators.compose([FormBuilderValidators.url()])),
+              focusNode: FocusNode(),
+              formKey: formKey,
+              name: "website",
+              controller: TextEditingController(),
+              labelText: "Website",
+              validators: FormBuilderValidators.compose([FormBuilderValidators.url()]),
+            ),
           ],
         ));
   }

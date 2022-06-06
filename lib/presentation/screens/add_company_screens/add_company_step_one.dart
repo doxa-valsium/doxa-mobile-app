@@ -1,13 +1,16 @@
+import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.dart';
 import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 
 class AddCompanyStepOne extends StatelessWidget {
-  const AddCompanyStepOne({Key? key}) : super(key: key);
+  final GlobalKey<FormBuilderState> formKey;
+  AddCompanyStepOne({Key? key, required this.formKey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,24 +19,14 @@ class AddCompanyStepOne extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Company Details",
-                style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-              Iconify(
-                Mdi.info_circle_outline,
-                size: 20,
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
-            ],
+          const JobFieldTitleWithInfo(
+            title: "Company Details",
+            isOptional: false,
           ),
           const SizedBox(height: 16),
           CustomFormBuilderTextField(
+              focusNode: FocusNode(),
+              formKey: formKey,
               name: "companyName",
               controller: TextEditingController(),
               labelText: "Comapany Name",
@@ -44,6 +37,7 @@ class AddCompanyStepOne extends StatelessWidget {
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(
             name: "industry",
+            formKey: formKey,
             labelText: "Industry",
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
@@ -54,6 +48,7 @@ class AddCompanyStepOne extends StatelessWidget {
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(
             name: "location",
+            formKey: formKey,
             labelText: "Location",
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
@@ -62,25 +57,15 @@ class AddCompanyStepOne extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 54),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Admin Details",
-                style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-              Iconify(
-                Mdi.info_circle_outline,
-                size: 20,
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
-            ],
+          const JobFieldTitleWithInfo(
+            title: "Admin Details",
+            isOptional: false,
           ),
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(
             name: "position",
+            formKey: formKey,
+            holdVal: true,
             labelText: "Your Position",
             validators: FormBuilderValidators.required(),
             child: const ListScreen(

@@ -17,8 +17,6 @@ class AddCompanyFlowScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: FormBuilder(
-          // autovalidateMode: AutovalidateMode.on
-          // ,
           autoFocusOnValidationFailure: true,
           key: _formKey,
           child: FlowView(
@@ -34,7 +32,9 @@ class AddCompanyFlowScreen extends StatelessWidget {
                     }
                   },
                 ),
-                child: const AddCompanyStepOne(),
+                child: AddCompanyStepOne(
+                  formKey: _formKey,
+                ),
               ),
               FlowScreen(
                 title: 'Add Your Company',
@@ -65,7 +65,9 @@ class AddCompanyFlowScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: const AddCompanyStepTwo(),
+                child: AddCompanyStepTwo(
+                  formKey: _formKey,
+                ),
               ),
               FlowScreen(
                 title: 'Add Your Company',
@@ -78,7 +80,9 @@ class AddCompanyFlowScreen extends StatelessWidget {
                     }
                   },
                 ),
-                child: const AddCompanyStepThree(),
+                child: AddCompanyStepThree(
+                  formKey: _formKey,
+                ),
               ),
             ],
           ),

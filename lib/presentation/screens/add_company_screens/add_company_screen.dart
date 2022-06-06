@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/dashed_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
+import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.dart';
 import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ import 'package:iconify_flutter/icons/mdi.dart';
 class AddCompanyScreen extends StatelessWidget {
   static const String route = 'AddCompanyRoute';
   final _addCompanyKey = GlobalKey<FormBuilderState>();
+  final _formKey = GlobalKey<FormBuilderState>();
   AddCompanyScreen({Key? key}) : super(key: key);
 
   @override
@@ -35,27 +37,31 @@ class AddCompanyScreen extends StatelessWidget {
                 const SizedBox(
                   height: 28,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Join Company",
-                      style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    Iconify(
-                      Mdi.info_circle_outline,
-                      size: 20,
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    ),
-                  ],
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     Text(
+                //       "Join Company",
+                //       style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
+                //       maxLines: 1,
+                //       overflow: TextOverflow.ellipsis,
+                //     ),
+                //     Iconify(
+                //       Mdi.info_circle_outline,
+                //       size: 20,
+                //       color: Theme.of(context).colorScheme.onSurfaceVariant,
+                //     ),
+                //   ],
+                // ),
+                const JobFieldTitleWithInfo(
+                  title: "Join Company",
+                  isOptional: false,
                 ),
-
                 const SizedBox(
                   height: 28,
                 ),
                 CustomFormBuilderDropDown(
+                  formKey: _formKey,
                   name: "companyName",
                   labelText: "Company Name",
                   validators: FormBuilderValidators.required(),
@@ -69,6 +75,7 @@ class AddCompanyScreen extends StatelessWidget {
                 ),
                 CustomFormBuilderDropDown(
                   name: "yourPosition",
+                  formKey: _formKey,
                   labelText: "Your Position",
                   validators: FormBuilderValidators.required(),
                   child: const ListScreen(
