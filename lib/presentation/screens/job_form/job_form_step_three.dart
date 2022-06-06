@@ -1,18 +1,25 @@
-import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/add_qualification_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
 import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/mdi.dart';
 
 class JobFormStepThree extends StatelessWidget {
+  final GlobalKey<FormBuilderState> formKey;
+
   final FocusNode experienceFocusNode = FocusNode();
   final Function(Map<String, dynamic>) onAdd;
   final Function(Map<String, dynamic>) onDelete;
+  final List<Map<String, dynamic>> qualifications;
 
-  JobFormStepThree({Key? key, required this.onAdd, required this.onDelete}) : super(key: key);
+  JobFormStepThree({
+        Key? key, 
+        required this.onAdd, 
+        required this.onDelete, 
+        required this.formKey,
+        required this.qualifications,
+        }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +36,7 @@ class JobFormStepThree extends StatelessWidget {
               height: 16,
             ),
             CustomFormBuilderTextField(
+              formKey: formKey,
               name: "experienceYears",
               focusNode: experienceFocusNode,
               controller: TextEditingController(),
@@ -44,6 +52,7 @@ class JobFormStepThree extends StatelessWidget {
               height: 16,
             ),
             AddQualificationButton(
+              qualifications: qualifications,
               focusNode: experienceFocusNode,
               onAdd: (map) {
                 onAdd(map);

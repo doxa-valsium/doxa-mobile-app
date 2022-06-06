@@ -48,7 +48,9 @@ class JobFormFlowScreen extends StatelessWidget {
                     }
                   },
                 ),
-                child: const JobFormStepOne(),
+                child: JobFormStepOne(
+                  formKey: _formKey,
+                ),
               ),
               FlowScreen(
                 title: 'Create a New Job',
@@ -60,7 +62,9 @@ class JobFormFlowScreen extends StatelessWidget {
                     }
                   },
                 ),
-                child: const JobFormStepTwo(),
+                child: JobFormStepTwo(
+                  formKey: _formKey,
+                ),
               ),
               FlowScreen(
                 title: 'Create a New Job',
@@ -73,6 +77,8 @@ class JobFormFlowScreen extends StatelessWidget {
                   },
                 ),
                 child: JobFormStepThree(
+                  qualifications: qualifications,
+                  formKey: _formKey,
                   onAdd: (map) {
                     if (!containsQualification(map)) {
                       qualifications.add(map);
@@ -105,6 +111,8 @@ class JobFormFlowScreen extends StatelessWidget {
                     },
                   ),
                   child: JobFormStepFour(
+                    skills: skills,
+                    formKey: _formKey,
                     onSkillAdd: (skill) {
                       if (!skills.contains(skill)) {
                         skills.add(skill);

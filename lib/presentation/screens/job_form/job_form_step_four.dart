@@ -7,22 +7,25 @@ import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfiel
 import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 
 class JobFormStepFour extends StatelessWidget {
+  final GlobalKey<FormBuilderState> formKey;
   final Function(String) onSkillAdd;
   final Function(String) onSkillDelete;
+  final List<String> skills;
 
-  const JobFormStepFour({Key? key, required this.onSkillAdd, required this.onSkillDelete}) : super(key: key);
+  const JobFormStepFour({Key? key, required this.skills, required this.onSkillAdd, required this.onSkillDelete, required this.formKey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<JobFormAddSkillsCubit>(
       create: (context) => JobFormAddSkillsCubit(
         context: context,
-        skills: [],
+        skills: skills,
       ),
       child: BlocBuilder<JobFormAddSkillsCubit, JobFormAddSkillsState>(builder: (context, state) {
         final cubit = BlocProvider.of<JobFormAddSkillsCubit>(context);
@@ -49,6 +52,8 @@ class JobFormStepFour extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               CustomFormBuilderDropDown(
+                holdVal: true,
+                formKey: formKey,
                 name: "industry",
                 labelText: "Industry",
                 validators: FormBuilderValidators.required(),
@@ -92,6 +97,7 @@ class JobFormStepFour extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 2.3,
                     child: CustomFormBuilderTextField(
+                        formKey: formKey,
                         name: "starting_range",
                         focusNode: FocusNode(),
                         controller: TextEditingController(),
@@ -104,6 +110,7 @@ class JobFormStepFour extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 2.3,
                     child: CustomFormBuilderTextField(
+                        formKey: formKey,
                         name: "ending_range",
                         focusNode: FocusNode(),
                         controller: TextEditingController(),
@@ -149,6 +156,7 @@ class JobFormStepFour extends StatelessWidget {
                 ),
               const SizedBox(height: 16),
               CustomFormBuilderDropDown(
+                formKey: formKey,
                 name: "skills",
                 labelText: "Add Skills",
                 forSkills: true,

@@ -15,12 +15,26 @@ class AddQualificationButton extends StatelessWidget {
   final FocusNode focusNode;
   final Function(Map<String, dynamic>) onAdd;
   final Function(Map<String, dynamic>) onDelete;
-  const AddQualificationButton({Key? key, required this.focusNode, required this.onAdd, required this.onDelete}) : super(key: key);
+  final List<Map<String, dynamic>> qualifications;
+
+  const AddQualificationButton({
+      Key? key, 
+      required this.focusNode, 
+      required this.onAdd, 
+      required this.onDelete,
+      required this.qualifications
+      }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AddQualificationButtonCubit>(
-      create: (context) => AddQualificationButtonCubit(buttonHeight: 54, isExpanded: false, showContainers: false, isEditing: false, qualifications: [], context: context),
+      create: (context) => AddQualificationButtonCubit(
+        buttonHeight: 54, 
+        isExpanded: false, 
+        showContainers: false, 
+        isEditing: false, 
+        qualifications: qualifications.map((e) => Qualification(degree: e['qualificationDegree'], major: e['qualificationMajor'], isRequired: e['qualificationExperienceType'])).toList(), 
+        context: context),
       child: BlocBuilder<AddQualificationButtonCubit, AddQualificationButtonState>(
         builder: (context, state) {
           final cubit = BlocProvider.of<AddQualificationButtonCubit>(context);
