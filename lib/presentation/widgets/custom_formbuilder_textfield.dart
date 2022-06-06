@@ -45,7 +45,7 @@ class CustomFormBuilderTextField extends StatelessWidget {
     return FormBuilderTextField(
       focusNode: focusNode,
       textAlign: TextAlign.left,
-      textAlignVertical: TextAlignVertical.center,
+      textAlignVertical: TextAlignVertical.top,
       style: Theme.of(context).textTheme.bodyText2?.copyWith(
             color: Colors.black,
           ),
