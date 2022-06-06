@@ -1,11 +1,15 @@
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
+import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/mdi.dart';
 
 class JobFormStepTwo extends StatelessWidget {
-  const JobFormStepTwo({Key? key}) : super(key: key);
+  final GlobalKey<FormBuilderState> formKey;
+
+  const JobFormStepTwo({Key? key,
+    required this.formKey,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,21 +18,8 @@ class JobFormStepTwo extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Description",
-                  style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Iconify(
-                  Mdi.info_circle_outline,
-                  size: 20,
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
-              ],
+            const JobFieldTitleWithInfo(
+              title: "Description",
             ),
             const SizedBox(
               height: 16,
@@ -36,7 +27,9 @@ class JobFormStepTwo extends StatelessWidget {
             SizedBox(
               height: 350,
               child: CustomFormBuilderTextField(
+                formKey: formKey,
                 name: "description",
+                focusNode: FocusNode(),
                 controller: TextEditingController(),
                 keyboardType: TextInputType.multiline,
                 labelText: "Description the oppurtunity...",

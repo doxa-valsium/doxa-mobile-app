@@ -200,4 +200,9 @@ class Styles {
       offset: Offset(0.0, 4.0),
     )
   ];
+
+  static BoxDecoration containerStyle = BoxDecoration(
+    color: _colorScheme.onSecondaryContainer,
+    borderRadius: const BorderRadius.all(Radius.circular(10)),
+  );
 }

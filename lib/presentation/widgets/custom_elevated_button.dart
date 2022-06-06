@@ -5,8 +5,18 @@ class CustomElevatedButton extends StatelessWidget {
   final VoidCallback? onLongPress;
   final bool isLoading;
   final String buttonText;
+  final double width;
+  final double height;
 
-  const CustomElevatedButton({Key? key, this.onPressed, this.onLongPress, this.isLoading = false, required this.buttonText}) : super(key: key);
+  const CustomElevatedButton({
+    Key? key, 
+    this.onPressed, 
+    this.onLongPress, 
+    this.isLoading = false,
+    this.height = 20,
+    this.width = 20, 
+    required this.buttonText
+    }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +24,8 @@ class CustomElevatedButton extends StatelessWidget {
       onPressed: onPressed,
       child: isLoading
           ? SizedBox(
-              width: 20,
-              height: 20,
+              width: width,
+              height: height,
               child: CircularProgressIndicator(
                 color: Theme.of(context).colorScheme.background,
                 strokeWidth: 3,

@@ -8,21 +8,30 @@ class CustomFormBuilderDropDown extends StatelessWidget {
   final String name;
   final String labelText;
   final Widget child;
-  final String? Function(String?) validators;
+  final String? Function(String?)? validators;
   final TextEditingController _controller = TextEditingController();
   final bool invertColors;
+  final bool forSkills;
+  final void Function(String)? onSkillAdd;
+  final GlobalKey<FormBuilderState> formKey;
+  final bool holdVal;
 
   CustomFormBuilderDropDown({
     Key? key,
+    required this.formKey,
     required this.name,
     required this.labelText,
-    required this.validators,
     required this.child,
+    this.holdVal = false,
     this.invertColors = false,
+    this.forSkills = false,
+    this.onSkillAdd,
+    this.validators,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    if (holdVal) if (formKey.currentState!.value.containsKey(name)) _controller.text = formKey.currentState!.getRawValue(name).toString();
     return FormBuilderTextField(
       style: Theme.of(context).textTheme.bodyText2?.copyWith(
             color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -40,7 +49,12 @@ class CustomFormBuilderDropDown extends StatelessWidget {
           fillColor: invertColors ? Theme.of(context).colorScheme.background : null),
       validator: validators,
       onTap: () {
-        fullScreenDialog(context, _controller, child);
+        if (forSkills) {
+          fullScreenDialog(context, _controller, child, true, onSkillAdd);
+          _controller.clear();
+        } else {
+          fullScreenDialog(context, _controller, child, false, null);
+        }
       },
     );
   }
