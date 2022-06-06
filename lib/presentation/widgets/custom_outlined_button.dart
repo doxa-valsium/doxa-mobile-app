@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class CustomElevatedButton extends StatelessWidget {
+class CustomOutlinedButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final VoidCallback? onLongPress;
   final bool isLoading;
   final String buttonText;
 
-  const CustomElevatedButton({Key? key, this.onPressed, this.onLongPress, this.isLoading = false, required this.buttonText}) : super(key: key);
+  const CustomOutlinedButton({Key? key, this.onPressed, this.onLongPress, this.isLoading = false, required this.buttonText}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return OutlinedButton(
       onPressed: onPressed,
       child: isLoading
           ? SizedBox(
@@ -21,8 +21,7 @@ class CustomElevatedButton extends StatelessWidget {
                 strokeWidth: 3,
               ),
             )
-          : Text(buttonText, style: Theme.of(context).textTheme.button?.copyWith(color: Colors.white)),
-      
+          : Text(buttonText, style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.primary)),
     );
   }
 }

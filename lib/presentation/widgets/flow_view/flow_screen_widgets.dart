@@ -1,5 +1,6 @@
 import 'package:doxa_mobile_app/business_logic/cubits/flow_view/flow_view_cubit.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_elevated_button.dart';
+import 'package:doxa_mobile_app/presentation/widgets/custom_outlined_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -99,16 +100,19 @@ class FlowScreeStepCount extends StatelessWidget {
 class FlowScreenDefaultAnchor extends StatelessWidget {
   final String buttonText;
   final void Function(BuildContext) onPressed;
+  final bool isOutlined;
   const FlowScreenDefaultAnchor({
     Key? key,
     required this.buttonText,
     required this.onPressed,
+    this.isOutlined = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final FlowViewCubit flowViewCubit = BlocProvider.of<FlowViewCubit>(context, listen: true);
-    return CustomElevatedButton(onPressed: ()=>onPressed(context), buttonText: buttonText, isLoading: flowViewCubit.state.isLoading);
+    return isOutlined
+        ? CustomOutlinedButton(onPressed: () => onPressed(context), buttonText: buttonText, isLoading: flowViewCubit.state.isLoading)
+        : CustomElevatedButton(onPressed: () => onPressed(context), buttonText: buttonText, isLoading: flowViewCubit.state.isLoading);
   }
 }
-

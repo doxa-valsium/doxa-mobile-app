@@ -27,17 +27,6 @@ class AddCompanyScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Center(child: Image.asset('assets/images/final_logo.png')),
-                // const SizedBox(
-                //   height: 48 / 2,
-                // ),
-                // Center(child: Image.asset('assets/images/login_screen.png')),
-                // const SizedBox(
-                //   height: 56 / 4,
-                // ),
-                // const SizedBox(
-                //   height: 56,
-                // ),
                 Text(
                   "Your Company",
                   style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
@@ -89,7 +78,7 @@ class AddCompanyScreen extends StatelessWidget {
                 ),
 
                 const Spacer(),
-                Center(child: Image.asset('assets/images/login_screen.png')),
+                Center(child: Image.asset('assets/images/counting_stars 1.png')),
                 const Spacer(),
                 SizedBox(
                   width: double.maxFinite,

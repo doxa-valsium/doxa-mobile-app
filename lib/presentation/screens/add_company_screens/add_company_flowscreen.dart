@@ -41,19 +41,27 @@ class AddCompanyFlowScreen extends StatelessWidget {
                 anchor: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    FlowScreenDefaultAnchor(
-                      buttonText: 'Skip',
-                      onPressed: (context) {
-                        FlowView.of(context).next();
-                      },
-                    ),
-                    FlowScreenDefaultAnchor(
-                      buttonText: 'Next',
-                      onPressed: (context) {
-                        if (_formKey.currentState!.saveAndValidate()) {
+                    Expanded(
+                      child: FlowScreenDefaultAnchor(
+                        isOutlined: true,
+                        buttonText: 'Skip',
+                        onPressed: (context) {
                           FlowView.of(context).next();
-                        }
-                      },
+                        },
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Expanded(
+                      child: FlowScreenDefaultAnchor(
+                        buttonText: 'Next',
+                        onPressed: (context) {
+                          if (_formKey.currentState!.saveAndValidate()) {
+                            FlowView.of(context).next();
+                          }
+                        },
+                      ),
                     ),
                   ],
                 ),
