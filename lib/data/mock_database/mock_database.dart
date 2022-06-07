@@ -1,7 +1,7 @@
 import 'package:doxa_mobile_app/data/mock_database/mock_selectables.dart' as mock_selectables;
 import 'package:doxa_mobile_app/models/models.dart';
 
-const List<Company> companies = [
+List<Company> companies = [
   Company(
     title: "Google",
     industry: mock_selectables.industries[0],
