@@ -8,7 +8,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:swipable_stack/swipable_stack.dart';
 
 class PlaygroundScreen extends StatelessWidget {
-  static const String route = '/';
+  static const String route = '/playground';
 
   const PlaygroundScreen({Key? key}) : super(key: key);
   @override

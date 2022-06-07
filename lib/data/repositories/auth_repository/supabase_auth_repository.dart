@@ -48,4 +48,13 @@ class SupabaseAuthRepository extends AuthRepository {
       return logger.i('User created successfully');
     }
   }
+  
+  @override
+  // TODO: implement status
+  Stream<AuthenticationStatus> get status => throw UnimplementedError();
+  
+  @override
+  void dispose() {
+    // TODO: implement dispose
+  }
 }

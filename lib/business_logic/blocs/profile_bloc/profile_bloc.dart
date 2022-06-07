@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:doxa_mobile_app/constants.dart';
+import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
 import 'package:meta/meta.dart';
 
 part 'profile_event.dart';
@@ -9,7 +11,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<FetchProfile>((event, emit) async {
       emit(ProfileScreenLoading());
       try {
-        await Future.delayed(const Duration(seconds: 2));
+        await Future.delayed(kMockFutureDelay);
         emit(ProfileScreenLoaded());
         //uncomment this line to simulate error
         // throw Exception();

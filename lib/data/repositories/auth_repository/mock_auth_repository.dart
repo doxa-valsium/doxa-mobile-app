@@ -1,60 +1,39 @@
+import 'dart:async';
 import 'package:doxa_mobile_app/constants.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class MockAuthRepository implements AuthRepository {
-  @override
-  User? getUser() {
-    // return Future.delayed(kMockFutureDelay, () => 'abuzar');
-  }
+  final _controller = StreamController<AuthenticationStatus>();
 
   @override
   bool isSignedIn() {
-    return true;
+    return false;
   }
 
   @override
-  Future<void> signInWithEmailAndPassword(String email, String password) {
-    return Future.delayed(kMockFutureDelay, () => null);
+  Future<void> signInWithEmailAndPassword(String email, String password) async {
+    await Future.delayed(kMockFutureDelay);
+    _controller.add(AuthenticationStatus.authenticated);
   }
 
   @override
   Future<void> signOut() {
-    return Future.delayed(kMockFutureDelay, () => null);
+    return Future.delayed(kMockFutureDelay, () => _controller.add(AuthenticationStatus.unauthenticated));
   }
 
   @override
-  Future<void> signUpWithEmailAndPassword(String email, String password) {
-    return Future.delayed(kMockFutureDelay, () => null);
+  Future<void> signUpWithEmailAndPassword(String email, String password) async {
+    await Future.delayed(kMockFutureDelay);
+    _controller.add(AuthenticationStatus.authenticated);
   }
 
   @override
-  String? attemptAutoLogin() {
-    // TODO: implement attemptAutoLogin
-    throw UnimplementedError();
+  Stream<AuthenticationStatus> get status async* {
+    await Future.delayed(kMockFutureDelay);
+    yield AuthenticationStatus.authenticated;
+    yield* _controller.stream;
   }
 
   @override
-  String? getLoggedInUser() {
-    // TODO: implement getLoggedInUser
-    throw UnimplementedError();
-  }
-
-  @override
-  Future getLoggedInUserSession() {
-    // TODO: implement getLoggedInUserSession
-    throw UnimplementedError();
-  }
-
-  @override
-  Future signIn({required String email, required String password}) {
-    // TODO: implement signIn
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<String> signUp({required String email, required String password}) {
-    // TODO: implement signUp
-    throw UnimplementedError();
-  }
+  void dispose() => _controller.close();
 }

@@ -1,7 +1,7 @@
 import 'package:doxa_mobile_app/data/mock_database/mock_selectables.dart' as mock_selectables;
 import 'package:doxa_mobile_app/models/models.dart';
 
-List<Company> companies = [
+const List<Company> companies = [
   Company(
     title: "Google",
     industry: mock_selectables.industries[0],
@@ -11,7 +11,7 @@ List<Company> companies = [
     location: Location(city: mock_selectables.cities[0], country: mock_selectables.countries[0]),
     email: 'abc@email.com',
     phone: "098755362836",
-    recruiters: [user[0] as Recruiter, user[1] as Recruiter],
+    recruiters: [],
   ),
   Company(
     title: "Facebook",
@@ -22,10 +22,10 @@ List<Company> companies = [
     location: Location(city: mock_selectables.cities[1], country: mock_selectables.countries[0]),
     email: 'email@email.com',
     phone: "098755362836",
-    recruiters: [user[2] as Recruiter, user[3] as Recruiter],
+    recruiters: [],
   ),
 ];
-List<User> user = [
+List<User> users = [
   Recruiter(
     userId: "0",
     firstName: "Faaz",
