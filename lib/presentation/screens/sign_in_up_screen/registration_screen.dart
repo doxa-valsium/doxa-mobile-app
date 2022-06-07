@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:doxa_mobile_app/data/repositories/auth_repository/supabase_auth_repository.dart';
+import 'package:doxa_mobile_app/data/repositories/repository_provider.dart';
 import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/dashed_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
@@ -89,6 +91,9 @@ class RegistrationScreen extends StatelessWidget {
                       onPressed: () {
                         if (_registrationFormKey.currentState!.saveAndValidate()) {
                           logger.i('Form is valid');
+                          final String email = _registrationFormKey.currentState!.value['registration_email'];
+                          final String password = _registrationFormKey.currentState!.value['registration_password'];
+                          RepositoryProvider.authRepository.signUpWithEmailAndPassword(email, password);
                           context.router.push(BasicInfoRoute(registrationData: _registrationFormKey.currentState!.value));
                         }
                       },
@@ -98,7 +103,7 @@ class RegistrationScreen extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0, 12, 0, 8),
                       child: Text(
-                        "Or if you’re already a member",
+                        "Or if you're already a member",
                         style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
                       ),
                     ),

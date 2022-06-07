@@ -1,10 +1,11 @@
 import 'package:doxa_mobile_app/constants.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class MockAuthRepository implements AuthRepository {
   @override
-  Future<String> getUser() {
-    return Future.delayed(kMockFutureDelay, () => 'abuzar');
+  User? getUser() {
+    // return Future.delayed(kMockFutureDelay, () => 'abuzar');
   }
 
   @override
