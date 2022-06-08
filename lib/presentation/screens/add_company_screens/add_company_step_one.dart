@@ -5,12 +5,10 @@ import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/mdi.dart';
 
 class AddCompanyStepOne extends StatelessWidget {
   final GlobalKey<FormBuilderState> formKey;
-  AddCompanyStepOne({Key? key, required this.formKey}) : super(key: key);
+  const AddCompanyStepOne({Key? key, required this.formKey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -3,8 +3,6 @@ import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.d
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/mdi.dart';
 
 class AddCompanyStepThree extends StatelessWidget {
   final GlobalKey<FormBuilderState> formKey;
