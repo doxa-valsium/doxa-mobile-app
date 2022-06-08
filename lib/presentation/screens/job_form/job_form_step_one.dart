@@ -75,6 +75,18 @@ class JobFormStepOne extends StatelessWidget {
               type: FormListType.staticList,
               title: "Workplace Type",
             ),
+          ),
+          const SizedBox(height: 16),
+          CustomFormBuilderDropDown(
+            formKey: formKey,
+            holdVal: true,
+            name: "location",
+            labelText: "Location",
+            validators: FormBuilderValidators.required(),
+            child: const ListScreen(
+              type: FormListType.staticList,
+              title: "Location",
+            ),
           )
         ],
       ),
