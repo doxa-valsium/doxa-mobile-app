@@ -25,6 +25,7 @@ List<Company> companies = [
     recruiters: [],
   ),
 ];
+
 List<User> users = [
   Recruiter(
     userId: "0",
@@ -89,7 +90,7 @@ List<User> users = [
           company: companies[0],
           employmentType: mock_selectables.employmentType[0],
           industry: mock_selectables.industries[0],
-          title: mock_selectables.jobTitles[0] as String,
+          title: mock_selectables.jobTitles[0],
           location: Location(city: mock_selectables.cities[0], country: mock_selectables.countries[0]),
           startDate: DateTime.now().subtract(const Duration(days: 365 * 5)),
           endDate: DateTime.now().subtract(const Duration(days: 365 * 4))),
@@ -144,7 +145,7 @@ List<User> users = [
           company: companies[0],
           employmentType: mock_selectables.employmentType[0],
           industry: mock_selectables.industries[0],
-          title: mock_selectables.jobTitles[0] as String,
+          title: mock_selectables.jobTitles[2],
           location: Location(city: mock_selectables.cities[0], country: mock_selectables.countries[0]),
           startDate: DateTime.now().subtract(const Duration(days: 365 * 5)),
           endDate: DateTime.now().subtract(const Duration(days: 365 * 4))),
@@ -193,7 +194,7 @@ List<User> users = [
           company: companies[0],
           employmentType: mock_selectables.employmentType[0],
           industry: mock_selectables.industries[0],
-          title: mock_selectables.jobTitles[0] as String,
+          title: mock_selectables.jobTitles[1],
           location: Location(city: mock_selectables.cities[0], country: mock_selectables.countries[0]),
           startDate: DateTime.now().subtract(const Duration(days: 365 * 5)),
           endDate: DateTime.now().subtract(const Duration(days: 365 * 4))),
@@ -210,7 +211,6 @@ List<User> users = [
         salarayRange: const SalarayRange(max: 500000, min: 10000)),
   ),
 ];
-
 List<Job> jobs = [
   Job(
     title: "HR Manager",

@@ -6,7 +6,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NavigatorScreen extends StatelessWidget {
-  static const String route = 'navigator-screen';
+  static const String route = '';
   const NavigatorScreen({Key? key}) : super(key: key);
 
   @override

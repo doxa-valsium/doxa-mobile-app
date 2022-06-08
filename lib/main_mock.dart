@@ -6,7 +6,6 @@ import 'services/environment_config_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await Supabase.initialize(
     url: 'https://xfiuzxzrgufeqnvadqcb.supabase.co',
     anonKey:

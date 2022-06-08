@@ -106,8 +106,7 @@ class RegistrationScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  DashedButton(
-                      borderRadius: 16, buttonText: "LOGIN IN", color: Theme.of(context).colorScheme.onSecondaryContainer, func: () {}, dashLineRadius: 16, height: 50 - 4),
+                  DashedButton(borderRadius: 16, buttonText: "LOGIN IN", color: Theme.of(context).colorScheme.onSecondaryContainer, onPressed: () {}, dashLineRadius: 16),
                 ],
               ),
             ),

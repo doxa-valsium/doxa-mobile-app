@@ -63,10 +63,12 @@ class _MainAppState extends State<MainApp> {
             routes: (_) => [
               // if the user is logged in, they may proceed to the main App
               if (state.status == AuthenticationStatus.authenticated)
-                const NavigatorRoute()
+                const AuthWrapperRoute()
               // if they are not logged in, bring them to the Login page
+              else if (state.status == AuthenticationStatus.unauthenticated)
+                const UnAuthWrapperRoute()
               else
-                LoginRoute(),
+                const SplashRoute(),
             ],
           ),
           routeInformationParser: _appRouter.defaultRouteParser(includePrefixMatches: true),

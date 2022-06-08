@@ -19,10 +19,16 @@ import 'package:doxa_mobile_app/presentation/screens/playground/theme_test_scree
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/registration_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_job_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/splash_screen/spalsh_screen.dart';
+import 'package:flutter/material.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Screen,Route',
   routes: [
+    AutoRoute(
+      path: SplashScreen.route,
+      page: SplashScreen,
+    ),
     AutoRoute(
       path: PlaygroundScreen.route,
       page: PlaygroundScreen,
@@ -44,10 +50,6 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
       page: ChatScreen,
     ),
     AutoRoute(
-      path: ChatScreen.route,
-      page: ChatScreen,
-    ),
-    AutoRoute(
       path: ManageImagesScreen.route,
       page: ManageImagesScreen,
     ),
@@ -55,19 +57,6 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
       path: FlowViewDemoScreen.route,
       page: FlowViewDemoScreen,
       fullscreenDialog: true,
-    ),
-    CustomRoute(
-      path: JobFormFlowScreen.route,
-      page: JobFormFlowScreen,
-      fullscreenDialog: true,
-    ),
-    AutoRoute(
-      path: LoginScreen.route,
-      page: LoginScreen,
-    ),
-    AutoRoute(
-      path: RegistrationScreen.route,
-      page: RegistrationScreen,
     ),
     AutoRoute(
       path: BasicInfoScreen.route,
@@ -77,68 +66,108 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
       path: EmailVerificationScreen.route,
       page: EmailVerificationScreen,
     ),
-    AutoRoute(
-      path: NavigatorScreen.route,
-      page: NavigatorScreen,
-      children: [
-        AutoRoute(
-          path: HomeScreen.route,
-          name: 'HomeRouter',
-          page: EmptyRouterPage,
-          children: [
-            AutoRoute(
-              initial: true,
-              page: HomeScreen,
-            ),
-            AutoRoute(
-              path: CounterScreen.route,
-              page: CounterScreen,
-            ),
-          ],
-        ),
-        AutoRoute(
-          path: JobsScreen.route,
-          name: 'JobsRouter',
-          page: EmptyRouterPage,
-          children: [
-            AutoRoute(
-              initial: true,
-              page: JobsScreen,
-            ),
-            AutoRoute(
-              path: SingleJobScreen.route,
-              page: SingleJobScreen,
-            ),
-          ],
-        ),
-        AutoRoute(
-          path: MessagesScreen.route,
-          name: 'MessagesRouter',
-          page: EmptyRouterPage,
-          children: [
-            AutoRoute(
-              initial: true,
-              page: MessagesScreen,
-            ),
-          ],
-        ),
-        AutoRoute(
-          path: ProfileScreen.route,
-          name: 'ProfileRouter',
-          page: EmptyRouterPage,
-          children: [
-            AutoRoute(
-              initial: true,
-              page: ProfileScreen,
-            ),
-            AutoRoute(
-              path: CompanyProfileScreen.route,
-              page: CompanyProfileScreen,
-            ),
-          ],
-        ),
-      ],
-    ),
+    AutoRoute(path: UnAuthWrapperScreen.route, page: EmptyRouterPage, children: [
+      AutoRoute(
+        path: LoginScreen.route,
+        page: LoginScreen,
+        initial: true,
+      ),
+      AutoRoute(
+        path: RegistrationScreen.route,
+        page: RegistrationScreen,
+      ),
+    ]),
+    AutoRoute(path: AuthWrapperScreen.route, page: AuthWrapperScreen, children: [
+      AutoRoute(
+        path: NavigatorScreen.route,
+        page: NavigatorScreen,
+        children: [
+          AutoRoute(
+            path: HomeScreen.route,
+            name: 'HomeRouter',
+            page: EmptyRouterPage,
+            children: [
+              AutoRoute(
+                initial: true,
+                page: HomeScreen,
+              ),
+              AutoRoute(
+                path: CounterScreen.route,
+                page: CounterScreen,
+              ),
+            ],
+          ),
+          AutoRoute(
+            path: JobsScreen.route,
+            name: 'JobsRouter',
+            page: EmptyRouterPage,
+            children: [
+              AutoRoute(
+                initial: true,
+                page: JobsScreen,
+              ),
+              AutoRoute(
+                path: SingleJobScreen.route,
+                page: SingleJobScreen,
+              ),
+              CustomRoute(
+                path: JobFormFlowScreen.route,
+                page: JobFormFlowScreen,
+                fullscreenDialog: true,
+              ),
+            ],
+          ),
+          AutoRoute(
+            path: MessagesScreen.route,
+            name: 'MessagesRouter',
+            page: EmptyRouterPage,
+            children: [
+              AutoRoute(
+                initial: true,
+                page: MessagesScreen,
+              ),
+            ],
+          ),
+          AutoRoute(
+            path: ProfileScreen.route,
+            name: 'ProfileRouter',
+            page: EmptyRouterPage,
+            children: [
+              AutoRoute(
+                initial: true,
+                page: ProfileScreen,
+              ),
+              AutoRoute(
+                path: CompanyProfileScreen.route,
+                page: CompanyProfileScreen,
+              ),
+            ],
+          ),
+        ],
+      ),
+    ]),
   ],
 )
 class $AppRouter {}
+
+class AuthWrapperScreen extends StatelessWidget {
+  static const String route = '';
+  const AuthWrapperScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AutoRouter.declarative(routes: (_) {
+      return [const NavigatorRoute()];
+    });
+  }
+}
+
+class UnAuthWrapperScreen extends StatelessWidget {
+  static const String route = '';
+  const UnAuthWrapperScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}

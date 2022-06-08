@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/business_logic/cubits/login_cubit/login_cubit.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
 import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/dashed_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_elevated_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
+import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -21,7 +23,6 @@ class LoginScreen extends StatelessWidget {
       child: BlocBuilder<LoginCubit, LoginState>(
         builder: (context, state) {
           return Scaffold(
-            // resizeToAvoidBottomInset: false,
             body: SingleChildScrollView(
               child: SafeArea(
                 child: FormBuilder(
@@ -104,7 +105,14 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                         DashedButton(
-                            borderRadius: 16, buttonText: "SIGN UP", color: Theme.of(context).colorScheme.onSecondaryContainer, func: () {}, dashLineRadius: 16, height: 50 - 4),
+                          borderRadius: 16,
+                          buttonText: "SIGN UP",
+                          color: Theme.of(context).colorScheme.onSecondaryContainer,
+                          onPressed: () {
+                            context.router.push(RegistrationRoute());
+                          },
+                          dashLineRadius: 16,
+                        ),
                       ],
                     ),
                   ),
