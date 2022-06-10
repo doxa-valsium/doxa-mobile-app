@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/presentation/screens/add_company_screens/add_company_step_one.dart';
 import 'package:doxa_mobile_app/presentation/screens/add_company_screens/add_company_step_three.dart';
 import 'package:doxa_mobile_app/presentation/screens/add_company_screens/add_company_step_two.dart';
@@ -75,7 +76,7 @@ class AddCompanyFlowScreen extends StatelessWidget {
                   buttonText: 'Add Company',
                   onPressed: (context) {
                     if (_formKey.currentState!.saveAndValidate()) {
-                      // print(_formKey.currentState);
+                      logger.i(_formKey.currentState!.value);
                       FlowView.of(context).next();
                     }
                   },

@@ -35,22 +35,6 @@ class AddCompanyScreen extends StatelessWidget {
                 const SizedBox(
                   height: 28,
                 ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     Text(
-                //       "Join Company",
-                //       style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                //       maxLines: 1,
-                //       overflow: TextOverflow.ellipsis,
-                //     ),
-                //     Iconify(
-                //       Mdi.info_circle_outline,
-                //       size: 20,
-                //       color: Theme.of(context).colorScheme.onSurfaceVariant,
-                //     ),
-                //   ],
-                // ),
                 const JobFieldTitleWithInfo(
                   title: "Join Company",
                   isOptional: false,
@@ -65,7 +49,7 @@ class AddCompanyScreen extends StatelessWidget {
                   validators: FormBuilderValidators.required(),
                   child: const ListScreen(
                     type: FormListType.staticList,
-                    title: "Choose Your Company",
+                    title: "Your Company",
                   ),
                 ),
                 const SizedBox(
@@ -78,7 +62,7 @@ class AddCompanyScreen extends StatelessWidget {
                   validators: FormBuilderValidators.required(),
                   child: const ListScreen(
                     type: FormListType.staticList,
-                    title: "Choose Your Position",
+                    title: "Your Position",
                   ),
                 ),
 
@@ -104,7 +88,7 @@ class AddCompanyScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Text(
-                      "Or if you can’t find your company",
+                      "Or if you can't find your company",
                       style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
                     ),
                   ),
