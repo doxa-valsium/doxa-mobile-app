@@ -40,7 +40,7 @@ class Styles {
 
   static final OutlinedButtonThemeData _outlinedButtonThemeData = OutlinedButtonThemeData(
     style: ButtonStyle(
-      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))),
+      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
       side: MaterialStateProperty.all(BorderSide(color: _colorScheme.primary, width: 1)),
     ),
   );
@@ -48,7 +48,7 @@ class Styles {
   static final ElevatedButtonThemeData _elevatedButtonThemeData = ElevatedButtonThemeData(
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all(_colorScheme.primary),
-      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))),
+      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
     ),
   );
 

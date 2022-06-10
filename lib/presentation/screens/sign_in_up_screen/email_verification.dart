@@ -1,5 +1,5 @@
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/otp_container.dart';
-import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
+import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar_and_body.dart';
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 

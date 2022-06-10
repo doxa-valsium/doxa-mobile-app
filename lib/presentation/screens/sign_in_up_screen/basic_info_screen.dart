@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/type_selector.dart';
-import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
+import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar_and_body.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_datepicker.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';

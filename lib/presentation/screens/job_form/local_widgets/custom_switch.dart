@@ -8,6 +8,7 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 class CustomSwitch extends StatelessWidget {
   final List<String> options;
   final String name;
+  
 
   const CustomSwitch({
     Key? key,
@@ -24,6 +25,7 @@ class CustomSwitch extends StatelessWidget {
         context: context,
       ),
       child: BlocBuilder<CustomSwitchCubit, CustomSwitchState>(builder: (context, state) {
+        
         return FormBuilderField(
           name: name,
           validator: FormBuilderValidators.compose([
