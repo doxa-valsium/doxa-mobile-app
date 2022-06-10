@@ -18,7 +18,7 @@ class UnAuthWrapperScreen extends StatelessWidget {
               if (state is OnLoginScreen)
                 LoginRoute()
               else
-                const RegistrationFlowRoute()
+                 RegistrationFlowRoute()
             ];
           });
         },

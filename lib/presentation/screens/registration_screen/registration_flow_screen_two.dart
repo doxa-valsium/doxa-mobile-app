@@ -19,7 +19,6 @@ import '../../../business_logic/blocs/unauth_wrapper/unauth_wrapper_bloc.dart';
 
 class RegistrationFlowScreenTwo extends StatelessWidget {
   final DateFormat dateFormatter = DateFormat('dd-MM-yyyy');
-  final _registrationFormKey = GlobalKey<FormBuilderState>();
   final Map<String, dynamic> registrationData = {};
 
   RegistrationFlowScreenTwo({Key? key}) : super(key: key);
@@ -35,106 +34,103 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
               title: 'Basic Info',
               onBack: () => FlowView.of(context).back(),
               body: SingleChildScrollView(
-                child: FormBuilder(
-                  key: _registrationFormKey,
-                  child: Padding(
-                    padding: const EdgeInsets.all(28.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Welcome! We would like to know a little more about you.",
-                          style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
+                child: Padding(
+                  padding: const EdgeInsets.all(28.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Welcome! We would like to know a little more about you.",
+                        style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
+                      ),
+                      const SizedBox(height: 16),
+                      CustomFormBuilderTextField(
+                        formKey: BlocProvider.of<RegistrationScreenCubit>(context).formKey,
+                        focusNode: FocusNode(),
+                        name: "FirstName",
+                        controller: TextEditingController(),
+                        keyboardType: TextInputType.text,
+                        labelText: "First Name",
+                        validators: FormBuilderValidators.compose([
+                          FormBuilderValidators.required(),
+                        ]),
+                      ),
+                      const SizedBox(height: 16),
+                      CustomFormBuilderTextField(
+                        formKey: BlocProvider.of<RegistrationScreenCubit>(context).formKey,
+                        focusNode: FocusNode(),
+                        name: "LastName",
+                        controller: TextEditingController(),
+                        keyboardType: TextInputType.text,
+                        labelText: "Last Name",
+                        validators: FormBuilderValidators.compose([
+                          FormBuilderValidators.required(),
+                        ]),
+                      ),
+                      const SizedBox(height: 16),
+                      CustomFormBuilderDropDown(
+                        formKey: BlocProvider.of<RegistrationScreenCubit>(context).formKey,
+                        name: "Gender",
+                        labelText: "Gender",
+                        validators: FormBuilderValidators.required(),
+                        child: const ListScreen(
+                          type: FormListType.staticList,
+                          title: "Workplace Type",
                         ),
-                        const SizedBox(height: 16),
-                        CustomFormBuilderTextField(
-                          formKey: _registrationFormKey,
-                          focusNode: FocusNode(),
-                          name: "FirstName",
-                          controller: TextEditingController(),
-                          keyboardType: TextInputType.text,
-                          labelText: "First Name",
-                          validators: FormBuilderValidators.compose([
-                            FormBuilderValidators.required(),
-                          ]),
-                        ),
-                        const SizedBox(height: 16),
-                        CustomFormBuilderTextField(
-                          formKey: _registrationFormKey,
-                          focusNode: FocusNode(),
-                          name: "LastName",
-                          controller: TextEditingController(),
-                          keyboardType: TextInputType.text,
-                          labelText: "Last Name",
-                          validators: FormBuilderValidators.compose([
-                            FormBuilderValidators.required(),
-                          ]),
-                        ),
-                        const SizedBox(height: 16),
-                        CustomFormBuilderDropDown(
-                          formKey: _registrationFormKey,
-                          name: "Gender",
-                          labelText: "Gender",
-                          validators: FormBuilderValidators.required(),
-                          child: const ListScreen(
-                            type: FormListType.staticList,
-                            title: "Workplace Type",
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        CustomFormBuilderDatePicker(
-                          name: "DOB",
-                          labelText: "Date of Birth",
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          "Register as",
-                          style: Theme.of(context).textTheme.subtitle2?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
-                        ),
-                        const SizedBox(height: 16),
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 10,
-                              child: UserTypeSelector(
-                                bodycolor: Theme.of(context).colorScheme.onSecondaryContainer,
-                                elevation: Styles.elevation3,
-                                imagePath: 'assets/images/candidate.png',
-                                text: 'Candidate',
-                              ),
+                      ),
+                      const SizedBox(height: 16),
+                      CustomFormBuilderDatePicker(
+                        name: "DOB",
+                        labelText: "Date of Birth",
+                      ),
+                      const SizedBox(height: 16),
+                      Text(
+                        "Register as",
+                        style: Theme.of(context).textTheme.subtitle2?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 10,
+                            child: UserTypeSelector(
+                              bodycolor: Theme.of(context).colorScheme.onSecondaryContainer,
+                              elevation: Styles.elevation3,
+                              imagePath: 'assets/images/candidate.png',
+                              text: 'Candidate',
                             ),
-                            const SizedBox(width: 16),
-                            Expanded(
-                              flex: 10,
-                              child: UserTypeSelector(
-                                bodycolor: Theme.of(context).colorScheme.onSecondaryContainer,
-                                elevation: Styles.elevation3,
-                                imagePath: 'assets/images/recruiter.png',
-                                text: 'Recruiter',
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 64,
-                        ),
-                        SizedBox(
-                          width: double.maxFinite,
-                          height: 50.0,
-                          child: CustomElevatedButton(
-                            buttonText: 'CONTINUE',
-                            onPressed: () {
-                              if (_registrationFormKey.currentState!.saveAndValidate()) {
-                                Map<String, dynamic> completeRegistrationData = Map<String, dynamic>.from(_registrationFormKey.currentState!.value);
-                                completeRegistrationData.addAll(registrationData);
-                                logger.i(completeRegistrationData);
-                                BlocProvider.of<RegistrationScreenCubit>(context).register();
-                              }
-                            },
                           ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            flex: 10,
+                            child: UserTypeSelector(
+                              bodycolor: Theme.of(context).colorScheme.onSecondaryContainer,
+                              elevation: Styles.elevation3,
+                              imagePath: 'assets/images/recruiter.png',
+                              text: 'Recruiter',
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 64,
+                      ),
+                      SizedBox(
+                        width: double.maxFinite,
+                        height: 50.0,
+                        child: CustomElevatedButton(
+                          buttonText: 'CONTINUE',
+                          onPressed: () {
+                            if (BlocProvider.of<RegistrationScreenCubit>(context).formKey.currentState!.saveAndValidate()) {
+                              Map<String, dynamic> completeRegistrationData = Map<String, dynamic>.from(BlocProvider.of<RegistrationScreenCubit>(context).formKey.currentState!.value);
+                              completeRegistrationData.addAll(registrationData);
+                              logger.i(completeRegistrationData);
+                              BlocProvider.of<RegistrationScreenCubit>(context).register();
+                            }
+                          },
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),

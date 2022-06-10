@@ -6,20 +6,29 @@ import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_screen.dart'
 import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class RegistrationFlowScreen extends StatelessWidget {
   static const String route = 'registration-flow-screen';
-  const RegistrationFlowScreen({Key? key}) : super(key: key);
+  final _registrationFormKey = GlobalKey<FormBuilderState>();
+  RegistrationFlowScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => RegistrationScreenCubit(authRepository: RepositoryProvider.of<AuthRepository>(context)),
-      child: FlowView(
-        steps: [
-          FlowScreen.builder((context, state) => RegistrationFlowScreenOne()),
-          FlowScreen.builder((context, state) => RegistrationFlowScreenTwo()),
-        ],
+    return Scaffold(
+      body: SafeArea(
+        child: BlocProvider(
+          create: (context) => RegistrationScreenCubit(authRepository: RepositoryProvider.of<AuthRepository>(context), formKey: _registrationFormKey),
+          child: FormBuilder(
+            key: _registrationFormKey,
+            child: FlowView(
+              steps: [
+                FlowScreen.builder((context, state) => RegistrationFlowScreenOne()),
+                FlowScreen.builder((context, state) => RegistrationFlowScreenTwo()),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
