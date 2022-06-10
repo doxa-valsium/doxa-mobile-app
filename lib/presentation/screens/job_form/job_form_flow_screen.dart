@@ -20,13 +20,13 @@ class JobFormFlowScreen extends StatelessWidget {
   bool containsQualification(Map qualification) {
     // This checks if the qualification is valid means already exists or not
     bool valid = false;
-    qualifications.forEach((element) {
+    for (var element in qualifications) {
       if (element['qualificationDegree'] == qualification['qualificationDegree'] &&
           element['qualificationMajor'] == qualification['qualificationMajor'] &&
           element['qualificationExperienceType'] == qualification['qualificationExperienceType']) {
         valid = true;
       }
-    });
+    }
     return valid;
   }
 

@@ -7,12 +7,14 @@ class CustomAppBarAndBody extends StatelessWidget {
   final Widget body;
   final String title;
   final bool showBackButton;
+  final VoidCallback? onBack;
 
   const CustomAppBarAndBody({
     Key? key,
     required this.body,
     required this.title,
     required this.showBackButton,
+    this.onBack,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class CustomAppBarAndBody extends StatelessWidget {
             snap: true,
             elevation: 0.0,
             title: Padding(
-              padding: const EdgeInsets.only(left: 8.0, top: 16.0),
+              padding: const EdgeInsets.only(top: 16.0),
               child: Text(
                 title,
                 style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
@@ -43,29 +45,27 @@ class CustomAppBarAndBody extends StatelessWidget {
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
+            centerTitle: false,
             floating: true,
             snap: true,
             elevation: 0.0,
             title: Padding(
-              padding: const EdgeInsets.only(left: 0.0, top: 16.0),
+              padding: const EdgeInsets.only(top: 16.0),
               child: Text(
                 title,
                 style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
               ),
             ),
             backgroundColor: Theme.of(context).colorScheme.background,
-            // automaticallyImplyLeading: true,
             leading: Padding(
               padding: const EdgeInsets.only(top: 16.0, left: 20.0),
-              child: GestureDetector(
-                onTap: () {
-                  context.router.pop();
-                },
-                child: const Iconify(
-                  Ic.round_arrow_back_ios,
-                  size: 8.0,
-                  color: Color(0xFF737B7D),
+              child: IconButton(
+                icon: Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  color: Theme.of(context).colorScheme.onBackground,
+                  size: 24,
                 ),
+                onPressed: onBack ?? () => context.router.pop(),
               ),
             ),
           ),

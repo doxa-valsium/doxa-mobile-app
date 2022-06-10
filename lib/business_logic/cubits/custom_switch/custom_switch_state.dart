@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+part of 'custom_switch_cubit.dart';
 
 class CustomSwitchState extends Equatable {
   final double positionX;

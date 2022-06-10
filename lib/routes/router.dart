@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/company_profile_screen.dart';
-import 'package:doxa_mobile_app/presentation/screens/counter_screen/counter_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/home_screen/home_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/job_form_flow_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/jobs_screen/jobs_screen.dart';
@@ -9,20 +8,16 @@ import 'package:doxa_mobile_app/presentation/screens/messages_screen/messages_sc
 import 'package:doxa_mobile_app/presentation/screens/navigator_screen/navigator_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/custom_widgets_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/flow_view_demo_screen.dart';
-import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/basic_info_screen.dart';
-import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/email_verification.dart';
-import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/login_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/login_screen/login_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/playground_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/manage_1x_2x_3x_images.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/pulsing_button_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/playground/theme_test_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_screen.dart';
-import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/registration_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/registration_screen/registration_flow_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_job_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/splash_screen/spalsh_screen.dart';
-import 'package:doxa_mobile_app/routes/auth_wrapper.dart';
-import 'package:doxa_mobile_app/routes/temp.dart';
-import 'package:flutter/material.dart';
+import 'package:doxa_mobile_app/routes/unauth_wrapper_screen.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Screen,Route',
@@ -60,24 +55,16 @@ import 'package:flutter/material.dart';
       page: FlowViewDemoScreen,
       fullscreenDialog: true,
     ),
-    AutoRoute(path: "/auth", page: UnAuthWrapperScreen, // we'll get to this LoginWrapperPage next
+    AutoRoute(path: "/unauth", page: UnAuthWrapperScreen,
         children: [
           AutoRoute(
-            path: BasicInfoScreen.route,
-            page: BasicInfoScreen,
-          ),
-          AutoRoute(
-            path: EmailVerificationScreen.route,
-            page: EmailVerificationScreen,
-          ),
-          AutoRoute(
-            path: LoginScreen.route,
+            path: 'login',
             page: LoginScreen,
             initial: true,
           ),
           AutoRoute(
-            path: RegistrationScreen.route,
-            page: RegistrationScreen,
+            path: 'register',
+            page: RegistrationFlowScreen,
           ),
         ]),
     AutoRoute(
@@ -92,10 +79,6 @@ import 'package:flutter/material.dart';
             AutoRoute(
               initial: true,
               page: HomeScreen,
-            ),
-            AutoRoute(
-              path: CounterScreen.route,
-              page: CounterScreen,
             ),
           ],
         ),

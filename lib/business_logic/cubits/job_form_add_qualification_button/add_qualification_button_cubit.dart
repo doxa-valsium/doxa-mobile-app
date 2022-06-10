@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:doxa_mobile_app/business_logic/cubits/job_form_add_qualification_button/add_qualification_button_state.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/qualification.dart';
 import 'package:flutter/material.dart';
+import 'package:equatable/equatable.dart';
+
+part 'add_qualification_button_state.dart';
 
 class AddQualificationButtonCubit extends Cubit<AddQualificationButtonState> {
   BuildContext context;

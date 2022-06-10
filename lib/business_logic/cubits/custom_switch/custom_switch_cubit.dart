@@ -1,6 +1,7 @@
-import 'package:bloc/bloc.dart';
-import 'package:doxa_mobile_app/business_logic/cubits/custom_switch/custom_switch_state.dart';
 import 'package:flutter/material.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+part 'custom_switch_state.dart';
 
 class CustomSwitchCubit extends Cubit<CustomSwitchState> {
   BuildContext context;

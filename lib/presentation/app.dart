@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:doxa_mobile_app/business_logic/blocs/auth_bloc/auth.state.dart';
-import 'package:doxa_mobile_app/business_logic/blocs/auth_bloc/auth_bloc.dart';
+import 'package:doxa_mobile_app/business_logic/blocs/auth/auth_bloc.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/mock_auth_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/mock_user_repository.dart';
@@ -28,8 +27,8 @@ class App extends StatelessWidget {
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<AuthenticationBloc>(
-            create: (context) => AuthenticationBloc(authenticationRepository: _authRepository, userRepository: _userRepository),
+          BlocProvider<AuthBloc>(
+            create: (context) => AuthBloc(authenticationRepository: _authRepository, userRepository: _userRepository),
           ),
         ],
         child: const MainApp(),
@@ -50,7 +49,7 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+    return BlocBuilder<AuthBloc, AuthenticationState>(
       builder: (context, state) {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
@@ -63,7 +62,7 @@ class _MainAppState extends State<MainApp> {
                 const NavigatorRoute()
               // if they are not logged in, bring them to the Login page
               else if (state.status == AuthenticationStatus.unauthenticated)
-                 const AuthWrapperRoute()
+                 const UnAuthWrapperRoute()
               else
                 const SplashRoute(),
             ],

@@ -1,6 +1,5 @@
-import 'package:doxa_mobile_app/business_logic/blocs/auth_bloc/auth_bloc.dart';
-import 'package:doxa_mobile_app/business_logic/blocs/auth_bloc/auth_event.dart';
-import 'package:doxa_mobile_app/business_logic/blocs/profile_bloc/profile_bloc.dart';
+import 'package:doxa_mobile_app/business_logic/blocs/auth/auth_bloc.dart';
+import 'package:doxa_mobile_app/business_logic/blocs/profile/profile_bloc.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/local_widgets/profile_details.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/local_widgets/profile_stack_handler.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
@@ -103,7 +102,7 @@ class ProfileScreen extends StatelessWidget {
                               ),
                               menuText: 'LOGOUT',
                               onTap: () {
-                                BlocProvider.of<AuthenticationBloc>(context).add(AuthenticationLogoutRequested());
+                                BlocProvider.of<AuthBloc>(context).add(AuthenticationLogoutRequested());
                               },
                             ),
                             const SizedBox(

@@ -1,14 +1,17 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:doxa_mobile_app/business_logic/blocs/auth_bloc/auth.state.dart';
-import 'package:doxa_mobile_app/business_logic/blocs/auth_bloc/auth_event.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
 import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/models/user.dart';
 
-class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
-  AuthenticationBloc({
+import 'package:equatable/equatable.dart';
+
+part 'auth_event.dart';
+part 'auth_state.dart';
+
+class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
+  AuthBloc({
     required AuthRepository authenticationRepository,
     required UserRepository userRepository,
   })  : _authenticationRepository = authenticationRepository,

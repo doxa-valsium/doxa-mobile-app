@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TypeSelector extends StatelessWidget {
+class UserTypeSelector extends StatelessWidget {
   final List<BoxShadow> elevation;
   final Color bodycolor;
   final String imagePath;
   final String text;
   final VoidCallback? onTap;
 
-  const TypeSelector({Key? key, required this.bodycolor, required this.elevation, required this.imagePath, required this.text, this.onTap}) : super(key: key);
+  const UserTypeSelector({Key? key, required this.bodycolor, required this.elevation, required this.imagePath, required this.text, this.onTap}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(

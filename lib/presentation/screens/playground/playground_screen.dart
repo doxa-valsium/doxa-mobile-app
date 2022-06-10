@@ -61,7 +61,7 @@ class PlaygroundScreen extends StatelessWidget {
               ),
               MaterialButton(
                 onPressed: () {
-                  context.router.push(RegistrationRoute());
+                  context.router.push(RegistrationFlowRoute());
                 },
                 child: const Text("Go to Registration Screen"),
               ),

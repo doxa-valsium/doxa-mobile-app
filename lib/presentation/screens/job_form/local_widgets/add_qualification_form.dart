@@ -1,4 +1,4 @@
-import 'package:doxa_mobile_app/business_logic/cubits/job_form_add_qualification_button/add_qualification_button_state.dart';
+import 'package:doxa_mobile_app/business_logic/cubits/job_form_add_qualification_button/add_qualification_button_cubit.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/custom_switch.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_elevated_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';

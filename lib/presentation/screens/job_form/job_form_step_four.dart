@@ -1,5 +1,4 @@
 import 'package:doxa_mobile_app/business_logic/cubits/job_form_add_skills/job_form_add_skills_cubit.dart';
-import 'package:doxa_mobile_app/business_logic/cubits/job_form_add_skills/job_form_add_skills_state.dart';
 import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/custom_chip_dynamic_skill.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
@@ -10,8 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/mdi.dart';
 
 class JobFormStepFour extends StatelessWidget {
   final GlobalKey<FormBuilderState> formKey;

@@ -9,7 +9,7 @@ typedef FlowBuilder = Widget Function(BuildContext, FlowViewState);
 
 class FlowScreen extends StatelessWidget {
   final FlowBuilder builder;
-  const FlowScreen.builder({Key? key, required this.builder}) : super(key: key);
+  const FlowScreen.builder(this.builder,{Key? key}) : super(key: key);
   FlowScreen({
     Key? key,
     required Widget child,

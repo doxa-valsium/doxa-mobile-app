@@ -1,6 +1,4 @@
-import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
-import 'package:equatable/equatable.dart';
-
+part of 'auth_bloc.dart';
 abstract class AuthenticationEvent extends Equatable {
   const AuthenticationEvent();
 

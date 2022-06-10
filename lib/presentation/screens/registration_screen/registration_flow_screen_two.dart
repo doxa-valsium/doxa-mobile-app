@@ -1,13 +1,13 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:doxa_mobile_app/business_logic/cubits/registration_screen/registration_screen_cubit.dart';
 import 'package:doxa_mobile_app/logger.dart';
-import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/type_selector.dart';
+import 'package:doxa_mobile_app/presentation/screens/registration_screen/local_widgets/user_type_selector.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_elevated_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_datepicker.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
+import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_view.dart';
 import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
-import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,27 +15,25 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl/intl.dart';
 
-import '../../../business_logic/cubits/unauth_wrapper/unauth_wrapper_cubit.dart';
-import '../../../business_logic/cubits/unauth_wrapper/unauth_wrapper_state.dart';
+import '../../../business_logic/blocs/unauth_wrapper/unauth_wrapper_bloc.dart';
 
-class BasicInfoScreen extends StatelessWidget {
-  static const String route = 'basic-info-screen';
-
+class RegistrationFlowScreenTwo extends StatelessWidget {
   final DateFormat dateFormatter = DateFormat('dd-MM-yyyy');
   final _registrationFormKey = GlobalKey<FormBuilderState>();
-  final Map<String, dynamic> registrationData;
+  final Map<String, dynamic> registrationData = {};
 
-  BasicInfoScreen({Key? key, required this.registrationData}) : super(key: key);
+  RegistrationFlowScreenTwo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UnAuthWrapperCubit, UnAuthWrapperState>(
+    return BlocBuilder<UnauthWrapperBloc, UnauthWrapperState>(
       builder: (context, state) {
         return Scaffold(
           body: SafeArea(
             child: CustomAppBarAndBody(
               showBackButton: true,
               title: 'Basic Info',
+              onBack: () => FlowView.of(context).back(),
               body: SingleChildScrollView(
                 child: FormBuilder(
                   key: _registrationFormKey,
@@ -98,7 +96,7 @@ class BasicInfoScreen extends StatelessWidget {
                           children: [
                             Expanded(
                               flex: 10,
-                              child: TypeSelector(
+                              child: UserTypeSelector(
                                 bodycolor: Theme.of(context).colorScheme.onSecondaryContainer,
                                 elevation: Styles.elevation3,
                                 imagePath: 'assets/images/candidate.png',
@@ -108,7 +106,7 @@ class BasicInfoScreen extends StatelessWidget {
                             const SizedBox(width: 16),
                             Expanded(
                               flex: 10,
-                              child: TypeSelector(
+                              child: UserTypeSelector(
                                 bodycolor: Theme.of(context).colorScheme.onSecondaryContainer,
                                 elevation: Styles.elevation3,
                                 imagePath: 'assets/images/recruiter.png',
@@ -130,7 +128,7 @@ class BasicInfoScreen extends StatelessWidget {
                                 Map<String, dynamic> completeRegistrationData = Map<String, dynamic>.from(_registrationFormKey.currentState!.value);
                                 completeRegistrationData.addAll(registrationData);
                                 logger.i(completeRegistrationData);
-                                BlocProvider.of<UnAuthWrapperCubit>(context).register();
+                                BlocProvider.of<RegistrationScreenCubit>(context).register();
                               }
                             },
                           ),
