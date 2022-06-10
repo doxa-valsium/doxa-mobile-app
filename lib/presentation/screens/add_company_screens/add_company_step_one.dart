@@ -27,7 +27,7 @@ class AddCompanyStepOne extends StatelessWidget {
               formKey: formKey,
               name: "companyName",
               controller: TextEditingController(),
-              labelText: "Comapany Name",
+              labelText: "Company Name",
               validators: FormBuilderValidators.compose([
                 FormBuilderValidators.required(),
                 FormBuilderValidators.max(25),
