@@ -1,17 +1,23 @@
+import 'dart:async';
+
+import 'package:doxa_mobile_app/constants.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
 import 'package:doxa_mobile_app/logger.dart';
+import 'package:supabase/supabase.dart' as supabase_root;
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseAuthRepository extends AuthRepository {
+  final _controller = StreamController<AuthenticationStatus>();
+
   @override
   User? getUser() {
-    final user = Supabase.instance.client.auth.currentUser;
+    final user = supabase.auth.currentUser;
     return user;
   }
 
   @override
   bool isSignedIn() {
-    final response = Supabase.instance.client.auth.currentUser;
+    final response = supabase.auth.currentUser;
     if (response == null) {
       return false;
     } else {
@@ -21,40 +27,48 @@ class SupabaseAuthRepository extends AuthRepository {
 
   @override
   Future<void> signInWithEmailAndPassword(String email, String password) async {
-    final response = await Supabase.instance.client.auth.signIn(email: email, password: password);
+    final response = await supabase.auth.signIn(email: email, password: password, options: supabase_root.AuthOptions(redirectTo: authRedirectUri));
     if (response.error != null) {
       logger.e(response.error!.message);
     } else {
-      return logger.i('User created successfully');
+      _controller.add(AuthenticationStatus.authenticated);
+      logger.i('User Logged In successfully');
     }
   }
 
   @override
   Future<void> signOut() async {
-    final response = await Supabase.instance.client.auth.signOut();
+    final response = await supabase.auth.signOut();
     if (response.error != null) {
       logger.e(response.error!.message);
     } else {
-      return logger.i('User Ssgned out successfully');
+      _controller.add(AuthenticationStatus.unauthenticated);
+      logger.i('User Signed out successfully');
     }
   }
 
   @override
   Future<void> signUpWithEmailAndPassword(String email, String password) async {
-    final response = await Supabase.instance.client.auth.signUp(email, password);
+    final response = await supabase.auth.signUp(email, password, options: supabase_root.AuthOptions(redirectTo: authRedirectUri));
     if (response.error != null) {
       logger.e(response.error!.message);
     } else {
-      return logger.i('User created successfully');
+      _controller.add(AuthenticationStatus.authenticated);
+      logger.i('User created successfully');
     }
   }
-  
+
   @override
-  // TODO: implement status
-  Stream<AuthenticationStatus> get status => throw UnimplementedError();
-  
-  @override
-  void dispose() {
-    // TODO: implement dispose
+  Stream<AuthenticationStatus> get status async* {
+    final user = getUser();
+    if (user == null) {
+      yield AuthenticationStatus.unauthenticated;
+    } else {
+      yield AuthenticationStatus.authenticated;
+    }
+    yield* _controller.stream;
   }
+
+  @override
+  void dispose() => _controller.close();
 }

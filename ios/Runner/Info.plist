@@ -9,7 +9,7 @@
       <string>Editor</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>io.supabase.flutterquickstart</string>
+        <string>doxa</string>
       </array>
     </dict>
   </array>

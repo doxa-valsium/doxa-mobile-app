@@ -25,7 +25,13 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UnauthWrapperBloc, UnauthWrapperState>(
+    return BlocConsumer<RegistrationScreenCubit, RegistrationScreenState>(
+      buildWhen: (previous, current) => current is! RegistrationScreenError,
+      listener: (context, state) {
+        if (state is RegistrationScreenError) {
+          logger.d(state.errorMessage);
+        }
+      },
       builder: (context, state) {
         return Scaffold(
           body: SafeArea(
@@ -120,9 +126,11 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                         height: 50.0,
                         child: CustomElevatedButton(
                           buttonText: 'CONTINUE',
+                          isLoading: state is RegistrationScreenLoading,
                           onPressed: () {
                             if (BlocProvider.of<RegistrationScreenCubit>(context).formKey.currentState!.saveAndValidate()) {
-                              Map<String, dynamic> completeRegistrationData = Map<String, dynamic>.from(BlocProvider.of<RegistrationScreenCubit>(context).formKey.currentState!.value);
+                              Map<String, dynamic> completeRegistrationData =
+                                  Map<String, dynamic>.from(BlocProvider.of<RegistrationScreenCubit>(context).formKey.currentState!.value);
                               completeRegistrationData.addAll(registrationData);
                               logger.i(completeRegistrationData);
                               BlocProvider.of<RegistrationScreenCubit>(context).register();

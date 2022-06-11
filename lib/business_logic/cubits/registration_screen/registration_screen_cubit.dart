@@ -13,11 +13,20 @@ class RegistrationScreenCubit extends Cubit<RegistrationScreenState> {
   final GlobalKey<FormBuilderState> formKey;
 
   RegistrationScreenCubit({required AuthRepository authRepository, required GlobalKey<FormBuilderState> formKey})
-      : _authRepository = authRepository, formKey = formKey, super(RegistrationScreenInitial(formKey: formKey));
-        // super(RegistrationScreenInitial());
+      : _authRepository = authRepository,
+        formKey = formKey,
+        super(RegistrationScreenInitial(formKey: formKey));
+  // super(RegistrationScreenInitial());
 
   Future<void> register() async {
-    await Future.delayed(kMockFutureDelay);
-    emit(const RegistrationScreenError(errorMessage: ErrorMessageService.genericErrorMessage));
+    emit(RegistrationScreenLoading());
+    final email = formKey.currentState!.value['registration_email'];
+    final password = formKey.currentState!.value['registration_password'];
+    try {
+      await _authRepository.signUpWithEmailAndPassword(email, password);
+      emit(RegistrationScreenSucess());
+    } catch (e) {
+      emit(const RegistrationScreenError(errorMessage: ErrorMessageService.genericErrorMessage));
+    }
   }
 }

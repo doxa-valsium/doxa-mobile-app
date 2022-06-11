@@ -43,7 +43,7 @@ class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
       case AuthenticationStatus.unauthenticated:
         return emit(const AuthenticationState.unauthenticated());
       case AuthenticationStatus.authenticated:
-        final user = await _tryGetUser();
+        final user = _tryGetUser();
         return emit(user != null ? AuthenticationState.authenticated(user) : const AuthenticationState.unauthenticated());
       default:
         return emit(const AuthenticationState.unknown());
@@ -57,9 +57,9 @@ class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
     _authenticationRepository.signOut();
   }
 
-  Future<User?> _tryGetUser() async {
+  User? _tryGetUser() {
     try {
-      final user = await _userRepository.getUser();
+      final user = _userRepository.getUser();
       logger.d('User: $user');
       return user;
     } catch (_) {

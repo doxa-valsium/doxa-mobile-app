@@ -2,9 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/business_logic/blocs/auth/auth_bloc.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/mock_auth_repository.dart';
+import 'package:doxa_mobile_app/data/repositories/auth_repository/supabase_auth_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/mock_user_repository.dart';
+import 'package:doxa_mobile_app/data/repositories/user_repository/supabase_user_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
+import 'package:doxa_mobile_app/services/environment_config_service.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,8 +15,8 @@ import 'package:form_builder_validators/localization/l10n.dart';
 
 class App extends StatelessWidget {
   App({Key? key}) : super(key: key);
-  final _authRepository = MockAuthRepository();
-  final _userRepository = MockUserRepository();
+  final _authRepository = EnvironmentConfigService.currentEnivironment == Environment.production ? SupabaseAuthRepository() : MockAuthRepository();
+  final _userRepository = EnvironmentConfigService.currentEnivironment == Environment.production ? SupabaseUserRepository() : MockUserRepository();
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(

@@ -9,6 +9,8 @@ class User extends Equatable {
   final String lastName;
   final String email;
   final Gender gender;
+  final bool isVerified;
+  final bool isOnboarded;
   final DateTime? dateOfBirth;
   final String? profilePictureUrl;
   const User({
@@ -17,6 +19,8 @@ class User extends Equatable {
     required this.lastName,
     required this.email,
     required this.gender,
+    required this.isVerified,
+    required this.isOnboarded,
     this.dateOfBirth,
     this.profilePictureUrl,
   });
@@ -28,6 +32,8 @@ class User extends Equatable {
     email: '-',
     firstName: '-',
     lastName: '-',
+    isVerified: true,
+    isOnboarded: true,
     gender: Gender(id: '-', label: '-'),
     userId: '-',
   );

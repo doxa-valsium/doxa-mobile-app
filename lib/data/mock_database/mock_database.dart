@@ -32,6 +32,8 @@ List<User> users = [
     firstName: "Faaz",
     lastName: "lastName",
     email: "faz@email.com",
+    isOnboarded: true,
+    isVerified: true,
     gender: mock_selectables.genders[0],
     dateOfBirth: DateTime.now().subtract(const Duration(days: 365 * 50)),
     isAdmin: true,
@@ -43,6 +45,8 @@ List<User> users = [
     lastName: "Rasool",
     email: "raz@email.com",
     gender: mock_selectables.genders[0],
+    isOnboarded: true,
+    isVerified: true,
     dateOfBirth: DateTime.now().subtract(const Duration(days: 365 * 30)),
     isAdmin: false,
     company: companies[0],
@@ -52,6 +56,8 @@ List<User> users = [
     firstName: "Hussain",
     lastName: "Abbas",
     email: "huss@email.com",
+    isOnboarded: true,
+    isVerified: true,
     gender: mock_selectables.genders[0],
     dateOfBirth: DateTime.now().subtract(const Duration(days: 365 * 18)),
     isAdmin: true,
@@ -62,6 +68,8 @@ List<User> users = [
     firstName: "Jawwaaad",
     lastName: "Rajani",
     email: "raj@email.com",
+    isOnboarded: true,
+    isVerified: true,
     gender: mock_selectables.genders[0],
     dateOfBirth: DateTime.now().subtract(const Duration(days: 365 * 40)),
     isAdmin: false,
@@ -72,6 +80,8 @@ List<User> users = [
     firstName: "Asad",
     lastName: "Raza",
     email: "a@email.com",
+    isOnboarded: true,
+    isVerified: true,
     gender: mock_selectables.genders[3],
     dateOfBirth: DateTime.now().subtract(const Duration(days: 365 * 40)),
     bio:
@@ -107,6 +117,8 @@ List<User> users = [
         salarayRange: const SalarayRange(max: 500000, min: 10000)),
   ),
   Candidate(
+    isOnboarded: true,
+    isVerified: true,
     profilePictureUrl: "https://i.pravatar.cc/300",
     publications: [
       Publication(title: "How to Get Gurls", field: "Sex", journal: "Sex Note", date: DateTime.now()),
@@ -162,6 +174,8 @@ List<User> users = [
         salarayRange: const SalarayRange(max: 500000, min: 10000)),
   ),
   Candidate(
+    isOnboarded: true,
+    isVerified: true,
     profilePictureUrl: "https://i.pravatar.cc/300",
     certifications: [
       Certification(title: "EE God", dated: DateTime.now(), affiliation: "BAsit"),
