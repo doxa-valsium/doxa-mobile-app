@@ -115,7 +115,7 @@ class LoginScreen extends StatelessWidget {
                           buttonText: "SIGN UP",
                           color: Theme.of(context).colorScheme.onSecondaryContainer,
                           onPressed: () {
-                            unauthWrapperBloc.add(NavigateToRegistration());
+                            unauthWrapperBloc.add(NavigateToRegistrationScreen());
                           },
                           dashLineRadius: 16,
                         ),

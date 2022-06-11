@@ -111,7 +111,7 @@ class RegistrationFlowScreenOne extends StatelessWidget {
                         buttonText: "LOGIN IN",
                         color: Theme.of(context).colorScheme.onSecondaryContainer,
                         onPressed: () {
-                          unauthWrapperBloc.add(NavigateToLogin());
+                          unauthWrapperBloc.add(NavigateToLoginScreen());
                         },
                         dashLineRadius: 16),
                   ],

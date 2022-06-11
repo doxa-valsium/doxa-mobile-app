@@ -7,6 +7,6 @@ abstract class UnauthWrapperEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class NavigateToLogin extends UnauthWrapperEvent {}
+class NavigateToLoginScreen extends UnauthWrapperEvent {}
 
-class NavigateToRegistration extends UnauthWrapperEvent {}
+class NavigateToRegistrationScreen extends UnauthWrapperEvent {}
