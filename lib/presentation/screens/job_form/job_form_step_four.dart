@@ -38,7 +38,6 @@ class JobFormStepFour extends StatelessWidget {
               const SizedBox(height: 16),
               CustomFormBuilderDropDown(
                 holdVal: true,
-                formKey: formKey,
                 name: "industry",
                 labelText: "Industry",
                 validators: FormBuilderValidators.required(),
@@ -59,7 +58,6 @@ class JobFormStepFour extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 2.3,
                     child: CustomFormBuilderTextField(
-                        formKey: formKey,
                         name: "starting_range",
                         focusNode: FocusNode(),
                         controller: TextEditingController(),
@@ -72,7 +70,6 @@ class JobFormStepFour extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 2.3,
                     child: CustomFormBuilderTextField(
-                        formKey: formKey,
                         name: "ending_range",
                         focusNode: FocusNode(),
                         controller: TextEditingController(),
@@ -105,7 +102,6 @@ class JobFormStepFour extends StatelessWidget {
                 ),
               const SizedBox(height: 16),
               CustomFormBuilderDropDown(
-                formKey: formKey,
                 name: "skills",
                 labelText: "Add Skills",
                 forSkills: true,

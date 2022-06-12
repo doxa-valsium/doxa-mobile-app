@@ -26,7 +26,6 @@ class JobFormStepOne extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           CustomFormBuilderTextField(
-              formKey: formKey,
               name: "title",
               focusNode: FocusNode(),
               controller: TextEditingController(),
@@ -37,8 +36,6 @@ class JobFormStepOne extends StatelessWidget {
               ])),
           const SizedBox(height: 16),
           CustomFormBuilderTextField(
-              formKey: formKey,
-
             name: "headline",
             focusNode: FocusNode(),
             controller: TextEditingController(),
@@ -54,7 +51,6 @@ class JobFormStepOne extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(
-            formKey: formKey,
             name: "employementType",
             labelText: "Employement Type",
             holdVal: true,
@@ -66,7 +62,6 @@ class JobFormStepOne extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(
-            formKey: formKey,
             holdVal: true,
             name: "workplaceType",
             labelText: "Workplace Type",

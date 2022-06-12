@@ -1,5 +1,6 @@
 import 'package:doxa_mobile_app/business_logic/cubits/registration_screen/registration_screen_cubit.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
+import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/presentation/screens/registration_screen/registration_flow_screen_one.dart';
 import 'package:doxa_mobile_app/presentation/screens/registration_screen/registration_flow_screen_three.dart';
 import 'package:doxa_mobile_app/presentation/screens/registration_screen/registration_flow_screen_two.dart';
@@ -19,20 +20,13 @@ class RegistrationFlowScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: BlocProvider(
-          create: (context) => RegistrationScreenCubit(authRepository: RepositoryProvider.of<AuthRepository>(context), formKey: _registrationFormKey),
-          child: FormBuilder(
-            key: _registrationFormKey,
-            child: FlowView(
-              steps: [
-                FlowScreen.builder((context, state) => RegistrationFlowScreenOne()),
-                FlowScreen.builder((context, state) => RegistrationFlowScreenTwo()),
-                FlowScreen.builder((context, state) => const RegistrationFlowScreenThree()),
-
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+          child: BlocListener<RegistrationScreenCubit, RegistrationScreenState>(
+            listener: (context, state) {
+              if (state is RegistrationScreenError) {
+                logger.d(state.errorMessage);
+              }
+            },
+            child: FormBuilder(
+              key: _registrationFormKey,
+              child: FlowView(
+                steps: [

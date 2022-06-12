@@ -7,13 +7,7 @@ abstract class RegistrationScreenState extends Equatable {
   List<Object> get props => [];
 }
 
-class RegistrationScreenInitial extends RegistrationScreenState {
-  final GlobalKey<FormBuilderState> formKey;
-  const RegistrationScreenInitial({required this.formKey});
-  @override
-  List<Object> get props => [formKey];
-  
-}
+class RegistrationScreenInitial extends RegistrationScreenState {}
 
 class RegistrationScreenLoading extends RegistrationScreenState {}
 

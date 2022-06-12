@@ -8,10 +8,10 @@ part 'unauth_wrapper_state.dart';
 
 class UnauthWrapperBloc extends Bloc<UnauthWrapperEvent, UnauthWrapperState> {
   UnauthWrapperBloc() : super(OnLoginScreen()) {
-    on<NavigateToLogin>((event, emit) async {
+    on<NavigateToLoginScreen>((event, emit) async {
       emit(OnLoginScreen());
     });
-    on<NavigateToRegistration>((event, emit) async {
+    on<NavigateToRegistrationScreen>((event, emit) async {
       emit(OnRegistrationScreen());
     });
   }

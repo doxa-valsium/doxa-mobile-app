@@ -2,7 +2,6 @@ import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl/intl.dart';
 
@@ -12,12 +11,10 @@ class CustomFormBuilderDatePicker extends StatelessWidget {
   final DateFormat dateFormatter = DateFormat('dd-MM-yyyy');
   final String labelText;
   final String name;
-  final formKey = GlobalKey<FormBuilderState>();
 
   CustomFormBuilderDatePicker({Key? key, required this.labelText, required this.name}) : super(key: key);
 
   _showDatePicker(BuildContext context) async {
-    // if platform is android
     if (Theme.of(context).platform == TargetPlatform.android) {
       return await showDatePicker(
         context: context,
@@ -26,27 +23,40 @@ class CustomFormBuilderDatePicker extends StatelessWidget {
         lastDate: DateTime(_date.year - 13),
       );
     } else if (Theme.of(context).platform == TargetPlatform.iOS) {
-      return await showCupertinoModalPopup(
-        context: context,
-        builder: (BuildContext context) {
-          return CupertinoDatePicker(
-            mode: CupertinoDatePickerMode.date,
-            initialDateTime: DateTime(_date.year - 20),
-            minimumYear: DateTime(_date.year - 100).year,
-            maximumYear: DateTime(_date.year - 13).year,
-            onDateTimeChanged: (DateTime date) {
-              // _dateController.text = dateFormatter.format(date);
-            },
-          );
-        },
-      );
+      DateTime selectedDate = DateTime(_date.year - 20);
+      return await showCupertinoModalPopup<DateTime?>(
+          context: context,
+          builder: (_) => Container(
+                height: 500,
+                color: const Color.fromARGB(255, 255, 255, 255),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 400,
+                      child: CupertinoDatePicker(
+                          mode: CupertinoDatePickerMode.date,
+                          initialDateTime: DateTime(_date.year - 20),
+                          minimumYear: DateTime(_date.year - 100).year,
+                          maximumYear: DateTime(_date.year - 13).year,
+                          onDateTimeChanged: (DateTime newDate) {
+                            selectedDate = newDate;
+                          }),
+                    ),
+
+                    // Close the modal
+                    CupertinoButton(
+                      child: const Text('OK'),
+                      onPressed: () => Navigator.of(context, rootNavigator: true).pop(selectedDate),
+                    )
+                  ],
+                ),
+              ));
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return CustomFormBuilderTextField(
-      focusNode: FocusNode(),
       name: name,
       controller: _dateController,
       keyboardType: TextInputType.text,

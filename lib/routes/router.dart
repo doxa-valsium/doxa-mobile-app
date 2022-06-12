@@ -17,6 +17,7 @@ import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_scre
 import 'package:doxa_mobile_app/presentation/screens/registration_screen/registration_flow_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_job_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/splash_screen/spalsh_screen.dart';
+import 'package:doxa_mobile_app/routes/auth_wrapper_screen.dart';
 import 'package:doxa_mobile_app/routes/unauth_wrapper_screen.dart';
 
 @MaterialAutoRouter(
@@ -55,7 +56,77 @@ import 'package:doxa_mobile_app/routes/unauth_wrapper_screen.dart';
       page: FlowViewDemoScreen,
       fullscreenDialog: true,
     ),
-    AutoRoute(path: "/unauth", page: UnAuthWrapperScreen,
+    AutoRoute(
+      path: AuthWrapperScreen.route,
+      page: AuthWrapperScreen,
+      children: [
+        AutoRoute(
+        path: NavigatorScreen.route,
+        page: NavigatorScreen,
+        children: [
+          AutoRoute(
+            path: HomeScreen.route,
+            name: 'HomeRouter',
+            page: EmptyRouterPage,
+            children: [
+              AutoRoute(
+                initial: true,
+                page: HomeScreen,
+              ),
+            ],
+          ),
+          AutoRoute(
+            path: JobsScreen.route,
+            name: 'JobsRouter',
+            page: EmptyRouterPage,
+            children: [
+              AutoRoute(
+                initial: true,
+                page: JobsScreen,
+              ),
+              AutoRoute(
+                path: SingleJobScreen.route,
+                page: SingleJobScreen,
+              ),
+              CustomRoute(
+                path: JobFormFlowScreen.route,
+                page: JobFormFlowScreen,
+                fullscreenDialog: true,
+              ),
+            ],
+          ),
+          AutoRoute(
+            path: MessagesScreen.route,
+            name: 'MessagesRouter',
+            page: EmptyRouterPage,
+            children: [
+              AutoRoute(
+                initial: true,
+                page: MessagesScreen,
+              ),
+            ],
+          ),
+          AutoRoute(
+            path: ProfileScreen.route,
+            name: 'ProfileRouter',
+            page: EmptyRouterPage,
+            children: [
+              AutoRoute(
+                initial: true,
+                page: ProfileScreen,
+              ),
+              AutoRoute(
+                path: CompanyProfileScreen.route,
+                page: CompanyProfileScreen,
+              ),
+            ],
+          ),
+        ],
+      ),
+      ]
+    ),
+    AutoRoute(
+      path: UnAuthWrapperScreen.route, page: UnAuthWrapperScreen,
         children: [
           AutoRoute(
             path: 'login',

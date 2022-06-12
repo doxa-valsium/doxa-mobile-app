@@ -27,7 +27,6 @@ class AddQualificationForm extends StatelessWidget {
             duration: const Duration(milliseconds: 200),
             opacity: state.showContainers ? 1 : 0,
             child: CustomFormBuilderDropDown(
-              formKey: qualificationFormKey,
                 name: "qualificationDegree",
                 labelText: "Degree",
                 invertColors: true,
@@ -44,7 +43,6 @@ class AddQualificationForm extends StatelessWidget {
             duration: const Duration(milliseconds: 200),
             opacity: state.showContainers ? 1 : 0,
             child: CustomFormBuilderDropDown(
-              formKey: qualificationFormKey,
                 name: "qualificationMajor",
                 labelText: "Major",
                 invertColors: true,
