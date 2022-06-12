@@ -1,6 +1,7 @@
 import 'package:doxa_mobile_app/business_logic/cubits/registration_screen/registration_screen_cubit.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
 import 'package:doxa_mobile_app/presentation/screens/registration_screen/registration_flow_screen_one.dart';
+import 'package:doxa_mobile_app/presentation/screens/registration_screen/registration_flow_screen_three.dart';
 import 'package:doxa_mobile_app/presentation/screens/registration_screen/registration_flow_screen_two.dart';
 import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_screen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_view.dart';
@@ -25,6 +26,8 @@ class RegistrationFlowScreen extends StatelessWidget {
               steps: [
                 FlowScreen.builder((context, state) => RegistrationFlowScreenOne()),
                 FlowScreen.builder((context, state) => RegistrationFlowScreenTwo()),
+                FlowScreen.builder((context, state) => const RegistrationFlowScreenThree()),
+
               ],
             ),
           ),

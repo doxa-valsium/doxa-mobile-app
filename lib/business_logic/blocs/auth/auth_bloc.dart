@@ -4,6 +4,7 @@ import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repositor
 import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
 import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/models/user.dart';
+import 'package:doxa_mobile_app/services/deep_link_service.dart';
 
 import 'package:equatable/equatable.dart';
 
@@ -17,6 +18,7 @@ class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
   })  : _authenticationRepository = authenticationRepository,
         _userRepository = userRepository,
         super(const AuthenticationState.unknown()) {
+          _deepLinkService.handleIncomingDeepLinks(authRepository: _authenticationRepository);
     on<AuthenticationStatusChanged>(_onAuthenticationStatusChanged);
     on<AuthenticationLogoutRequested>(_onAuthenticationLogoutRequested);
     _authenticationStatusSubscription = _authenticationRepository.status.listen(
@@ -27,6 +29,7 @@ class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
   final AuthRepository _authenticationRepository;
   final UserRepository _userRepository;
   late StreamSubscription<AuthenticationStatus> _authenticationStatusSubscription;
+  final DeepLinkService _deepLinkService = DeepLinkService();
 
   @override
   Future<void> close() {

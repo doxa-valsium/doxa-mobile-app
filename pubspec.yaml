@@ -51,6 +51,7 @@ dependencies:
   form_builder_validators: ^8.1.1
   supabase_flutter: ^0.3.1+1
   supabase: ^0.3.4+1
+  uni_links: ^0.5.1
 
 dev_dependencies:
   auto_route_generator: ^4.0.0

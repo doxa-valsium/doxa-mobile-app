@@ -36,4 +36,10 @@ class MockAuthRepository implements AuthRepository {
 
   @override
   void dispose() => _controller.close();
+  
+  @override
+  Future<void> signInWithRefreshToken(Uri uri) {
+    // TODO: implement signInWithRefreshToken
+    throw UnimplementedError();
+  }
 }

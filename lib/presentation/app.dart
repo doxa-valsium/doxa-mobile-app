@@ -7,6 +7,7 @@ import 'package:doxa_mobile_app/data/repositories/user_repository/mock_user_repo
 import 'package:doxa_mobile_app/data/repositories/user_repository/supabase_user_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
+import 'package:doxa_mobile_app/services/deep_link_service.dart';
 import 'package:doxa_mobile_app/services/environment_config_service.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,8 @@ class App extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider<AuthBloc>(
-            create: (context) => AuthBloc(authenticationRepository: _authRepository, userRepository: _userRepository),
+            create: (context) => AuthBloc(
+              authenticationRepository: _authRepository, userRepository: _userRepository),
           ),
         ],
         child: const MainApp(),
@@ -49,6 +51,19 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   final AppRouter _appRouter = AppRouter();
+  // final DeepLinkService _deepLinkService = DeepLinkService();
+
+  @override
+  void initState() {
+    // _deepLinkService.handleIncomingDeepLinks();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // _deepLinkService.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +80,7 @@ class _MainAppState extends State<MainApp> {
                 const NavigatorRoute()
               // if they are not logged in, bring them to the Login page
               else if (state.status == AuthenticationStatus.unauthenticated)
-                 const UnAuthWrapperRoute()
+                const UnAuthWrapperRoute()
               else
                 const SplashRoute(),
             ],

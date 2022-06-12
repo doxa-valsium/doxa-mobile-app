@@ -127,13 +127,15 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                         child: CustomElevatedButton(
                           buttonText: 'CONTINUE',
                           isLoading: state is RegistrationScreenLoading,
-                          onPressed: () {
+                          onPressed: () async {
                             if (BlocProvider.of<RegistrationScreenCubit>(context).formKey.currentState!.saveAndValidate()) {
                               Map<String, dynamic> completeRegistrationData =
                                   Map<String, dynamic>.from(BlocProvider.of<RegistrationScreenCubit>(context).formKey.currentState!.value);
                               completeRegistrationData.addAll(registrationData);
                               logger.i(completeRegistrationData);
-                              BlocProvider.of<RegistrationScreenCubit>(context).register();
+                              await BlocProvider.of<RegistrationScreenCubit>(context).register();
+                              FlowView.of(context).next();
+
                             }
                           },
                         ),

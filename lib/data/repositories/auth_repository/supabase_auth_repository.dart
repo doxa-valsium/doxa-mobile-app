@@ -3,11 +3,13 @@ import 'dart:async';
 import 'package:doxa_mobile_app/constants.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
 import 'package:doxa_mobile_app/logger.dart';
+import 'package:doxa_mobile_app/services/deep_link_service.dart';
 import 'package:supabase/supabase.dart' as supabase_root;
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseAuthRepository extends AuthRepository {
   final _controller = StreamController<AuthenticationStatus>();
+  StreamSubscription? _sub;
 
   @override
   User? getUser() {
@@ -27,7 +29,7 @@ class SupabaseAuthRepository extends AuthRepository {
 
   @override
   Future<void> signInWithEmailAndPassword(String email, String password) async {
-    final response = await supabase.auth.signIn(email: email, password: password, options: supabase_root.AuthOptions(redirectTo: authRedirectUri));
+    final response = await supabase.auth.signIn(email: email, password: password, options: supabase_root.AuthOptions(redirectTo: signUpAuthRedirectUri));
     if (response.error != null) {
       logger.e(response.error!.message);
     } else {
@@ -49,12 +51,11 @@ class SupabaseAuthRepository extends AuthRepository {
 
   @override
   Future<void> signUpWithEmailAndPassword(String email, String password) async {
-    final response = await supabase.auth.signUp(email, password, options: supabase_root.AuthOptions(redirectTo: authRedirectUri));
+    final response = await supabase.auth.signUp(email, password, options: supabase_root.AuthOptions(redirectTo: signUpAuthRedirectUri));
     if (response.error != null) {
       logger.e(response.error!.message);
     } else {
-      _controller.add(AuthenticationStatus.authenticated);
-      logger.i('User created successfully');
+      logger.i('Verification Email Sent Sucessfully!');
     }
   }
 
@@ -71,4 +72,16 @@ class SupabaseAuthRepository extends AuthRepository {
 
   @override
   void dispose() => _controller.close();
+
+  @override
+  Future<void> signInWithRefreshToken(Uri url) async {
+    final response = await supabase.auth.getSessionFromUrl(url);
+    if (response.error != null) {
+      logger.e(response.error!.message);
+    } else {
+      logger.i('Signed In using Token Sucessfully!');
+      _controller.add(AuthenticationStatus.authenticated);
+
+    }
+  }
 }
