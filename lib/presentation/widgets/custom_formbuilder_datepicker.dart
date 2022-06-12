@@ -15,7 +15,7 @@ class CustomFormBuilderDatePicker extends StatelessWidget {
   CustomFormBuilderDatePicker({Key? key, required this.labelText, required this.name}) : super(key: key);
 
   _showDatePicker(BuildContext context) async {
-    if (true || Theme.of(context).platform == TargetPlatform.android) {
+    if (Theme.of(context).platform == TargetPlatform.android) {
       return await showDatePicker(
         context: context,
         initialDate: DateTime(_date.year - 20),

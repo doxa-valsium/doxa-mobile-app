@@ -41,7 +41,7 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   CustomFormBuilderTextField(
-                    name: "FirstName",
+                    name: "first_name",
                     controller: TextEditingController(),
                     keyboardType: TextInputType.text,
                     labelText: "First Name",
@@ -51,7 +51,7 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   CustomFormBuilderTextField(
-                    name: "LastName",
+                    name: "last_name",
                     controller: TextEditingController(),
                     keyboardType: TextInputType.text,
                     labelText: "Last Name",
@@ -61,7 +61,7 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   CustomFormBuilderDropDown(
-                    name: "Gender",
+                    name: "gender",
                     labelText: "Gender",
                     validators: FormBuilderValidators.required(),
                     holdVal: true,
@@ -71,10 +71,10 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  // CustomFormBuilderDatePicker(
-                  //   name: "DOB",
-                  //   labelText: "Date of Birth",
-                  // ),
+                  CustomFormBuilderDatePicker(
+                    name: "dob",
+                    labelText: "Date of Birth",
+                  ),
                   const SizedBox(height: 16),
                   Text(
                     "Register as",

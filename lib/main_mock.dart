@@ -5,6 +5,5 @@ import 'bootstrap.dart';
 import 'services/environment_config_service.dart';
 
 Future<void> main() async {
-
   bootstrap(() => App(), environment: Environment.mock);
 }
