@@ -20,6 +20,7 @@ class RegistrationFlowScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: BlocProvider(
+          create: (context) => RegistrationScreenCubit(authRepository: RepositoryProvider.of<AuthRepository>(context)),
           child: BlocListener<RegistrationScreenCubit, RegistrationScreenState>(
             listener: (context, state) {
               if (state is RegistrationScreenError) {
@@ -30,3 +31,14 @@ class RegistrationFlowScreen extends StatelessWidget {
               key: _registrationFormKey,
               child: FlowView(
                 steps: [
+                  FlowScreen.custom(child: const RegistrationFlowScreenOne()),
+                  FlowScreen.custom(child: RegistrationFlowScreenTwo()),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
