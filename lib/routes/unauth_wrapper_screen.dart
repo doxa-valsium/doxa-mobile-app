@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UnAuthWrapperScreen extends StatelessWidget {
-  static  const String route = '/unauth';
+  static const String route = '/unauth';
   const UnAuthWrapperScreen({Key? key}) : super(key: key);
 
   @override
@@ -15,12 +15,7 @@ class UnAuthWrapperScreen extends StatelessWidget {
       child: BlocBuilder<UnauthWrapperBloc, UnauthWrapperState>(
         builder: (context, state) {
           return AutoRouter.declarative(routes: (_) {
-            return [
-              if (state is OnLoginScreen)
-                LoginRoute()
-              else
-                RegistrationFlowRoute()
-            ];
+            return [if (state is OnLoginScreen) LoginRoute() else RegistrationFlowRoute()];
           });
         },
       ),

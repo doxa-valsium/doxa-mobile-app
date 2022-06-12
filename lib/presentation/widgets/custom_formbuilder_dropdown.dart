@@ -13,12 +13,10 @@ class CustomFormBuilderDropDown extends StatelessWidget {
   final bool invertColors;
   final bool forSkills;
   final void Function(String)? onSkillAdd;
-  final GlobalKey<FormBuilderState> formKey;
   final bool holdVal;
 
   CustomFormBuilderDropDown({
     Key? key,
-    required this.formKey,
     required this.name,
     required this.labelText,
     required this.child,
@@ -31,7 +29,7 @@ class CustomFormBuilderDropDown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (holdVal) if (formKey.currentState!.value.containsKey(name)) _controller.text = formKey.currentState!.getRawValue(name).toString();
+    if (holdVal) if (FormBuilder.of(context)!.value.containsKey(name)) _controller.text = FormBuilder.of(context)!.getRawValue(name).toString();
     return FormBuilderTextField(
       style: Theme.of(context).textTheme.bodyText2?.copyWith(
             color: Theme.of(context).colorScheme.onSurfaceVariant,

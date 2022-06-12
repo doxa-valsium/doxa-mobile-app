@@ -27,7 +27,6 @@ class JobFormStepTwo extends StatelessWidget {
             SizedBox(
               height: 350,
               child: CustomFormBuilderTextField(
-                formKey: formKey,
                 name: "description",
                 focusNode: FocusNode(),
                 controller: TextEditingController(),
