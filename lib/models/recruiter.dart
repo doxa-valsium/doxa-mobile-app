@@ -16,6 +16,7 @@ class Recruiter extends User {
       required super.isVerified,
       required super.isOnboarded,
       required super.dateOfBirth,
+      required super.userType,
       required this.isAdmin,
       this.company,
       this.jobs=const [],

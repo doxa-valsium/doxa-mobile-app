@@ -18,8 +18,13 @@ class RegistrationFlowScreenOne extends StatelessWidget {
     final unauthWrapperBloc = BlocProvider.of<UnauthWrapperBloc>(context);
     return BlocBuilder<RegistrationScreenCubit, RegistrationScreenState>(
       builder: (context, state) {
-        return 
-           SingleChildScrollView(
+        return BlocListener<RegistrationScreenCubit, RegistrationScreenState>(
+          listener: (context, state) {
+            if (state is RegistrationScreenSucess) {
+              FlowView.of(context).next();
+            }
+          },
+          child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(28.0),
               child: Column(
@@ -85,7 +90,7 @@ class RegistrationFlowScreenOne extends StatelessWidget {
                       onPressed: () {
                         if (FormBuilder.of(context)!.saveAndValidate()) {
                           logger.i('Form is valid');
-                          FlowView.of(context).next();
+                          BlocProvider.of<RegistrationScreenCubit>(context).isUserExists(FormBuilder.of(context)!.value['registration_email']);
                         }
                       },
                     ),
@@ -110,7 +115,8 @@ class RegistrationFlowScreenOne extends StatelessWidget {
                 ],
               ),
             ),
-          );
+          ),
+        );
       },
     );
   }

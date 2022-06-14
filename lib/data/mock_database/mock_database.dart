@@ -28,6 +28,7 @@ List<Company> companies = [
 
 List<User> users = [
   Recruiter(
+    userType: UserType.recruiter,
     userId: "0",
     firstName: "Faaz",
     lastName: "lastName",
@@ -40,6 +41,7 @@ List<User> users = [
     company: companies[0],
   ),
   Recruiter(
+    userType: UserType.recruiter,
     userId: "1",
     firstName: "Abuzar",
     lastName: "Rasool",
@@ -52,6 +54,7 @@ List<User> users = [
     company: companies[0],
   ),
   Recruiter(
+    userType: UserType.recruiter,
     userId: "2",
     firstName: "Hussain",
     lastName: "Abbas",
@@ -64,6 +67,7 @@ List<User> users = [
     company: companies[1],
   ),
   Recruiter(
+    userType: UserType.recruiter,
     userId: "3",
     firstName: "Jawwaaad",
     lastName: "Rajani",
@@ -76,6 +80,7 @@ List<User> users = [
     company: companies[1],
   ),
   Candidate(
+    userType: UserType.candidate,
     userId: "4",
     firstName: "Asad",
     lastName: "Raza",
@@ -117,6 +122,7 @@ List<User> users = [
         salarayRange: const SalarayRange(max: 500000, min: 10000)),
   ),
   Candidate(
+    userType: UserType.candidate,
     isOnboarded: true,
     isVerified: true,
     profilePictureUrl: "https://i.pravatar.cc/300",
@@ -174,6 +180,7 @@ List<User> users = [
         salarayRange: const SalarayRange(max: 500000, min: 10000)),
   ),
   Candidate(
+    userType: UserType.candidate,
     isOnboarded: true,
     isVerified: true,
     profilePictureUrl: "https://i.pravatar.cc/300",

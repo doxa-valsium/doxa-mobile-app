@@ -1,7 +1,7 @@
 import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:equatable/equatable.dart';
 
-enum UserType { recruiter, candidate }
+enum UserType { recruiter, candidate, unknown}
 
 class User extends Equatable {
   final String? userId;
@@ -11,15 +11,17 @@ class User extends Equatable {
   final Gender gender;
   final bool isVerified;
   final bool isOnboarded;
+  final UserType userType;
   final DateTime? dateOfBirth;
   final String? profilePictureUrl;
   const User({
-    required this.userId,
+    this.userId,
     required this.firstName,
     required this.lastName,
     required this.email,
     required this.gender,
     required this.isVerified,
+    required this.userType,
     required this.isOnboarded,
     this.dateOfBirth,
     this.profilePictureUrl,
@@ -36,5 +38,6 @@ class User extends Equatable {
     isOnboarded: true,
     gender: Gender(id: '-', label: '-'),
     userId: '-',
+    userType: UserType.unknown
   );
 }

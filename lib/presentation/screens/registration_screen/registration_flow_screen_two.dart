@@ -1,5 +1,8 @@
 import 'package:doxa_mobile_app/business_logic/cubits/registration_screen/registration_screen_cubit.dart';
+import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
 import 'package:doxa_mobile_app/logger.dart';
+import 'package:doxa_mobile_app/models/models.dart';
+import 'package:doxa_mobile_app/models/user.dart';
 import 'package:doxa_mobile_app/presentation/screens/registration_screen/local_widgets/user_type_selector.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_elevated_button.dart';
@@ -18,6 +21,8 @@ import 'package:intl/intl.dart';
 class RegistrationFlowScreenTwo extends StatelessWidget {
   final DateFormat dateFormatter = DateFormat('dd-MM-yyyy');
   final Map<String, dynamic> registrationData = {};
+  UserType userType = UserType.unknown;
+  bool isSelected = false;
 
   RegistrationFlowScreenTwo({Key? key}) : super(key: key);
 
@@ -86,20 +91,30 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                       Expanded(
                         flex: 10,
                         child: UserTypeSelector(
+                          isSelected: !isSelected,
                           bodycolor: Theme.of(context).colorScheme.onSecondaryContainer,
                           elevation: Styles.elevation3,
                           imagePath: 'assets/images/candidate.png',
                           text: 'Candidate',
+                          onTap: () {
+                            userType = UserType.candidate;
+                            isSelected = false;
+                          },
                         ),
                       ),
                       const SizedBox(width: 16),
                       Expanded(
                         flex: 10,
                         child: UserTypeSelector(
+                          isSelected: isSelected,
                           bodycolor: Theme.of(context).colorScheme.onSecondaryContainer,
                           elevation: Styles.elevation3,
                           imagePath: 'assets/images/recruiter.png',
                           text: 'Recruiter',
+                          onTap: () {
+                            userType = UserType.recruiter;
+                            isSelected = true;
+                          },
                         ),
                       ),
                     ],
@@ -117,8 +132,25 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                         if (FormBuilder.of(context)!.saveAndValidate()) {
                           Map<String, dynamic> completeRegistrationData = Map<String, dynamic>.from(FormBuilder.of(context)!.value);
                           completeRegistrationData.addAll(registrationData);
+                          final String email = completeRegistrationData['registration_email'];
+                          final String password = completeRegistrationData['registration_password'];
+                          final Map<String, dynamic> user = {
+                            'email': email,
+                            'gender': 1,
+                            'password' : password,
+                            'first_name': completeRegistrationData['first_name'],
+                            'last_name': completeRegistrationData['last_name'],
+                            'user_type': 1,
+                            'date_of_birth': DateTime(2020, 1, 1).toIso8601String(),
+                            'isVerified': false,
+                            'isOnBoarded': false,
+                          };
+
                           logger.i(completeRegistrationData);
-                          // BlocProvider.of<RegistrationScreenCubit>(context).register();
+                          BlocProvider.of<RegistrationScreenCubit>(context).register(user);
+                          if (state is RegistrationScreenSucess) {
+                            FlowView.of(context).next();
+                          }
                         }
                       },
                     ),

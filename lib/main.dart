@@ -2,7 +2,6 @@ import 'package:doxa_mobile_app/bootstrap.dart';
 import 'package:doxa_mobile_app/services/environment_config_service.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
 import 'presentation/app.dart';
 
 void main() async {

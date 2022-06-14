@@ -22,9 +22,10 @@ class MockAuthRepository implements AuthRepository {
   }
 
   @override
-  Future<void> signUpWithEmailAndPassword(String email, String password) async {
+  Future<String?> signUpWithEmailAndPassword(String email, String password) async {
     await Future.delayed(kMockFutureDelay);
     _controller.add(AuthenticationStatus.authenticated);
+    return '00';
   }
 
   @override
@@ -36,10 +37,16 @@ class MockAuthRepository implements AuthRepository {
 
   @override
   void dispose() => _controller.close();
-  
+
   @override
   Future<void> signInWithRefreshToken(Uri uri) {
     // TODO: implement signInWithRefreshToken
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> userAlreadyExists({required String email}) {
+    // TODO: implement userAlreadyExists
     throw UnimplementedError();
   }
 }

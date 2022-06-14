@@ -6,7 +6,15 @@ import 'package:doxa_mobile_app/models/user.dart';
 
 class MockUserRepository implements UserRepository {
   @override
-  User getUser() {
+  Future<User> getUser() async {
     return mockdatabase.users[4];
   }
+  
+  @override
+  Future<void> addUserToDatabase({required Map<String, dynamic> user, required String uuid}) {
+    // TODO: implement addUserToDatabase
+    throw UnimplementedError();
+  }
+  
+
 }
