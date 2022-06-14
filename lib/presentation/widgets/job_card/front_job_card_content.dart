@@ -43,7 +43,7 @@ class FrontJobCardContent extends StatelessWidget {
                 avatarUrl: 'https://picsum.photos/200',
               ),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: 8),
             Flexible(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -174,7 +174,57 @@ class RolesAndResponsibilities extends StatelessWidget {
               )
             ],
           ),
-        )
+        ),
+        const SizedBox(height: 10),
+        Text(
+          'SKILLS',
+          style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
+        ),
+        const SizedBox(height: 10),
+        GridView(
+          clipBehavior: Clip.none,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 6,
+            mainAxisExtent: 26,
+          ),
+          children: [
+            CustomChip(
+              text: 'Lorem Ipsum',
+              // backgroundColor: Theme.of(context).colorScheme.surface,
+              // give color in hex code
+              backgroundColor: const Color(0xFFE1EAFF),
+              foregroundColor: Theme.of(context).colorScheme.primary,
+            ),
+            CustomChip(
+              text: 'Lorem Ipsum',
+              // backgroundColor: Theme.of(context).colorScheme.tertiary,
+              backgroundColor: const Color(0xFFE1EAFF),
+              foregroundColor: Theme.of(context).colorScheme.primary,
+            ),
+            CustomChip(
+              text: 'Lorem Ipsum',
+              // backgroundColor: Theme.of(context).colorScheme.tertiary,
+              backgroundColor: const Color(0xFFE1EAFF),
+              foregroundColor: Theme.of(context).colorScheme.primary,
+            ),
+            CustomChip(
+              text: 'Lorem Ipsum',
+              // backgroundColor: Theme.of(context).colorScheme.onPrimary,
+              backgroundColor: const Color(0xFFE1EAFF),
+              foregroundColor: Theme.of(context).colorScheme.primary,
+            ),
+            CustomChip(
+              text: 'Lorem Ipsum',
+              // backgroundColor: Theme.of(context).colorScheme.tertiary,
+              backgroundColor: const Color(0xFFE1EAFF),
+              foregroundColor: Theme.of(context).colorScheme.primary,
+            ),
+          ],
+        ),
       ],
     );
   }
