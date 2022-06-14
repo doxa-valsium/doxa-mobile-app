@@ -87,7 +87,7 @@ class PlaygroundScreen extends StatelessWidget {
               ),
               MaterialButton(
                 onPressed: () {
-                  swipableCards(context, swipecontroller);
+                  swipableCards(context, swipecontroller, true);
                 },
                 child: const Text("Candidate Swipable Cards"),
               ),
@@ -102,6 +102,12 @@ class PlaygroundScreen extends StatelessWidget {
                           ));
                 },
                 child: const Text("Job Single Card"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  swipableCards(context, swipecontroller, false);
+                },
+                child: const Text("Job Swipable Cards"),
               ),
             ],
           ),
