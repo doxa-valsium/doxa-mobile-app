@@ -1,9 +1,6 @@
 import 'dart:ui';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
-import 'package:doxa_mobile_app/presentation/widgets/candidate_card/candidate_card_pub.dart';
-import 'package:doxa_mobile_app/presentation/widgets/candidate_card/candidate_card_segments.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_chip.dart';
 import 'package:doxa_mobile_app/presentation/widgets/job_card/job_card_grid.dart';
 import 'package:doxa_mobile_app/presentation/widgets/job_card/job_card_requirements.dart';
