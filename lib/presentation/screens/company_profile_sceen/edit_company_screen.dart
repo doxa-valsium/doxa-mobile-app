@@ -4,7 +4,7 @@ import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar_and_body.dar
 import 'package:doxa_mobile_app/presentation/widgets/custom_elevated_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
-import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
+import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen/list_screen.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -51,7 +51,6 @@ class EditCompanyScreen extends StatelessWidget {
                       name: "industry",
                       labelText: "Industry",
                       validators: FormBuilderValidators.required(),
-                      formKey: _formKey,
                       child: const ListScreen(
                         type: FormListType.dynamicList,
                         title: 'Industry',
@@ -66,7 +65,6 @@ class EditCompanyScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     CustomFormBuilderDropDown(
-                      formKey: _formKey,
                       name: "location",
                       labelText: "Location",
                       validators: FormBuilderValidators.required(),
