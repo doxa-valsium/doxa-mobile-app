@@ -7,12 +7,13 @@ class CustomAppBarAndBody extends StatelessWidget {
   final Widget body;
   final String title;
   final bool showBackButton;
-
+  final Widget? icon;
   const CustomAppBarAndBody({
     Key? key,
     required this.body,
     required this.title,
     required this.showBackButton,
+    this.icon,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,9 @@ class CustomAppBarAndBody extends StatelessWidget {
               padding: const EdgeInsets.only(left: 8.0, top: 16.0),
               child: Text(
                 title,
-                style: Theme.of(context).textTheme.headline5?.copyWith(color: Theme.of(context).colorScheme.onBackground),
+                style: Theme.of(context).textTheme.headline5?.copyWith(
+                      color: Theme.of(context).colorScheme.onBackground,
+                    ),
               ),
             ),
             backgroundColor: Theme.of(context).colorScheme.background,
@@ -43,6 +46,11 @@ class CustomAppBarAndBody extends StatelessWidget {
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
+            actions: icon != null
+                ? [
+                    icon!,
+                  ]
+                : [],
             floating: true,
             snap: true,
             elevation: 0.0,

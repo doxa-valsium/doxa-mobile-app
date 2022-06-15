@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/screens/add_company_screens/add_company_flowscreen.dart';
 import 'package:doxa_mobile_app/presentation/screens/add_company_screens/add_company_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/company_profile_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/edit_company_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/counter_screen/counter_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/home_screen/home_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/job_form_flow_screen.dart';
@@ -79,6 +80,10 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
       path: EmailVerificationScreen.route,
       page: EmailVerificationScreen,
     ),
+    // AutoRoute(
+    //   path: EditCompanyScreen.route,
+    //   page: EditCompanyScreen,
+    // ),
     AutoRoute(
       path: AddCompanyScreen.route,
       page: AddCompanyScreen,
@@ -143,7 +148,14 @@ import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_jo
             ),
             AutoRoute(
               path: CompanyProfileScreen.route,
-              page: CompanyProfileScreen,
+              name: 'CompanyProfileRouter',
+              page: EmptyRouterPage,
+              children: [
+                AutoRoute(
+                  path: EditCompanyScreen.route,
+                  page: EditCompanyScreen,
+                ),
+              ],
             ),
           ],
         ),
