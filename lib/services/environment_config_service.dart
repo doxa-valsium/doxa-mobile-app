@@ -1,4 +1,4 @@
-enum Environment { mock, production }
+enum Environment {production }
 
 class EnvironmentConfigService {
   static late Environment currentEnivironment;
