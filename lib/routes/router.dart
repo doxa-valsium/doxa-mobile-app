@@ -17,8 +17,8 @@ import 'package:doxa_mobile_app/presentation/screens/profile_screen/profile_scre
 import 'package:doxa_mobile_app/presentation/screens/registration_screen/registration_flow_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/single_job_screen/single_job_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/splash_screen/spalsh_screen.dart';
-import 'package:doxa_mobile_app/routes/auth_wrapper_screen.dart';
-import 'package:doxa_mobile_app/routes/unauth_wrapper_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/auth_wrapper_screen/auth_wrapper_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unauth_wrapper_screen.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Screen,Route',
@@ -88,6 +88,11 @@ import 'package:doxa_mobile_app/routes/unauth_wrapper_screen.dart';
                 path: SingleJobScreen.route,
                 page: SingleJobScreen,
               ),
+              CustomRoute(
+                path: JobFormFlowScreen.route,
+                page: JobFormFlowScreen,
+                fullscreenDialog: true,
+              ),
             ],
           ),
           AutoRoute(
@@ -132,70 +137,8 @@ import 'package:doxa_mobile_app/routes/unauth_wrapper_screen.dart';
             path: 'register',
             page: RegistrationFlowScreen,
           ),
-        ]),
-    AutoRoute(
-      path: NavigatorScreen.route,
-      page: NavigatorScreen,
-      children: [
-        AutoRoute(
-          path: HomeScreen.route,
-          name: 'HomeRouter',
-          page: EmptyRouterPage,
-          children: [
-            AutoRoute(
-              initial: true,
-              page: HomeScreen,
-            ),
-          ],
-        ),
-        AutoRoute(
-          path: JobsScreen.route,
-          name: 'JobsRouter',
-          page: EmptyRouterPage,
-          children: [
-            AutoRoute(
-              initial: true,
-              page: JobsScreen,
-            ),
-            AutoRoute(
-              path: SingleJobScreen.route,
-              page: SingleJobScreen,
-            ),
-            CustomRoute(
-              path: JobFormFlowScreen.route,
-              page: JobFormFlowScreen,
-              fullscreenDialog: true,
-            ),
-          ],
-        ),
-        AutoRoute(
-          path: MessagesScreen.route,
-          name: 'MessagesRouter',
-          page: EmptyRouterPage,
-          children: [
-            AutoRoute(
-              initial: true,
-              page: MessagesScreen,
-            ),
-          ],
-        ),
-        AutoRoute(
-          path: ProfileScreen.route,
-          name: 'ProfileRouter',
-          page: EmptyRouterPage,
-          children: [
-            AutoRoute(
-              initial: true,
-              page: ProfileScreen,
-            ),
-            AutoRoute(
-              path: CompanyProfileScreen.route,
-              page: CompanyProfileScreen,
-            ),
-          ],
-        ),
-      ],
-    ),
+        ],),
+    
   ],
 )
 class $AppRouter {}
