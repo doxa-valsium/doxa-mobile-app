@@ -1,7 +1,7 @@
 import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.dart';
-import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
+import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen/list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -73,7 +73,6 @@ class JobFormStepOne extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(
-            formKey: formKey,
             holdVal: true,
             name: "location",
             labelText: "Location",

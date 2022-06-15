@@ -69,7 +69,7 @@ class PlaygroundScreen extends StatelessWidget {
               ),
               MaterialButton(
                 onPressed: () {
-                  context.router.push(AddCompanyRoute());
+                  // context.router.push(AddCompanyRoute());
                 },
                 child: const Text("Add Company Screen"),
               ),

@@ -3,13 +3,13 @@ import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/models/user.dart';
 import 'package:doxa_mobile_app/presentation/screens/registration_screen/local_widgets/user_type_selector.dart';
-import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
+import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar_and_body.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_elevated_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_datepicker.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
 import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_view.dart';
-import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
+import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen/list_screen.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -139,8 +139,8 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                             'last_name': completeRegistrationData['last_name'],
                             'user_type': 1,
                             'date_of_birth': DateTime(2020, 1, 1).toIso8601String(),
-                            'isVerified': false,
-                            'isOnBoarded': false,
+                            'is_onboarded': false,
+                            'is_verified' : false,
                           };
 
                           logger.i(completeRegistrationData);
