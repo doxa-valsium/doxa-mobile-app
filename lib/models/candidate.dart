@@ -26,7 +26,6 @@ class Candidate extends User {
     required super.gender,
     required super.dateOfBirth,
     required super.isOnboarded,
-    required super.isVerified,
     required super.userType,
     super.profilePictureUrl,
     required this.bio,

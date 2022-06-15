@@ -13,7 +13,6 @@ class Recruiter extends User {
       required super.lastName,
       required super.email,
       required super.gender,
-      required super.isVerified,
       required super.isOnboarded,
       required super.dateOfBirth,
       required super.userType,

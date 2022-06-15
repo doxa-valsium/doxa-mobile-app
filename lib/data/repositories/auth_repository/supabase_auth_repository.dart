@@ -3,15 +3,19 @@ import 'package:doxa_mobile_app/constants.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
 import 'package:doxa_mobile_app/logger.dart';
 import 'package:supabase/supabase.dart' as supabase_root;
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:supabase/supabase.dart';
 
 class SupabaseAuthRepository extends AuthRepository {
   final _controller = StreamController<AuthenticationStatus>();
 
-  @override
-  User? getUser() {
-    final user = supabase.auth.currentUser;
-    return user;
+  SupabaseAuthRepository() {
+     supabase.auth.onAuthStateChange((event, session) {
+      if (event == AuthChangeEvent.signedIn) {
+        _controller.add(AuthenticationStatus.authenticated);
+      } else if (event == AuthChangeEvent.signedOut) {
+        _controller.add(AuthenticationStatus.unauthenticated);
+      }
+    });
   }
 
   @override
@@ -30,7 +34,7 @@ class SupabaseAuthRepository extends AuthRepository {
     if (response.error != null) {
       logger.e(response.error!.message);
     } else {
-      _controller.add(AuthenticationStatus.authenticated);
+      // _controller.add(AuthenticationStatus.authenticated);
       logger.i('User Logged In successfully');
     }
   }
@@ -41,7 +45,7 @@ class SupabaseAuthRepository extends AuthRepository {
     if (response.error != null) {
       logger.e(response.error!.message);
     } else {
-      _controller.add(AuthenticationStatus.unauthenticated);
+      // _controller.add(AuthenticationStatus.unauthenticated);
       logger.i('User Signed out successfully');
     }
   }
@@ -71,11 +75,11 @@ class SupabaseAuthRepository extends AuthRepository {
 
   @override
   Stream<AuthenticationStatus> get status async* {
-    final user = getUser();
-    if (user == null) {
-      yield AuthenticationStatus.unauthenticated;
+    final signedIn = isSignedIn();
+    if (signedIn) {
+      _controller.add(AuthenticationStatus.authenticated);
     } else {
-      yield AuthenticationStatus.authenticated;
+      _controller.add(AuthenticationStatus.unauthenticated);
     }
     yield* _controller.stream;
   }
@@ -90,7 +94,7 @@ class SupabaseAuthRepository extends AuthRepository {
       logger.e(response.error!.message);
     } else {
       logger.i('Signed In using Token Sucessfully!');
-      _controller.add(AuthenticationStatus.authenticated);
+      // _controller.add(AuthenticationStatus.authenticated);
     }
   }
 }
