@@ -6,7 +6,6 @@ import 'package:doxa_mobile_app/models/user.dart' as local_user;
 import 'package:supabase_flutter/supabase_flutter.dart' as supabase_user;
 
 class SupabaseUserRepository extends UserRepository {
-
   @override
   Future<local_user.User?> getUser() async {
     final supabase_user.User? user = supabase.auth.currentUser;
@@ -37,8 +36,7 @@ class SupabaseUserRepository extends UserRepository {
           isOnboarded: response.data[0]['is_onboarded'],
           userType: response.data[0]['user_type'] == 'candidate' ? local_user.UserType.candidate : local_user.UserType.recruiter,
           gender: Gender(label: response.data[0]['gender']),
-          dateOfBirth: dateOfBirth
-        );
+          dateOfBirth: dateOfBirth);
 
       return user;
     }
