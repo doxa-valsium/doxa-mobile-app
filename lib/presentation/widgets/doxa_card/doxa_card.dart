@@ -67,7 +67,6 @@ class _DoxaCardState extends State<DoxaCard> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // const BackCandidateCardContent(),
                         widget.backWidget,
                         const SizedBox(height: 10),
                         Row(
@@ -156,7 +155,8 @@ class _DoxaCardState extends State<DoxaCard> {
                 thumbColor: Theme.of(context).colorScheme.primary,
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 22, right: 22, top: 15),
+                    // padding: const EdgeInsets.only(left: 22, right: 22, top: 15),
+                    padding: const EdgeInsets.only(left: 0, right: 0, top: 0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
