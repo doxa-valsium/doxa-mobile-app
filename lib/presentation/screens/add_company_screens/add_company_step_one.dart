@@ -6,13 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
-class JobFormStepOne extends StatelessWidget {
+class AddCompanyStepOne extends StatelessWidget {
   final GlobalKey<FormBuilderState> formKey;
-
-  const JobFormStepOne({
-    Key? key,
-    required this.formKey,
-    }) : super(key: key);
+  const AddCompanyStepOne({Key? key, required this.formKey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,72 +18,61 @@ class JobFormStepOne extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const JobFieldTitleWithInfo(
-            title: "Job Title",
+            title: "Company Details",
+            isOptional: false,
           ),
           const SizedBox(height: 16),
           CustomFormBuilderTextField(
-              formKey: formKey,
-              name: "title",
               focusNode: FocusNode(),
+              formKey: formKey,
+              name: "companyName",
               controller: TextEditingController(),
-              labelText: "Title",
+              labelText: "Company Name",
               validators: FormBuilderValidators.compose([
                 FormBuilderValidators.required(),
                 FormBuilderValidators.max(25),
               ])),
           const SizedBox(height: 16),
-          CustomFormBuilderTextField(
-              formKey: formKey,
-
-            name: "headline",
-            focusNode: FocusNode(),
-            controller: TextEditingController(),
-            labelText: "Headline",
-            validators: FormBuilderValidators.compose([
-              FormBuilderValidators.required(),
-              FormBuilderValidators.max(25),
-            ]),
-          ),
-          const SizedBox(height: 54),
-          const JobFieldTitleWithInfo(
-            title: "Job Nature",
-          ),
-          const SizedBox(height: 16),
           CustomFormBuilderDropDown(
+            name: "industry",
             formKey: formKey,
-            name: "employementType",
-            labelText: "Employement Type",
+            labelText: "Industry",
             holdVal: true,
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
               type: FormListType.staticList,
-              title: "Employement Type",
+              title: "Company's Industry",
             ),
           ),
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(
-            formKey: formKey,
-            holdVal: true,
-            name: "workplaceType",
-            labelText: "Workplace Type",
-            validators: FormBuilderValidators.required(),
-            child: const ListScreen(
-              type: FormListType.staticList,
-              title: "Workplace Type",
-            ),
-          ),
-          const SizedBox(height: 16),
-          CustomFormBuilderDropDown(
-            formKey: formKey,
-            holdVal: true,
             name: "location",
+            formKey: formKey,
+            holdVal: true,
             labelText: "Location",
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
               type: FormListType.staticList,
-              title: "Location",
+              title: "Company's Location",
             ),
-          )
+          ),
+          const SizedBox(height: 54),
+          const JobFieldTitleWithInfo(
+            title: "Admin Details",
+            isOptional: false,
+          ),
+          const SizedBox(height: 16),
+          CustomFormBuilderDropDown(
+            name: "position",
+            formKey: formKey,
+            holdVal: true,
+            labelText: "Your Position",
+            validators: FormBuilderValidators.required(),
+            child: const ListScreen(
+              type: FormListType.staticList,
+              title: "Your Position",
+            ),
+          ),
         ],
       ),
     );

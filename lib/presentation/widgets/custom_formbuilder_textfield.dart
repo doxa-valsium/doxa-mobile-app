@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class CustomFormBuilderTextField extends StatelessWidget {
-  final GlobalKey<FormBuilderState> formKey;
+  final GlobalKey<FormBuilderState>? formKey;
   final String name;
   final TextEditingController controller;
   final String labelText;
@@ -21,7 +21,7 @@ class CustomFormBuilderTextField extends StatelessWidget {
 
   const CustomFormBuilderTextField({
     Key? key,
-    required this.formKey,
+    this.formKey,
     required this.name,
     required this.controller,
     required this.labelText,
@@ -41,7 +41,7 @@ class CustomFormBuilderTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (formKey.currentState!.value.containsKey(name)) controller.text = formKey.currentState!.getRawValue(name).toString();
+    if (formKey != null) if (formKey!.currentState!.value.containsKey(name)) controller.text = formKey!.currentState!.getRawValue(name).toString();
     return FormBuilderTextField(
       focusNode: focusNode,
       textAlign: TextAlign.left,

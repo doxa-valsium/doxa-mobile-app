@@ -4,12 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
-class JobFormStepTwo extends StatelessWidget {
+class AddCompanyStepThree extends StatelessWidget {
   final GlobalKey<FormBuilderState> formKey;
-
-  const JobFormStepTwo({Key? key,
-    required this.formKey,
-  }) : super(key: key);
+  const AddCompanyStepThree({Key? key, required this.formKey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +16,8 @@ class JobFormStepTwo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const JobFieldTitleWithInfo(
-              title: "Description",
+              title: "Company Bio",
+              isOptional: false,
             ),
             const SizedBox(
               height: 16,
@@ -29,15 +27,15 @@ class JobFormStepTwo extends StatelessWidget {
               child: CustomFormBuilderTextField(
                 formKey: formKey,
                 name: "description",
-                focusNode: FocusNode(),
                 controller: TextEditingController(),
                 keyboardType: TextInputType.multiline,
-                labelText: "Description the oppurtunity...",
+                labelText: "Describe You Company..",
                 expands: true,
                 validators: FormBuilderValidators.compose([
                   FormBuilderValidators.required(),
                   FormBuilderValidators.max(250),
                 ]),
+                focusNode: FocusNode(),
               ),
             ),
           ],
