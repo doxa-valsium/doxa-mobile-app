@@ -1,7 +1,7 @@
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/company_details.dart';
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/company_profile_stack_handler.dart';
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/member_card.dart';
-import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar.dart';
+import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar_and_body.dart';
 import 'package:flutter/material.dart';
 
 class CompanyProfileScreen extends StatelessWidget {

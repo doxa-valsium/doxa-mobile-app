@@ -1,6 +1,8 @@
 import 'package:doxa_mobile_app/presentation/widgets/candidate_card/back_candidate_card_content.dart';
 import 'package:doxa_mobile_app/presentation/widgets/candidate_card/front_candidate_card_content.dart';
 import 'package:doxa_mobile_app/presentation/widgets/doxa_card/doxa_card.dart';
+import 'package:doxa_mobile_app/presentation/widgets/job_card/back_job_card_content.dart';
+import 'package:doxa_mobile_app/presentation/widgets/job_card/front_job_card_content.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:doxa_mobile_app/presentation/widgets/doxa_card/swipable_card_function.dart';
 import 'package:flutter/material.dart';
@@ -67,6 +69,12 @@ class PlaygroundScreen extends StatelessWidget {
               ),
               MaterialButton(
                 onPressed: () {
+                  context.router.push(AddCompanyRoute());
+                },
+                child: const Text("Add Company Screen"),
+              ),
+              MaterialButton(
+                onPressed: () {
                   showDialog(
                       context: context,
                       builder: (context) => DoxaCard(
@@ -75,13 +83,31 @@ class PlaygroundScreen extends StatelessWidget {
                             frontWidget: const FrontCandidateCardContent(),
                           ));
                 },
-                child: const Text("Dialogue Box 2 Custom Animation"),
+                child: const Text("Candidate Single Card"),
               ),
               MaterialButton(
                 onPressed: () {
-                  swipableCards(context, swipecontroller);
+                  swipableCards(context, swipecontroller, true);
                 },
-                child: const Text("Swipable Cards"),
+                child: const Text("Candidate Swipable Cards"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => DoxaCard(
+                            swipecontroller: swipecontroller,
+                            backWidget: const FrontJobCardContent(),
+                            frontWidget: const BackJobCardContent(),
+                          ));
+                },
+                child: const Text("Job Single Card"),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  swipableCards(context, swipecontroller, false);
+                },
+                child: const Text("Job Swipable Cards"),
               ),
             ],
           ),
