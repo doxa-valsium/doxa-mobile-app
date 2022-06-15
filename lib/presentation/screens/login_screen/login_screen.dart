@@ -11,28 +11,29 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
 class LoginScreen extends StatelessWidget {
-  final _loginFormKey = GlobalKey<FormBuilderState>();
   LoginScreen({Key? key}) : super(key: key);
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<LoginScreenCubit>(
-      create: (context) => LoginScreenCubit(authRepository: RepositoryProvider.of<AuthRepository>(context)),
-      child: BlocConsumer<LoginScreenCubit, LoginScreenState>(
-        buildWhen: (previous, current) => current is! LoginScreenError,
-        listener: (context, state) {
-          if (state is LoginScreenError) {
-            logger.d(state.errorMessage);
-          }
-        },
-        builder: (context, state) {
-          final loginCubit = BlocProvider.of<LoginScreenCubit>(context);
-          final unauthWrapperBloc = BlocProvider.of<UnauthWrapperBloc>(context);
-          return Scaffold(
-            body: SingleChildScrollView(
-              child: SafeArea(
-                child: FormBuilder(
-                  key: _loginFormKey,
+    return FormBuilder(
+      child: BlocProvider<LoginScreenCubit>(
+        create: (context) => LoginScreenCubit(authRepository: RepositoryProvider.of<AuthRepository>(context)),
+        child: BlocConsumer<LoginScreenCubit, LoginScreenState>(
+          buildWhen: (previous, current) => current is! LoginScreenError,
+          listener: (context, state) {
+            if (state is LoginScreenError) {
+              logger.d(state.errorMessage);
+            }
+          },
+          builder: (context, state) {
+            final loginCubit = BlocProvider.of<LoginScreenCubit>(context);
+            final unauthWrapperBloc = BlocProvider.of<UnauthWrapperBloc>(context);
+            final formState = FormBuilder.of(context)!;
+            return Scaffold(
+              body: SingleChildScrollView(
+                child: SafeArea(
                   child: Padding(
                     padding: const EdgeInsets.all(28.0),
                     child: Column(
@@ -54,9 +55,8 @@ class LoginScreen extends StatelessWidget {
                           height: 28 / 4,
                         ),
                         CustomFormBuilderTextField(
-                          focusNode: FocusNode(),
                           name: "login_email",
-                          controller: TextEditingController(),
+                          controller: _emailController,
                           keyboardType: TextInputType.emailAddress,
                           labelText: "Email Address",
                           prefixIcon: const Icon(Icons.alternate_email),
@@ -67,9 +67,8 @@ class LoginScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 16 / 2),
                         CustomFormBuilderTextField(
-                          focusNode: FocusNode(),
                           name: "login_password",
-                          controller: TextEditingController(),
+                          controller: _passwordController,
                           keyboardType: TextInputType.visiblePassword,
                           labelText: "Password",
                           isPassword: true,
@@ -89,11 +88,11 @@ class LoginScreen extends StatelessWidget {
                             buttonText: 'LOGIN',
                             isLoading: state is LoginScreenLoading,
                             onPressed: () async {
-                              if (_loginFormKey.currentState!.saveAndValidate()) {
+                              if (formState.saveAndValidate()) {
                                 logger.i('Form is valid');
                                 loginCubit.login(
-                                  email: _loginFormKey.currentState!.value['login_email'],
-                                  password: _loginFormKey.currentState!.value['login_password'],
+                                  email: formState.value['login_email'],
+                                  password: formState.value['login_password'],
                                 );
                               }
                             },
@@ -122,9 +121,9 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

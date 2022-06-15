@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/logger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
@@ -17,6 +18,7 @@ class CustomFormBuilderTextField extends StatelessWidget {
   final Icon? suffixIcon;
   final bool? readOnly;
   final VoidCallback? onTap;
+  final GlobalKey<FormBuilderState>? formKey;
 
   const CustomFormBuilderTextField({
     Key? key,
@@ -34,7 +36,7 @@ class CustomFormBuilderTextField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.readOnly = false,
-    this.onTap,
+    this.onTap, this.formKey,
   }) : super(key: key);
 
   @override

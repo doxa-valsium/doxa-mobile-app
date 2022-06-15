@@ -88,11 +88,6 @@ import 'package:doxa_mobile_app/routes/unauth_wrapper_screen.dart';
                 path: SingleJobScreen.route,
                 page: SingleJobScreen,
               ),
-              CustomRoute(
-                path: JobFormFlowScreen.route,
-                page: JobFormFlowScreen,
-                fullscreenDialog: true,
-              ),
             ],
           ),
           AutoRoute(

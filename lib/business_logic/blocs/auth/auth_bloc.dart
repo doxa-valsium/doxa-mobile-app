@@ -63,7 +63,7 @@ class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
   Future<User?> _tryGetUser() async {
     try {
       final user = await _userRepository.getUser();
-      logger.d('User: $user');
+      logger.i('User: $user');
       return user;
     } catch (_) {
       return null;

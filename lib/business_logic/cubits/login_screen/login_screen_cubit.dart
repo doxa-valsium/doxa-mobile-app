@@ -7,7 +7,9 @@ part 'login_screen_state.dart';
 
 class LoginScreenCubit extends Cubit<LoginScreenState> {
   final AuthRepository _authRepository;
-  LoginScreenCubit({required AuthRepository authRepository}) : _authRepository=authRepository, super(LoginScreenInitial());
+  LoginScreenCubit({required AuthRepository authRepository})
+      : _authRepository = authRepository,
+        super(LoginScreenInitial());
 
   Future<void> login({required String email, required String password}) async {
     emit(LoginScreenLoading());
