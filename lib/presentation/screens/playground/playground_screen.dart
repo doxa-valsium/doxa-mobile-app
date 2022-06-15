@@ -10,7 +10,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:swipable_stack/swipable_stack.dart';
 
 class PlaygroundScreen extends StatelessWidget {
-  static const String route = '/';
+  static const String route = 'playground';
 
   const PlaygroundScreen({Key? key}) : super(key: key);
   @override
@@ -63,13 +63,13 @@ class PlaygroundScreen extends StatelessWidget {
               ),
               MaterialButton(
                 onPressed: () {
-                  context.router.push(RegistrationRoute());
+                  context.router.push(RegistrationFlowRoute());
                 },
                 child: const Text("Go to Registration Screen"),
               ),
               MaterialButton(
                 onPressed: () {
-                  context.router.push(AddCompanyRoute());
+                  // context.router.push(AddCompanyRoute());
                 },
                 child: const Text("Add Company Screen"),
               ),

@@ -1,10 +1,8 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/logger.dart';
-import 'package:doxa_mobile_app/presentation/screens/sign_in_up_screen/local_widgets/dashed_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
+import 'package:doxa_mobile_app/presentation/widgets/dashed_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.dart';
-import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
-import 'package:doxa_mobile_app/routes/router.gr.dart';
+import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen/list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -12,7 +10,6 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 class AddCompanyScreen extends StatelessWidget {
   static const String route = 'AddCompanyRoute';
   final _addCompanyKey = GlobalKey<FormBuilderState>();
-  final _formKey = GlobalKey<FormBuilderState>();
   AddCompanyScreen({Key? key}) : super(key: key);
 
   @override
@@ -43,7 +40,6 @@ class AddCompanyScreen extends StatelessWidget {
                   height: 28,
                 ),
                 CustomFormBuilderDropDown(
-                  formKey: _formKey,
                   name: "companyName",
                   labelText: "Company Name",
                   validators: FormBuilderValidators.required(),
@@ -57,7 +53,6 @@ class AddCompanyScreen extends StatelessWidget {
                 ),
                 CustomFormBuilderDropDown(
                   name: "yourPosition",
-                  formKey: _formKey,
                   labelText: "Your Position",
                   validators: FormBuilderValidators.required(),
                   child: const ListScreen(
@@ -97,11 +92,10 @@ class AddCompanyScreen extends StatelessWidget {
                   borderRadius: 16,
                   buttonText: "ADD YOUR OWN COMPANY",
                   color: Theme.of(context).colorScheme.onSecondaryContainer,
-                  func: () {
-                    context.router.push(AddCompanyFlowRoute());
+                  onPressed: () {
+                    // context.router.push(AddCompanyFlowRoute());
                   },
                   dashLineRadius: 16,
-                  height: 50 - 4,
                 ),
               ],
             ),

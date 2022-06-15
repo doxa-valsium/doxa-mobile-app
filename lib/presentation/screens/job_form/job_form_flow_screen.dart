@@ -12,21 +12,21 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 class JobFormFlowScreen extends StatelessWidget {
   static const String route = 'job-form-flow-screen';
   final _formKey = GlobalKey<FormBuilderState>();
-  List<Map<String, dynamic>> qualifications = [];
-  List<String> skills = [];
+  final List<Map<String, dynamic>> qualifications = [];
+  final List<String> skills = [];
 
   JobFormFlowScreen({Key? key}) : super(key: key);
 
   bool containsQualification(Map qualification) {
     // This checks if the qualification is valid means already exists or not
     bool valid = false;
-    qualifications.forEach((element) {
+    for (var element in qualifications) {
       if (element['qualificationDegree'] == qualification['qualificationDegree'] &&
           element['qualificationMajor'] == qualification['qualificationMajor'] &&
           element['qualificationExperienceType'] == qualification['qualificationExperienceType']) {
         valid = true;
       }
-    });
+    }
     return valid;
   }
 

@@ -1,6 +1,4 @@
-import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/qualification.dart';
-import 'package:equatable/equatable.dart';
-
+part of 'add_qualification_button_cubit.dart';
 class AddQualificationButtonState extends Equatable {
   final double buttonHeight;
   final bool isExpanded;

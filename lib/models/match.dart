@@ -21,7 +21,7 @@ class Match extends Equatable {
     this.closingReason,
     required this.createdAt,
   });
-  
+
   @override
   List<Object?> get props => [matchId, job, candidate, matchStatus, closingReason, createdAt];
 }

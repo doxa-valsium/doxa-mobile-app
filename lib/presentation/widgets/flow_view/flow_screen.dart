@@ -9,7 +9,7 @@ typedef FlowBuilder = Widget Function(BuildContext, FlowViewState);
 
 class FlowScreen extends StatelessWidget {
   final FlowBuilder builder;
-  const FlowScreen.builder({Key? key, required this.builder}) : super(key: key);
+  FlowScreen.custom({Key? key, required Widget child}) : builder=_defaultBuilder(child),super(key: key);
   FlowScreen({
     Key? key,
     required Widget child,
@@ -17,10 +17,14 @@ class FlowScreen extends StatelessWidget {
     Widget? anchor,
     EdgeInsets childPadding = const EdgeInsets.symmetric(horizontal: 20),
     EdgeInsets anchorPadding = const EdgeInsets.all(20),
-  })  : builder = _defaultBuilder(child, title, anchor),
+  })  : builder = _defaultSteppedViewBuilder(child, title, anchor),
         super(key: key);
 
-  static FlowBuilder _defaultBuilder(Widget child, String? title, Widget? anchor) {
+  static FlowBuilder _defaultBuilder(Widget child) {
+    return (context, state) => child;
+  }
+
+  static FlowBuilder _defaultSteppedViewBuilder(Widget child, String? title, Widget? anchor) {
     return (BuildContext context, FlowViewState state) {
       return AnchoredSingleChildScrollView(
         childPadding: const EdgeInsets.symmetric(horizontal: 20),

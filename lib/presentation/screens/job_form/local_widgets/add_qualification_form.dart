@@ -1,8 +1,8 @@
-import 'package:doxa_mobile_app/business_logic/cubits/job_form_add_qualification_button/add_qualification_button_state.dart';
+import 'package:doxa_mobile_app/business_logic/cubits/job_form_add_qualification_button/add_qualification_button_cubit.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/custom_switch.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_elevated_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
-import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen.dart/list_screen.dart';
+import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen/list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -27,7 +27,6 @@ class AddQualificationForm extends StatelessWidget {
             duration: const Duration(milliseconds: 200),
             opacity: state.showContainers ? 1 : 0,
             child: CustomFormBuilderDropDown(
-              formKey: qualificationFormKey,
                 name: "qualificationDegree",
                 labelText: "Degree",
                 invertColors: true,
@@ -44,7 +43,6 @@ class AddQualificationForm extends StatelessWidget {
             duration: const Duration(milliseconds: 200),
             opacity: state.showContainers ? 1 : 0,
             child: CustomFormBuilderDropDown(
-              formKey: qualificationFormKey,
                 name: "qualificationMajor",
                 labelText: "Major",
                 invertColors: true,
@@ -100,14 +98,10 @@ class AddQualificationForm extends StatelessWidget {
                   child: CustomElevatedButton(
                     buttonText: "Add",
                     onPressed: () {
-                      // print(qualificationFormKey.currentState?.value);
-
                       if (qualificationFormKey.currentState!.saveAndValidate()) {
-                        // print(qualificationFormKey.currentState!.value);
                         onAdd(qualificationFormKey.currentState!.value);
                       }
                     },
-                    // },
                   ),
                 ),
         ],

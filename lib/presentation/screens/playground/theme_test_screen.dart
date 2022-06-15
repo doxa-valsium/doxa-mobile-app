@@ -8,7 +8,7 @@ import 'package:iconify_flutter/icons/ep.dart';
 import 'package:iconify_flutter/icons/teenyicons.dart';
 
 class ThemeTestScreen extends StatelessWidget {
-  static const String route = 'theme-test-screen';
+  static const String route = 'theme-test';
   const ThemeTestScreen({Key? key}) : super(key: key);
 
   @override

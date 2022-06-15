@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+part of 'job_form_add_skills_cubit.dart';
 
 class JobFormAddSkillsState extends Equatable {
   final List<String> skills;

@@ -2,16 +2,6 @@
     "version": "0.1.0",
     "configurations": [
         {
-            "name": "Launch mock",
-            "request": "launch",
-            "type": "dart",
-            "program": "lib/main_mock.dart",
-            "args": [
-                "--target",
-                "lib/main_mock.dart"
-            ]
-        },
-        {
             "name": "Launch production",
             "request": "launch",
             "type": "dart",

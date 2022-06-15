@@ -24,6 +24,7 @@ class FlowView extends StatelessWidget {
       child: BlocProvider<FlowViewCubit>(
         create: (_) => FlowViewCubit(currentStep: 1, isLoading: false, totalSteps: steps.length, context: context),
         child: BlocBuilder<FlowViewCubit, FlowViewState>(
+          buildWhen: (previous, current) => previous.currentStep != current.currentStep,
           builder: (context, state) {
             return AbsorbPointer(absorbing: state.isLoading, child: steps[state.currentStep - 1].builder(context, state));
           },

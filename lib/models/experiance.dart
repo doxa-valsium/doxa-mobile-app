@@ -4,7 +4,7 @@ import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:equatable/equatable.dart';
 
 class Experiance extends Equatable {
-  final String title;
+  final JobTitle title;
   final EmploymentType employmentType;
   final Location? location;
   final Company company;

@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:doxa_mobile_app/business_logic/app_bloc_observer.dart';
-import 'package:doxa_mobile_app/data/repositories/repository_provider.dart';
 import 'package:doxa_mobile_app/services/app_config_service.dart';
 import 'package:doxa_mobile_app/services/environment_config_service.dart';
 import 'package:doxa_mobile_app/logger.dart';
@@ -36,7 +35,6 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder, {Environment environ
           WidgetsFlutterBinding.ensureInitialized();
           EnvironmentConfigService.init(environment);
           await AppConfigService.instance.init();
-          RepositoryProvider.init();
           runApp(await builder());
         },
         blocObserver: AppBlocObserver(),
