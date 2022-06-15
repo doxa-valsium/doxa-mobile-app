@@ -1,5 +1,4 @@
 import 'package:doxa_mobile_app/business_logic/cubits/flow_view/flow_view_cubit.dart';
-import 'package:doxa_mobile_app/logger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

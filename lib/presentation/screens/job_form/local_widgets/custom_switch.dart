@@ -29,6 +29,8 @@ class CustomSwitch extends StatelessWidget {
             FormBuilderValidators.required(),
           ]),
           builder: (FormFieldState<dynamic> field) {
+            //TODO:look at form builder package documentation
+            // ignore: invalid_use_of_protected_member
             field.setValue(state.toggleValue);
             return GestureDetector(
               onTap: () {

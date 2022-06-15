@@ -34,7 +34,6 @@ class SupabaseAuthRepository extends AuthRepository {
     if (response.error != null) {
       logger.e(response.error!.message);
     } else {
-      // _controller.add(AuthenticationStatus.authenticated);
       logger.i('User Logged In successfully');
     }
   }
@@ -45,7 +44,6 @@ class SupabaseAuthRepository extends AuthRepository {
     if (response.error != null) {
       logger.e(response.error!.message);
     } else {
-      // _controller.add(AuthenticationStatus.unauthenticated);
       logger.i('User Signed out successfully');
     }
   }
@@ -94,7 +92,6 @@ class SupabaseAuthRepository extends AuthRepository {
       logger.e(response.error!.message);
     } else {
       logger.i('Signed In using Token Sucessfully!');
-      // _controller.add(AuthenticationStatus.authenticated);
     }
   }
 }

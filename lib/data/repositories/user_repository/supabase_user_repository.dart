@@ -14,6 +14,17 @@ class SupabaseUserRepository extends UserRepository {
     return modelUser;
   }
 
+  @override
+  Future<void> createNewUser({required Map<String, dynamic> user, required String uuid}) async {
+    user['uuid'] = uuid;
+    final response = await supabase.from('users').insert([user]).execute();
+    if (response.error != null) {
+      logger.i(response.error);
+    } else {
+      logger.i("User Added to Database Sucessfully!");
+    }
+  }
+
   Future<local_user.User?> _fromSupabaseUserToModelUser(supabase_user.User user) async {
     final String uuid = user.id;
 
@@ -41,16 +52,5 @@ class SupabaseUserRepository extends UserRepository {
       return user;
     }
     return null;
-  }
-
-  @override
-  Future<void> addUserToDatabase({required Map<String, dynamic> user, required String uuid}) async {
-    user['uuid'] = uuid;
-    final response = await supabase.from('users').insert([user]).execute();
-    if (response.error != null) {
-      logger.i(response.error);
-    } else {
-      logger.i("User Added to Database Sucessfully!");
-    }
   }
 }

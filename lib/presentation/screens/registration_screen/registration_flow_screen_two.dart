@@ -1,5 +1,4 @@
 import 'package:doxa_mobile_app/business_logic/cubits/registration_screen/registration_screen_cubit.dart';
-import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
 import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/models/user.dart';
@@ -21,8 +20,8 @@ import 'package:intl/intl.dart';
 class RegistrationFlowScreenTwo extends StatelessWidget {
   final DateFormat dateFormatter = DateFormat('dd-MM-yyyy');
   final Map<String, dynamic> registrationData = {};
-  UserType userType = UserType.unknown;
-  bool isSelected = false;
+  final UserType userType = UserType.unknown;
+  final bool isSelected = false;
 
   RegistrationFlowScreenTwo({Key? key}) : super(key: key);
 
@@ -97,8 +96,7 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                           imagePath: 'assets/images/candidate.png',
                           text: 'Candidate',
                           onTap: () {
-                            userType = UserType.candidate;
-                            isSelected = false;
+                            
                           },
                         ),
                       ),
@@ -112,8 +110,7 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                           imagePath: 'assets/images/recruiter.png',
                           text: 'Recruiter',
                           onTap: () {
-                            userType = UserType.recruiter;
-                            isSelected = true;
+                            
                           },
                         ),
                       ),

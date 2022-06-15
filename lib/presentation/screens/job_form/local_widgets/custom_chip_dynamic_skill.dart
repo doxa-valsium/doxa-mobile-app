@@ -3,7 +3,6 @@ import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ic.dart';
-import 'package:iconify_flutter/icons/mdi.dart';
 
 class CustomChipDynamicSkill extends StatelessWidget {
   final String name;

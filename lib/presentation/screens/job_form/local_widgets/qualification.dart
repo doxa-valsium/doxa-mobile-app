@@ -1,23 +1,22 @@
 import 'package:equatable/equatable.dart';
 
 class Qualification extends Equatable {
-  late final String degree;
-  late final String major;
-  late final bool isRequired;
+  final String degree;
+  final String major;
+  final bool isRequired;
 
-  Qualification({
+  const Qualification({
     required this.degree,
     required this.major,
     required this.isRequired,
   });
 
-  Qualification.fromMap(Map<String, dynamic> map) {
-    degree = map['qualificationDegree'];
-    major = map['qualificationMajor'];
-    isRequired = map['qualificationExperienceType'];
-  }
+  Qualification.fromMap(Map<String, dynamic> map)
+      : degree = map['qualificationDegree'],
+        major = map['qualificationMajor'],
+        isRequired = map['qualificationExperienceType'];
 
-  Map<String, dynamic> toMap () {
+  Map<String, dynamic> toMap() {
     return {
       'qualificationDegree': degree,
       'qualificationMajor': major,

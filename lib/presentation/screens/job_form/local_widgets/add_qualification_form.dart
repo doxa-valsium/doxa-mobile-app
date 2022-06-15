@@ -98,10 +98,7 @@ class AddQualificationForm extends StatelessWidget {
                   child: CustomElevatedButton(
                     buttonText: "Add",
                     onPressed: () {
-                      print(qualificationFormKey.currentState?.value);
-
                       if (qualificationFormKey.currentState!.saveAndValidate()) {
-                        print(qualificationFormKey.currentState!.value);
                         onAdd(qualificationFormKey.currentState!.value);
                       }
                     },

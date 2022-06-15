@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
 import 'package:doxa_mobile_app/logger.dart';
-import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/services/error_message_service.dart';
 import 'package:equatable/equatable.dart';
 
@@ -26,7 +25,7 @@ class RegistrationScreenCubit extends Cubit<RegistrationScreenState> {
       logger.i(uuid);
       user.remove('password');
       if (uuid != null) {
-        await _userRepository.addUserToDatabase(user: user, uuid:  uuid);
+        await _userRepository.createNewUser(user: user, uuid: uuid);
         emit(RegistrationScreenSucess());
       } else {
         emit(const RegistrationScreenError(errorMessage: ErrorMessageService.genericErrorMessage));

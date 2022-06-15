@@ -12,8 +12,8 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 class JobFormFlowScreen extends StatelessWidget {
   static const String route = 'job-form-flow-screen';
   final _formKey = GlobalKey<FormBuilderState>();
-  List<Map<String, dynamic>> qualifications = [];
-  List<String> skills = [];
+  final List<Map<String, dynamic>> qualifications = [];
+  final List<String> skills = [];
 
   JobFormFlowScreen({Key? key}) : super(key: key);
 
