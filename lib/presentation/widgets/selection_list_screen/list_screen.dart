@@ -1,10 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/business_logic/blocs/selectable/selectable_bloc.dart';
-import 'package:doxa_mobile_app/data/repositories/auth_repository/supabase_auth_repository.dart';
-import 'package:doxa_mobile_app/data/repositories/selectable_repository/selectable_repository.dart';
-import 'package:doxa_mobile_app/data/repositories/selectable_repository/supabase_selectable_repository.dart';
 import 'package:doxa_mobile_app/logger.dart';
-import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen/list_component.dart';
 import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen/search_bar_form_list.dart';
 import 'package:flutter/material.dart';

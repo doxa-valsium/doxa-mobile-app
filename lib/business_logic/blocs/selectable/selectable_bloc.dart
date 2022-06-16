@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:doxa_mobile_app/data/repositories/selectable_repository/selectable_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/selectable_repository/supabase_selectable_repository.dart';
-import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:doxa_mobile_app/services/error_message_service.dart';
 import 'package:equatable/equatable.dart';

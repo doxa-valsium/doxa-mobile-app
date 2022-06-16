@@ -5,12 +5,19 @@ import 'package:doxa_mobile_app/models/selectable.dart';
 
 Map<String, Function> types = {
   'Gender': (map) => Gender.fromMap(map),
+  'WorkplaceType' : (map) => WorkplaceType.fromMap(map),
+  'EmployementType': (map) => EmployementType.fromMap(map),
+  'Major': (map) => Major.fromMap(map),
+  'Degree': (map) => Degree.fromMap(map),
+  'City': (map) => City.fromMap(map),
+  'Country': (map) => Country.fromMap(map),
+  'Industry': (map) => Industry.fromMap(map),
+  'Skill': (map) => Skill.fromMap(map),
 };
 
 class SupabaseSelectableRepository extends SelectableRepository {
   @override
   Future<void> addNewSelectable(Selectable newSelectable) {
-    // TODO: implement addNewSelectable
     throw UnimplementedError();
   }
 
@@ -26,7 +33,7 @@ class SupabaseSelectableRepository extends SelectableRepository {
     } else {
       logger.i("Fetched Selectable Data Successfully!");
       response.data.forEach((element) {
-        result.add(types[selectableType.toString()]!({'label': element['name'], 'id': element['id']}));
+        result.add(types[selectableType.toString()]!({'label': element['label'], 'id': element['id']}));
       });
     }
     return result;

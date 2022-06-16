@@ -57,7 +57,7 @@ class JobFormStepOne extends StatelessWidget {
             holdVal: true,
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
-              selectableType: EmploymentType,
+              selectableType: EmployementType,
               type: FormListType.staticList,
               title: "Employement Type",
             ),
@@ -81,7 +81,7 @@ class JobFormStepOne extends StatelessWidget {
             labelText: "Location",
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
-              selectableType: Location,
+              selectableType: City,
               type: FormListType.staticList,
               title: "Location",
             ),

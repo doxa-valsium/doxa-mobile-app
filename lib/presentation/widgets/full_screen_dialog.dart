@@ -13,8 +13,8 @@ void fullScreenDialog(context, TextEditingController controller, Widget child, b
       }).then((value) {
     if (value != null) {
       if (value is Selectable) controller.text = value.label;
-      if (forSkills) {
-        onSkillAdd!(value.toString());
+      if (forSkills && value is Selectable) {
+        onSkillAdd!(value.label);
         controller.clear();
       }
     }

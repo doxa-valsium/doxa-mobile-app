@@ -4,7 +4,7 @@ import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:equatable/equatable.dart';
 
 class Preferrence extends Equatable {
-  final EmploymentType employmentType;
+  final EmployementType employmentType;
   final WorkplaceType workplaceType;
   final List<Location> locations;
   final List<Industry> industries;
