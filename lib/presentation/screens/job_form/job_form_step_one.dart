@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
@@ -56,6 +57,7 @@ class JobFormStepOne extends StatelessWidget {
             holdVal: true,
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
+              selectableType: EmploymentType,
               type: FormListType.staticList,
               title: "Employement Type",
             ),
@@ -67,6 +69,7 @@ class JobFormStepOne extends StatelessWidget {
             labelText: "Workplace Type",
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
+              selectableType: WorkplaceType,
               type: FormListType.staticList,
               title: "Workplace Type",
             ),
@@ -78,6 +81,7 @@ class JobFormStepOne extends StatelessWidget {
             labelText: "Location",
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
+              selectableType: Location,
               type: FormListType.staticList,
               title: "Location",
             ),

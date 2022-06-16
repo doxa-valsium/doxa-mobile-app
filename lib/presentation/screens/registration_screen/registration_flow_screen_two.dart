@@ -70,6 +70,7 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                     validators: FormBuilderValidators.required(),
                     holdVal: true,
                     child: const ListScreen(
+                      selectableType: Gender,
                       type: FormListType.staticList,
                       title: "Workplace Type",
                     ),

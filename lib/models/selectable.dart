@@ -1,19 +1,26 @@
 import 'package:equatable/equatable.dart';
 
 abstract class Selectable extends Equatable {
-  static String get selectableIdentifire => 'Selectable';
+  String get selectableIdentifier => 'Selectable';
   final int? _id;
   final String _label;
   String get label => _label;
   int? get id => _id;
-  const Selectable._internal({int? id, required String label}) : _id = id, _label = label;
+  const Selectable._internal({int? id, required String label})
+      : _id = id,
+        _label = label;
+
+  Selectable.fromMap(Map map) : _label = map['label'], _id = map.containsKey('id') ? map['id'] : null;
+
   @override
-  List<Object?> get props => [_id, label, selectableIdentifire];
+  List<Object?> get props => [_id, label, selectableIdentifier];
 }
 
 class Gender extends Selectable {
+  @override
+  String get selectableIdentifier => 'genders';
   const Gender({int? id, required String label}) : super._internal(id: id, label: label);
-
+  Gender.fromMap(Map map) : super.fromMap(map);
 }
 
 class EmploymentType extends Selectable {
@@ -21,6 +28,8 @@ class EmploymentType extends Selectable {
 }
 
 class WorkplaceType extends Selectable {
+  @override
+  String get selectableIdentifier => 'workplace_types';
   const WorkplaceType({int? id, required String label}) : super._internal(id: id, label: label);
 }
 

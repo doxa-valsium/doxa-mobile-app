@@ -1,4 +1,5 @@
 import 'package:doxa_mobile_app/logger.dart';
+import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
 import 'package:doxa_mobile_app/presentation/widgets/dashed_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.dart';
@@ -44,6 +45,7 @@ class AddCompanyScreen extends StatelessWidget {
                   labelText: "Company Name",
                   validators: FormBuilderValidators.required(),
                   child: const ListScreen(
+                    selectableType: Company,
                     type: FormListType.staticList,
                     title: "Your Company",
                   ),
@@ -56,6 +58,7 @@ class AddCompanyScreen extends StatelessWidget {
                   labelText: "Your Position",
                   validators: FormBuilderValidators.required(),
                   child: const ListScreen(
+                    selectableType: JobTitle,
                     type: FormListType.staticList,
                     title: "Your Position",
                   ),

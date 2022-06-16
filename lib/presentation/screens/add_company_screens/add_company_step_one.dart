@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
@@ -39,6 +40,7 @@ class AddCompanyStepOne extends StatelessWidget {
             holdVal: true,
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
+              selectableType: Industry,
               type: FormListType.staticList,
               title: "Company's Industry",
             ),
@@ -50,6 +52,7 @@ class AddCompanyStepOne extends StatelessWidget {
             labelText: "Location",
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
+              selectableType: Industry,
               type: FormListType.staticList,
               title: "Company's Location",
             ),
@@ -66,6 +69,7 @@ class AddCompanyStepOne extends StatelessWidget {
             labelText: "Your Position",
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
+              selectableType: JobTitle,
               type: FormListType.staticList,
               title: "Your Position",
             ),
