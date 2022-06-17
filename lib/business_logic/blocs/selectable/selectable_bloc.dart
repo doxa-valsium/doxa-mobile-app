@@ -20,6 +20,24 @@ class SelectableBloc extends Bloc<SelectableEvent, SelectableState> {
         emit(const SelectableErrorState(errorMessage: ErrorMessageService.genericErrorMessage));
       }
     });
-    on<AddSelectable>((event, emit) {});
+    on<AddSelectable>((event, emit) async {
+      emit(SelectableLoadingState());
+      try {
+        await selectableRepository.addNewSelectable(event.selectable);
+        emit(SelectableLoadedState(selectables: [event.selectable]));
+      } on Exception {
+        emit(const SelectableErrorState(errorMessage: ErrorMessageService.genericErrorMessage));
+      }
+    });
+    on<FilterSelectable>((event, emit) {
+      emit(SelectableLoadingState());
+      try {
+        final List<Selectable?> response = selectableRepository.filterSelectables(event.searchTerm);
+        emit(SelectableLoadedState(selectables: response));
+      } on Exception {
+        emit(const SelectableErrorState(errorMessage: ErrorMessageService.genericErrorMessage));
+      }
+    });
+
   }
 }

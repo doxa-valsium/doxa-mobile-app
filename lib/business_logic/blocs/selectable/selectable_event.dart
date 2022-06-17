@@ -16,3 +16,8 @@ class AddSelectable extends SelectableEvent {
   final Selectable selectable;
   const AddSelectable({required this.selectable});
 }
+
+class FilterSelectable extends SelectableEvent {
+  final String searchTerm;
+  const FilterSelectable({required this.searchTerm});
+}

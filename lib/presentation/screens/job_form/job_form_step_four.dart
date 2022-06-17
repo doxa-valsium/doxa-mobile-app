@@ -11,7 +11,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
-
 class JobFormStepFour extends StatelessWidget {
   final GlobalKey<FormBuilderState> formKey;
   final Function(String) onSkillAdd;
@@ -45,7 +44,7 @@ class JobFormStepFour extends StatelessWidget {
                 validators: FormBuilderValidators.required(),
                 child: const ListScreen(
                   selectableType: Industry,
-                  type: FormListType.staticList,
+                  type: FormListType.dynamicList,
                   title: "Industry",
                 ),
               ),
