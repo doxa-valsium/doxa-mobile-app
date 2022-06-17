@@ -1,7 +1,6 @@
 import 'package:doxa_mobile_app/business_logic/cubits/registration_screen/registration_screen_cubit.dart';
 import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/models/models.dart';
-import 'package:doxa_mobile_app/models/user.dart';
 import 'package:doxa_mobile_app/presentation/screens/registration_screen/local_widgets/user_type_selector.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar_and_body.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_elevated_button.dart';
@@ -70,6 +69,7 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                     validators: FormBuilderValidators.required(),
                     holdVal: true,
                     child: const ListScreen(
+                      selectableType: Gender,
                       type: FormListType.staticList,
                       title: "Workplace Type",
                     ),

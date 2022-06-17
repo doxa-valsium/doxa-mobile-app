@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 
 class Experiance extends Equatable {
   final JobTitle title;
-  final EmploymentType employmentType;
+  final EmployementType employmentType;
   final Location? location;
   final Company company;
   final Industry industry;

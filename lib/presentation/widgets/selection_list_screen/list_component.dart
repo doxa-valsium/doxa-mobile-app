@@ -1,9 +1,12 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:flutter/material.dart';
 
 class ListComponent extends StatelessWidget {
-  final String text;
-  const ListComponent({Key? key, required this.text}) : super(key: key);
+  final Selectable selectable;
+  final VoidCallback? onSelectableAdd;
+  
+  const ListComponent({Key? key, required this.selectable, this.onSelectableAdd}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +14,8 @@ class ListComponent extends StatelessWidget {
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
       onTap: () {
-        context.router.popForced(text);
+        if (onSelectableAdd != null) onSelectableAdd!();
+        context.router.popForced(selectable);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 32),
@@ -19,7 +23,8 @@ class ListComponent extends StatelessWidget {
           width: double.infinity,
           height: 32,
           child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(text, maxLines: 1, overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant)),
+            Text(selectable.label,
+                maxLines: 1, overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant)),
             Divider(
               height: 1,
               color: Theme.of(context).colorScheme.onSurfaceVariant,

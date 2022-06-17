@@ -1,4 +1,5 @@
 import 'package:doxa_mobile_app/business_logic/cubits/job_form_add_qualification_button/add_qualification_button_cubit.dart';
+import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/custom_switch.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_elevated_button.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
@@ -32,6 +33,7 @@ class AddQualificationForm extends StatelessWidget {
                 invertColors: true,
                 validators: FormBuilderValidators.required(),
                 child: const ListScreen(
+                  selectableType: Degree,
                   type: FormListType.dynamicList,
                   title: "Degree",
                 )),
@@ -48,6 +50,7 @@ class AddQualificationForm extends StatelessWidget {
                 invertColors: true,
                 validators: FormBuilderValidators.required(),
                 child: const ListScreen(
+                  selectableType: Major,
                   type: FormListType.dynamicList,
                   title: "Major",
                 )),

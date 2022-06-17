@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:flutter/material.dart';
 
 void fullScreenDialog(context, TextEditingController controller, Widget child, bool forSkills, void Function(String)? onSkillAdd) {
@@ -11,9 +12,9 @@ void fullScreenDialog(context, TextEditingController controller, Widget child, b
         return child;
       }).then((value) {
     if (value != null) {
-      controller.text = value.toString();
-      if (forSkills) {
-        onSkillAdd!(value.toString());
+      if (value is Selectable) controller.text = value.label;
+      if (forSkills && value is Selectable) {
+        onSkillAdd!(value.label);
         controller.clear();
       }
     }

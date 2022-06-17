@@ -1,5 +1,6 @@
 import 'package:doxa_mobile_app/business_logic/cubits/job_form_add_skills/job_form_add_skills_cubit.dart';
 import 'package:doxa_mobile_app/logger.dart';
+import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/custom_chip_dynamic_skill.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
@@ -9,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-
 
 class JobFormStepFour extends StatelessWidget {
   final GlobalKey<FormBuilderState> formKey;
@@ -43,7 +43,8 @@ class JobFormStepFour extends StatelessWidget {
                 labelText: "Industry",
                 validators: FormBuilderValidators.required(),
                 child: const ListScreen(
-                  type: FormListType.staticList,
+                  selectableType: Industry,
+                  type: FormListType.dynamicList,
                   title: "Industry",
                 ),
               ),
@@ -112,6 +113,7 @@ class JobFormStepFour extends StatelessWidget {
                   onSkillAdd(skill);
                 },
                 child: const ListScreen(
+                  selectableType: Skill,
                   type: FormListType.dynamicList,
                   title: "Skills",
                 ),

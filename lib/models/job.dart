@@ -9,7 +9,7 @@ class Job extends Equatable{
   final String? jobId;
   final String title;
   final String headline;
-  final EmploymentType employmentType;
+  final EmployementType employmentType;
   final WorkplaceType workplaceType;
   final Location? location;
   final SalarayRange? salarayRange;

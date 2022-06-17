@@ -1,4 +1,6 @@
 import 'package:doxa_mobile_app/logger.dart';
+import 'package:doxa_mobile_app/models/location.dart';
+import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:doxa_mobile_app/presentation/widgets/anchored_single_child_scroll_view.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar_and_body.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_elevated_button.dart';
@@ -52,6 +54,7 @@ class EditCompanyScreen extends StatelessWidget {
                       labelText: "Industry",
                       validators: FormBuilderValidators.required(),
                       child: const ListScreen(
+                        selectableType: Industry,
                         type: FormListType.dynamicList,
                         title: 'Industry',
                       ),
@@ -69,6 +72,7 @@ class EditCompanyScreen extends StatelessWidget {
                       labelText: "Location",
                       validators: FormBuilderValidators.required(),
                       child: const ListScreen(
+                        selectableType: Location,
                         type: FormListType.dynamicList,
                         title: 'Location',
                       ),
