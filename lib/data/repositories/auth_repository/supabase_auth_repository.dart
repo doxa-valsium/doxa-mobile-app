@@ -9,7 +9,7 @@ class SupabaseAuthRepository extends AuthRepository {
   final _controller = StreamController<AuthenticationStatus>();
 
   SupabaseAuthRepository() {
-     supabase.auth.onAuthStateChange((event, session) {
+    kSupabase.auth.onAuthStateChange((event, session) {
       if (event == AuthChangeEvent.signedIn) {
         _controller.add(AuthenticationStatus.authenticated);
       } else if (event == AuthChangeEvent.signedOut) {
@@ -20,7 +20,7 @@ class SupabaseAuthRepository extends AuthRepository {
 
   @override
   bool isSignedIn() {
-    final response = supabase.auth.currentUser;
+    final response = kSupabase.auth.currentUser;
     if (response == null) {
       return false;
     } else {
@@ -30,17 +30,15 @@ class SupabaseAuthRepository extends AuthRepository {
 
   @override
   Future<void> signInWithEmailAndPassword(String email, String password) async {
-    final response = await supabase.auth.signIn(email: email, password: password, options: supabase_root.AuthOptions(redirectTo: signUpAuthRedirectUri));
+    supabase_root.GotrueSessionResponse response = await kSupabase.auth.signIn(email: email, password: password);
     if (response.error != null) {
-      logger.e(response.error!.message);
-    } else {
-      logger.i('User Logged In successfully');
+      throw AuthException(response.error!.message);
     }
   }
 
   @override
   Future<void> signOut() async {
-    final response = await supabase.auth.signOut();
+    final response = await kSupabase.auth.signOut();
     if (response.error != null) {
       logger.e(response.error!.message);
     } else {
@@ -50,23 +48,19 @@ class SupabaseAuthRepository extends AuthRepository {
 
   @override
   Future<String?> signUpWithEmailAndPassword(String email, String password) async {
-    final response = await supabase.auth.signUp(email, password, options: supabase_root.AuthOptions(redirectTo: signUpAuthRedirectUri));
+    final response = await kSupabase.auth.signUp(email, password, options: supabase_root.AuthOptions(redirectTo: kSignUpAuthRedirectUri));
     if (response.error != null) {
-      logger.e(response.error!.message);
+      throw AuthException(response.error!.message);
     } else {
-      logger.i('Verification Email Sent Sucessfully!');
       return response.user!.id;
     }
-    return null;
   }
 
   @override
   Future<bool> userAlreadyExists({required String email}) async {
-    final response = await supabase.rpc('is_user_exists', params: {'test_email': email}).execute();
+    final response = await kSupabase.rpc('is_user_exists', params: {'test_email': email}).execute();
     if (response.error != null) {
-      logger.e(response.error!.message);
-    } else {
-      logger.i(response.data);
+      throw AuthException(response.error!.message);
     }
     return response.data;
   }
@@ -87,11 +81,24 @@ class SupabaseAuthRepository extends AuthRepository {
 
   @override
   Future<void> signInWithRefreshToken(Uri uri) async {
-    final response = await supabase.auth.getSessionFromUrl(uri);
+    final response = await kSupabase.auth.getSessionFromUrl(uri);
     if (response.error != null) {
       logger.e(response.error!.message);
     } else {
       logger.i('Signed In using Token Sucessfully!');
     }
   }
+
+  @override
+  Future<void> resendVerificationEmail({required String email}) async {
+    supabase_root.GotrueSessionResponse response = await kSupabase.auth.signIn(email: email);
+    if (response.error != null) {
+      throw AuthException(response.error!.message);
+    }
+  }
+}
+
+class AuthException implements Exception {
+  String message;
+  AuthException(this.message);
 }

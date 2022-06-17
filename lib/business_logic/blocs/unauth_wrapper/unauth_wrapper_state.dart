@@ -10,3 +10,10 @@ abstract class UnauthWrapperState extends Equatable {
 class OnLoginScreen extends UnauthWrapperState {}
 
 class OnRegistrationScreen extends UnauthWrapperState {}
+
+class OnEmailVerificationScreen extends UnauthWrapperState {
+  final String email;
+  const OnEmailVerificationScreen({required this.email});
+  @override
+  List<Object> get props => [email];
+}

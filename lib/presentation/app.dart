@@ -46,17 +46,14 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   final AppRouter _appRouter = AppRouter();
-  // final DeepLinkService _deepLinkService = DeepLinkService();
 
   @override
   void initState() {
-    // _deepLinkService.handleIncomingDeepLinks();
     super.initState();
   }
 
   @override
   void dispose() {
-    // _deepLinkService.dispose();
     super.dispose();
   }
 
@@ -70,7 +67,7 @@ class _MainAppState extends State<MainApp> {
           routerDelegate: AutoRouterDelegate.declarative(
             _appRouter,
             routes: (_) => [
-              // if the user is logged in, they may proceed to the main App
+              // if the user is logged in, they may proceed to the Main App
               if (state.status == AuthenticationStatus.authenticated)
                 const AuthWrapperRoute()
               // if they are not logged in, bring them to the Login page

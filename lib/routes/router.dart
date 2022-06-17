@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/company_profile_screen.dart';
+import 'package:doxa_mobile_app/presentation/screens/email_verification_screen/email_verification_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/home_screen/home_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/job_form_flow_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/jobs_screen/jobs_screen.dart';
@@ -129,13 +130,17 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
       path: UnAuthWrapperScreen.route, page: UnAuthWrapperScreen,
         children: [
           AutoRoute(
-            path: 'login',
+            path: LoginScreen.route,
             page: LoginScreen,
             initial: true,
           ),
           AutoRoute(
-            path: 'register',
+            path: RegistrationFlowScreen.route,
             page: RegistrationFlowScreen,
+          ),
+          AutoRoute(
+            path: EmailVerificationScreen.route,
+            page: EmailVerificationScreen,
           ),
         ],),
     

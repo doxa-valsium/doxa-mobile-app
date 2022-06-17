@@ -11,8 +11,8 @@ class DashedButton extends StatelessWidget {
 
   const DashedButton({
     Key? key,
-    required this.borderRadius,
-    required this.dashLineRadius,
+    this.borderRadius=16,
+    this.dashLineRadius=16,
     required this.color,
     required this.buttonText,
     required this.onPressed,

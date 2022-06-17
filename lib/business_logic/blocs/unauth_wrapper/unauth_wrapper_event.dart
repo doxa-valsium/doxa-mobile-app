@@ -10,3 +10,10 @@ abstract class UnauthWrapperEvent extends Equatable {
 class NavigateToLoginScreen extends UnauthWrapperEvent {}
 
 class NavigateToRegistrationScreen extends UnauthWrapperEvent {}
+
+class NavigateToEmailVerificationScreen extends UnauthWrapperEvent {
+  final String email;
+  const NavigateToEmailVerificationScreen({required this.email});
+  @override
+  List<Object> get props => [email];
+}

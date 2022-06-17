@@ -1,5 +1,5 @@
+import 'package:doxa_mobile_app/business_logic/blocs/unauth_wrapper/unauth_wrapper_bloc.dart';
 import 'package:doxa_mobile_app/business_logic/cubits/registration_screen/registration_screen_cubit.dart';
-import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/models/user.dart';
 import 'package:doxa_mobile_app/presentation/screens/registration_screen/local_widgets/user_type_selector.dart';
@@ -19,16 +19,20 @@ import 'package:intl/intl.dart';
 
 class RegistrationFlowScreenTwo extends StatelessWidget {
   final DateFormat dateFormatter = DateFormat('dd-MM-yyyy');
-  final Map<String, dynamic> registrationData = {};
   final UserType userType = UserType.unknown;
   final bool isSelected = false;
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
   RegistrationFlowScreenTwo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final formState = FormBuilder.of(context);
     return BlocBuilder<RegistrationScreenCubit, RegistrationScreenState>(
       builder: (context, state) {
+        final registrationCubit = BlocProvider.of<RegistrationScreenCubit>(context);
         return CustomAppBarAndBody(
           showBackButton: true,
           title: 'Basic Info',
@@ -46,7 +50,7 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                   const SizedBox(height: 16),
                   CustomFormBuilderTextField(
                     name: "first_name",
-                    controller: TextEditingController(),
+                    controller: _firstNameController,
                     keyboardType: TextInputType.text,
                     labelText: "First Name",
                     validators: FormBuilderValidators.compose([
@@ -56,7 +60,7 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                   const SizedBox(height: 16),
                   CustomFormBuilderTextField(
                     name: "last_name",
-                    controller: TextEditingController(),
+                    controller: _lastNameController,
                     keyboardType: TextInputType.text,
                     labelText: "Last Name",
                     validators: FormBuilderValidators.compose([
@@ -76,8 +80,9 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   CustomFormBuilderDatePicker(
-                    name: "dob",
+                    name: "date_of_birth",
                     labelText: "Date of Birth",
+                    controller: _emailController,
                   ),
                   const SizedBox(height: 16),
                   Text(
@@ -88,29 +93,31 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                   Row(
                     children: [
                       Expanded(
-                        flex: 10,
+                        flex: 1,
                         child: UserTypeSelector(
-                          isSelected: !isSelected,
+                          isSelected: state.userType == UserType.candidate,
                           bodycolor: Theme.of(context).colorScheme.onSecondaryContainer,
                           elevation: Styles.elevation3,
                           imagePath: 'assets/images/candidate.png',
                           text: 'Candidate',
                           onTap: () {
-                            
+                            formState!.save();
+                            registrationCubit.updateUsertype(usertype: UserType.candidate);
                           },
                         ),
                       ),
                       const SizedBox(width: 16),
                       Expanded(
-                        flex: 10,
+                        flex: 1,
                         child: UserTypeSelector(
-                          isSelected: isSelected,
+                          isSelected: state.userType == UserType.recruiter,
                           bodycolor: Theme.of(context).colorScheme.onSecondaryContainer,
                           elevation: Styles.elevation3,
                           imagePath: 'assets/images/recruiter.png',
                           text: 'Recruiter',
                           onTap: () {
-                            
+                            formState!.save();
+                            registrationCubit.updateUsertype(usertype: UserType.recruiter);
                           },
                         ),
                       ),
@@ -121,33 +128,23 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                   ),
                   SizedBox(
                     width: double.maxFinite,
-                    height: 50.0,
+                    height: 48,
                     child: CustomElevatedButton(
                       buttonText: 'CONTINUE',
                       isLoading: state is RegistrationScreenLoading,
-                      onPressed: () {
+                      onPressed: () async {
                         if (FormBuilder.of(context)!.saveAndValidate()) {
-                          Map<String, dynamic> completeRegistrationData = Map<String, dynamic>.from(FormBuilder.of(context)!.value);
-                          completeRegistrationData.addAll(registrationData);
-                          final String email = completeRegistrationData['registration_email'];
-                          final String password = completeRegistrationData['registration_password'];
-                          final Map<String, dynamic> user = {
-                            'email': email,
-                            'gender': 1,
-                            'password' : password,
-                            'first_name': completeRegistrationData['first_name'],
-                            'last_name': completeRegistrationData['last_name'],
-                            'user_type': 1,
-                            'date_of_birth': DateTime(2020, 1, 1).toIso8601String(),
-                            'is_onboarded': false,
-                            'is_verified' : false,
-                          };
-
-                          logger.i(completeRegistrationData);
-                          BlocProvider.of<RegistrationScreenCubit>(context).register(user);
-                          if (state is RegistrationScreenSucess) {
-                            FlowView.of(context).next();
-                          }
+                          Map<String, dynamic> completeRegistrationData = Map<String, dynamic>.from(formState!.value);
+                          completeRegistrationData['user_type'] = state.userType.index;
+                          completeRegistrationData['gender'] = 1;
+                          completeRegistrationData['is_onboarded'] = false;
+                          FlowView.of(context).setIsLoading(true);
+                          registrationCubit.register(
+                              userData: completeRegistrationData,
+                              onRegistered: () {
+                                FlowView.of(context).setIsLoading(false);
+                                BlocProvider.of<UnauthWrapperBloc>(context).add(NavigateToEmailVerificationScreen(email: completeRegistrationData['email']));
+                              });
                         }
                       },
                     ),

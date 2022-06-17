@@ -11,12 +11,14 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i12;
-import 'package:flutter/material.dart' as _i22;
+import 'package:flutter/material.dart' as _i23;
 
 import '../presentation/screens/auth_wrapper_screen/auth_wrapper_screen.dart'
     as _i9;
 import '../presentation/screens/company_profile_sceen/company_profile_screen.dart'
     as _i19;
+import '../presentation/screens/email_verification_screen/email_verification_screen.dart'
+    as _i22;
 import '../presentation/screens/home_screen/home_screen.dart' as _i13;
 import '../presentation/screens/job_form/job_form_flow_screen.dart' as _i16;
 import '../presentation/screens/jobs_screen/jobs_screen.dart' as _i14;
@@ -40,7 +42,7 @@ import '../presentation/screens/unauth_wrapper_screen/unauth_wrapper_screen.dart
     as _i10;
 
 class AppRouter extends _i12.RootStackRouter {
-  AppRouter([_i22.GlobalKey<_i22.NavigatorState>? navigatorKey])
+  AppRouter([_i23.GlobalKey<_i23.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
@@ -155,6 +157,13 @@ class AppRouter extends _i12.RootStackRouter {
       return _i12.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i21.RegistrationFlowScreen(key: args.key));
+    },
+    EmailVerificationRoute.name: (routeData) {
+      final args = routeData.argsAs<EmailVerificationRouteArgs>();
+      return _i12.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child:
+              _i22.EmailVerificationScreen(key: args.key, email: args.email));
     }
   };
 
@@ -221,7 +230,9 @@ class AppRouter extends _i12.RootStackRouter {
           _i12.RouteConfig(LoginRoute.name,
               path: 'login', parent: UnAuthWrapperRoute.name),
           _i12.RouteConfig(RegistrationFlowRoute.name,
-              path: 'register', parent: UnAuthWrapperRoute.name)
+              path: 'register', parent: UnAuthWrapperRoute.name),
+          _i12.RouteConfig(EmailVerificationRoute.name,
+              path: 'verify-email', parent: UnAuthWrapperRoute.name)
         ])
       ];
 }
@@ -388,7 +399,7 @@ class SingleJobRoute extends _i12.PageRouteInfo<void> {
 /// generated route for
 /// [_i16.JobFormFlowScreen]
 class JobFormFlowRoute extends _i12.PageRouteInfo<JobFormFlowRouteArgs> {
-  JobFormFlowRoute({_i22.Key? key})
+  JobFormFlowRoute({_i23.Key? key})
       : super(JobFormFlowRoute.name,
             path: 'job-form-flow-screen', args: JobFormFlowRouteArgs(key: key));
 
@@ -398,7 +409,7 @@ class JobFormFlowRoute extends _i12.PageRouteInfo<JobFormFlowRouteArgs> {
 class JobFormFlowRouteArgs {
   const JobFormFlowRouteArgs({this.key});
 
-  final _i22.Key? key;
+  final _i23.Key? key;
 
   @override
   String toString() {
@@ -434,7 +445,7 @@ class CompanyProfileRoute extends _i12.PageRouteInfo<void> {
 /// generated route for
 /// [_i20.LoginScreen]
 class LoginRoute extends _i12.PageRouteInfo<LoginRouteArgs> {
-  LoginRoute({_i22.Key? key})
+  LoginRoute({_i23.Key? key})
       : super(LoginRoute.name, path: 'login', args: LoginRouteArgs(key: key));
 
   static const String name = 'LoginRoute';
@@ -443,7 +454,7 @@ class LoginRoute extends _i12.PageRouteInfo<LoginRouteArgs> {
 class LoginRouteArgs {
   const LoginRouteArgs({this.key});
 
-  final _i22.Key? key;
+  final _i23.Key? key;
 
   @override
   String toString() {
@@ -455,7 +466,7 @@ class LoginRouteArgs {
 /// [_i21.RegistrationFlowScreen]
 class RegistrationFlowRoute
     extends _i12.PageRouteInfo<RegistrationFlowRouteArgs> {
-  RegistrationFlowRoute({_i22.Key? key})
+  RegistrationFlowRoute({_i23.Key? key})
       : super(RegistrationFlowRoute.name,
             path: 'register', args: RegistrationFlowRouteArgs(key: key));
 
@@ -465,10 +476,35 @@ class RegistrationFlowRoute
 class RegistrationFlowRouteArgs {
   const RegistrationFlowRouteArgs({this.key});
 
-  final _i22.Key? key;
+  final _i23.Key? key;
 
   @override
   String toString() {
     return 'RegistrationFlowRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [_i22.EmailVerificationScreen]
+class EmailVerificationRoute
+    extends _i12.PageRouteInfo<EmailVerificationRouteArgs> {
+  EmailVerificationRoute({_i23.Key? key, required String email})
+      : super(EmailVerificationRoute.name,
+            path: 'verify-email',
+            args: EmailVerificationRouteArgs(key: key, email: email));
+
+  static const String name = 'EmailVerificationRoute';
+}
+
+class EmailVerificationRouteArgs {
+  const EmailVerificationRouteArgs({this.key, required this.email});
+
+  final _i23.Key? key;
+
+  final String email;
+
+  @override
+  String toString() {
+    return 'EmailVerificationRouteArgs{key: $key, email: $email}';
   }
 }
