@@ -75,7 +75,7 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                     child: const ListScreen(
                       selectableType: Gender,
                       type: FormListType.staticList,
-                      title: "Workplace Type",
+                      title: "Gender",
                     ),
                   ),
                   const SizedBox(height: 16),
