@@ -8,7 +8,8 @@ class UserTypeSelector extends StatelessWidget {
   final VoidCallback? onTap;
   final bool isSelected;
 
-  const UserTypeSelector({Key? key, required this.bodycolor, required this.isSelected , required this.elevation, required this.imagePath, required this.text, this.onTap}) : super(key: key);
+  const UserTypeSelector({Key? key, required this.bodycolor, required this.isSelected, required this.elevation, required this.imagePath, required this.text, this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +20,12 @@ class UserTypeSelector extends StatelessWidget {
           boxShadow: elevation,
           color: bodycolor,
           borderRadius: BorderRadius.circular(10),
-          border: isSelected ? Border.all(
-            color: Theme.of(context).colorScheme.primary,
-            width: 1.5,
-          ): null,
+          border: isSelected
+              ? Border.all(
+                  color: Theme.of(context).colorScheme.primary,
+                  width: 1.5,
+                )
+              : null,
         ),
         padding: const EdgeInsets.only(left: 40, right: 40, top: 32, bottom: 10),
         child: Column(
@@ -32,6 +35,8 @@ class UserTypeSelector extends StatelessWidget {
             Text(
               text,
               style: Theme.of(context).textTheme.subtitle2?.copyWith(color: Theme.of(context).colorScheme.surfaceVariant),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),

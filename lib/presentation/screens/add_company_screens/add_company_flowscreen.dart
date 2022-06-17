@@ -28,7 +28,6 @@ class AddCompanyFlowScreen extends StatelessWidget {
                   buttonText: 'Next',
                   onPressed: (context) {
                     if (_formKey.currentState!.saveAndValidate()) {
-                      // print(_formKey.currentState);
                       FlowView.of(context).next();
                     }
                   },

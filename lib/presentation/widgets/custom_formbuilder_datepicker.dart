@@ -1,18 +1,16 @@
-import 'package:doxa_mobile_app/logger.dart';
+import 'package:doxa_mobile_app/constants.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:intl/intl.dart';
 
 class CustomFormBuilderDatePicker extends StatelessWidget {
   final DateTime _date = DateTime.now();
-  final TextEditingController _dateController = TextEditingController();
-  final DateFormat dateFormatter = DateFormat('dd-MM-yyyy');
+  final TextEditingController controller;
   final String labelText;
   final String name;
 
-  CustomFormBuilderDatePicker({Key? key, required this.labelText, required this.name}) : super(key: key);
+  CustomFormBuilderDatePicker({Key? key, required this.labelText, required this.name, required this.controller}) : super(key: key);
 
   _showDatePicker(BuildContext context) async {
     if (Theme.of(context).platform == TargetPlatform.android) {
@@ -58,7 +56,7 @@ class CustomFormBuilderDatePicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomFormBuilderTextField(
       name: name,
-      controller: _dateController,
+      controller: controller,
       keyboardType: TextInputType.text,
       prefixIcon: const Icon(
         Icons.calendar_today_outlined,
@@ -68,8 +66,7 @@ class CustomFormBuilderDatePicker extends StatelessWidget {
       readOnly: true,
       onTap: () async {
         DateTime date = await _showDatePicker(context);
-        _dateController.text = dateFormatter.format(date).toString();
-        logger.d(_dateController.text);
+        controller.text = kDateFormat.format(date).toString();
       },
       validators: FormBuilderValidators.compose([
         FormBuilderValidators.required(),
