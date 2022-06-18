@@ -39,7 +39,7 @@ class ProfileMenuItem extends StatelessWidget {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 softWrap: false,
-                // textAlign: TextAlign.center,
+                //textAlign: TextAlign.center,
               ),
             ],
           ),

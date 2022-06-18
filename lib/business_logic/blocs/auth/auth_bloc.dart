@@ -12,24 +12,25 @@ part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
+  
+  final AuthRepository _authenticationRepository;
+  final UserRepository _userRepository;
+  late StreamSubscription<AuthenticationStatus> _authenticationStatusSubscription;
+  final DeepLinkService _deepLinkService = DeepLinkService();
+
   AuthBloc({
     required AuthRepository authenticationRepository,
     required UserRepository userRepository,
   })  : _authenticationRepository = authenticationRepository,
         _userRepository = userRepository,
         super(const AuthenticationState.unknown()) {
-          _deepLinkService.handleIncomingDeepLinks(authRepository: _authenticationRepository);
+    _deepLinkService.handleIncomingDeepLinks(authRepository: _authenticationRepository);
     on<AuthenticationStatusChanged>(_onAuthenticationStatusChanged);
     on<AuthenticationLogoutRequested>(_onAuthenticationLogoutRequested);
     _authenticationStatusSubscription = _authenticationRepository.status.listen(
       (status) => add(AuthenticationStatusChanged(status)),
     );
   }
-
-  final AuthRepository _authenticationRepository;
-  final UserRepository _userRepository;
-  late StreamSubscription<AuthenticationStatus> _authenticationStatusSubscription;
-  final DeepLinkService _deepLinkService = DeepLinkService();
 
   @override
   Future<void> close() {

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class ProfileDetails extends StatelessWidget {
   final String name;
-  final String position;
+  final String jobTitle;
   final String email;
 
   const ProfileDetails({
     Key? key,
     required this.email,
     required this.name,
-    required this.position,
+    required this.jobTitle,
   }) : super(key: key);
 
   @override
@@ -34,7 +34,7 @@ class ProfileDetails extends StatelessWidget {
               ),
               const SizedBox(height: 4.0),
               Text(
-                position,
+                jobTitle,
                 style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onBackground),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,

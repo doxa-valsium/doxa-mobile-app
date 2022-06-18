@@ -13,25 +13,35 @@ import 'package:iconify_flutter/icons/teenyicons.dart';
 import 'package:iconify_flutter/icons/uiw.dart';
 import 'package:auto_route/auto_route.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   static const String route = 'profile-screen';
 
   const ProfileScreen({Key? key}) : super(key: key);
 
   @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  late ProfileBloc _profileBloc;
+
+  @override
+  void initState() {
+    _profileBloc = BlocProvider.of<ProfileBloc>(context);
+    _profileBloc.add(FetchProfile());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    ProfileBloc profileBloc = BlocProvider.of<ProfileBloc>(context);
-    if (profileBloc.state is ProfileScreenInitial) {
-      profileBloc.add(FetchProfile());
-    }
     return Scaffold(
       extendBody: true,
       body: SafeArea(
         child: CustomAppBarAndBody(
           title: 'Profile',
           showBackButton: false,
-          body: BlocBuilder<ProfileBloc, ProfileState>(
-            bloc: profileBloc,
+          body: BlocBuilder<ProfileBloc, ProfileScreenState>(
+            bloc: _profileBloc,
             builder: (context, state) {
               if (state is ProfileScreenLoaded) {
                 return SingleChildScrollView(
@@ -44,10 +54,10 @@ class ProfileScreen extends StatelessWidget {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             const SizedBox(height: 4.0),
-                            const ProfileDetails(
-                              name: 'Ahmed Raza',
-                              position: 'Creative Designer',
-                              email: 'ahmedraza@gmail.com',
+                            ProfileDetails(
+                              name: state.name,
+                              jobTitle: state.jobTitle,
+                              email: state.email,
                             ),
                             const SizedBox(
                               height: 16,

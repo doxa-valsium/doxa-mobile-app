@@ -1,15 +1,33 @@
 part of 'profile_bloc.dart';
 
-@immutable
-abstract class ProfileState {}
+abstract class ProfileScreenState extends Equatable {
+  const ProfileScreenState();
 
-class ProfileScreenInitial extends ProfileState {}
+  @override
+  List<Object> get props => [];
+}
 
-class ProfileScreenLoading extends ProfileState {}
+class ProfileScreenInitial extends ProfileScreenState {}
 
-class ProfileScreenLoaded extends ProfileState {}
+class ProfileScreenLoading extends ProfileScreenState {}
 
-class ProfileScreenError extends ProfileState {
+class ProfileScreenLoaded extends ProfileScreenState {
+  final String name;
+  final String email;
+  final String? profileUrl;
+  final String jobTitle;
+  const ProfileScreenLoaded({
+    required this.name,
+    required this.email,
+    this.profileUrl,
+    required this.jobTitle,
+  });
+
+  @override
+  List<Object> get props => [name, email, jobTitle];
+}
+
+class ProfileScreenError extends ProfileScreenState {
   final String errorMessage;
-  ProfileScreenError({required this.errorMessage});
+  const ProfileScreenError({required this.errorMessage});
 }

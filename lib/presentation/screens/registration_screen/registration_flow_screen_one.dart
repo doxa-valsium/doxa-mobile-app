@@ -89,7 +89,7 @@ class RegistrationFlowScreenOne extends StatelessWidget {
                       isLoading: state is RegistrationScreenLoading,
                       onPressed: () {
                         if (FormBuilder.of(context)!.saveAndValidate()) {
-                          logger.i('Form is valid');
+                          logger.i('Form is valid'); 
                           BlocProvider.of<RegistrationScreenCubit>(context).isUserExists(FormBuilder.of(context)!.value['registration_email']);
                         }
                       },

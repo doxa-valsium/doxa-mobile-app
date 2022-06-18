@@ -6,12 +6,18 @@ import 'package:doxa_mobile_app/models/user.dart' as local_user;
 import 'package:supabase_flutter/supabase_flutter.dart' as supabase_user;
 
 class SupabaseUserRepository extends UserRepository {
+
+  local_user.User? _user;   
+
+  local_user.User? get getLoggedInUser => _user; 
+
+
   @override
   Future<local_user.User?> getUser() async {
-    final supabase_user.User? user = supabase.auth.currentUser;
-    if (user == null) return null;
-    final local_user.User? modelUser = await _fromSupabaseUserToModelUser(user);
-    return modelUser;
+    final supabase_user.User? supabaseUser = supabase.auth.currentUser;
+    if (supabaseUser == null) return null;
+        _user = await _fromSupabaseUserToModelUser(supabaseUser);
+    return _user;
   }
 
   @override
