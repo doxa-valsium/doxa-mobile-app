@@ -50,6 +50,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       ProfileStackHandler(
+                        avatarUrl: state.profileUrl,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [

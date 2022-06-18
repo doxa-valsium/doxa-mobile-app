@@ -6,7 +6,7 @@ import 'package:iconify_flutter/icons/fluent.dart';
 
 /// A widget that displays a circle avatar.
 /// If the [avatarUrl] is null, it will display a default avatar.
-enum AvatarType { company, candidate }
+enum AvatarType { company, user }
 enum EmptyAvatarBorderType { none, dotted }
 
 class Avatar extends StatelessWidget {
@@ -20,7 +20,7 @@ class Avatar extends StatelessWidget {
   /// A widget that displays a circle avatar.
   /// If the [avatarUrl] is null, it will display a default avatar.
   const Avatar(
-      {Key? key, this.avatarUrl, this.radius = 24, this.minRadius, this.maxRadius, this.avatarType = AvatarType.candidate, this.emptyAvatarBorderType = EmptyAvatarBorderType.none})
+      {Key? key, this.avatarUrl, this.radius = 24, this.minRadius, this.maxRadius, this.avatarType = AvatarType.user, this.emptyAvatarBorderType = EmptyAvatarBorderType.none})
       : super(key: key);
 
   @override
@@ -63,7 +63,7 @@ class _PlaceHolderAvatar extends StatelessWidget {
       child: Transform.scale(
         scale: 0.8,
         child: Iconify(
-          avatarType == AvatarType.candidate ? Et.profile_male : Fluent.building_skyscraper_20_regular,
+          avatarType == AvatarType.user ? Et.profile_male : Fluent.building_skyscraper_20_regular,
           color: Theme.of(context).colorScheme.onSecondary,
         ),
       ),

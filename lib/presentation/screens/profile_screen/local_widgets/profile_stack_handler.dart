@@ -2,9 +2,10 @@ import 'package:doxa_mobile_app/presentation/screens/profile_screen/local_widget
 import 'package:flutter/material.dart';
 
 class ProfileStackHandler extends StatelessWidget {
+  final String? avatarUrl;
   final Widget child;
 
-  const ProfileStackHandler({Key? key, required this.child}) : super(key: key);
+  const ProfileStackHandler({Key? key, required this.child,required this.avatarUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +31,13 @@ class ProfileStackHandler extends StatelessWidget {
               ),
               child: child,
             ),
-            const Positioned.fill(
+            Positioned.fill(
               top: -64,
               child: Align(
                 alignment: Alignment.topCenter,
                 child: ProfileAvatar(
                   avatarUrl:
-                      'https://1.bp.blogspot.com/-W_7SWMP5Rag/YTuyV5XvtUI/AAAAAAAAuUQ/hm6bYcvlFgQqgv1uosog6K8y0dC9eglTQCLcBGAsYHQ/s880/Best-Profile-Pic-For-Boys%2B%25281%2529.jpg',
+                      avatarUrl,
                 ),
               ),
             ),
