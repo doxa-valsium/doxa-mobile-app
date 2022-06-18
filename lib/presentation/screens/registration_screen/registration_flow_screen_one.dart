@@ -109,7 +109,6 @@ class RegistrationFlowScreenOne extends StatelessWidget {
                   onPressed: () {
                     unauthWrapperBloc.add(NavigateToLoginScreen());
                   },
-                  dashLineRadius: 16,
                 ),
               ],
             ),

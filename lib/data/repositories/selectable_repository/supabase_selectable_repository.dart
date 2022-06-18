@@ -21,7 +21,7 @@ class SupabaseSelectableRepository extends SelectableRepository {
   @override
   Future<void> addNewSelectable(Selectable newSelectable) async {
     Selectable instance = types[newSelectable.runtimeType.toString()]!({'label': 'unknown', 'id': 0});
-    final response = await supabase.from(instance.selectableIdentifier).insert({'label': newSelectable.label}).execute();
+    final response = await kSupabase.from(instance.selectableIdentifier).insert({'label': newSelectable.label}).execute();
     if (response.error != null) {
       logger.i(response.error);
       throw Exception;
@@ -34,7 +34,7 @@ class SupabaseSelectableRepository extends SelectableRepository {
   Future<List<Selectable?>> getSelectables(Type selectableType) async {
     Selectable instance = types[selectableType.toString()]!({'label': 'unknown', 'id': 0});
 
-    final response = await supabase.from(instance.selectableIdentifier).select('*').execute();
+    final response = await kSupabase.from(instance.selectableIdentifier).select('*').execute();
     if (response.hasError) {
       throw Exception();
     } else {
