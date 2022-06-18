@@ -1,9 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:doxa_mobile_app/constants.dart';
-import 'package:doxa_mobile_app/data/repositories/user_repository/supabase_user_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
 import 'package:doxa_mobile_app/models/user.dart' as local_user;
 
 part 'profile_event.dart';
@@ -26,7 +23,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileScreenState> {
         if (user != null) {
           emit(ProfileScreenLoaded(name: '${user.firstName} ${user.lastName}', email: user.email, jobTitle: 'Peon', profileUrl: user.profilePictureUrl));
         } else {
-          emit(ProfileScreenError(errorMessage: 'Ops something went wrong ....'));
+          emit(const ProfileScreenError(errorMessage: 'Ops something went wrong ....'));
         }
       } on Exception {
         emit(const ProfileScreenError(errorMessage: 'Ops something went wrong ....'));

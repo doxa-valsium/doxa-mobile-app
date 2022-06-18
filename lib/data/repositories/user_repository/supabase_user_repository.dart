@@ -9,7 +9,7 @@ import 'package:supabase_flutter/supabase_flutter.dart' as supabase_user;
 class SupabaseUserRepository extends UserRepository {
 
   local_user.User? _user;   
-
+  @override
   local_user.User? get getLoggedInUser => _user; 
 
 
