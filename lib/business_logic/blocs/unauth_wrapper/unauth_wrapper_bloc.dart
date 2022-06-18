@@ -12,5 +12,8 @@ class UnauthWrapperBloc extends Bloc<UnauthWrapperEvent, UnauthWrapperState> {
     on<NavigateToRegistrationScreen>((event, emit) async {
       emit(OnRegistrationScreen());
     });
+    on<NavigateToEmailVerificationScreen>((event, emit) async {
+      emit(OnEmailVerificationScreen(email: event.email));
+    });
   }
 }

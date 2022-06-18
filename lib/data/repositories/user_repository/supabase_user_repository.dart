@@ -1,4 +1,5 @@
 import 'package:doxa_mobile_app/constants.dart';
+import 'package:doxa_mobile_app/data/repositories/auth_repository/supabase_auth_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
 import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/models/selectable.dart';
@@ -23,18 +24,17 @@ class SupabaseUserRepository extends UserRepository {
   @override
   Future<void> createNewUser({required Map<String, dynamic> user, required String uuid}) async {
     user['uuid'] = uuid;
-    final response = await supabase.from('users').insert([user]).execute();
+    user['date_of_birth'] = kDateFormat.parse(user['date_of_birth']).toIso8601String();
+    final response = await kSupabase.from('users').insert([user]).execute();
     if (response.error != null) {
-      logger.i(response.error);
-    } else {
-      logger.i("User Added to Database Sucessfully!");
+      throw AuthException(response.error!.message);
     }
   }
 
   Future<local_user.User?> _fromSupabaseUserToModelUser(supabase_user.User user) async {
     final String uuid = user.id;
 
-    final response = await supabase.rpc('get_user', params: {'uuid': uuid}).execute();
+    final response = await kSupabase.rpc('get_user', params: {'uuid': uuid}).execute();
 
     if (response.error != null) {
       logger.i(response.error);

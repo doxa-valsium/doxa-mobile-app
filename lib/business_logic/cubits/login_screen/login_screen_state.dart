@@ -11,8 +11,6 @@ class LoginScreenInitial extends LoginScreenState {}
 
 class LoginScreenLoading extends LoginScreenState {}
 
-class LoginScreenSuccess extends LoginScreenState {}
-
 class LoginScreenError extends LoginScreenState {
   final String errorMessage;
   const LoginScreenError({required this.errorMessage});
