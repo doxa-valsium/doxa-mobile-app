@@ -15,7 +15,7 @@ class SupabaseUserRepository extends UserRepository {
 
   @override
   Future<local_user.User?> getUser() async {
-    final supabase_user.User? supabaseUser = supabase.auth.currentUser;
+    final supabase_user.User? supabaseUser = kSupabase.auth.currentUser;
     if (supabaseUser == null) return null;
         _user = await _fromSupabaseUserToModelUser(supabaseUser);
     return _user;
