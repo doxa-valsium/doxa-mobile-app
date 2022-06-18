@@ -16,7 +16,7 @@ class Recruiter extends User {
       required super.isOnboarded,
       required super.dateOfBirth,
       required super.userType,
-      required this.isAdmin,
+      this.isAdmin,
       this.company,
       this.jobs=const [],
       super.profilePictureUrl});
