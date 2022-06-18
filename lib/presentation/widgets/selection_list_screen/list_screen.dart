@@ -34,25 +34,26 @@ class _ListScreenState extends State<ListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-          automaticallyImplyLeading: true,
-          leadingWidth: 48,
-          leading: GestureDetector(
-            onTap: (() => context.router.pop()),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Iconify(
-                Ic.outline_arrow_back_ios,
-                size: 5,
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
+      appBar: AppBar(
+        title: Text(widget.title),
+        automaticallyImplyLeading: true,
+        leadingWidth: 48,
+        leading: GestureDetector(
+          onTap: (() => context.router.pop()),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            child: Iconify(
+              Ic.outline_arrow_back_ios,
+              size: 5,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
           ),
         ),
-        body: BlocProvider(
-          create: (context) => _selectableBloc,
-          child: BlocBuilder<SelectableBloc, SelectableState>(builder: (context, state) {
+      ),
+      body: BlocProvider(
+        create: (context) => _selectableBloc,
+        child: BlocBuilder<SelectableBloc, SelectableState>(
+          builder: (context, state) {
             List<ListComponent> listComponents = [];
             if (state is SelectableLoadedState) {
               for (var component in state.selectables) {
@@ -60,8 +61,7 @@ class _ListScreenState extends State<ListScreen> {
               }
               if (_searchController.text.isNotEmpty) {
                 Selectable newSelectable = types[widget.selectableType.toString()]!({'label': _searchController.text});
-                listComponents.add(
-                  ListComponent(
+                listComponents.add(ListComponent(
                     onSelectableAdd: () {
                       _selectableBloc.add(AddSelectable(selectable: newSelectable));
                       _searchController.clear();
@@ -98,14 +98,16 @@ class _ListScreenState extends State<ListScreen> {
                             const SizedBox(height: 16),
                             Expanded(
                                 child: ListView(
-                                      children: listComponents,
-                                    )),
+                              children: listComponents,
+                            )),
                           ],
                         )
                       : Container(),
             );
-          }),
-        ));
+          },
+        ),
+      ),
+    );
   }
 }
 

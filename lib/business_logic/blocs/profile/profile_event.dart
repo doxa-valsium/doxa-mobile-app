@@ -1,13 +1,13 @@
 part of 'profile_bloc.dart';
 
-@immutable
-abstract class ProfileEvent {}
+abstract class ProfileEvent extends Equatable{
+  const ProfileEvent();
 
-class FetchProfile extends ProfileEvent {
+  @override
+  List<Object> get props => [];
 }
 
-class FetchFailed extends ProfileEvent {
-}
+class FetchProfile extends ProfileEvent {}
 
 // class ProfileLoaded extends ProfileEvent {
 //   // final Profile profile;
