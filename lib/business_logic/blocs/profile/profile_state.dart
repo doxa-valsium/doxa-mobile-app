@@ -12,19 +12,13 @@ class ProfileScreenInitial extends ProfileScreenState {}
 class ProfileScreenLoading extends ProfileScreenState {}
 
 class ProfileScreenLoaded extends ProfileScreenState {
-  final String name;
-  final String email;
-  final String? profileUrl;
-  final String jobTitle;
+  final User user;
   const ProfileScreenLoaded({
-    required this.name,
-    required this.email,
-    this.profileUrl,
-    required this.jobTitle,
+    required this.user,
   });
 
   @override
-  List<Object> get props => [name, email, jobTitle];
+  List<Object> get props => [user];
 }
 
 class ProfileScreenError extends ProfileScreenState {
