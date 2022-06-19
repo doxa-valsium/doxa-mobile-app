@@ -57,7 +57,7 @@ class User extends Equatable {
         gender: userMap['gender'],
         isOnboarded: userMap['is_onboarded'],
         dateOfBirth: userMap['date_of_birth'],
-        userType: UserType.candidate,
+        userType: UserType.recruiter,
         isAdmin: userMap['is_admin'],
     );
   }
