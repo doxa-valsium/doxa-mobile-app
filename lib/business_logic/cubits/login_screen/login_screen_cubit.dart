@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:doxa_mobile_app/data/exceptions/auth_exception.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
-import 'package:doxa_mobile_app/data/repositories/auth_repository/supabase_auth_repository.dart';
 import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/services/app_message_service.dart';
 import 'package:equatable/equatable.dart';

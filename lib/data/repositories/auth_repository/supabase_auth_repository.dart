@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:doxa_mobile_app/constants.dart';
+import 'package:doxa_mobile_app/data/exceptions/auth_exception.dart';
 import 'package:doxa_mobile_app/data/repositories/auth_repository/auth_repository.dart';
-import 'package:doxa_mobile_app/logger.dart';
 import 'package:supabase/supabase.dart' as supabase_root;
 import 'package:supabase/supabase.dart';
 
@@ -38,12 +38,7 @@ class SupabaseAuthRepository extends AuthRepository {
 
   @override
   Future<void> signOut() async {
-    final response = await kSupabase.auth.signOut();
-    if (response.error != null) {
-      logger.e(response.error!.message);
-    } else {
-      logger.i('User Signed out successfully');
-    }
+    await kSupabase.auth.signOut();
   }
 
   @override
@@ -83,9 +78,7 @@ class SupabaseAuthRepository extends AuthRepository {
   Future<void> signInWithRefreshToken(Uri uri) async {
     final response = await kSupabase.auth.getSessionFromUrl(uri);
     if (response.error != null) {
-      logger.e(response.error!.message);
-    } else {
-      logger.i('Signed In using Token Sucessfully!');
+      throw AuthException(response.error!.message);
     }
   }
 
@@ -98,7 +91,3 @@ class SupabaseAuthRepository extends AuthRepository {
   }
 }
 
-class AuthException implements Exception {
-  String message;
-  AuthException(this.message);
-}

@@ -47,6 +47,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 return SingleChildScrollView(
                   padding: const EdgeInsets.only(top: 60.0, left: 16.0, right: 16.0),
                   child: ProfileStackHandler(
+                    avatarUrl: state.us,
                     child: Column(
                       //mainAxisSize: MainAxisSize.min,
                       children: [

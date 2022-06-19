@@ -9,15 +9,16 @@ import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:doxa_mobile_app/models/user.dart';
 
 class Candidate extends User {
-  final String bio;
-  final List<Education> education;
+  final String? bio;
+  final List<Education>? education;
   final List<Experiance>? experiance;
-  final List<Skill> skills;
-  final List<Publication> publications;
-  final List<Award> awards;
-  final List<Certification> certifications;
-  final Preferrence preferrence;
+  final List<Skill>? skills;
+  final List<Publication>? publications;
+  final List<Award>? awards;
+  final List<Certification>? certifications;
+  final Preferrence? preferrence;
   final List<ExternalLink> externalLinks;
+
   const Candidate({
     required super.userId,
     required super.firstName,
@@ -28,14 +29,14 @@ class Candidate extends User {
     required super.isOnboarded,
     required super.userType,
     super.profilePictureUrl,
-    required this.bio,
-    required this.education,
-    required this.experiance,
-    required this.skills,
+    this.bio,
+    this.education,
+    this.experiance,
+    this.skills,
     this.publications = const [],
     this.awards = const [],
     this.certifications = const [],
-    required this.preferrence,
+    this.preferrence,
     this.externalLinks = const [],
   });
 
