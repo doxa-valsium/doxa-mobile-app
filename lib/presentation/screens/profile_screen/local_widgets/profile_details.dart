@@ -17,7 +17,6 @@ class ProfileDetails extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
-      //mainAxisSize: MainAxisSize.max,
       children: [
         Flexible(
           child: Column(

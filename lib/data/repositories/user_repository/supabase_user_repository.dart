@@ -1,13 +1,13 @@
 import 'package:doxa_mobile_app/constants.dart';
-import 'package:doxa_mobile_app/data/repositories/auth_repository/supabase_auth_repository.dart';
+import 'package:doxa_mobile_app/data/exceptions/auth_exception.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
-import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:doxa_mobile_app/models/user.dart' as local_user;
 import 'package:supabase_flutter/supabase_flutter.dart' as supabase_user;
 
 class SupabaseUserRepository extends UserRepository {
   local_user.User? _user;
+
   @override
   local_user.User? get getLoggedInUser => _user;
 
@@ -35,11 +35,8 @@ class SupabaseUserRepository extends UserRepository {
     final response = await kSupabase.rpc('get_user', params: {'uuid': uuid}).execute();
 
     if (response.error != null) {
-      logger.i(response.error);
+      throw AuthException(response.error!.message);
     } else {
-      logger.i("Got User Data from Database!");
-      logger.i(response.data);
-
       List<String> dateOfBirthParts = response.data[0]['date_of_birth'].toString().split('-');
       DateTime dateOfBirth = DateTime(int.parse(dateOfBirthParts[0]), int.parse(dateOfBirthParts[1]), int.parse(dateOfBirthParts[2]));
       Map<String, dynamic> user = Map<String, dynamic>.from(response.data[0]);
@@ -50,6 +47,5 @@ class SupabaseUserRepository extends UserRepository {
 
       return local_user.User.fromMap(user);
     }
-    return null;
   }
 }
