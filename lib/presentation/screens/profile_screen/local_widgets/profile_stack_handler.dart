@@ -18,7 +18,7 @@ class ProfileStackHandler extends StatelessWidget {
           clipBehavior: Clip.none,
           children: [
             Container(
-              padding: const EdgeInsets.only(top: 80, left: 20, right: 20, bottom: 16.0),
+              padding: const EdgeInsets.only(top: 80, left: 16, right: 16, bottom: 16.0),
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.onSecondaryContainer,

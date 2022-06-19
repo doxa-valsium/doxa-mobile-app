@@ -35,7 +35,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
+      //extendBody: true,
       body: SafeArea(
         child: CustomAppBarAndBody(
           title: 'Profile',
@@ -46,82 +46,77 @@ class _ProfileScreenState extends State<ProfileScreen> {
               if (state is ProfileScreenLoaded) {
                 return SingleChildScrollView(
                   padding: const EdgeInsets.only(top: 60.0, left: 16.0, right: 16.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      ProfileStackHandler(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            const SizedBox(height: 4.0),
-                            ProfileDetails(
-                              name: state.name,
-                              jobTitle: state.jobTitle,
-                              email: state.email,
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            ProfileMenuItem(
-                              isEditProfile: true,
-                              menuIcon: Iconify(
-                                Teenyicons.edit_outline,
-                                color: Theme.of(context).colorScheme.primary,
-                                size: 24.0,
-                              ),
-                              menuText: 'EDIT PROFILE',
-                              onTap: () {},
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            ProfileMenuItem(
-                              isEditProfile: false,
-                              menuIcon: Iconify(
-                                Mdi.office_building_cog_outline,
-                                color: Theme.of(context).colorScheme.onSurface,
-                                size: 24.0,
-                              ),
-                              menuText: 'COMPANY PROFILE',
-                              onTap: () {
-                                context.router.push(const CompanyProfileRoute());
-                              },
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            ProfileMenuItem(
-                              isEditProfile: false,
-                              menuIcon: Iconify(
-                                Uiw.setting_o,
-                                color: Theme.of(context).colorScheme.onSurface,
-                                size: 24.0,
-                              ),
-                              menuText: 'SETTINGS',
-                              onTap: () {},
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            ProfileMenuItem(
-                              isEditProfile: false,
-                              menuIcon: Iconify(
-                                Mdi.logout,
-                                color: Theme.of(context).colorScheme.onSurface,
-                                size: 24.0,
-                              ),
-                              menuText: 'LOGOUT',
-                              onTap: () {
-                                BlocProvider.of<AuthBloc>(context).add(AuthenticationLogoutRequested());
-                              },
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                          ],
+                  child: ProfileStackHandler(
+                    child: Column(
+                      //mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(height: 4.0),
+                        ProfileDetails(
+                          name: state.name,
+                          jobTitle: state.jobTitle,
+                          email: state.email,
                         ),
-                      )
-                    ],
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        ProfileMenuItem(
+                          isEditProfile: true,
+                          menuIcon: Iconify(
+                            Teenyicons.edit_outline,
+                            color: Theme.of(context).colorScheme.primary,
+                            size: 24.0,
+                          ),
+                          menuText: 'EDIT PROFILE',
+                          onTap: () {},
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        ProfileMenuItem(
+                          isEditProfile: false,
+                          menuIcon: Iconify(
+                            Mdi.office_building_cog_outline,
+                            color: Theme.of(context).colorScheme.onSurface,
+                            size: 24.0,
+                          ),
+                          menuText: 'COMPANY PROFILE',
+                          onTap: () {
+                            context.router.push(const CompanyProfileRoute());
+                          },
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        ProfileMenuItem(
+                          isEditProfile: false,
+                          menuIcon: Iconify(
+                            Uiw.setting_o,
+                            color: Theme.of(context).colorScheme.onSurface,
+                            size: 24.0,
+                          ),
+                          menuText: 'SETTINGS',
+                          onTap: () {},
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        ProfileMenuItem(
+                          isEditProfile: false,
+                          menuIcon: Iconify(
+                            Mdi.logout,
+                            color: Theme.of(context).colorScheme.onSurface,
+                            size: 24.0,
+                          ),
+                          menuText: 'LOGOUT',
+                          onTap: () {
+                            BlocProvider.of<AuthBloc>(context).add(AuthenticationLogoutRequested());
+                          },
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                      ],
+                    ),
                   ),
                 );
               } else if (state is ProfileScreenError) {

@@ -19,6 +19,7 @@ class ProfileMenuItem extends StatelessWidget {
         onTap: onTap,
         child: Container(
           height: 72.0,
+          // width: double.infinity,
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.onPrimary,
             boxShadow: Styles.elevation2,
@@ -27,72 +28,60 @@ class ProfileMenuItem extends StatelessWidget {
             ),
           ),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 52.0),
+                padding: const EdgeInsets.symmetric(horizontal: 26.0),
                 child: menuIcon,
               ),
-              Text(
-                menuText,
-                style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onSurface),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                softWrap: false,
-                //textAlign: TextAlign.center,
+              Expanded(
+                child: Text(
+                  menuText,
+                  style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.onSurface),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  softWrap: false,
+                  //textAlign: TextAlign.center,
+                ),
               ),
             ],
           ),
         ),
       );
     } else {
-      return GestureDetector(
-        onTap: onTap,
-        child: CustomDottedBorder(
-          borderType: BorderType.RRect,
-          child: Container(
-            height: 72.0,
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondary,
-              boxShadow: Styles.elevation2,
-              borderRadius: const BorderRadius.all(
-                Radius.circular(16.0),
-              ),
+      return CustomDottedBorder(
+        borderType: BorderType.RRect,
+        child: Container(
+          height: 72.0,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.secondary,
+            boxShadow: Styles.elevation2,
+            borderRadius: const BorderRadius.all(
+              Radius.circular(16.0),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              //crossAxisAlignment: CrossAxisAlignment.center,
-              //mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 52.0),
-                  child: menuIcon,
-                ),
-                Text(
+          ),
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 26),
+                child: menuIcon,
+              ),
+              Expanded(
+                child: Text(
                   menuText,
                   style: Theme.of(context).textTheme.button?.copyWith(color: Theme.of(context).colorScheme.primary),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  softWrap: false,
                 ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 52.0),
-                        child: Iconify(
-                          Ic.sharp_arrow_forward_ios,
-                          color: Theme.of(context).colorScheme.primary,
-                          size: 24.0,
-                        ),
-                      ),
-                    ],
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Iconify(
+                  Ic.sharp_arrow_forward_ios,
+                  color: Theme.of(context).colorScheme.primary,
+                  size: 24.0,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       );
