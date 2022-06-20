@@ -22,45 +22,16 @@ import 'package:doxa_mobile_app/presentation/screens/auth_wrapper_screen/auth_wr
 import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unauth_wrapper_screen.dart';
 
 @MaterialAutoRouter(
+  
   replaceInRouteName: 'Screen,Route',
   routes: [
-    AutoRoute(
-      path: SplashScreen.route,
-      page: SplashScreen,
-    ),
-    AutoRoute(
-      path: PlaygroundScreen.route,
-      page: PlaygroundScreen,
-    ),
-    AutoRoute(
-      path: ThemeTestScreen.route,
-      page: ThemeTestScreen,
-    ),
-    AutoRoute(
-      path: PulsingButtonScreen.route,
-      page: PulsingButtonScreen,
-    ),
-    AutoRoute(
-      path: CustomWidgetsScreen.route,
-      page: CustomWidgetsScreen,
-    ),
-    AutoRoute(
-      path: ChatScreen.route,
-      page: ChatScreen,
-    ),
-    AutoRoute(
-      path: ManageImagesScreen.route,
-      page: ManageImagesScreen,
-    ),
-    CustomRoute(
-      path: FlowViewDemoScreen.route,
-      page: FlowViewDemoScreen,
-      fullscreenDialog: true,
-    ),
+    
+    
     AutoRoute(
       path: AuthWrapperScreen.route,
       page: AuthWrapperScreen,
       children: [
+        
         AutoRoute(
         path: NavigatorScreen.route,
         page: NavigatorScreen,
@@ -73,6 +44,41 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
               AutoRoute(
                 initial: true,
                 page: HomeScreen,
+              ),
+              AutoRoute(
+                path: PlaygroundScreen.route,
+                page: PlaygroundScreen,
+                meta: {'hideBottomNav': true},
+              ),
+              AutoRoute(
+                // name: 'AuthenticatedStackRouter',
+                path: SplashScreen.route,
+                page: SplashScreen,
+              ),
+              AutoRoute(
+                path: ThemeTestScreen.route,
+                page: ThemeTestScreen,
+              ),
+              AutoRoute(
+                path: PulsingButtonScreen.route,
+                page: PulsingButtonScreen,
+              ),
+              AutoRoute(
+                path: CustomWidgetsScreen.route,
+                page: CustomWidgetsScreen,
+              ),
+              AutoRoute(
+                path: ChatScreen.route,
+                page: ChatScreen,
+              ),
+              AutoRoute(
+                path: ManageImagesScreen.route,
+                page: ManageImagesScreen,
+              ),
+              CustomRoute(
+                path: FlowViewDemoScreen.route,
+                page: FlowViewDemoScreen,
+                fullscreenDialog: true,
               ),
             ],
           ),
@@ -122,6 +128,7 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
               ),
             ],
           ),
+          
         ],
       ),
       ]

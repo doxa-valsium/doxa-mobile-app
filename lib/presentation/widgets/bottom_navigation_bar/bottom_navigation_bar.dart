@@ -8,13 +8,20 @@ import 'package:iconify_flutter/icons/teenyicons.dart';
 class BottomNavBar extends StatelessWidget {
   final TabsRouter tabsRouter;
   const BottomNavBar({
+
     required this.tabsRouter,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    
+    final hideBottomNav = context.topRouteMatch.meta['hideBottomNav'] == true;
+    if (hideBottomNav) {
+      return Container();
+    }
+    return 
+    Container(
       decoration: BoxDecoration(
         boxShadow: Styles.elevation1,
         borderRadius: const BorderRadius.only(
