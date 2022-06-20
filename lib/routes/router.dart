@@ -25,43 +25,12 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
   replaceInRouteName: 'Screen,Route',
   routes: [
     AutoRoute(
+      // name: 'AuthenticatedStackRouter',
       path: SplashScreen.route,
       page: SplashScreen,
     ),
-    AutoRoute(
-      path: PlaygroundScreen.route,
-      page: PlaygroundScreen,
-    ),
-    AutoRoute(
-      path: ThemeTestScreen.route,
-      page: ThemeTestScreen,
-    ),
-    AutoRoute(
-      path: PulsingButtonScreen.route,
-      page: PulsingButtonScreen,
-    ),
-    AutoRoute(
-      path: CustomWidgetsScreen.route,
-      page: CustomWidgetsScreen,
-    ),
-    AutoRoute(
-      path: ChatScreen.route,
-      page: ChatScreen,
-    ),
-    AutoRoute(
-      path: ManageImagesScreen.route,
-      page: ManageImagesScreen,
-    ),
-    CustomRoute(
-      path: FlowViewDemoScreen.route,
-      page: FlowViewDemoScreen,
-      fullscreenDialog: true,
-    ),
-    AutoRoute(
-      path: AuthWrapperScreen.route,
-      page: AuthWrapperScreen,
-      children: [
-        AutoRoute(
+    AutoRoute(path: AuthWrapperScreen.route, page: AuthWrapperScreen, children: [
+      AutoRoute(
         path: NavigatorScreen.route,
         page: NavigatorScreen,
         children: [
@@ -73,6 +42,37 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
               AutoRoute(
                 initial: true,
                 page: HomeScreen,
+              ),
+              AutoRoute(
+                path: PlaygroundScreen.route,
+                page: PlaygroundScreen,
+                meta: {'hideBottomNav': true},
+                fullscreenDialog: true,
+              ),
+              AutoRoute(
+                path: ThemeTestScreen.route,
+                page: ThemeTestScreen,
+              ),
+              AutoRoute(
+                path: PulsingButtonScreen.route,
+                page: PulsingButtonScreen,
+              ),
+              AutoRoute(
+                path: CustomWidgetsScreen.route,
+                page: CustomWidgetsScreen,
+              ),
+              AutoRoute(
+                path: ChatScreen.route,
+                page: ChatScreen,
+              ),
+              AutoRoute(
+                path: ManageImagesScreen.route,
+                page: ManageImagesScreen,
+              ),
+              CustomRoute(
+                path: FlowViewDemoScreen.route,
+                page: FlowViewDemoScreen,
+                fullscreenDialog: true,
               ),
             ],
           ),
@@ -92,6 +92,7 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
               CustomRoute(
                 path: JobFormFlowScreen.route,
                 page: JobFormFlowScreen,
+                meta: {'hideBottomNav': true},
                 fullscreenDialog: true,
               ),
             ],
@@ -124,26 +125,26 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
           ),
         ],
       ),
-      ]
-    ),
+    ]),
     AutoRoute(
-      path: UnAuthWrapperScreen.route, page: UnAuthWrapperScreen,
-        children: [
-          AutoRoute(
-            path: LoginScreen.route,
-            page: LoginScreen,
-            initial: true,
-          ),
-          AutoRoute(
-            path: RegistrationFlowScreen.route,
-            page: RegistrationFlowScreen,
-          ),
-          AutoRoute(
-            path: EmailVerificationScreen.route,
-            page: EmailVerificationScreen,
-          ),
-        ],),
-    
+      path: UnAuthWrapperScreen.route,
+      page: UnAuthWrapperScreen,
+      children: [
+        AutoRoute(
+          path: LoginScreen.route,
+          page: LoginScreen,
+          initial: true,
+        ),
+        AutoRoute(
+          path: RegistrationFlowScreen.route,
+          page: RegistrationFlowScreen,
+        ),
+        AutoRoute(
+          path: EmailVerificationScreen.route,
+          page: EmailVerificationScreen,
+        ),
+      ],
+    ),
   ],
 )
 class $AppRouter {}

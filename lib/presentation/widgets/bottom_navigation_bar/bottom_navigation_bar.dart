@@ -14,54 +14,57 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: Styles.elevation1,
-        borderRadius: const BorderRadius.only(
-          topRight: Radius.circular(40),
-          topLeft: Radius.circular(40),
+    final hideBottomNav = context.topRouteMatch.meta.containsKey('hideBottomNav') && context.topRouteMatch.meta['hideBottomNav'] == true;
+    return Offstage(
+      offstage: hideBottomNav,
+      child: Container(
+        decoration: BoxDecoration(
+          boxShadow: Styles.elevation1,
+          borderRadius: const BorderRadius.only(
+            topRight: Radius.circular(40),
+            topLeft: Radius.circular(40),
+          ),
         ),
-      ),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topRight: Radius.circular(40),
-          topLeft: Radius.circular(40),
-        ),
-        child: BottomNavigationBar(
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-          type: BottomNavigationBarType.fixed,
-          currentIndex: tabsRouter.activeIndex,
-          onTap: tabsRouter.setActiveIndex,
-          items: const [
-            BottomNavigationBarItem(
-              icon:  CustomBottomNavBarIcon(iconName: Teenyicons.home_alt_outline),
-              activeIcon:  CustomBottomNavBarIcon(iconName: Teenyicons.home_alt_outline, isActive: true),
-              backgroundColor: Colors.blue,
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon:  CustomBottomNavBarIcon(iconName: Ep.suitcase),
-              activeIcon:  CustomBottomNavBarIcon(iconName: Ep.suitcase, isActive: true),
-              backgroundColor: Colors.blue,
-              label: 'Jobs',
-            ),
-            BottomNavigationBarItem(
-              icon: CustomBottomNavBarIcon(iconName: Teenyicons.chat_typing_outline),
-              activeIcon: CustomBottomNavBarIcon(iconName: Teenyicons.chat_typing_outline, isActive: true),
-              backgroundColor: Colors.blue,
-              label: 'Messages',
-            ),
-            BottomNavigationBarItem(
-              icon: CustomBottomNavBarIcon(iconName: Teenyicons.user_circle_outline),
-              activeIcon: CustomBottomNavBarIcon(iconName: Teenyicons.user_circle_outline, isActive: true),
-              backgroundColor: Colors.blue,
-              label: 'Profile',
-            ),
-          ],
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topRight: Radius.circular(40),
+            topLeft: Radius.circular(40),
+          ),
+          child: BottomNavigationBar(
+            showSelectedLabels: true,
+            showUnselectedLabels: true,
+            type: BottomNavigationBarType.fixed,
+            currentIndex: tabsRouter.activeIndex,
+            onTap: tabsRouter.setActiveIndex,
+            items: const [
+              BottomNavigationBarItem(
+                icon: CustomBottomNavBarIcon(iconName: Teenyicons.home_alt_outline),
+                activeIcon: CustomBottomNavBarIcon(iconName: Teenyicons.home_alt_outline, isActive: true),
+                backgroundColor: Colors.blue,
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: CustomBottomNavBarIcon(iconName: Ep.suitcase),
+                activeIcon: CustomBottomNavBarIcon(iconName: Ep.suitcase, isActive: true),
+                backgroundColor: Colors.blue,
+                label: 'Jobs',
+              ),
+              BottomNavigationBarItem(
+                icon: CustomBottomNavBarIcon(iconName: Teenyicons.chat_typing_outline),
+                activeIcon: CustomBottomNavBarIcon(iconName: Teenyicons.chat_typing_outline, isActive: true),
+                backgroundColor: Colors.blue,
+                label: 'Messages',
+              ),
+              BottomNavigationBarItem(
+                icon: CustomBottomNavBarIcon(iconName: Teenyicons.user_circle_outline),
+                activeIcon: CustomBottomNavBarIcon(iconName: Teenyicons.user_circle_outline, isActive: true),
+                backgroundColor: Colors.blue,
+                label: 'Profile',
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
