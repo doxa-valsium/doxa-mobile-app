@@ -31,20 +31,21 @@ class CustomFormBuilderDropDown extends StatelessWidget {
   Widget build(BuildContext context) {
     if (holdVal) if (FormBuilder.of(context)!.value.containsKey(name)) _controller.text = FormBuilder.of(context)!.getRawValue(name).toString();
     return FormBuilderTextField(
-      style: Theme.of(context).textTheme.bodyText2?.copyWith(
-            color: Theme.of(context).colorScheme.onSurfaceVariant,
-          ),
       name: name,
       controller: _controller,
       readOnly: true,
+      style: Theme.of(context).textTheme.bodyText2?.copyWith(
+            color: Colors.black,
+      ),
       decoration: InputDecoration(
-          hintText: labelText,
-          suffixIcon: Iconify(
-            Ic.round_arrow_drop_down,
-            size: 8,
-            color: Theme.of(context).colorScheme.primary,
-          ),
-          fillColor: invertColors ? Theme.of(context).colorScheme.background : null),
+        hintText: labelText,
+        suffixIcon: Iconify(
+          Ic.round_arrow_drop_down,
+          size: 8,
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        fillColor: invertColors ? Theme.of(context).colorScheme.background : null,
+      ),
       validator: validators,
       onTap: () {
         if (forSkills) {
