@@ -15,7 +15,7 @@ class UnAuthWrapperScreen extends StatelessWidget {
       child: BlocBuilder<UnauthWrapperBloc, UnauthWrapperState>(
         builder: (context, state) {
           return AutoRouter.declarative(routes: (_) {
-            return [if (state is OnLoginScreen) LoginRoute() else if(state is OnRegistrationScreen) RegistrationFlowRoute() else if(state is OnEmailVerificationScreen) EmailVerificationRoute(email: state.email)];
+            return [if (state is OnLoginScreen) LoginRoute() else if(state is OnRegistrationScreen) const RegistrationFlowRoute() else if(state is OnEmailVerificationScreen) EmailVerificationRoute(email: state.email)];
           });
         },
       ),

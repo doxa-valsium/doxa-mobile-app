@@ -22,17 +22,15 @@ import 'package:doxa_mobile_app/presentation/screens/auth_wrapper_screen/auth_wr
 import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unauth_wrapper_screen.dart';
 
 @MaterialAutoRouter(
-  
   replaceInRouteName: 'Screen,Route',
   routes: [
-    
-    
     AutoRoute(
-      path: AuthWrapperScreen.route,
-      page: AuthWrapperScreen,
-      children: [
-        
-        AutoRoute(
+      // name: 'AuthenticatedStackRouter',
+      path: SplashScreen.route,
+      page: SplashScreen,
+    ),
+    AutoRoute(path: AuthWrapperScreen.route, page: AuthWrapperScreen, children: [
+      AutoRoute(
         path: NavigatorScreen.route,
         page: NavigatorScreen,
         children: [
@@ -49,11 +47,7 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
                 path: PlaygroundScreen.route,
                 page: PlaygroundScreen,
                 meta: {'hideBottomNav': true},
-              ),
-              AutoRoute(
-                // name: 'AuthenticatedStackRouter',
-                path: SplashScreen.route,
-                page: SplashScreen,
+                fullscreenDialog: true,
               ),
               AutoRoute(
                 path: ThemeTestScreen.route,
@@ -98,6 +92,7 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
               CustomRoute(
                 path: JobFormFlowScreen.route,
                 page: JobFormFlowScreen,
+                meta: {'hideBottomNav': true},
                 fullscreenDialog: true,
               ),
             ],
@@ -128,29 +123,28 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
               ),
             ],
           ),
-          
         ],
       ),
-      ]
-    ),
+    ]),
     AutoRoute(
-      path: UnAuthWrapperScreen.route, page: UnAuthWrapperScreen,
-        children: [
-          AutoRoute(
-            path: LoginScreen.route,
-            page: LoginScreen,
-            initial: true,
-          ),
-          AutoRoute(
-            path: RegistrationFlowScreen.route,
-            page: RegistrationFlowScreen,
-          ),
-          AutoRoute(
-            path: EmailVerificationScreen.route,
-            page: EmailVerificationScreen,
-          ),
-        ],),
-    
+      path: UnAuthWrapperScreen.route,
+      page: UnAuthWrapperScreen,
+      children: [
+        AutoRoute(
+          path: LoginScreen.route,
+          page: LoginScreen,
+          initial: true,
+        ),
+        AutoRoute(
+          path: RegistrationFlowScreen.route,
+          page: RegistrationFlowScreen,
+        ),
+        AutoRoute(
+          path: EmailVerificationScreen.route,
+          page: EmailVerificationScreen,
+        ),
+      ],
+    ),
   ],
 )
 class $AppRouter {}

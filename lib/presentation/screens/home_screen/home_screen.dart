@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/conversation_card.dart';
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/match_chat_head.dart';
-import 'package:doxa_mobile_app/presentation/screens/playground/playground_screen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:doxa_mobile_app/styles.dart';
