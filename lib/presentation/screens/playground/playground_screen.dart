@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/presentation/screens/add_company_screens/add_company_flowscreen.dart';
 import 'package:doxa_mobile_app/presentation/widgets/candidate_card/back_candidate_card_content.dart';
 import 'package:doxa_mobile_app/presentation/widgets/candidate_card/front_candidate_card_content.dart';
 import 'package:doxa_mobile_app/presentation/widgets/doxa_card/doxa_card.dart';
@@ -63,7 +64,7 @@ class PlaygroundScreen extends StatelessWidget {
               ),
               MaterialButton(
                 onPressed: () {
-                  // context.router.push(AddCompanyRoute());
+                  context.router.push(AddCompanyFlowRoute());
                 },
                 child: const Text("Add Company Screen"),
               ),

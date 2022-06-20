@@ -9,6 +9,7 @@ import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
+
 class JobFormFlowScreen extends StatelessWidget {
   static const String route = 'job-form-flow-screen';
   final _formKey = GlobalKey<FormBuilderState>();

@@ -1,3 +1,4 @@
+import 'package:doxa_mobile_app/models/location.dart';
 import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_textfield.dart';
@@ -50,9 +51,10 @@ class AddCompanyStepOne extends StatelessWidget {
             name: "location",
             holdVal: true,
             labelText: "Location",
+            
             validators: FormBuilderValidators.required(),
             child: const ListScreen(
-              selectableType: Industry,
+              selectableType: City,
               type: FormListType.staticList,
               title: "Company's Location",
             ),

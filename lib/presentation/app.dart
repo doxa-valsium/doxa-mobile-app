@@ -69,13 +69,16 @@ class _MainAppState extends State<MainApp> {
             routes: (_) => [
               // if the user is logged in, they may proceed to the Main App
               if (state.status == AuthenticationStatus.authenticated)
-                const AuthWrapperRoute()
+                // const AuthWrapperRoute()
+                AddCompanyFlowRoute()
               // if they are not logged in, bring them to the Login page
               else if (state.status == AuthenticationStatus.unauthenticated)
                 const UnAuthWrapperRoute()
+                // AddCompanyFlowRoute()
               else
                 const SplashRoute(),
             ],
+            
           ),
           routeInformationParser: _appRouter.defaultRouteParser(includePrefixMatches: true),
           localizationsDelegates: const [FormBuilderLocalizations.delegate],

@@ -8,6 +8,7 @@ import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
+
 class AddCompanyFlowScreen extends StatelessWidget {
   static const String route = 'add-company-flow-screen';
   final _formKey = GlobalKey<FormBuilderState>();
@@ -75,6 +76,8 @@ class AddCompanyFlowScreen extends StatelessWidget {
                   buttonText: 'Add Company',
                   onPressed: (context) {
                     if (_formKey.currentState!.saveAndValidate()) {
+                      Map<String, dynamic> companyData = Map<String, dynamic>.of(_formKey.currentState!.value);
+                      logger.i(companyData);
                       logger.i(_formKey.currentState!.value);
                       FlowView.of(context).next();
                     }

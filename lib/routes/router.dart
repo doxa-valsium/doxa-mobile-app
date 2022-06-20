@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:doxa_mobile_app/presentation/screens/add_company_screens/add_company_flowscreen.dart';
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/company_profile_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/email_verification_screen/email_verification_screen.dart';
 import 'package:doxa_mobile_app/presentation/screens/home_screen/home_screen.dart';
@@ -29,11 +30,16 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
       path: SplashScreen.route,
       page: SplashScreen,
     ),
+    AutoRoute(
+      path: AddCompanyFlowScreen.route,
+      page: AddCompanyFlowScreen,
+    ),
     AutoRoute(path: AuthWrapperScreen.route, page: AuthWrapperScreen, children: [
       AutoRoute(
         path: NavigatorScreen.route,
         page: NavigatorScreen,
         children: [
+          
           AutoRoute(
             path: HomeScreen.route,
             name: 'HomeRouter',
@@ -57,6 +63,7 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
                 path: PulsingButtonScreen.route,
                 page: PulsingButtonScreen,
               ),
+              
               AutoRoute(
                 path: CustomWidgetsScreen.route,
                 page: CustomWidgetsScreen,
@@ -127,6 +134,7 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
       ),
     ]),
     AutoRoute(
+
       path: UnAuthWrapperScreen.route,
       page: UnAuthWrapperScreen,
       children: [
