@@ -1,5 +1,7 @@
 import 'package:doxa_mobile_app/business_logic/blocs/auth/auth_bloc.dart';
 import 'package:doxa_mobile_app/business_logic/blocs/profile/profile_bloc.dart';
+import 'package:doxa_mobile_app/data/repositories/jobs_repository/supabase_jobs_repository.dart';
+import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/local_widgets/profile_details.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/local_widgets/profile_stack_handler.dart';
@@ -36,12 +38,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //extendBody: true,
       body: SafeArea(
         child: CustomAppBarAndBody(
           title: 'Profile',
           showBackButton: false,
-          body: BlocBuilder<ProfileBloc, ProfileScreenState>(
+          body: BlocBuilder<ProfileBloc, ProfileState>(
             bloc: _profileBloc,
             builder: (context, state) {
               if (state is ProfileScreenLoaded) {
@@ -99,7 +100,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               size: 24.0,
                             ),
                             menuText: 'SETTINGS',
-                            onTap: () {},
+                            onTap: () {
+                              SupabaseJobsRepository testData = SupabaseJobsRepository();
+                              testData.getRecruiterJobs(recruiter: '8bd2615b-3e07-476e-8017-81b16ae0da69');
+                            },
                           ),
                           const SizedBox(
                             height: 16,

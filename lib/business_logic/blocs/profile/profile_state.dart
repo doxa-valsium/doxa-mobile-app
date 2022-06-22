@@ -1,17 +1,17 @@
 part of 'profile_bloc.dart';
 
-abstract class ProfileScreenState extends Equatable {
-  const ProfileScreenState();
+abstract class ProfileState extends Equatable {
+  const ProfileState();
 
   @override
   List<Object> get props => [];
 }
 
-class ProfileScreenInitial extends ProfileScreenState {}
+class ProfileScreenInitial extends ProfileState {}
 
-class ProfileScreenLoading extends ProfileScreenState {}
+class ProfileScreenLoading extends ProfileState {}
 
-class ProfileScreenLoaded extends ProfileScreenState {
+class ProfileScreenLoaded extends ProfileState {
   final User user;
   const ProfileScreenLoaded({
     required this.user,
@@ -21,7 +21,7 @@ class ProfileScreenLoaded extends ProfileScreenState {
   List<Object> get props => [user];
 }
 
-class ProfileScreenError extends ProfileScreenState {
+class ProfileScreenError extends ProfileState {
   final String errorMessage;
   const ProfileScreenError({required this.errorMessage});
 }

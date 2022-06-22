@@ -3,9 +3,10 @@ import 'package:equatable/equatable.dart';
 
 class Location extends Equatable {
   final City city;
-  final Country country;
-  const Location({required this.city, required this.country});
+  final Country country = const Country(id: 1, label: 'Pakistan');
+  const Location({required this.city});
 
+  
   @override
   List<Object?> get props => [city, country];
 }
