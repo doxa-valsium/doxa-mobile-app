@@ -52,12 +52,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: ProfileStackHandler(
                       avatarUrl: user.profilePictureUrl,
                       child: Column(
-                        //mainAxisSize: MainAxisSize.min,
                         children: [
                           const SizedBox(height: 4.0),
                           ProfileDetails(
                             name: '${user.firstName} ${user.lastName}',
-                            jobTitle: user.jobTitle?.label ?? 'N/A',
+                            jobTitle: user.jobTitle.label,
                             email: state.user.email,
                           ),
                           const SizedBox(

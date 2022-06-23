@@ -3,6 +3,7 @@ import 'package:doxa_mobile_app/models/certification.dart';
 import 'package:doxa_mobile_app/models/education.dart';
 import 'package:doxa_mobile_app/models/experiance.dart';
 import 'package:doxa_mobile_app/models/external_link.dart';
+import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/models/preferrence.dart';
 import 'package:doxa_mobile_app/models/publication.dart';
 import 'package:doxa_mobile_app/models/selectable.dart';
@@ -39,6 +40,23 @@ class Candidate extends User {
     this.preferrence,
     this.externalLinks = const [],
   });
+  
+  factory Candidate.fromMap(Map<String,dynamic> map){
+    return Candidate(
+        userId: map['uuid'],
+        firstName: map['first_name'],
+        lastName: map['last_name'],
+        email: map['email'],
+        skills: map['skills'],
+        gender: map['gender'],
+        experiance: map['experience'],
+        bio: map['bio'],
+        isOnboarded: map['is_onboarded'],
+        dateOfBirth: map['date_of_birth'],
+        preferrence: map['preferrence'],
+        education: map['education'],
+        userType: UserType.candidate);
+  }
 
   @override
   List<Object?> get props => super.props +  [bio, education, experiance, skills, publications, awards, certifications, preferrence, externalLinks];

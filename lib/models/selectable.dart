@@ -10,7 +10,9 @@ abstract class Selectable extends Equatable {
       : _id = id,
         _label = label;
 
-  Selectable.fromMap(Map map) : _label = map['label'], _id = map.containsKey('id') ? map['id'] : null;
+  Selectable.fromMap(Map map)
+      : _label = map['label'],
+        _id = map.containsKey('id') ? map['id'] : null;
 
   @override
   List<Object?> get props => [_id, label, selectableIdentifier];

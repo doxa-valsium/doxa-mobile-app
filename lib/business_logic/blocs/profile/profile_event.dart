@@ -1,6 +1,6 @@
 part of 'profile_bloc.dart';
 
-abstract class ProfileEvent extends Equatable{
+abstract class ProfileEvent extends Equatable {
   const ProfileEvent();
 
   @override
@@ -8,9 +8,3 @@ abstract class ProfileEvent extends Equatable{
 }
 
 class FetchProfile extends ProfileEvent {}
-
-// class ProfileLoaded extends ProfileEvent {
-//   // final Profile profile;
-
-//   // ProfileLoaded(this.profile);
-// }

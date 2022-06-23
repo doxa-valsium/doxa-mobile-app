@@ -14,3 +14,4 @@ export 'recruiter.dart';
 export 'qualification.dart';
 export 'company.dart';
 export 'job.dart';
+export 'recruiter_company.dart';

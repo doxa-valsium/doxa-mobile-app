@@ -12,7 +12,6 @@ part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
-  
   final AuthRepository _authenticationRepository;
   final UserRepository _userRepository;
   late StreamSubscription<AuthenticationStatus> _authenticationStatusSubscription;
@@ -35,6 +34,7 @@ class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
   @override
   Future<void> close() {
     _authenticationStatusSubscription.cancel();
+    _userRepository.dispose();
     _authenticationRepository.dispose();
     return super.close();
   }
@@ -47,8 +47,9 @@ class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
       case AuthenticationStatus.unauthenticated:
         return emit(const AuthenticationState.unauthenticated());
       case AuthenticationStatus.authenticated:
-        final user = await _tryGetUser();
-        return emit(user != null ? AuthenticationState.authenticated(user) : const AuthenticationState.unauthenticated());
+        await _tryGetUser();
+        await emit.forEach(_userRepository.loggedInUser, onData: (User user) => AuthenticationState.authenticated(user));
+        return;
       default:
         return emit(const AuthenticationState.unknown());
     }
@@ -61,13 +62,12 @@ class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
     _authenticationRepository.signOut();
   }
 
-  Future<User?> _tryGetUser() async {
+  Future<void> _tryGetUser() async {
     try {
-      final user = await _userRepository.getUser();
-      logger.i('User: $user');
-      return user;
-    } catch (_) {
-      return null;
+      await _userRepository.getUser();
+    } catch (e) {
+      logger.e(e);
+      throw Exception('Unable to login user');
     }
   }
 }

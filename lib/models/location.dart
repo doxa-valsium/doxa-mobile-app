@@ -8,4 +8,9 @@ class Location extends Equatable {
 
   @override
   List<Object?> get props => [city, country];
+
+
+  factory Location.fromCity(City city){
+    return Location(city: city, country: const Country(id:1, label: 'Pakistan'));
+  }
 }

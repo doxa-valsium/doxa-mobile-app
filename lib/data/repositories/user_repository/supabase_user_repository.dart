@@ -1,22 +1,37 @@
+import 'dart:async';
+
 import 'package:doxa_mobile_app/constants.dart';
 import 'package:doxa_mobile_app/data/exceptions/auth_exception.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
+import 'package:doxa_mobile_app/logger.dart';
+import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:doxa_mobile_app/models/user.dart' as local_user;
+import 'package:rxdart/rxdart.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' as supabase_user;
 
 class SupabaseUserRepository extends UserRepository {
-  local_user.User? _user;
+  final BehaviorSubject<local_user.User> _userStreamController = BehaviorSubject<local_user.User>();
 
   @override
-  local_user.User? get getLoggedInUser => _user;
+  Stream<local_user.User> get loggedInUser => _userStreamController.stream.asBroadcastStream();
 
   @override
-  Future<local_user.User?> getUser() async {
+  Future<void> getUser() async {
+
     final supabase_user.User? supabaseUser = kSupabase.auth.currentUser;
-    if (supabaseUser == null) return null;
-    _user = await _fromSupabaseUserToModelUser(supabaseUser);
-    return _user;
+
+    if (supabaseUser == null) return;
+
+    local_user.User? user = await _fromSupabaseUserToModelUser(supabaseUser);
+    if (user != null) {
+      // if(user is Candidate){
+
+      // }else{
+
+      // }
+      _userStreamController.add(user);
+    }
   }
 
   @override
@@ -48,4 +63,7 @@ class SupabaseUserRepository extends UserRepository {
       return local_user.User.fromMap(user);
     }
   }
+
+  @override
+  void dispose() => _userStreamController.close();
 }

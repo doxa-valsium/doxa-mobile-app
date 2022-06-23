@@ -1,4 +1,5 @@
 part of 'auth_bloc.dart';
+
 abstract class AuthenticationEvent extends Equatable {
   const AuthenticationEvent();
 
@@ -16,3 +17,4 @@ class AuthenticationStatusChanged extends AuthenticationEvent {
 }
 
 class AuthenticationLogoutRequested extends AuthenticationEvent {}
+
