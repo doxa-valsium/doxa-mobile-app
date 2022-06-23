@@ -52,7 +52,6 @@ class EditCompanyScreen extends StatelessWidget {
                     CustomFormBuilderDropDown(
                       name: "industry",
                       labelText: "Industry",
-                      validators: FormBuilderValidators.required(),
                       child: const ListScreen(
                         selectableType: Industry,
                         type: FormListType.dynamicList,
@@ -70,7 +69,6 @@ class EditCompanyScreen extends StatelessWidget {
                     CustomFormBuilderDropDown(
                       name: "location",
                       labelText: "Location",
-                      validators: FormBuilderValidators.required(),
                       child: const ListScreen(
                         selectableType: Location,
                         type: FormListType.dynamicList,

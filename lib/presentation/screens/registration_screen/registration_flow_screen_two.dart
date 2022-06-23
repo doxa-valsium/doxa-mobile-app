@@ -1,5 +1,5 @@
-import 'package:doxa_mobile_app/business_logic/blocs/unauth_wrapper/unauth_wrapper_bloc.dart';
 import 'package:doxa_mobile_app/business_logic/cubits/registration_screen/registration_screen_cubit.dart';
+import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/presentation/screens/registration_screen/local_widgets/user_type_selector.dart';
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar_and_body.dart';
@@ -70,7 +70,6 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                   CustomFormBuilderDropDown(
                     name: "gender",
                     labelText: "Gender",
-                    validators: FormBuilderValidators.required(),
                     holdVal: true,
                     child: const ListScreen(
                       selectableType: Gender,
@@ -133,18 +132,19 @@ class RegistrationFlowScreenTwo extends StatelessWidget {
                       buttonText: 'CONTINUE',
                       isLoading: state is RegistrationScreenLoading,
                       onPressed: () async {
-                        if (FormBuilder.of(context)!.saveAndValidate()) {
-                          Map<String, dynamic> completeRegistrationData = Map<String, dynamic>.from(formState!.value);
+                        if (formState!.saveAndValidate()) {
+                          Map<String, dynamic> completeRegistrationData = Map<String, dynamic>.from(formState.value);
                           completeRegistrationData['user_type'] = state.userType.index;
                           completeRegistrationData['gender'] = 1;
                           completeRegistrationData['is_onboarded'] = false;
-                          FlowView.of(context).setIsLoading(true);
-                          registrationCubit.register(
-                              userData: completeRegistrationData,
-                              onRegistered: () {
-                                FlowView.of(context).setIsLoading(false);
-                                BlocProvider.of<UnauthWrapperBloc>(context).add(NavigateToEmailVerificationScreen(email: completeRegistrationData['email']));
-                              });
+                          logger.i(formState.value);
+                          // FlowView.of(context).setIsLoading(true);
+                          // registrationCubit.register(
+                          //     userData: completeRegistrationData,
+                          //     onRegistered: () {
+                          //       FlowView.of(context).setIsLoading(false);
+                          //       BlocProvider.of<UnauthWrapperBloc>(context).add(NavigateToEmailVerificationScreen(email: completeRegistrationData['email']));
+                          //     });
                         }
                       },
                     ),

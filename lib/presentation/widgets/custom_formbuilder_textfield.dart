@@ -35,7 +35,8 @@ class CustomFormBuilderTextField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.readOnly = false,
-    this.onTap, this.formKey,
+    this.onTap,
+    this.formKey,
   }) : super(key: key);
 
   @override
@@ -46,7 +47,7 @@ class CustomFormBuilderTextField extends StatelessWidget {
       textAlign: TextAlign.left,
       textAlignVertical: TextAlignVertical.top,
       style: Theme.of(context).textTheme.bodyText2?.copyWith(
-            color: Colors.black,
+            color: Theme.of(context).colorScheme.onBackground,
           ),
       name: name,
       controller: controller,

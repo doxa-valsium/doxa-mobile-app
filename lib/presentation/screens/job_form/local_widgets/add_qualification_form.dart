@@ -6,7 +6,6 @@ import 'package:doxa_mobile_app/presentation/widgets/custom_formbuilder_dropdown
 import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen/list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
 
 class AddQualificationForm extends StatelessWidget {
   final AddQualificationButtonState state;
@@ -31,7 +30,6 @@ class AddQualificationForm extends StatelessWidget {
                 name: "qualificationDegree",
                 labelText: "Degree",
                 invertColors: true,
-                validators: FormBuilderValidators.required(),
                 child: const ListScreen(
                   selectableType: Degree,
                   type: FormListType.dynamicList,
@@ -48,7 +46,6 @@ class AddQualificationForm extends StatelessWidget {
                 name: "qualificationMajor",
                 labelText: "Major",
                 invertColors: true,
-                validators: FormBuilderValidators.required(),
                 child: const ListScreen(
                   selectableType: Major,
                   type: FormListType.dynamicList,
