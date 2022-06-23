@@ -111,27 +111,27 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 100,
-                    child: ListView.builder(
-                      primary: false,
-                      shrinkWrap: true,
-                      physics: const ScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 7,
-                      itemBuilder: (context, index) {
-                        if (index == 0) {
-                          return const SizedBox(width: 8);
-                        } else {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: MatchChatHead(timeleft: Random().nextDouble()),
-                          );
-                        }
-                      },
-                    ),
-                  ),
+                  // SizedBox(
+                  //   width: double.infinity,
+                  //   height: 100,
+                  //   child: ListView.builder(
+                  //     primary: false,
+                  //     shrinkWrap: true,
+                  //     physics: const ScrollPhysics(),
+                  //     scrollDirection: Axis.horizontal,
+                  //     itemCount: 7,
+                  //     itemBuilder: (context, index) {
+                  //       if (index == 0) {
+                  //         return const SizedBox(width: 8);
+                  //       } else {
+                  //         return Padding(
+                  //           padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  //           child: MatchChatHead(timeleft: Random().nextDouble()),
+                  //         );
+                  //       }
+                  //     },
+                  //   ),
+                  // ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
@@ -144,17 +144,17 @@ class HomeScreen extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                         const SizedBox(height: 8),
-                        ListView.builder(
-                          primary: false,
-                          shrinkWrap: true,
-                          physics: const ScrollPhysics(),
-                          scrollDirection: Axis.vertical,
-                          itemCount: 3,
-                          itemBuilder: (context, index) => const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8.0),
-                            child: ConversationCard(msgTag: true),
-                          ),
-                        ),
+                        // ListView.builder(
+                        //   primary: false,
+                        //   shrinkWrap: true,
+                        //   physics: const ScrollPhysics(),
+                        //   scrollDirection: Axis.vertical,
+                        //   itemCount: 3,
+                        //   itemBuilder: (context, index) => const Padding(
+                        //     padding: EdgeInsets.symmetric(vertical: 8.0),
+                        //     child: ConversationCard(msgTag: true),
+                        //   ),
+                        // ),
                       ],
                     ),
                   )

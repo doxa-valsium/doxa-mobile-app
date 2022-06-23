@@ -1,23 +1,27 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:doxa_mobile_app/models/chat.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:doxa_mobile_app/styles.dart';
 import 'package:flutter/material.dart';
 
+
 class ConversationCard extends StatelessWidget {
-  final String candidateName;
+  // final String candidateName;
   final bool msgTag;
-  final String imageSource;
-  final String jobAppliedFor;
-  final String latestMessage;
+  // final String imageSource;
+  // final String jobAppliedFor;
+  // final String latestMessage;
+  final Chat chat;
 
   const ConversationCard(
-      {Key? key,
+      {
+        Key? key,
       required this.msgTag,
-      this.candidateName = "Candidate Name",
-      this.imageSource = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQicA4b4KLMCWYETPLWMNk7REyoOOQMMB37wrpcg2Iux4QuqM-j",
-      this.jobAppliedFor = 'Job Name Candidate Matched For',
-      this.latestMessage = 'Hey! Is this job available?'})
+      required this.chat,}) 
+      // this.imageSource = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQicA4b4KLMCWYETPLWMNk7REyoOOQMMB37wrpcg2Iux4QuqM-j",
+      // this.jobAppliedFor = 'Job Name Candidate Matched For',
+      // this.latestMessage = 'Hey! Is this job available?'})
       : super(key: key);
 
   @override
@@ -41,7 +45,7 @@ class ConversationCard extends StatelessWidget {
           children: [
             Avatar(
               radius: 28,
-              avatarUrl: imageSource,
+              avatarUrl: chat.recipientPhotoUrl,
             ),
             Expanded(
               flex: 4,
@@ -52,20 +56,20 @@ class ConversationCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      candidateName,
+                      chat.recipientName,
                       style: Theme.of(context).textTheme.bodyText2,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                     Text(
-                      jobAppliedFor,
+                      chat.jobTitle,
                       style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.onSurface),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                     const Spacer(),
                     Text(
-                      latestMessage,
+                      chat.lastMessage,
                       style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onSurface),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -82,7 +86,7 @@ class ConversationCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    "11: 06 PM",
+                    chat.lastMessageTime.toIso8601String(),
                     style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.onSurface),
                   ),
                   if (msgTag)

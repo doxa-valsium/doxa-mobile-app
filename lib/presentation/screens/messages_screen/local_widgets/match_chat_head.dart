@@ -3,18 +3,18 @@ import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:doxa_mobile_app/models/match.dart' as local_match;
+
 
 class MatchChatHead extends StatelessWidget {
   const MatchChatHead({
     Key? key,
     required this.timeleft,
-    this.candidateName = "Ahmed Raza",
-    this.imageSource = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQicA4b4KLMCWYETPLWMNk7REyoOOQMMB37wrpcg2Iux4QuqM-j",
+    required this.match,
   }) : super(key: key);
 
+  final local_match.Match match;
   final double timeleft;
-  final String candidateName;
-  final String imageSource;
 
   List<Color> colorRing() {
     if (timeleft < 0.45) {
@@ -65,12 +65,12 @@ class MatchChatHead extends StatelessWidget {
                 startAngle: 355.0,
                 reverse: true,
                 backgroundColor: Theme.of(context).colorScheme.secondary,
-                center: Avatar(radius: 24, avatarUrl: imageSource),
+                center: Avatar(radius: 24, avatarUrl: match.profileUrl,),
                 linearGradient: LinearGradient(colors: colorRing()),
               ),
               const SizedBox(height: 4),
               Text(
-                candidateName,
+                match.candidateName,
                 style: Theme.of(context).textTheme.bodyText2,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,

@@ -62,10 +62,6 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
                 page: CustomWidgetsScreen,
               ),
               AutoRoute(
-                path: ChatScreen.route,
-                page: ChatScreen,
-              ),
-              AutoRoute(
                 path: ManageImagesScreen.route,
                 page: ManageImagesScreen,
               ),
@@ -105,6 +101,12 @@ import 'package:doxa_mobile_app/presentation/screens/unauth_wrapper_screen/unaut
               AutoRoute(
                 initial: true,
                 page: MessagesScreen,
+              ),
+              AutoRoute(
+                path: ChatScreen.route,
+                page: ChatScreen,
+                meta: {'hideBottomNav': true},
+                fullscreenDialog: true,
               ),
             ],
           ),

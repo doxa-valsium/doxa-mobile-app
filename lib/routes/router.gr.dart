@@ -20,15 +20,15 @@ import '../presentation/screens/company_profile_sceen/company_profile_screen.dar
 import '../presentation/screens/email_verification_screen/email_verification_screen.dart'
     as _i22;
 import '../presentation/screens/home_screen/home_screen.dart' as _i6;
-import '../presentation/screens/job_form/job_form_flow_screen.dart' as _i16;
-import '../presentation/screens/jobs_screen/jobs_screen.dart' as _i14;
+import '../presentation/screens/job_form/job_form_flow_screen.dart' as _i15;
+import '../presentation/screens/jobs_screen/jobs_screen.dart' as _i13;
 import '../presentation/screens/login_screen/login_screen.dart' as _i20;
-import '../presentation/screens/messages_screen/chat_screen.dart' as _i11;
-import '../presentation/screens/messages_screen/messages_screen.dart' as _i17;
+import '../presentation/screens/messages_screen/chat_screen.dart' as _i17;
+import '../presentation/screens/messages_screen/messages_screen.dart' as _i16;
 import '../presentation/screens/navigator_screen/navigator_screen.dart' as _i4;
 import '../presentation/screens/playground/custom_widgets_screen.dart' as _i10;
-import '../presentation/screens/playground/flow_view_demo_screen.dart' as _i13;
-import '../presentation/screens/playground/manage_1x_2x_3x_images.dart' as _i12;
+import '../presentation/screens/playground/flow_view_demo_screen.dart' as _i12;
+import '../presentation/screens/playground/manage_1x_2x_3x_images.dart' as _i11;
 import '../presentation/screens/playground/playground_screen.dart' as _i7;
 import '../presentation/screens/playground/pulsing_button_screen.dart' as _i9;
 import '../presentation/screens/playground/theme_test_screen.dart' as _i8;
@@ -36,7 +36,7 @@ import '../presentation/screens/profile_screen/profile_screen.dart' as _i18;
 import '../presentation/screens/registration_screen/registration_flow_screen.dart'
     as _i21;
 import '../presentation/screens/single_job_screen/single_job_screen.dart'
-    as _i15;
+    as _i14;
 import '../presentation/screens/splash_screen/spalsh_screen.dart' as _i1;
 import '../presentation/screens/unauth_wrapper_screen/unauth_wrapper_screen.dart'
     as _i3;
@@ -101,43 +101,45 @@ class AppRouter extends _i5.RootStackRouter {
       return _i5.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i10.CustomWidgetsScreen());
     },
-    ChatRoute.name: (routeData) {
-      return _i5.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i11.ChatScreen());
-    },
     ManageImagesRoute.name: (routeData) {
       return _i5.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i12.ManageImagesScreen());
+          routeData: routeData, child: const _i11.ManageImagesScreen());
     },
     FlowViewDemoRoute.name: (routeData) {
       return _i5.CustomPage<dynamic>(
           routeData: routeData,
-          child: const _i13.FlowViewDemoScreen(),
+          child: const _i12.FlowViewDemoScreen(),
           fullscreenDialog: true,
           opaque: true,
           barrierDismissible: false);
     },
     JobsRoute.name: (routeData) {
       return _i5.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i14.JobsScreen());
+          routeData: routeData, child: const _i13.JobsScreen());
     },
     SingleJobRoute.name: (routeData) {
       return _i5.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i15.SingleJobScreen());
+          routeData: routeData, child: const _i14.SingleJobScreen());
     },
     JobFormFlowRoute.name: (routeData) {
       final args = routeData.argsAs<JobFormFlowRouteArgs>(
           orElse: () => const JobFormFlowRouteArgs());
       return _i5.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i16.JobFormFlowScreen(key: args.key),
+          child: _i15.JobFormFlowScreen(key: args.key),
           fullscreenDialog: true,
           opaque: true,
           barrierDismissible: false);
     },
     MessagesRoute.name: (routeData) {
       return _i5.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i17.MessagesScreen());
+          routeData: routeData, child: const _i16.MessagesScreen());
+    },
+    ChatRoute.name: (routeData) {
+      return _i5.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: const _i17.ChatScreen(),
+          fullscreenDialog: true);
     },
     ProfileRoute.name: (routeData) {
       return _i5.MaterialPageX<dynamic>(
@@ -192,8 +194,6 @@ class AppRouter extends _i5.RootStackRouter {
                       _i5.RouteConfig(CustomWidgetsRoute.name,
                           path: 'custom-widgets-screen',
                           parent: HomeRouter.name),
-                      _i5.RouteConfig(ChatRoute.name,
-                          path: 'chat-screen', parent: HomeRouter.name),
                       _i5.RouteConfig(ManageImagesRoute.name,
                           path: 'manage-images-screen',
                           parent: HomeRouter.name),
@@ -219,7 +219,11 @@ class AppRouter extends _i5.RootStackRouter {
                     parent: NavigatorRoute.name,
                     children: [
                       _i5.RouteConfig(MessagesRoute.name,
-                          path: '', parent: MessagesRouter.name)
+                          path: '', parent: MessagesRouter.name),
+                      _i5.RouteConfig(ChatRoute.name,
+                          path: 'chat-screen',
+                          parent: MessagesRouter.name,
+                          meta: <String, dynamic>{'hideBottomNav': true})
                     ]),
                 _i5.RouteConfig(ProfileRouter.name,
                     path: 'profile-screen',
@@ -366,15 +370,7 @@ class CustomWidgetsRoute extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.ChatScreen]
-class ChatRoute extends _i5.PageRouteInfo<void> {
-  const ChatRoute() : super(ChatRoute.name, path: 'chat-screen');
-
-  static const String name = 'ChatRoute';
-}
-
-/// generated route for
-/// [_i12.ManageImagesScreen]
+/// [_i11.ManageImagesScreen]
 class ManageImagesRoute extends _i5.PageRouteInfo<void> {
   const ManageImagesRoute()
       : super(ManageImagesRoute.name, path: 'manage-images-screen');
@@ -383,7 +379,7 @@ class ManageImagesRoute extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i13.FlowViewDemoScreen]
+/// [_i12.FlowViewDemoScreen]
 class FlowViewDemoRoute extends _i5.PageRouteInfo<void> {
   const FlowViewDemoRoute()
       : super(FlowViewDemoRoute.name, path: 'flow-view-demo-screen');
@@ -392,7 +388,7 @@ class FlowViewDemoRoute extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i14.JobsScreen]
+/// [_i13.JobsScreen]
 class JobsRoute extends _i5.PageRouteInfo<void> {
   const JobsRoute() : super(JobsRoute.name, path: '');
 
@@ -400,7 +396,7 @@ class JobsRoute extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i15.SingleJobScreen]
+/// [_i14.SingleJobScreen]
 class SingleJobRoute extends _i5.PageRouteInfo<void> {
   const SingleJobRoute()
       : super(SingleJobRoute.name, path: 'single-job-screen');
@@ -409,7 +405,7 @@ class SingleJobRoute extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i16.JobFormFlowScreen]
+/// [_i15.JobFormFlowScreen]
 class JobFormFlowRoute extends _i5.PageRouteInfo<JobFormFlowRouteArgs> {
   JobFormFlowRoute({_i23.Key? key})
       : super(JobFormFlowRoute.name,
@@ -430,11 +426,19 @@ class JobFormFlowRouteArgs {
 }
 
 /// generated route for
-/// [_i17.MessagesScreen]
+/// [_i16.MessagesScreen]
 class MessagesRoute extends _i5.PageRouteInfo<void> {
   const MessagesRoute() : super(MessagesRoute.name, path: '');
 
   static const String name = 'MessagesRoute';
+}
+
+/// generated route for
+/// [_i17.ChatScreen]
+class ChatRoute extends _i5.PageRouteInfo<void> {
+  const ChatRoute() : super(ChatRoute.name, path: 'chat-screen');
+
+  static const String name = 'ChatRoute';
 }
 
 /// generated route for
