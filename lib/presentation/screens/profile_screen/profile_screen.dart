@@ -1,4 +1,5 @@
 import 'package:doxa_mobile_app/business_logic/blocs/auth/auth_bloc.dart';
+import 'package:doxa_mobile_app/business_logic/blocs/company/company_bloc.dart';
 import 'package:doxa_mobile_app/business_logic/blocs/profile/profile_bloc.dart';
 import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/presentation/screens/profile_screen/local_widgets/profile_details.dart';
@@ -25,11 +26,16 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   late ProfileBloc _profileBloc;
+  late CompanyBloc _companyBloc;
 
   @override
   void initState() {
     _profileBloc = BlocProvider.of<ProfileBloc>(context);
     _profileBloc.add(FetchProfile());
+
+    _companyBloc = BlocProvider.of<CompanyBloc>(context);
+    _companyBloc.add(FetchJobTitle());
+
     super.initState();
   }
 

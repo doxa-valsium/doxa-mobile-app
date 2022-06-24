@@ -1,4 +1,6 @@
+import 'package:doxa_mobile_app/business_logic/blocs/company/company_bloc.dart';
 import 'package:doxa_mobile_app/business_logic/blocs/profile/profile_bloc.dart';
+import 'package:doxa_mobile_app/data/repositories/company_repository/company_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
 import 'package:doxa_mobile_app/presentation/widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
@@ -12,10 +14,20 @@ class NavigatorScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ProfileBloc>(
-      create: (context) => ProfileBloc(
-        userRepository: RepositoryProvider.of<UserRepository>(context),
-      ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ProfileBloc>(
+          create: (context) => ProfileBloc(
+            userRepository: RepositoryProvider.of<UserRepository>(context),
+          ),
+        ),
+        
+        BlocProvider<CompanyBloc>(
+          create: (context) => CompanyBloc(
+            companyRepository: RepositoryProvider.of<CompanyRepository>(context),
+          ),
+        ),
+      ],
       child: AutoTabsScaffold(
         routes: const [
           HomeRouter(),
