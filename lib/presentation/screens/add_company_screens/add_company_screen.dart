@@ -6,7 +6,6 @@ import 'package:doxa_mobile_app/presentation/widgets/formfield_title_with_info.d
 import 'package:doxa_mobile_app/presentation/widgets/selection_list_screen/list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
 
 class AddCompanyScreen extends StatelessWidget {
   static const String route = 'AddCompanyRoute';
@@ -43,7 +42,6 @@ class AddCompanyScreen extends StatelessWidget {
                 CustomFormBuilderDropDown(
                   name: "companyName",
                   labelText: "Company Name",
-                  validators: FormBuilderValidators.required(),
                   child: const ListScreen(
                     selectableType: Company,
                     type: FormListType.staticList,
@@ -56,7 +54,6 @@ class AddCompanyScreen extends StatelessWidget {
                 CustomFormBuilderDropDown(
                   name: "yourPosition",
                   labelText: "Your Position",
-                  validators: FormBuilderValidators.required(),
                   child: const ListScreen(
                     selectableType: JobTitle,
                     type: FormListType.staticList,

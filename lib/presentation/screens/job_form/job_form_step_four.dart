@@ -13,9 +13,9 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 
 class JobFormStepFour extends StatelessWidget {
   final GlobalKey<FormBuilderState> formKey;
-  final Function(String) onSkillAdd;
-  final Function(String) onSkillDelete;
-  final List<String> skills;
+  final Function(Skill) onSkillAdd;
+  final Function(Skill) onSkillDelete;
+  final List<Skill> skills;
 
   const JobFormStepFour({Key? key, required this.skills, required this.onSkillAdd, required this.onSkillDelete, required this.formKey}) : super(key: key);
 
@@ -41,7 +41,6 @@ class JobFormStepFour extends StatelessWidget {
                 holdVal: true,
                 name: "industry",
                 labelText: "Industry",
-                validators: FormBuilderValidators.required(),
                 child: const ListScreen(
                   selectableType: Industry,
                   type: FormListType.dynamicList,
@@ -94,7 +93,7 @@ class JobFormStepFour extends StatelessWidget {
                   runSpacing: 8,
                   children: cubit.state.skills.map((skill) {
                     return CustomChipDynamicSkill(
-                      name: skill,
+                      name: skill.label,
                       onDelete: () {
                         cubit.deleteSkill(skill);
                         onSkillDelete(skill);

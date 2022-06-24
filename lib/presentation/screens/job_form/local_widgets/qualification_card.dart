@@ -33,11 +33,14 @@ class QualificationCard extends StatelessWidget {
                 const SizedBox(
                   width: 20,
                 ),
-                Text(
-                  "${qualification.degree} | ${qualification.major}",
-                  maxLines: 1,
-                  style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-                  overflow: TextOverflow.ellipsis,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 1.75,
+                  child: Text(
+                    "${qualification.degree.label} in ${qualification.major.label} asdasdasdasdas sad",
+                    maxLines: 1,
+                    style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ],
             ),

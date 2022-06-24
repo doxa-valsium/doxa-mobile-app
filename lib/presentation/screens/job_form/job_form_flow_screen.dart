@@ -1,4 +1,5 @@
 import 'package:doxa_mobile_app/logger.dart';
+import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/job_form_step_four.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/job_form_step_one.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/job_form_step_three.dart';
@@ -13,7 +14,7 @@ class JobFormFlowScreen extends StatelessWidget {
   static const String route = 'job-form-flow-screen';
   final _formKey = GlobalKey<FormBuilderState>();
   final List<Map<String, dynamic>> qualifications = [];
-  final List<String> skills = [];
+  final List<Skill> skills = [];
 
   JobFormFlowScreen({Key? key}) : super(key: key);
 

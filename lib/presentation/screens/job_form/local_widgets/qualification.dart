@@ -1,8 +1,9 @@
+import 'package:doxa_mobile_app/models/models.dart';
 import 'package:equatable/equatable.dart';
 
 class Qualification extends Equatable {
-  final String degree;
-  final String major;
+  final Degree degree;
+  final Major major;
   final bool isRequired;
 
   const Qualification({
