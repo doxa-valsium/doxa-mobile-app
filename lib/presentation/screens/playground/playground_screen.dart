@@ -27,6 +27,12 @@ class PlaygroundScreen extends StatelessWidget {
             children: [
               MaterialButton(
                 onPressed: () {
+                  context.router.push( NavigatorRoute());
+                },
+                child: const Text("Main App"),
+              ),
+              MaterialButton(
+                onPressed: () {
                   context.router.push(const ThemeTestRoute());
                 },
                 child: const Text("Go to Theme Testing"),

@@ -60,8 +60,10 @@ class AppRouter extends _i5.RootStackRouter {
           routeData: routeData, child: const _i3.UnAuthWrapperScreen());
     },
     NavigatorRoute.name: (routeData) {
+      final args = routeData.argsAs<NavigatorRouteArgs>(
+          orElse: () => const NavigatorRouteArgs());
       return _i5.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i4.NavigatorScreen());
+          routeData: routeData, child: _i4.NavigatorScreen(key: args.key));
     },
     HomeRouter.name: (routeData) {
       return _i5.MaterialPageX<dynamic>(
@@ -122,15 +124,16 @@ class AppRouter extends _i5.RootStackRouter {
           routeData: routeData, child: const _i14.JobsScreen());
     },
     SingleJobRoute.name: (routeData) {
+      final args = routeData.argsAs<SingleJobRouteArgs>();
       return _i5.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i15.SingleJobScreen());
+          routeData: routeData,
+          child: _i15.SingleJobScreen(key: args.key, jobId: args.jobId));
     },
     JobFormFlowRoute.name: (routeData) {
-      final args = routeData.argsAs<JobFormFlowRouteArgs>(
-          orElse: () => const JobFormFlowRouteArgs());
+      final args = routeData.argsAs<JobFormFlowRouteArgs>();
       return _i5.CustomPage<dynamic>(
           routeData: routeData,
-          child: _i16.JobFormFlowScreen(key: args.key),
+          child: _i16.JobFormFlowScreen(key: args.key, isEdit: args.isEdit),
           fullscreenDialog: true,
           opaque: true,
           barrierDismissible: false);
@@ -278,11 +281,25 @@ class UnAuthWrapperRoute extends _i5.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.NavigatorScreen]
-class NavigatorRoute extends _i5.PageRouteInfo<void> {
-  const NavigatorRoute({List<_i5.PageRouteInfo>? children})
-      : super(NavigatorRoute.name, path: '', initialChildren: children);
+class NavigatorRoute extends _i5.PageRouteInfo<NavigatorRouteArgs> {
+  NavigatorRoute({_i23.Key? key, List<_i5.PageRouteInfo>? children})
+      : super(NavigatorRoute.name,
+            path: '',
+            args: NavigatorRouteArgs(key: key),
+            initialChildren: children);
 
   static const String name = 'NavigatorRoute';
+}
+
+class NavigatorRouteArgs {
+  const NavigatorRouteArgs({this.key});
+
+  final _i23.Key? key;
+
+  @override
+  String toString() {
+    return 'NavigatorRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for
@@ -401,31 +418,49 @@ class JobsRoute extends _i5.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i15.SingleJobScreen]
-class SingleJobRoute extends _i5.PageRouteInfo<void> {
-  const SingleJobRoute()
-      : super(SingleJobRoute.name, path: 'single-job-screen');
+class SingleJobRoute extends _i5.PageRouteInfo<SingleJobRouteArgs> {
+  SingleJobRoute({_i23.Key? key, required int jobId})
+      : super(SingleJobRoute.name,
+            path: 'single-job-screen',
+            args: SingleJobRouteArgs(key: key, jobId: jobId));
 
   static const String name = 'SingleJobRoute';
+}
+
+class SingleJobRouteArgs {
+  const SingleJobRouteArgs({this.key, required this.jobId});
+
+  final _i23.Key? key;
+
+  final int jobId;
+
+  @override
+  String toString() {
+    return 'SingleJobRouteArgs{key: $key, jobId: $jobId}';
+  }
 }
 
 /// generated route for
 /// [_i16.JobFormFlowScreen]
 class JobFormFlowRoute extends _i5.PageRouteInfo<JobFormFlowRouteArgs> {
-  JobFormFlowRoute({_i23.Key? key})
+  JobFormFlowRoute({_i23.Key? key, required bool isEdit})
       : super(JobFormFlowRoute.name,
-            path: 'job-form-flow-screen', args: JobFormFlowRouteArgs(key: key));
+            path: 'job-form-flow-screen',
+            args: JobFormFlowRouteArgs(key: key, isEdit: isEdit));
 
   static const String name = 'JobFormFlowRoute';
 }
 
 class JobFormFlowRouteArgs {
-  const JobFormFlowRouteArgs({this.key});
+  const JobFormFlowRouteArgs({this.key, required this.isEdit});
 
   final _i23.Key? key;
 
+  final bool isEdit;
+
   @override
   String toString() {
-    return 'JobFormFlowRouteArgs{key: $key}';
+    return 'JobFormFlowRouteArgs{key: $key, isEdit: $isEdit}';
   }
 }
 

@@ -59,7 +59,7 @@ class JobFormStepFour extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 2.3,
                     child: CustomFormBuilderTextField(
-                        name: "starting_range",
+                        name: "salary_range_starting",
                         focusNode: FocusNode(),
                         controller: TextEditingController(),
                         labelText: "From",
@@ -71,7 +71,7 @@ class JobFormStepFour extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 2.3,
                     child: CustomFormBuilderTextField(
-                        name: "ending_range",
+                        name: "salary_range_ending",
                         focusNode: FocusNode(),
                         controller: TextEditingController(),
                         keyboardType: TextInputType.number,

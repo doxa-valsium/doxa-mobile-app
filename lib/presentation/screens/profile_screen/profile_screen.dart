@@ -100,9 +100,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               size: 24.0,
                             ),
                             menuText: 'SETTINGS',
-                            onTap: () {
+                            onTap: () async {
+                              Map<String, dynamic> job = {
+                                'title': 1,
+                                'headline': 'asd',
+                                'workplace_type': 3,
+                                'required_experience': 1,
+                                'salary_range_starting': 1,
+                                'salary_range_ending': 2,
+                                'description': 'description',
+                                'industry': 1,
+                                'is_active': true,
+                                'company': 6,
+                                'recruiter': '8bd2615b-3e07-476e-8017-81b16ae0da69',
+                                'employement_type': 1,
+                                'location_city': 3,
+
+                                //event.jobFormData['required_experience'].toInt(),
+
+                                //event.jobFormData['salary_range_starting'].toInt(),
+                                //event.jobFormData['salary_range_ending'].toInt(),
+
+                                //TODO : this is hardcoded for now but should be dynamic
+                              };
                               SupabaseJobsRepository testData = SupabaseJobsRepository();
-                              testData.getRecruiterJobs(recruiter: '8bd2615b-3e07-476e-8017-81b16ae0da69');
+                              await testData.getSingleJob(recruiterId: '8bd2615b-3e07-476e-8017-81b16ae0da69', jobId: 49);
+                              //await testData.getCompleteJob(recruiterId: '8bd2615b-3e07-476e-8017-81b16ae0da69');
                             },
                           ),
                           const SizedBox(

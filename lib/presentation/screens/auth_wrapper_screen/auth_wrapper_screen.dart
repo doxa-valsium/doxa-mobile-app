@@ -15,7 +15,7 @@ class AuthWrapperScreen extends StatelessWidget {
       child: BlocBuilder<AuthWrapperBloc, AuthWrapperState>(
         builder: (context, state) {
           return AutoRouter.declarative(routes: (_) {
-            return [const NavigatorRoute()];
+            return [ NavigatorRoute()];
           });
         },
       ),

@@ -1,3 +1,6 @@
+import 'package:doxa_mobile_app/business_logic/blocs/jobs/create_job_bloc/create_jobs_bloc.dart';
+import 'package:doxa_mobile_app/data/repositories/jobs_repository/jobs_repository.dart';
+import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
 import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/job_form_step_four.dart';
@@ -8,6 +11,7 @@ import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_screen.dart'
 import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_screen_widgets.dart';
 import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class JobFormFlowScreen extends StatelessWidget {
@@ -16,7 +20,8 @@ class JobFormFlowScreen extends StatelessWidget {
   final List<Map<String, dynamic>> qualifications = [];
   final List<Skill> skills = [];
 
-  JobFormFlowScreen({Key? key}) : super(key: key);
+  final bool isEdit;
+  JobFormFlowScreen({Key? key, required this.isEdit}) : super(key: key);
 
   bool containsQualification(Map qualification) {
     // This checks if the qualification is valid means already exists or not
@@ -33,102 +38,246 @@ class JobFormFlowScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: FormBuilder(
-          key: _formKey,
-          child: FlowView(
-            steps: [
-              FlowScreen(
-                title: 'Create a New Job',
-                anchor: FlowScreenDefaultAnchor(
-                  buttonText: 'Continue',
-                  onPressed: (context) {
-                    if (_formKey.currentState!.saveAndValidate()) {
-                    FlowView.of(context).next();
-                    }
-                  },
-                ),
-                child: JobFormStepOne(
-                  formKey: _formKey,
-                ),
+    if (isEdit) {
+      return BlocProvider(
+        create: (context) => CreateJobsBloc(
+          jobsRepository: RepositoryProvider.of<JobsRepository>(context),
+          userRepository: RepositoryProvider.of<UserRepository>(context),
+        ),
+        child: Scaffold(
+          body: SafeArea(
+            child: FormBuilder(
+              key: _formKey,
+              child: BlocBuilder<CreateJobsBloc, CreateJobsState>(
+                builder: (context, state) {
+                  return FlowView(
+                    steps: [
+                      FlowScreen(
+                        title: 'Create a New Job',
+                        anchor: FlowScreenDefaultAnchor(
+                          buttonText: 'Continue',
+                          onPressed: (context) {
+                            if (_formKey.currentState!.saveAndValidate()) {
+                              FlowView.of(context).next();
+                            }
+                          },
+                        ),
+                        child: JobFormStepOne(
+                          formKey: _formKey,
+                        ),
+                      ),
+                      FlowScreen(
+                        title: 'Create a New Job',
+                        anchor: FlowScreenDefaultAnchor(
+                          buttonText: 'Continue',
+                          onPressed: (context) {
+                            if (_formKey.currentState!.saveAndValidate()) {
+                              FlowView.of(context).next();
+                            }
+                          },
+                        ),
+                        child: JobFormStepTwo(
+                          formKey: _formKey,
+                        ),
+                      ),
+                      FlowScreen(
+                        title: 'Create a New Job',
+                        anchor: FlowScreenDefaultAnchor(
+                          buttonText: 'Continue',
+                          onPressed: (context) {
+                            if (_formKey.currentState!.saveAndValidate()) {
+                              if (qualifications.isNotEmpty) FlowView.of(context).next();
+                            }
+                          },
+                        ),
+                        child: JobFormStepThree(
+                          qualifications: qualifications,
+                          formKey: _formKey,
+                          onAdd: (map) {
+                            if (!containsQualification(map)) {
+                              qualifications.add(map);
+                            }
+                          },
+                          onDelete: (map) {
+                            if (containsQualification(map)) {
+                              qualifications.removeWhere((element) =>
+                                  element['qualificationDegree'] == map['qualificationDegree'] &&
+                                  element['qualificationMajor'] == map['qualificationMajor'] &&
+                                  element['qualificationExperienceType'] == map['qualificationExperienceType']);
+                            }
+                          },
+                        ),
+                      ),
+                      FlowScreen(
+                        title: 'Create a New Job',
+                        anchor: FlowScreenDefaultAnchor(
+                          buttonText: 'Continue',
+                          onPressed: (context) {
+                            if (_formKey.currentState!.saveAndValidate()) {
+                              if (skills.isNotEmpty) {
+                                Map<String, dynamic> jobFormData = Map<String, dynamic>.of(_formKey.currentState!.value);
+                                jobFormData['qualifications'] = qualifications;
+                                jobFormData['skills'] = skills;
+                                logger.i(jobFormData);
+                                FlowView.of(context).setIsLoading(true);
+                                BlocProvider.of<CreateJobsBloc>(context).add(
+                                  CreateJobs(
+                                    jobFormData: jobFormData,
+                                    onComplete: () {
+                                      logger.i('in Complete Function');
+                                      FlowView.of(context).setIsLoading(false);
+                                      FlowView.of(context).next();
+                                    },
+                                  ),
+                                );
+                                // FlowView.of(context).next();
+                              }
+                            }
+                          },
+                        ),
+                        child: JobFormStepFour(
+                          skills: skills,
+                          formKey: _formKey,
+                          onSkillAdd: (skill) {
+                            if (!skills.contains(skill)) {
+                              skills.add(skill);
+                            }
+                          },
+                          onSkillDelete: (skill) {
+                            if (skills.contains(skill)) {
+                              skills.removeWhere((element) => element == skill);
+                            }
+                          },
+                        ),
+                      ),
+                    ],
+                  );
+                },
               ),
-              FlowScreen(
-                title: 'Create a New Job',
-                anchor: FlowScreenDefaultAnchor(
-                  buttonText: 'Continue',
-                  onPressed: (context) {
-                    if (_formKey.currentState!.saveAndValidate()) {
-                    FlowView.of(context).next();
-                    }
-                  },
-                ),
-                child: JobFormStepTwo(
-                  formKey: _formKey,
-                ),
-              ),
-              FlowScreen(
-                title: 'Create a New Job',
-                anchor: FlowScreenDefaultAnchor(
-                  buttonText: 'Continue',
-                  onPressed: (context) {
-                    if (_formKey.currentState!.saveAndValidate()) {
-                      if (qualifications.isNotEmpty) FlowView.of(context).next();
-                    }
-                  },
-                ),
-                child: JobFormStepThree(
-                  qualifications: qualifications,
-                  formKey: _formKey,
-                  onAdd: (map) {
-                    if (!containsQualification(map)) {
-                      qualifications.add(map);
-                    }
-                  },
-                  onDelete: (map) {
-                    if (containsQualification(map)) {
-                      qualifications.removeWhere((element) =>
-                          element['qualificationDegree'] == map['qualificationDegree'] &&
-                          element['qualificationMajor'] == map['qualificationMajor'] &&
-                          element['qualificationExperienceType'] == map['qualificationExperienceType']);
-                    }
-                  },
-                ),
-              ),
-              FlowScreen(
-                  title: 'Create a New Job',
-                  anchor: FlowScreenDefaultAnchor(
-                    buttonText: 'Continue',
-                    onPressed: (context) {
-                      if (_formKey.currentState!.saveAndValidate()) {
-                        if (skills.isNotEmpty) {
-                          Map<String, dynamic> jobFormData = Map<String, dynamic>.of(_formKey.currentState!.value);
-                          jobFormData['qualifications'] = qualifications;
-                          jobFormData['skills'] = skills;
-                          logger.i(jobFormData);
-                          FlowView.of(context).next();
-                        }
-                      }
-                    },
-                  ),
-                  child: JobFormStepFour(
-                    skills: skills,
-                    formKey: _formKey,
-                    onSkillAdd: (skill) {
-                      if (!skills.contains(skill)) {
-                        skills.add(skill);
-                      }
-                    },
-                    onSkillDelete: (skill) {
-                      if (skills.contains(skill)) {
-                        skills.removeWhere((element) => element == skill);
-                      }
-                    },
-                  )),
-            ],
+            ),
           ),
         ),
-      ),
-    );
+      );
+    } else {
+      return BlocProvider(
+        create: (context) => CreateJobsBloc(
+          jobsRepository: RepositoryProvider.of<JobsRepository>(context),
+          userRepository: RepositoryProvider.of<UserRepository>(context),
+        ),
+        child: Scaffold(
+          body: SafeArea(
+            child: FormBuilder(
+              key: _formKey,
+              child: BlocBuilder<CreateJobsBloc, CreateJobsState>(
+                builder: (context, state) {
+                  return FlowView(
+                    steps: [
+                      FlowScreen(
+                        title: 'Create a New Job',
+                        anchor: FlowScreenDefaultAnchor(
+                          buttonText: 'Continue',
+                          onPressed: (context) {
+                            if (_formKey.currentState!.saveAndValidate()) {
+                              FlowView.of(context).next();
+                            }
+                          },
+                        ),
+                        child: JobFormStepOne(
+                          formKey: _formKey,
+                        ),
+                      ),
+                      FlowScreen(
+                        title: 'Create a New Job',
+                        anchor: FlowScreenDefaultAnchor(
+                          buttonText: 'Continue',
+                          onPressed: (context) {
+                            if (_formKey.currentState!.saveAndValidate()) {
+                              FlowView.of(context).next();
+                            }
+                          },
+                        ),
+                        child: JobFormStepTwo(
+                          formKey: _formKey,
+                        ),
+                      ),
+                      FlowScreen(
+                        title: 'Create a New Job',
+                        anchor: FlowScreenDefaultAnchor(
+                          buttonText: 'Continue',
+                          onPressed: (context) {
+                            if (_formKey.currentState!.saveAndValidate()) {
+                              if (qualifications.isNotEmpty) FlowView.of(context).next();
+                            }
+                          },
+                        ),
+                        child: JobFormStepThree(
+                          qualifications: qualifications,
+                          formKey: _formKey,
+                          onAdd: (map) {
+                            if (!containsQualification(map)) {
+                              qualifications.add(map);
+                            }
+                          },
+                          onDelete: (map) {
+                            if (containsQualification(map)) {
+                              qualifications.removeWhere((element) =>
+                                  element['qualificationDegree'] == map['qualificationDegree'] &&
+                                  element['qualificationMajor'] == map['qualificationMajor'] &&
+                                  element['qualificationExperienceType'] == map['qualificationExperienceType']);
+                            }
+                          },
+                        ),
+                      ),
+                      FlowScreen(
+                        title: 'Create a New Job',
+                        anchor: FlowScreenDefaultAnchor(
+                          buttonText: 'Continue',
+                          onPressed: (context) {
+                            if (_formKey.currentState!.saveAndValidate()) {
+                              if (skills.isNotEmpty) {
+                                Map<String, dynamic> jobFormData = Map<String, dynamic>.of(_formKey.currentState!.value);
+                                jobFormData['qualifications'] = qualifications;
+                                jobFormData['skills'] = skills;
+                                logger.i(jobFormData);
+                                FlowView.of(context).setIsLoading(true);
+                                BlocProvider.of<CreateJobsBloc>(context).add(
+                                  CreateJobs(
+                                    jobFormData: jobFormData,
+                                    onComplete: () {
+                                      logger.i('in Complete Function');
+                                      FlowView.of(context).setIsLoading(false);
+                                      FlowView.of(context).next();
+                                    },
+                                  ),
+                                );
+                                // FlowView.of(context).next();
+                              }
+                            }
+                          },
+                        ),
+                        child: JobFormStepFour(
+                          skills: skills,
+                          formKey: _formKey,
+                          onSkillAdd: (skill) {
+                            if (!skills.contains(skill)) {
+                              skills.add(skill);
+                            }
+                          },
+                          onSkillDelete: (skill) {
+                            if (skills.contains(skill)) {
+                              skills.removeWhere((element) => element == skill);
+                            }
+                          },
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
+          ),
+        ),
+      );
+    }
   }
 }

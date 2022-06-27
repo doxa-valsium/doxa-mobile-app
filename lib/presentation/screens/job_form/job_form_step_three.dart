@@ -35,7 +35,7 @@ class JobFormStepThree extends StatelessWidget {
               height: 16,
             ),
             CustomFormBuilderTextField(
-              name: "experienceYears",
+              name: "required_experience",
               focusNode: experienceFocusNode,
               controller: TextEditingController(),
               labelText: "Years of experience",

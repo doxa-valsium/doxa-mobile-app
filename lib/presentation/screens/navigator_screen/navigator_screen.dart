@@ -1,6 +1,9 @@
-import 'package:doxa_mobile_app/business_logic/blocs/jobs/jobs_bloc.dart';
+import 'package:doxa_mobile_app/business_logic/blocs/jobs/create_job_bloc/create_jobs_bloc.dart';
+import 'package:doxa_mobile_app/business_logic/blocs/jobs/get_jobs_bloc/get_jobs_bloc.dart';
+import 'package:doxa_mobile_app/business_logic/blocs/jobs/get_single_job_bloc/get_single_job_bloc.dart';
 import 'package:doxa_mobile_app/business_logic/blocs/profile/profile_bloc.dart';
 import 'package:doxa_mobile_app/data/repositories/jobs_repository/jobs_repository.dart';
+import 'package:doxa_mobile_app/data/repositories/jobs_repository/supabase_jobs_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
 import 'package:doxa_mobile_app/presentation/widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
@@ -10,38 +13,87 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NavigatorScreen extends StatelessWidget {
   static const String route = '';
-  const NavigatorScreen({Key? key}) : super(key: key);
-
+  NavigatorScreen({Key? key}) : super(key: key);
+  final _jobsRepository = SupabaseJobsRepository();
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    return MultiRepositoryProvider(
       providers: [
-        BlocProvider<ProfileBloc>(
-          create: (context) => ProfileBloc(
-            userRepository: RepositoryProvider.of<UserRepository>(context),
-          ),
+        RepositoryProvider<JobsRepository>(
+          create: (context) => _jobsRepository,
         ),
-        BlocProvider<JobsBloc>(
-          create: (context) => JobsBloc(
-            userRepository: RepositoryProvider.of<UserRepository>(context),
-            jobsRepository: RepositoryProvider.of<JobsRepository>(context),
-          ),
-        ),
-        
       ],
-      child: AutoTabsScaffold(
-        routes: const [
-          HomeRouter(),
-          JobsRouter(),
-          MessagesRouter(),
-          ProfileRouter(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<ProfileBloc>(
+            create: (context) => ProfileBloc(
+              userRepository: RepositoryProvider.of<UserRepository>(context),
+            ),
+          ),
+          BlocProvider<GetJobsBloc>(
+            create: (context) => GetJobsBloc(
+              userRepository: RepositoryProvider.of<UserRepository>(context),
+              jobsRepository: RepositoryProvider.of<JobsRepository>(context),
+            ),
+          ),
+          BlocProvider<GetSingleJobBloc>(
+            create: (context) => GetSingleJobBloc(
+              userRepository: RepositoryProvider.of<UserRepository>(context),
+              jobsRepository: RepositoryProvider.of<JobsRepository>(context),
+            ),
+          ),
+          
         ],
-        bottomNavigationBuilder: (_, tabsRouter) {
-          return BottomNavBar(
-            tabsRouter: tabsRouter,
-          );
-        },
+        child: AutoTabsScaffold(
+          routes: const [
+            HomeRouter(),
+            JobsRouter(),
+            MessagesRouter(),
+            ProfileRouter(),
+          ],
+          bottomNavigationBuilder: (_, tabsRouter) {
+            return BottomNavBar(
+              tabsRouter: tabsRouter,
+            );
+          },
+        ),
       ),
     );
   }
 }
+// import 'package:doxa_mobile_app/business_logic/blocs/profile/profile_bloc.dart';
+// import 'package:doxa_mobile_app/data/repositories/jobs_repository/jobs_repository.dart';
+// import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
+// import 'package:doxa_mobile_app/presentation/widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
+// import 'package:doxa_mobile_app/routes/router.gr.dart';
+// import 'package:flutter/material.dart';
+// import 'package:auto_route/auto_route.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+
+// class NavigatorScreen extends StatelessWidget {
+//   static const String route = '';
+//   const NavigatorScreen({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocProvider<JobsBloc>(
+//       create: (context) => JobsBloc(
+//         userRepository: RepositoryProvider.of<UserRepository>(context),
+//         jobsRepository: RepositoryProvider.of<JobsRepository>(context),
+//       ),
+//       child: AutoTabsScaffold(
+//         routes: const [
+//           HomeRouter(),
+//           JobsRouter(),
+//           MessagesRouter(),
+//           ProfileRouter(),
+//         ],
+//         bottomNavigationBuilder: (_, tabsRouter) {
+//           return BottomNavBar(
+//             tabsRouter: tabsRouter,
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }

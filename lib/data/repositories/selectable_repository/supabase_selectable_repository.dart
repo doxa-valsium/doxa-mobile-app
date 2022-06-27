@@ -13,6 +13,7 @@ Map<String, Function> types = {
   'Country': (map) => Country.fromMap(map),
   'Industry': (map) => Industry.fromMap(map),
   'Skill': (map) => Skill.fromMap(map),
+  'JobTitle' : (map) => JobTitle.fromMap(map),
 };
 
 class SupabaseSelectableRepository extends SelectableRepository {

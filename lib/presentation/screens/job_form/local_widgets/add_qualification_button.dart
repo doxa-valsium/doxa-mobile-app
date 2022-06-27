@@ -1,7 +1,7 @@
 import 'package:doxa_mobile_app/business_logic/cubits/job_form_add_qualification_button/add_qualification_button_cubit.dart';
 import 'package:doxa_mobile_app/logger.dart';
+import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/add_qualification_form.dart';
-import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/qualification.dart';
 import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/qualification_card.dart';
 import 'package:doxa_mobile_app/presentation/widgets/flow_view/flow_view.dart';
 import 'package:doxa_mobile_app/styles.dart';

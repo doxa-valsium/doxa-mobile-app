@@ -13,7 +13,7 @@ class JobFormStepOne extends StatelessWidget {
   const JobFormStepOne({
     Key? key,
     required this.formKey,
-    }) : super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +26,18 @@ class JobFormStepOne extends StatelessWidget {
             title: "Job Title",
           ),
           const SizedBox(height: 16),
-          CustomFormBuilderTextField(
-              name: "title",
-              focusNode: FocusNode(),
-              controller: TextEditingController(),
-              labelText: "Title",
-              validators: FormBuilderValidators.compose([
-                FormBuilderValidators.required(),
-                FormBuilderValidators.max(25),
-              ])),
+          CustomFormBuilderDropDown(
+            name: "title",
+            //focusNode: FocusNode(),
+            //controller: TextEditingController(),
+            labelText: "Title",
+            holdVal: true,
+            child: const ListScreen(
+              title: "Title",
+              type: FormListType.staticList,
+              selectableType: JobTitle,
+            ),
+          ),
           const SizedBox(height: 16),
           CustomFormBuilderTextField(
             name: "headline",
@@ -52,7 +55,7 @@ class JobFormStepOne extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(
-            name: "employementType",
+            name: "employement_type",
             labelText: "Employement Type",
             holdVal: true,
             child: const ListScreen(
@@ -64,7 +67,7 @@ class JobFormStepOne extends StatelessWidget {
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(
             holdVal: true,
-            name: "workplaceType",
+            name: "workplace_type",
             labelText: "Workplace Type",
             child: const ListScreen(
               selectableType: WorkplaceType,
@@ -75,7 +78,7 @@ class JobFormStepOne extends StatelessWidget {
           const SizedBox(height: 16),
           CustomFormBuilderDropDown(
             holdVal: true,
-            name: "location",
+            name: "location_city",
             labelText: "Location",
             child: const ListScreen(
               selectableType: City,

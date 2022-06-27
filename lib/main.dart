@@ -4,5 +4,4 @@ import 'presentation/app.dart';
 
 void main() async {
   bootstrap(() => App(), environment: Environment.production);
-  
 }

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:doxa_mobile_app/presentation/screens/job_form/local_widgets/qualification.dart';
+import 'package:doxa_mobile_app/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:equatable/equatable.dart';
 

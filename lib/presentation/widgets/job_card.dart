@@ -10,8 +10,15 @@ import 'package:doxa_mobile_app/presentation/widgets/custom_chip.dart';
 class JobCard extends StatelessWidget {
   final bool isActive;
   final ButtonType buttonType1;
+  final String jobTitle;
+  final String employmentType;
+  final String location;
+  final int? totalMatches;
+  final Function()? onTap; 
 
-  const JobCard({Key? key, required this.isActive, required this.buttonType1}) : super(key: key);
+  const JobCard(
+      {Key? key, required this.isActive, required this.buttonType1, required this.employmentType, required this.jobTitle, required this.location, required this.totalMatches,required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +28,7 @@ class JobCard extends StatelessWidget {
       buttonType: buttonType1,
       childTopCard: GestureDetector(
         behavior: HitTestBehavior.opaque,
-        onTap: () {
-          context.router.push(const SingleJobRoute());
-        },
+        onTap: onTap,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -43,21 +48,21 @@ class JobCard extends StatelessWidget {
             ),
             const Spacer(),
             Text(
-              "Software Engineer",
+              jobTitle,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onBackground),
             ),
             const SizedBox(height: 3),
             Text(
-              "Karachi, Pakistan | Full-Time",
+              "$location, Pakistan | $employmentType",
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.overline?.copyWith(color: Theme.of(context).colorScheme.onSurface),
             ),
             const Spacer(),
             CustomChip(
-              text: '5 Matches',
+              text: '$totalMatches Matches',
               backgroundColor: Theme.of(context).colorScheme.secondary,
               foregroundColor: Theme.of(context).colorScheme.onSecondary,
             ),

@@ -6,12 +6,13 @@ import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:equatable/equatable.dart';
 
 class Job extends Equatable {
-  final String jobId;
-  final String title;
+  final int jobId;
+  final String jobTitle;
   final String? headline;
   final EmployementType employmentType;
   final WorkplaceType? workplaceType;
   final Location location;
+  final String? description; 
   final SalarayRange? salarayRange;
   final int? yearsExperianceRequired;
   final List<Qualification>? requiredQualification;
@@ -21,14 +22,15 @@ class Job extends Equatable {
   final bool isActive;
   final Company? company;
   final String openedByRecruiterId;
-  final int totalMatches;
+  final int? totalMatches;
   const Job({
     required this.jobId,
-    required this.title,
+    required this.jobTitle,
     this.headline,
     required this.employmentType,
     this.workplaceType,
     required this.location,
+    this.description,
     this.salarayRange,
     this.yearsExperianceRequired,
     this.requiredQualification,
@@ -38,25 +40,30 @@ class Job extends Equatable {
     required this.isActive,
     this.company,
     required this.openedByRecruiterId,
-    required this.totalMatches,
+     this.totalMatches,
   });
 
   factory Job.fromJson(Map<String, dynamic> json) {
     return Job(
       jobId: json['id'],
-      title: json['title'],
-      employmentType: json['employment_type'],
-      location: json['location'],
+      jobTitle: json['title'],
+      employmentType: EmployementType(id: json['employement_type_id'], label: json['employement_type_label']),
+      location: Location(city: City(id: json['location_city_id'], label: json['location_city_label'])),
       openedByRecruiterId: json['recruiter_id'],
       isActive: json['is_active'],
       totalMatches: json['total_matches'],
     );
   }
+  // factory Job.fromMap(Map<String,dynamic> json){
+  //   return Job(
+
+  //   );
+  // }
 
   @override
   List<Object?> get props => [
         jobId,
-        title,
+        jobTitle,
         headline,
         employmentType,
         workplaceType,
