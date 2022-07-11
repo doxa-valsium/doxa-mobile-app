@@ -54,5 +54,7 @@
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app recquires photo library access in order to upload profile avatar and company images</string>
 </dict>
 </plist>

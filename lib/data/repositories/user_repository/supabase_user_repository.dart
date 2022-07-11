@@ -3,9 +3,7 @@ import 'dart:async';
 import 'package:doxa_mobile_app/constants.dart';
 import 'package:doxa_mobile_app/data/exceptions/auth_exception.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
-import 'package:doxa_mobile_app/logger.dart';
 import 'package:doxa_mobile_app/models/models.dart';
-import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:doxa_mobile_app/models/user.dart' as local_user;
 import 'package:rxdart/rxdart.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' as supabase_user;
@@ -18,18 +16,10 @@ class SupabaseUserRepository extends UserRepository {
 
   @override
   Future<void> getUser() async {
-
     final supabase_user.User? supabaseUser = kSupabase.auth.currentUser;
-
     if (supabaseUser == null) return;
-
     local_user.User? user = await _fromSupabaseUserToModelUser(supabaseUser);
     if (user != null) {
-      // if(user is Candidate){
-
-      // }else{
-
-      // }
       _userStreamController.add(user);
     }
   }
@@ -59,9 +49,28 @@ class SupabaseUserRepository extends UserRepository {
       user['gender'] = Gender(label: response.data[0]['gender']);
       user['date_of_birth'] = dateOfBirth;
       user['uuid'] = uuid;
-
-      return local_user.User.fromMap(user);
+      if (user['user_type'] == UserType.candidate) {
+        return await _getCandidateData(user);
+      } else {
+        return await _getRecruiterData(user);
+      }
     }
+  }
+
+  Future<User> _getCandidateData(Map<String, dynamic> user) async {
+    await Future.delayed(kMockFutureDelay);
+
+    return local_user.User.fromMap(user);
+  }
+
+  Future<User> _getRecruiterData(Map<String, dynamic> user) async {
+    final response =
+        await kSupabase.from('company_recruiters').select('company_id:company, is_admin, job_title:job_titles(id,label)').eq('recruiter_uuid', user['uuid']).single().execute();
+    final Map<String, dynamic>? recruiter = response.data;
+    if(recruiter != null) {
+      user.addAll(recruiter);
+    }
+    return local_user.User.fromMap(user);
   }
 
   @override

@@ -1,21 +1,12 @@
+import 'package:doxa_mobile_app/models/company.dart';
 import 'package:flutter/material.dart';
 
 class CompanyDetails extends StatelessWidget {
-  final String companyName;
-  final String companyIndustry;
-  final String companyLocation;
-  final String companyAbout;
-  final String companyWebsite;
-  final String companyContact;
+  final Company company;
 
   const CompanyDetails({
     Key? key,
-    required this.companyAbout,
-    required this.companyContact,
-    required this.companyIndustry,
-    required this.companyLocation,
-    required this.companyName,
-    required this.companyWebsite,
+    required this.company,
   }) : super(key: key);
 
   @override
@@ -32,7 +23,7 @@ class CompanyDetails extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    companyName,
+                    company.name,
                     style: Theme.of(context).textTheme.headline6?.copyWith(color: Theme.of(context).colorScheme.onBackground),
                     softWrap: false,
                     overflow: TextOverflow.ellipsis,
@@ -41,7 +32,7 @@ class CompanyDetails extends StatelessWidget {
                   ),
                   const SizedBox(height: 4.0),
                   Text(
-                    '$companyIndustry | $companyLocation',
+                    '${company.industry.label} | ${company.location.city.label}',
                     style: Theme.of(context).textTheme.subtitle2?.copyWith(color: Theme.of(context).colorScheme.onSurface),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
@@ -57,7 +48,6 @@ class CompanyDetails extends StatelessWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
-          //crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Flexible(
               child: Column(
@@ -65,7 +55,7 @@ class CompanyDetails extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'ABOUT',
+                    'BIO',
                     style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onBackground),
                     softWrap: false,
                     overflow: TextOverflow.ellipsis,
@@ -73,7 +63,7 @@ class CompanyDetails extends StatelessWidget {
                     textAlign: TextAlign.start,
                   ),
                   Text(
-                    companyAbout,
+                    company.bio,
                     style: Theme.of(context).textTheme.bodyText2?.copyWith(color: Theme.of(context).colorScheme.onSurface),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 6,
@@ -107,7 +97,7 @@ class CompanyDetails extends StatelessWidget {
                       textAlign: TextAlign.start,
                     ),
                     Text(
-                      companyWebsite,
+                      company.website,
                       style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.primary),
                       softWrap: false,
                       overflow: TextOverflow.ellipsis,
@@ -135,7 +125,7 @@ class CompanyDetails extends StatelessWidget {
                       textAlign: TextAlign.start,
                     ),
                     Text(
-                      companyContact,
+                      company.phone,
                       style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).colorScheme.primary),
                       softWrap: false,
                       overflow: TextOverflow.ellipsis,

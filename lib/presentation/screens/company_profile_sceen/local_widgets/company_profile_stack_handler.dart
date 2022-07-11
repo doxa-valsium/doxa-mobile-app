@@ -1,16 +1,23 @@
+import 'package:doxa_mobile_app/business_logic/blocs/company_profile/bloc/company_profile_bloc.dart';
+import 'package:doxa_mobile_app/models/models.dart';
 import 'package:doxa_mobile_app/presentation/screens/company_profile_sceen/local_widgets/company_banner.dart';
 import 'package:doxa_mobile_app/presentation/widgets/avatar.dart';
+import 'package:doxa_mobile_app/services/image_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/fluent.dart';
 
 class CompanyProfileStackHandler extends StatelessWidget {
+  final Company company;
+  final bool isLogoUpdating;
   final Widget child;
 
-  const CompanyProfileStackHandler({Key? key, required this.child}) : super(key: key);
+  const CompanyProfileStackHandler({Key? key, required this.child, required this.company, required this.isLogoUpdating}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final _bloc = BlocProvider.of<CompanyProfileBloc>(context);
     return Column(
       children: [
         const SizedBox(
@@ -32,42 +39,28 @@ class CompanyProfileStackHandler extends StatelessWidget {
               ),
               child: child,
             ),
-            const CompanyBanner(),
-            const Positioned.fill(
-              top: 90,
+            CompanyBanner(bannerImageUrl: company.coverImageUrl, updatingBannerImage: false, onEdit: () {},),
+            Positioned.fill(
+              top: 88,
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Avatar(
+                  isUpdating: isLogoUpdating,
                   avatarType: AvatarType.company,
                   radius: 52,
-                  avatarUrl: 'https://picsum.photos/200',
+                  avatarUrl: company.logoImageUrl,
+                  onEdit: () async {
+                    final logo = await ImageService.getImageFromGallery();
+                    if (logo != null) {
+                      _bloc.add(UpdateCompanyLogo(company: company, logo: logo));
+                      return;
+                    } else {
+                      return;
+                    }
+                  },
                 ),
               ),
             ),
-            Positioned.fill(
-                top: 165,
-                right: -60,
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.secondary,
-                      borderRadius: const BorderRadius.all(Radius.circular(25)),
-                      border: Border.all(color: Theme.of(context).colorScheme.onSurface, width: 1),
-                    ),
-                    padding: const EdgeInsets.all(8.0),
-                    // child: Icon(
-                    //   Icons.add_a_photo_outlined,
-                    //   size: 20.0,
-                    //   color: Theme.of(context).colorScheme.primary,
-                    // )),
-                    child: Iconify(
-                      Fluent.camera_edit_20_filled,
-                      size: 20.0,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  ),
-                )),
             Positioned.fill(
               top: 10,
               right: -290,
@@ -80,11 +73,6 @@ class CompanyProfileStackHandler extends StatelessWidget {
                       border: Border.all(color: Theme.of(context).colorScheme.onSurface, width: 1),
                     ),
                     padding: const EdgeInsets.all(8.0),
-                    // child: Icon(
-                    //   Icons.add_a_photo_outlined,
-                    //   size: 30.0,
-                    //   color: Theme.of(context).colorScheme.primary,
-                    // )),
                     child: Iconify(
                       Fluent.camera_edit_20_filled,
                       size: 30.0,

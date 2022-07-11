@@ -56,7 +56,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           const SizedBox(height: 4.0),
                           ProfileDetails(
                             name: '${user.firstName} ${user.lastName}',
-                            jobTitle: user.jobTitle.label,
+                            jobTitle: user.jobTitle?.label ?? 'N/A',
                             email: state.user.email,
                           ),
                           const SizedBox(

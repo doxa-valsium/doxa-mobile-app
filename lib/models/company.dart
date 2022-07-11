@@ -1,7 +1,7 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 
-import 'package:doxa_mobile_app/models/location.dart';
-import 'package:doxa_mobile_app/models/selectable.dart';
+import 'package:doxa_mobile_app/models/models.dart';
 
 class Company extends Equatable {
   final int? companyId;
@@ -13,6 +13,7 @@ class Company extends Equatable {
   final String website;
   final Location location;
   final String phone;
+  final List<CompanyMember> members;
 
   const Company({
     this.companyId,
@@ -24,7 +25,7 @@ class Company extends Equatable {
     required this.website,
     required this.location,
     required this.phone,
-    // required this.recruiters,
+    required this.members,
   });
   @override
   List<Object?> get props => [companyId, name, logoImageUrl, coverImageUrl, industry, bio, website, location, phone];
@@ -40,6 +41,47 @@ class Company extends Equatable {
       website: map['website'] as String,
       location: Location.fromCity(City.fromMap(map['location_city'])),
       phone: map['phone'] as String,
+      members: [
+        for (final Map<String, dynamic> recruiter in map['company_recruiters']) CompanyMember.fromMap(recruiter),
+      ],
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'logo_url': logoImageUrl,
+      'cover_image_url': coverImageUrl,
+      'industry': industry.id,
+      'bio': bio,
+      'website': website,
+      'location_city': location.city.id,
+      'phone': phone,
+    };
+  }
+
+  Company copyWith({
+    int? companyId,
+    String? name,
+    String? logoImageUrl,
+    String? coverImageUrl,
+    Industry? industry,
+    String? bio,
+    String? website,
+    Location? location,
+    String? phone,
+    List<CompanyMember>? members,
+  }) {
+    return Company(
+      companyId: companyId ?? this.companyId,
+      name: name ?? this.name,
+      logoImageUrl: logoImageUrl ?? this.logoImageUrl,
+      coverImageUrl: coverImageUrl ?? this.coverImageUrl,
+      industry: industry ?? this.industry,
+      bio: bio ?? this.bio,
+      website: website ?? this.website,
+      location: location ?? this.location,
+      phone: phone ?? this.phone,
+      members: members ?? this.members,
     );
   }
 }

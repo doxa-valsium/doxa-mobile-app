@@ -1,6 +1,8 @@
 import 'package:doxa_mobile_app/business_logic/blocs/profile/profile_bloc.dart';
 import 'package:doxa_mobile_app/data/repositories/company_repository/company_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/company_repository/supabase_company_repository.dart';
+import 'package:doxa_mobile_app/data/repositories/storage_repository/storage_repository.dart';
+import 'package:doxa_mobile_app/data/repositories/storage_repository/supabase_storage_repository.dart';
 import 'package:doxa_mobile_app/data/repositories/user_repository/user_repository.dart';
 import 'package:doxa_mobile_app/presentation/widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:doxa_mobile_app/routes/router.gr.dart';
@@ -17,6 +19,7 @@ class NavigatorScreen extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<CompanyRepository>(create: (context) => SupabaseCompanyRepository()),
+        RepositoryProvider<StorageRepository>(create: (context) => SupabaseStorageRepository()),
       ],
       child: MultiBlocProvider(
         providers: [BlocProvider<ProfileBloc>(create: (context) => ProfileBloc(userRepository: RepositoryProvider.of<UserRepository>(context)))],

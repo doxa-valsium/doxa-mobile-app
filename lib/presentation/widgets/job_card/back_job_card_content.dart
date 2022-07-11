@@ -15,7 +15,7 @@ class BackJobCardContent extends StatelessWidget {
         Stack(
           clipBehavior: Clip.none,
           children: [
-            const CompanyBanner(),
+            //const CompanyBanner(),
             Positioned(
               top: 90,
               right: MediaQuery.of(context).size.width * 0.3333,

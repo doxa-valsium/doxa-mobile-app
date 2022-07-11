@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:doxa_mobile_app/logger.dart';
 
@@ -15,11 +14,6 @@ class AppBlocObserver extends BlocObserver {
     logger.i('${bloc.runtimeType} state changed: $change');
   }
 
-  @override
-  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
-    logger.e('onError(${bloc.runtimeType}, $error, $stackTrace)');
-    super.onError(bloc, error, stackTrace);
-  }
 
   @override
   void onClose(BlocBase bloc) {

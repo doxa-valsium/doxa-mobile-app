@@ -2,9 +2,9 @@ import 'package:doxa_mobile_app/models/selectable.dart';
 import 'package:doxa_mobile_app/models/user.dart';
 
 class Recruiter extends User {
-  final bool isAdmin;
-  final Selectable jobTitle;
-  final String companyId;
+  final bool? isAdmin;
+  final Selectable? jobTitle;
+  final int? companyId;
 
   const Recruiter(
       {required super.userId,
@@ -15,12 +15,12 @@ class Recruiter extends User {
       required super.isOnboarded,
       required super.dateOfBirth,
       required super.userType,
-      required this.isAdmin,
-      required this.jobTitle,
-      required this.companyId,
+      this.isAdmin,
+      this.jobTitle,
+      this.companyId,
       super.profilePictureUrl});
 
-  factory Recruiter.fromMap(Map<String,dynamic> map){
+  factory Recruiter.fromMap(Map<String, dynamic> map) {
     return Recruiter(
       userId: map['uuid'],
       firstName: map['first_name'],
@@ -30,7 +30,9 @@ class Recruiter extends User {
       isOnboarded: map['is_onboarded'],
       dateOfBirth: map['date_of_birth'],
       userType: UserType.recruiter,
-      isAdmin: map['is_admin'], companyId: '', jobTitle: JobTitle(id:0,label:'hello'),
+      isAdmin: map['is_admin'],
+      companyId: map['company_id'],
+      jobTitle: map['job_title']==null ? null : JobTitle.fromMap(map['job_title']),
     );
   }
 

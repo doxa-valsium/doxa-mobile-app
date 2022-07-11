@@ -1,5 +1,6 @@
 import 'package:doxa_mobile_app/models/models.dart';
 
 abstract class CompanyRepository {
-  Future<RecruiterCompany> getRecruiterCompany(String recuriterUserId);
+  Future<Company> getCompanyById(int companyId);
+  Future<Company> updateCompany(Company newCompanyData);
 }

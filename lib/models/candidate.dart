@@ -1,13 +1,4 @@
-import 'package:doxa_mobile_app/models/award.dart';
-import 'package:doxa_mobile_app/models/certification.dart';
-import 'package:doxa_mobile_app/models/education.dart';
-import 'package:doxa_mobile_app/models/experiance.dart';
-import 'package:doxa_mobile_app/models/external_link.dart';
 import 'package:doxa_mobile_app/models/models.dart';
-import 'package:doxa_mobile_app/models/preferrence.dart';
-import 'package:doxa_mobile_app/models/publication.dart';
-import 'package:doxa_mobile_app/models/selectable.dart';
-import 'package:doxa_mobile_app/models/user.dart';
 
 class Candidate extends User {
   final String? bio;
