@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/fluent.dart';
+import 'package:iconify_flutter/icons/material_symbols.dart';
 
 class ImageEditButton extends StatelessWidget {
   final double size;
@@ -27,7 +27,7 @@ class ImageEditButton extends StatelessWidget {
         ),
         padding: const EdgeInsets.all(8.0),
         child: Iconify(
-          Fluent.camera_edit_20_filled,
+          MaterialSymbols.android_camera,
           size: iconSize,
           color: Theme.of(context).colorScheme.primary,
         ),

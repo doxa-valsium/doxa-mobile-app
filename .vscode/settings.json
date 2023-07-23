@@ -1,12 +1,9 @@
 {
-    "editor.wordWrapColumn": 180,
-    "dart.lineLength": 180,
-    "editor.formatOnType": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "cSpell.words": [
-        "bodycolor",
-        "doxa",
-        "iconify"
-    ],
+  "editor.wordWrapColumn": 180,
+  "dart.lineLength": 180,
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "cSpell.words": ["bodycolor", "doxa", "iconify"],
+  "java.configuration.updateBuildConfiguration": "interactive"
 }

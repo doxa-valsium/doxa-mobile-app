@@ -39,7 +39,6 @@ class EditCompanyScreen extends StatelessWidget {
                 },
               ),
               child: FormBuilder(
-                  autoFocusOnValidationFailure: false,
                   key: _formKey,
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                     Text(

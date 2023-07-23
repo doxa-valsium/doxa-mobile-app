@@ -6,7 +6,7 @@ import 'package:doxa_mobile_app/services/image_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/fluent.dart';
+import 'package:iconify_flutter/icons/material_symbols.dart';
 
 class CompanyProfileStackHandler extends StatelessWidget {
   final Company company;
@@ -39,7 +39,11 @@ class CompanyProfileStackHandler extends StatelessWidget {
               ),
               child: child,
             ),
-            CompanyBanner(bannerImageUrl: company.coverImageUrl, updatingBannerImage: false, onEdit: () {},),
+            CompanyBanner(
+              bannerImageUrl: company.coverImageUrl,
+              updatingBannerImage: false,
+              onEdit: () {},
+            ),
             Positioned.fill(
               top: 88,
               child: Align(
@@ -74,7 +78,7 @@ class CompanyProfileStackHandler extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.all(8.0),
                     child: Iconify(
-                      Fluent.camera_edit_20_filled,
+                      MaterialSymbols.android_camera,
                       size: 30.0,
                       color: Theme.of(context).colorScheme.primary,
                     ),

@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/conversation_card.dart';
 import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/match_chat_head.dart';
-import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/search_bar.dart';
+import 'package:doxa_mobile_app/presentation/screens/messages_screen/local_widgets/search_bar.dart' as SearchBar;
 import 'package:doxa_mobile_app/presentation/widgets/custom_app_bar_and_body.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +28,7 @@ class MessagesScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 16),
-                      const SearchBar(),
+                      const SearchBar.SearchBar(),
                       const SizedBox(height: 16),
                       Text(
                         'Match Queue (7)',

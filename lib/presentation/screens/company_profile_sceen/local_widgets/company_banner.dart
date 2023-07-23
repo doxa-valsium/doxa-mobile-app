@@ -9,7 +9,8 @@ class CompanyBanner extends StatelessWidget {
   const CompanyBanner({
     Key? key,
     required this.updatingBannerImage,
-    required this.bannerImageUrl, required this.onEdit,
+    required this.bannerImageUrl,
+    required this.onEdit,
   }) : super(key: key);
 
   @override
@@ -30,11 +31,13 @@ class CompanyBanner extends StatelessWidget {
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
           ),
-          child: (bannerImageUrl==null) ?  : CachedNetworkImage(
-            fit: BoxFit.fill,
-            imageUrl: bannerImageUrl!,
-            errorWidget: (context, url, error) => const Icon(Icons.error),
-          ) : ,
+          child: (bannerImageUrl == null)
+              ? null
+              : CachedNetworkImage(
+                  fit: BoxFit.fill,
+                  imageUrl: bannerImageUrl!,
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                ),
         ),
       ),
     );

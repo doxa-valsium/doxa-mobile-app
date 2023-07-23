@@ -5,7 +5,8 @@ import 'package:doxa_mobile_app/services/helper_service.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/et.dart';
-import 'package:iconify_flutter/icons/fluent.dart';
+
+import 'package:iconify_flutter/icons/mdi.dart';
 
 enum AvatarType { company, user }
 
@@ -38,7 +39,6 @@ class Avatar extends StatelessWidget {
     this.isUpdating = false,
     this.onEdit,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +108,7 @@ class _PlaceHolderAvatar extends StatelessWidget {
       child: Transform.scale(
         scale: 0.8,
         child: Iconify(
-          avatarType == AvatarType.user ? Et.profile_male : Fluent.building_skyscraper_20_regular,
+          avatarType == AvatarType.user ? Et.profile_male : Mdi.office_building,
           color: Theme.of(context).colorScheme.onSecondary,
         ),
       ),

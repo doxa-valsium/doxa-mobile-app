@@ -18,7 +18,7 @@ class AddCompanyFlowScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: FormBuilder(
-          autoFocusOnValidationFailure: true,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           key: _formKey,
           child: FlowView(
             steps: [
